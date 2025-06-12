@@ -86,8 +86,8 @@ let r = [
     "nekoweb-api",
     "jplayer2",
     ".github",
-    "baduibattles",
-    "jbsite4",
+    "baduibattles-mysubmissions",
+    "jbcarreon123.github.io",
     "jbsite3",
     "jbs-website"
 ]
@@ -106,7 +106,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         <a href="https://nekobox.nekoweb.org/" target="_blank">
             <div>
                 <div>
-                    <h2>Nekobox2</h2>
+                    <h3>Nekobox2</h3>
                     <p>A Nekoweb elements.css viewer and editor</p>
                 </div>
                 <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("nekobox2")}</p>
@@ -116,7 +116,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         <a href="https://nkko.link/" target="_blank">
             <div>
                 <div>
-                    <h2>nkko.link</h2>
+                    <h3>nkko.link</h3>
                     <p>Basically currently a link shortener.</p>
                 </div>
                 <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("nkko")}</p>
@@ -126,7 +126,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         <a href="https://github.com/jbcarreon123/jPlayer2/" target="_blank">
             <div>
                 <div>
-                    <h2>jPlayer2</h2>
+                    <h3>jPlayer2</h3>
                     <p>A modern web player, powered by Web Components API</p>
                 </div>
                 <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("jplayer2")}</p>
@@ -136,7 +136,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         <a href="https://github.com/indiefellas/nekoweb-api" target="_blank">
             <div>
                 <div>
-                    <h2>nekoweb-api</h2>
+                    <h3>nekoweb-api</h3>
                     <p>A wrapper for the Nekoweb API</p>
                 </div>
                 <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("nekoweb-api")}</p>
@@ -145,20 +145,30 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
     </div>
     <h2>jb's site</h2>
     <div class="proj">
+        <a href="https://github.com/jbcarreon123/jbsite5" target="_blank">
+            <div>
+                <div>
+                    <h3>jbSite5</h3>
+                    <p>The next version, honestly I might actually not use this</p>
+                </div>
+                <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("jbsite5")}</p>
+            </div>
+            <img class="bg" aria-hidden="true" alt="" src="/imgs/projs/jbsite5.png" />
+        </a>
         <a href="/">
             <div>
                 <div>
-                    <h2>jbSite4</h2>
+                    <h3>jbSite4</h3>
                     <p>This site</p>
                 </div>
-                <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("jbsite4")}</p>
+                <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("jbcarreon123.github.io")}</p>
             </div>
             <img class="bg" aria-hidden="true" alt="" src="/imgs/projs/jbsite4.png" />
         </a>
         <a href="https://jbcarreon123.github.io/jbsite3" target="_blank">
             <div>
                 <div>
-                    <h2>jbSite3</h2>
+                    <h3>jbSite3</h3>
                     <p>The last version, written in SvelteKit</p>
                 </div>
                 <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("jbsite3")}</p>
@@ -168,7 +178,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         <a href="https://github.com/jbcarreon123/jbs-website" target="_blank">
             <div>
                 <div>
-                    <h2>jbSite1</h2>
+                    <h3>jbSite1</h3>
                     <p>The site that started it all. Uses SSR so there's no site</p>
                 </div>
                 <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("jbs-website")}</p>
@@ -181,7 +191,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         {f.map((l) => <a href={l.html_url} target="_blank">
             <div>
                 <div>
-                    <h2>{l.name}</h2>
+                    <h3>{l.name}</h3>
                     <p>{l.description}</p>
                 </div>
                 <p><span class="ms" data-icon="star" aria-hidden="true"></span>{l.stargazers_count}</p>
@@ -193,10 +203,10 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         .proj {
             display: grid;
             grid-template-columns: repeat(2, minmax(100px, 1fr));
-            gap: 6px;
+            gap: 12px;
 
             & > a {
-                background-color: var(--altbg);
+                background-color: var(--acc);
                 vertical-align: bottom;
                 min-height: 150px;
                 position: relative;
@@ -216,7 +226,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
                 }
 
                 & > div {
-                    background: linear-gradient(to top, #00000080, transparent);
+                    background: linear-gradient(to top, color-mix(in srgb, var(--altbg) 25%, transparent), transparent);
                     padding: 6px;
                     display: flex;
                     align-items: end;
@@ -262,13 +272,13 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
 
                     background: var(--acc);
 
-                    &:hover {
+                    &:hover, &:active {
                         background: var(--altbg);
                     }
                 }
 
-                &:has(.bg):hover {
-                    background: linear-gradient(to bottom, #000000, transparent);
+                &:has(.bg):hover, &:has(.bg):active {
+                    background: linear-gradient(to bottom, var(--bg), transparent);
 
                     &>.bg {
                         opacity: 0.25;
@@ -291,7 +301,12 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
             }
         }
 
+        h3 {
+            font-size: 1.5em;
+        }
+
         h2 {
+            font-size: 1.75em;
             padding: 0;
             margin: 0;
             padding-bottom: 6px;
