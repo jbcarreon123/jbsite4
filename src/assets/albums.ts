@@ -1339,5 +1339,138 @@ export const albums: Album[] = [
             }
         ],
         image: "https://coverartarchive.org/release/4a703d66-8919-43a4-8eb8-a9b5679b7fea/37144424156-250.jpg"
-    }
+    },
+{
+    name: "Now, Not Yet",
+    artist: "half•alive",
+    tracks: [
+        {
+            title: "ok ok?",
+            artists: [
+                "half•alive",
+                "half•alive"
+            ],
+            songNumber: 1,
+            length: "3:49"
+        },
+        {
+            title: "RUNAWAY",
+            artists: [
+                "half•alive",
+                "half•alive"
+            ],
+            songNumber: 2,
+            length: "2:42"
+        },
+        {
+            title: "Maybe",
+            artists: [
+                "half•alive"
+            ],
+            songNumber: 3,
+            length: "3:13"
+        },
+        {
+            title: "the notion",
+            artists: [
+                "half•alive"
+            ],
+            songNumber: 4,
+            length: "0:37"
+        },
+        {
+            title: "still feel.",
+            artists: [
+                "half•alive",
+                "half•alive"
+            ],
+            songNumber: 5,
+            length: "4:08"
+        },
+        {
+            title: "TrusT",
+            artists: [
+                "half•alive"
+            ],
+            songNumber: 6,
+            length: "4:17"
+        },
+        {
+            title: "arrow",
+            artists: [
+                "half•alive",
+                "half•alive"
+            ],
+            songNumber: 7,
+            length: "3:43"
+        },
+        {
+            title: "Pure Gold",
+            artists: [
+                "half•alive",
+                "half•alive"
+            ],
+            songNumber: 8,
+            length: "3:34"
+        },
+        {
+            title: "ice cold.",
+            artists: [
+                "half•alive",
+                "Kimbra"
+            ],
+            songNumber: 9,
+            length: "2:58"
+        },
+        {
+            title: "Rest",
+            artists: [
+                "half•alive",
+                "Samm Henshaw"
+            ],
+            songNumber: 10,
+            length: "3:29"
+        },
+        {
+            title: "BREAKFAST",
+            artists: [
+                "half•alive",
+                "half•alive"
+            ],
+            songNumber: 11,
+            length: "3:31"
+        },
+        {
+            title: "creature",
+            artists: [
+                "half•alive"
+            ],
+            songNumber: 12,
+            length: "5:35"
+        }
+    ],
+    links: [
+        {
+            name: "Apple Music US",
+            url: "https://music.apple.com/us/album/1467958791"
+        },
+        {
+            name: "Jaxsta",
+            url: "https://jaxsta.com/release/8f86fe49-2d70-44cd-b8c6-3eaefb6c0320/ee73afee-33ab-4617-b9c6-b45e3e78d0eb/overview"
+        },
+        {
+            name: "Stream at Deezer",
+            url: "https://www.deezer.com/album/106079792"
+        },
+        {
+            name: "Stream at Spotify",
+            url: "https://open.spotify.com/album/2KSWrd22LGc0Hmqs2Z5i7z"
+        },
+        {
+            name: "US: B07SV4WXQK",
+            url: "https://www.amazon.com/gp/product/B07SV4WXQK?tag=musicbrainz0d-20"
+        }
+    ],
+    image: "https://coverartarchive.org/release/fa86fb0d-9428-46ba-86ec-d8e803156b5a/23850615876-250.jpg"
+}
 ]
