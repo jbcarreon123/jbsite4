@@ -11,43 +11,150 @@ const tutorials = Object.values(import.meta.glob('./tutorials/**/*.md', { eager:
     
     <div class="tutorial-container">
         {
-            tutorials.map((val) => <a href={val.url}>
-                <div class="tutorial">
-                    <h2>{val.frontmatter.title}</h2>
-                    <p><i>{val.frontmatter.category}</i></p>
-                    <p>{val.frontmatter.description}</p>
+            tutorials.map((val) => <a href={val.url} class="tutorial">
+                <div>
+                    <p class="tg">{val.frontmatter.category}</p>
+                    <div class="info">
+                        <h2>{val.frontmatter.title}</h2>
+                        <p>{val.frontmatter.description}</p>
+                    </div>
                 </div>
             </a>)
         }
     </div>
     
     <style slot="head">
-        .tutorial-container {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(200px, 1fr));
+        .tag-filter {
+            padding-bottom: 12px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
             gap: 6px;
         }
-    
-        .tutorial {
-            padding: 0 6px;
-            height: 100%;
-            background: var(--acc);
+
+        .tutorial-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
+            gap: 12px;
+            
+            * {
+                text-decoration: none !important;
+            }
         }
-    
+
+        .tutorial {
+            height: 100%;
+            min-height: 150px;
+            background-color: var(--acc);
+            position: relative;
+            color: color-mix(in srgb, var(--link) 50%, var(--text)) !important;
+
+            &:not(:has(.bg)) {
+                & > div {
+                    .info > p {
+                        opacity: 1;
+                    }
+
+                    .tg span {
+                        background-color: transparent;
+                    }
+                }
+
+                background: var(--acc);
+
+                &:hover,
+                &:active,
+                &:focus-within {
+                    background: var(--altbg);
+                }
+            }
+
+            &:has(.bg):hover,
+            &:has(.bg):active,
+            &:has(.bg):focus-within {
+                background: linear-gradient(to bottom, var(--bg), transparent);
+
+                & > .bg {
+                    opacity: 0.25;
+                }
+
+                & > div {
+                    .info > p {
+                        opacity: 1;
+                    }
+
+                    .tg span {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+
+        .tutorial .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 100%;
+            max-width: 100%;
+            opacity: 0.5;
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .tutorial > div {
+            background: linear-gradient(
+                to top,
+                color-mix(in srgb, var(--altbg) 65%, transparent),
+                transparent
+            );
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0 6px;
+            display: flex;
+            flex-direction: column;
+        }
+
         .tutorial h2 {
             text-wrap-mode: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-    
-        .tutorial:hover, .tutorial *:hover {
-            background: var(--altbg);
+
+        .tutorial .info {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            height: 100%;
+
+            & > * {
+                padding-top: 0;
+            }
+
+            &>p {
+                opacity: 0;
+            }
         }
-    
+
         .tutorial-desc {
             display: flex;
             justify-content: space-between;
             gap: 6px;
+        }
+
+        .tg {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+        }
+
+        .tg span {
+            background: var(--altbg);
+            padding: 2px;
         }
 
         @media screen and (width <= 940px) {
@@ -55,12 +162,12 @@ const tutorials = Object.values(import.meta.glob('./tutorials/**/*.md', { eager:
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-    
+
         @media screen and (width <= 640px) {
             .tutorial-container {
                 grid-template-columns: repeat(1, 100%);
             }
-    
+
             .tutorial-desc {
                 justify-content: left;
                 flex-direction: column;

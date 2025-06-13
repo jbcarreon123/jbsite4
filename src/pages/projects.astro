@@ -228,7 +228,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
                 }
 
                 & > div {
-                    background: linear-gradient(to top, color-mix(in srgb, var(--altbg) 25%, transparent), transparent);
+                    background: linear-gradient(to top, color-mix(in srgb, var(--altbg) 65%, transparent), transparent);
                     padding: 6px;
                     display: flex;
                     align-items: end;
@@ -270,12 +270,12 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
 
                     background: var(--acc);
 
-                    &:hover, &:active {
+                    &:hover, &:active, &:focus-within {
                         background: var(--altbg);
                     }
                 }
 
-                &:has(.bg):hover, &:has(.bg):active {
+                &:has(.bg):hover, &:has(.bg):active, &:has(.bg):focus-within {
                     background: linear-gradient(to bottom, var(--bg), transparent);
 
                     &>.bg {

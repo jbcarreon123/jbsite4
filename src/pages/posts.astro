@@ -33,7 +33,7 @@ postSorted.forEach((v) => {
         } else {
             tags.push({
                 tag: s,
-                count: 1
+                count: 1,
             });
         }
     });
@@ -47,19 +47,26 @@ postSorted.forEach((v) => {
 >
     <script is:inline>
         /**
-         * @param {HTMLButtonElement} el 
+         * @param {HTMLButtonElement} el
          */
         function filterTag(el) {
             let tagStr = `${el.dataset.tag}`;
-            document.querySelectorAll('.tags button').forEach((e) => e.classList.remove('active'));
-            document.querySelectorAll('.post-container a').forEach((e) => {
-                if (!tagStr || e.dataset.tags.split(/, ?/gm).find((v) => tagStr.includes(v))) {
-                    e.style.display = 'block';
+            document
+                .querySelectorAll(".tags button")
+                .forEach((e) => e.classList.remove("active"));
+            document.querySelectorAll(".post-container a").forEach((e) => {
+                if (
+                    !tagStr ||
+                    e.dataset.tags
+                        .split(/, ?/gm)
+                        .find((v) => tagStr.includes(v))
+                ) {
+                    e.style.display = "block";
                 } else {
-                    e.style.display = 'none';
+                    e.style.display = "none";
                 }
-            })
-            el.classList.add('active');
+            });
+            el.classList.add("active");
         }
     </script>
 
@@ -68,11 +75,14 @@ postSorted.forEach((v) => {
         <span>Some posts that JB did</span>
         <span
             ><a href="/feed.xml"
-                ><span aria-hidden="true" class="ms" data-icon="rss_feed"></span> RSS Feed</a
+                ><span aria-hidden="true" class="ms" data-icon="rss_feed"
+                ></span> RSS Feed</a
             > - <a href="/feed.atom"
-                ><span aria-hidden="true" class="ms" data-icon="rss_feed"></span> Atom Feed</a
+                ><span aria-hidden="true" class="ms" data-icon="rss_feed"
+                ></span> Atom Feed</a
             > - <a href="/feed.json"
-                ><span aria-hidden="true" class="ms" data-icon="data_object"></span> JSON Feed</a
+                ><span aria-hidden="true" class="ms" data-icon="data_object"
+                ></span> JSON Feed</a
             ></span
         >
     </p>
@@ -80,7 +90,9 @@ postSorted.forEach((v) => {
     <details class="tag-filter">
         <summary>Filter by tag...</summary>
         <div class="tags">
-            <button data-tag="" onclick="filterTag(this)">All ({postSorted.length})</button>
+            <button data-tag="" onclick="filterTag(this)"
+                >All ({postSorted.length})</button
+            >
             {
                 tags
                     .sort((a, b) => b.count - a.count)
@@ -96,10 +108,35 @@ postSorted.forEach((v) => {
     <div class="post-container">
         {
             postSorted.map((val) => (
-                <a href={val.url} data-tags={val.frontmatter.tags}>
-                    <div class="post" style={"--banner:url(" + (val.frontmatter.background ?? '') + ')'}>
-                        <div>
-                            <p class="tg">{val.frontmatter.tags.split(/, ?/).slice(0, 2).map((t) => <span>#{t}</span>)} {val.frontmatter.tags.split(/, ?/).slice(2).length > 0 ? `+${val.frontmatter.tags.split(/, ?/).slice(2).length}` : ''}</p>
+                <a href={val.url} data-tags={val.frontmatter.tags} class="post">
+                    {val.frontmatter.background && (
+                        <img
+                            class="bg"
+                            src={val.frontmatter.background}
+                            alt=""
+                        />
+                    )}
+                    <div>
+                        <p class="tg">
+                            {val.frontmatter.tags
+                                .split(/, ?/)
+                                .slice(0, 2)
+                                .map((t) => (
+                                    <span>#{t}</span>
+                                ))}{" "}
+                            {val.frontmatter.tags.split(/, ?/).slice(2)
+                                .length > 0 && (
+                                <span>
+                                    +
+                                    {
+                                        val.frontmatter.tags
+                                            .split(/, ?/)
+                                            .slice(2).length
+                                    }
+                                </span>
+                            )}
+                        </p>
+                        <div class="info">
                             <h2>{val.frontmatter.title}</h2>
                             <p>{val.frontmatter.description}</p>
                         </div>
@@ -122,18 +159,87 @@ postSorted.forEach((v) => {
 
         .post-container {
             display: grid;
-            grid-template-columns: repeat(3, minmax(200px, 1fr));
-            gap: 6px;
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
+            gap: 12px;
+            
+            * {
+                text-decoration: none !important;
+            }
         }
 
         .post {
-            padding: 0 6px;
             height: 100%;
-            background-color: var(--altbg);
-            background-image: var(--banner);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-blend-mode: overlay;
+            min-height: 150px;
+            background-color: var(--acc);
+            position: relative;
+            color: color-mix(in srgb, var(--link) 50%, var(--text)) !important;
+
+            &:not(:has(.bg)) {
+                & > div {
+                    .info > p {
+                        opacity: 1;
+                    }
+
+                    .tg span {
+                        background-color: transparent;
+                    }
+                }
+
+                background: var(--acc);
+
+                &:hover,
+                &:active,
+                &:focus-within {
+                    background: var(--altbg);
+                }
+            }
+
+            &:has(.bg):hover,
+            &:has(.bg):active,
+            &:has(.bg):focus-within {
+                background: linear-gradient(to bottom, var(--bg), transparent);
+
+                & > .bg {
+                    opacity: 0.25;
+                }
+
+                & > div {
+                    .info > p {
+                        opacity: 1;
+                    }
+
+                    .tg span {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+
+        .post .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 100%;
+            max-width: 100%;
+            opacity: 0.5;
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .post > div {
+            background: linear-gradient(
+                to top,
+                color-mix(in srgb, var(--altbg) 65%, transparent),
+                transparent
+            );
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0 6px;
+            display: flex;
+            flex-direction: column;
         }
 
         .post h2 {
@@ -142,10 +248,36 @@ postSorted.forEach((v) => {
             text-overflow: ellipsis;
         }
 
+        .post .info {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            height: 100%;
+
+            & > * {
+                padding-top: 0;
+            }
+
+            &>p {
+                opacity: 0;
+            }
+        }
+
         .post-desc {
             display: flex;
             justify-content: space-between;
             gap: 6px;
+        }
+
+        .tg {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+        }
+
+        .tg span {
+            background: var(--altbg);
+            padding: 2px;
         }
 
         @media screen and (width <= 940px) {

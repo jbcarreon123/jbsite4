@@ -91,11 +91,11 @@ html[data-color='light'] {
 .highcontrast {
     --bg: #0a0a0a;
     --altbg: #000000;
-    --acc: #1a1919;
+    --acc: #131212;
     --text: #ffffff;
     --sec: #e0e0e0;
-    --link: #33cccc;
-    --link-hover: #4ddddd;
+    --link: #0084ff;
+    --link-hover: #288fd4;
 }
 
 .jcolor {

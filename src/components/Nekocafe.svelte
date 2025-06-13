@@ -27,7 +27,6 @@
 	{#await loadStatus()}
 		<p>Loading rambles...</p>
 	{:then out}
-		<h3>{out.name} <span class="small">({out.time})</span></h3>
 		<a href={out.id}><p>{out.post}</p></a>
 	{:catch err}
 		<p>Error occured. {err}</p>

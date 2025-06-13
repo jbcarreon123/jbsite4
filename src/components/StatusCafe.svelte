@@ -9,12 +9,18 @@
         {#await out.json()}
             <p>Loading status...</p>
         {:then status}
-            <p><a href="https://status.cafe/users/{username}"
-                >{status.author}</a
-            >: {status.face} ({status.timeAgo})</p>
+            <p class="tg"><a href="https://status.cafe/users/{username}"
+                >{status.face} {status.timeAgo}</a
+            ></p>
             <p>{@html status.content}</p>
         {/await}
     {:catch err}
         <p>Error occured. {err}</p>
     {/await}
+
+    <style>
+        p {
+            padding-top: 0 !important;
+        }
+    </style>
 </div>
