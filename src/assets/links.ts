@@ -1,14 +1,38 @@
 export type LinkObj = {
-    name: string,
+    name?: string,
     links: {
         name: string,
         path: string,
         redirect: boolean,
         icon: string,
+        id?: string,
     }[]
 }[]
 
 export const LinkObjs: LinkObj = [
+    {
+        links: [
+            {
+                name: "Home",
+                path: "/",
+                redirect: false,
+                icon: "home",
+                id: "index"
+            },
+            {
+                name: "Sign my guestbook!",
+                path: "/guestbook/",
+                redirect: false,
+                icon: "contract_edit"
+            },
+            {
+                name: "Follow me on Nekoweb!",
+                path: "https://nekoweb.org/follow/jbcarreon123",
+                redirect: true,
+                icon: "add"
+            }
+        ]
+    },
     {
         name: "whereabouts",
         links: [
@@ -82,36 +106,6 @@ export const LinkObjs: LinkObj = [
                 path: "/utils/nekobox/",
                 redirect: false,
                 icon: "inventory_2"
-            },
-            {
-                name: "The Inaccessible Website (soon)",
-                path: "https://inaccessible.nekoweb.org",
-                redirect: true,
-                icon: "not_accessible"
-            },
-            {
-                name: "jPlayer2",
-                path: "https://jbcarreon123.github.io/jPlayer2",
-                redirect: true,
-                icon: "music_note"
-            },
-            {
-                name: "nkko.link",
-                path: "https://nkko.link",
-                redirect: true,
-                icon: "link"
-            },
-            {
-                name: "Nekoweb Deployment Adapters",
-                path: "https://deploy.nekoweb.org",
-                redirect: true,
-                icon: "rocket_launch"
-            },
-            {
-                name: "simple-webring-redirect",
-                path: "https://github.com/jbcarreon123/simple-webring-redirect",
-                redirect: true,
-                icon: "call_split"
             }
         ]
     },

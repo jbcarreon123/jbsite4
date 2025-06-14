@@ -1,4 +1,5 @@
 ---
+const { pathname } = Astro.url;
 const { title, id, description } = Astro.props;
 import { LinkObjs } from "../assets/links";
 ---
@@ -6,47 +7,24 @@ import { LinkObjs } from "../assets/links";
 <aside data-active-page={id} id="sidebar">
     <nav transition:persist>
         <slot />
-        <a id="index" href="/"><span aria-hidden="true" class="ms" data-icon="home"></span> Home</a>
-        <a id="jbsite5" href="/jbsite5"><span aria-hidden="true" class="ms" data-icon="change_history"></span> Check out jbsite5!</a>
-        {LinkObjs.map((obj) => <details>
-            <summary>{obj.name}</summary>
-            {obj.links.map((l) => <a id={l.path.replace(/\/$/, '').split('/')[l.path.replace(/\/$/, '').split('/').length - 1]} href={l.path} target={l.redirect ? '_blank' : '_parent'}>
-                <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
-            </a>)}
-        </details>)}
-        <details>
-            <summary>liked my site?</summary>
-            <a id="guestbook" href="/guestbook/"
-                ><span aria-hidden="true" class="ms" data-icon="contract_edit"></span> Sign my Guestbook</a
-            >
-            <a href="https://nekoweb.org/follow/jbcarreon123"
-                ><span aria-hidden="true" class="ms" data-icon="add"></span> Follow me on Nekoweb!</a
-            >
-        </details>
-        <details>
-            <summary>member of</summary>
-            <a href="https://team.indieseas.net" target="_blank"
-                >indiefellas <span aria-hidden="true" class="ms" data-icon="open_in_new"></span></a
-            >
-            <a href="https://macro-deck.app" target="_blank"
-                >Macro Deck <span aria-hidden="true" class="ms" data-icon="open_in_new"></span></a
-            >
-        </details>
-        <details>
-            <summary>windows</summary>
-            <button class="window-toggle" data-id="customize" onclick="showWindow(this)">
-                Customize
-            </button>
-            <button class="window-toggle" data-id="tty" onclick="showWindow(this)">
-                jTTY
-            </button>
-            <button class="window-toggle" data-id="player" onclick="showWindow(this)">
-                jPlayer
-            </button>
-        </details>
+        
+        {LinkObjs.map((obj) => 
+            <Fragment>
+                {obj.name && <p class="tg s">{obj.name}</p>}
+                {obj.links.map((l) => <a id={l.id ?? l.path.replace(/\/$/, '').split('/')[l.path.replace(/\/$/, '').split('/').length - 1]} href={l.path} target={l.redirect ? '_blank' : '_parent'}>
+                    <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
+                </a>)}
+            </Fragment>
+        )}
+        <span class="tg s">windows</span>
+        <button class="window-toggle" data-id="customize" onclick="showWindow(this)">
+            Customize
+        </button>
+        <button class="window-toggle" data-id="tty" onclick="showWindow(this)">
+            jTTY
+        </button>
+        <button class="window-toggle" data-id="player" onclick="showWindow(this)">
+            jPlayer
+        </button>
     </nav>
-    <div class="sidetitle">
-        <h1 class="page-title">{title ? title : "jb's site"}</h1>
-        <p class="sec motd">your resident helper</p>
-    </div>
 </aside>

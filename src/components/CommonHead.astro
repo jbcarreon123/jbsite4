@@ -142,25 +142,6 @@ import { ClientRouter } from "astro:transitions";
     };
 
     function load() {
-        setTimeout(() => {
-            let motd = document.querySelector(".motd");
-            if (motd) {
-                motd.textContent = [
-                    "ctrl + c and ctrl + v are the most used shortcuts",
-                    "hello, we're trying to reach you for your site's extended warranty",
-                    "nekonekoweb",
-                    "hmm",
-                    "your resident helper",
-                    "made in astro and bun",
-                    "a person that stares on his text editor",
-                ].sample();
-            }
-        }, 250);
-
-        document
-            .querySelectorAll(".page-title")
-            .forEach((el) => (el.textContent = document.title));
-
         let v = window.scrollY;
         document.querySelector("#main")?.scrollIntoView();
         window.scroll(window.scrollX, v);

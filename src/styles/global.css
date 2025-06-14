@@ -24,16 +24,16 @@ body {
 
 .container {
     background-color: var(--bg);
-    display: flex;
-    flex-direction: row;
+    display: grid;
     max-width: 1000px;
     margin: 0 auto;
     min-height: 100dvh;
+    grid-template-areas: "aside main";
 }
 
 .container>main {
     min-width: 0;
-    width: calc(100dvw - 150px);
+    width: 100%;
 }
 
 /* Font classes */
@@ -304,6 +304,12 @@ figcaption,
     content: ' ';
 }
 
+.tg.s {
+    padding-left: 12px !important;
+    padding-top: 12px !important;
+    padding-bottom: 3px !important;
+}
+
 #to-top {
     padding: 12px 0;
 }
@@ -392,10 +398,13 @@ aside {
     align-content: stretch;
     justify-content: space-between;
     padding: 12px 0;
-    min-height: calc(100dvh - 24px);
+    height: 100vh;
+    position: sticky;
+    top: 0;
     align-items: end;
     background-color: var(--acc);
     grid-area: aside;
+    overflow-y: auto;
 }
 
 main>div {
@@ -595,7 +604,6 @@ footer .right {
         scroll-snap-align: start;
         min-width: 200px;
         max-height: 100dvh;
-        overflow-y: auto;
     }
 
     main {
