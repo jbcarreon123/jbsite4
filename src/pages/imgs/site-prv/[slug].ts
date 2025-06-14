@@ -2,6 +2,8 @@ import { chromium } from 'playwright';
 import type { APIRoute } from "astro";
 import Buttons from '../../../../public/buttons.json' with {type: 'json'};
 
+const browser = await chromium.launch();
+
 export function getStaticPaths() {
     return Buttons.map((val) => {
         let link = new URL(val.url);
@@ -12,7 +14,6 @@ export function getStaticPaths() {
 export const GET: APIRoute = async ({ params }) => {
     if (process.env.GITHUB_ACTIONS !== 'true') return new Response('test');
 
-    const browser = await chromium.launch();
     const context = await browser.newContext({
         colorScheme: 'dark'
     });
@@ -25,7 +26,7 @@ export const GET: APIRoute = async ({ params }) => {
     try {
         await page.goto('https://' + params.slug?.replace('.png', ''));
         try {
-            await page.waitForLoadState('networkidle', {
+            await page.waitForLoadState('domcontentloaded', {
                 timeout: 15000
             });
         } catch {
