@@ -1,7 +1,11 @@
 <script>
+    import { onMount } from "svelte";
+
     const USERNAME = "jbcarreon123";
     const API_KEY = "202d561e5fdd095326f43d95d47dd233";
     const BASE_URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${USERNAME}&api_key=${API_KEY}&format=json`;
+
+    let json = $state(null);
 
     async function fetchNp() {
         let r = await fetch(BASE_URL);
@@ -9,12 +13,19 @@
         console.log(j);
         return j.recenttracks.track[0];
     }
+
+    onMount(async () => {
+        json = await fetchNp();
+        setInterval(async () => {
+            json = await fetchNp();
+        }, 60000);
+    })
 </script>
 
-{#await fetchNp()}
+{#if !json}
     <h2>Last played</h2>
     <p>Loading now playing stats...</p>
-{:then json} 
+{:else} 
     <h2>{json['@attr'] && json['@attr'].nowplaying == 'true' ? 'Now playing' : 'Last played'}</h2>
     <div class="np">
         <img src={json.image[2]['#text']} alt="Album art" />
@@ -33,7 +44,7 @@
             padding-top: 6px;
         }
 
-        img {
+        .np img {
             width: 85px;
         }
 
@@ -51,4 +62,4 @@
             text-overflow: ellipsis;
         }
     </style>
-{/await}
+{/if}
