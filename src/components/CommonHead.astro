@@ -157,18 +157,6 @@ import { ClientRouter } from "astro:transitions";
             createNotif("You are visiting jb's site on a backup host!", 'Note that some things that I only focused on the main host, jbcarreon123.nekoweb.org, will break. Especially webrings.')
         }
 
-        let el = document.querySelector("aside")?.dataset.activePage;
-        document.querySelectorAll("nav a").forEach((e) => {
-            if (e.id === el) {
-                e.classList.add("active");
-                if (e.parentNode.tagName.toLowerCase() === "details") {
-                    e.parentElement.setAttribute("open", true);
-                }
-            } else {
-                e.classList.remove("active");
-            }
-        });
-
         let headerMenu = document.querySelector("header a");
         if (headerMenu) headerMenu.addEventListener("click", (e) => {
             e.preventDefault();

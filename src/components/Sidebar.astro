@@ -2,18 +2,25 @@
 const { pathname } = Astro.url;
 const { title, id, description } = Astro.props;
 import { LinkObjs } from "../assets/links";
+
+console.log(pathname)
 ---
 
 <aside data-active-page={id} id="sidebar">
     <nav transition:persist>
         <slot />
-        
         {LinkObjs.map((obj) => 
             <Fragment>
                 {obj.name && <p class="tg s">{obj.name}</p>}
-                {obj.links.map((l) => <a id={l.id ?? l.path.replace(/\/$/, '').split('/')[l.path.replace(/\/$/, '').split('/').length - 1]} href={l.path} target={l.redirect ? '_blank' : '_parent'}>
-                    <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
-                </a>)}
+                {obj.links.map((l) =>
+                    <a
+                        id={l.id ?? l.path.replace(/\/$/, '').split('/')[l.path.replace(/\/$/, '').split('/').length - 1]}
+                        class={pathname == l.path ? 'active' : ''}
+                        href={l.path}
+                        target={l.redirect ? '_blank' : '_parent'}>
+                        <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
+                    </a>
+                )}
             </Fragment>
         )}
         <span class="tg s">windows</span>
