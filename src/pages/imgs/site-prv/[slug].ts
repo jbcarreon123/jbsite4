@@ -17,6 +17,7 @@ export const GET: APIRoute = async ({ params }) => {
     const context = await browser.newContext({
         colorScheme: 'dark'
     });
+    context.setDefaultTimeout(60000);
     const page = await context.newPage();
     await page.setExtraHTTPHeaders({
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
