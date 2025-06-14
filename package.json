@@ -63,7 +63,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "bunx playwright install-deps chromium && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
