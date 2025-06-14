@@ -27,7 +27,7 @@ export const GET: APIRoute = async ({ params }) => {
     try {
         await page.goto('https://' + params.slug?.replace('.png', ''));
         try {
-            await page.waitForLoadState('domcontentloaded', {
+            await page.waitForLoadState('networkidle', {
                 timeout: 15000
             });
         } catch {
