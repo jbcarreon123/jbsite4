@@ -25,7 +25,7 @@ export const GET: APIRoute = async ({ params }) => {
     try {
         await page.goto('https://' + params.slug?.replace('.png', ''));
         await page.waitForLoadState('networkidle', {
-            timeout: 60000
+            timeout: 15000
         });
         const imageBuf = await page.screenshot({
             type: 'png',
