@@ -39,15 +39,15 @@ export const GET: APIRoute = async ({ params }) => {
 
         return new Response(imageBuf);
     } catch (e) {
-        console.log('page loading failed. attempting to screenshot now...');
+        console.log('page loading failed. attempting to screenshot now...', e);
 
         try {
             const imageBuf = await page.screenshot({
                 type: 'png',
             });
             return new Response(imageBuf);
-        } catch {
-            console.log('screenshot failed. returning nothing instead...')
+        } catch (e) {
+            console.log('screenshot failed. returning nothing instead...', e)
             return new Response(null);
         }
     }
