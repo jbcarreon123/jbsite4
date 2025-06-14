@@ -6,12 +6,6 @@
         "imgUrl": "https://dimden.dev/services/images/88x31.gif"
     },
     {
-        "url": "https://status.cafe/",
-        "title": "Status Cafe",
-        "alt": "Status Cafe",
-        "imgUrl": "https://status.cafe/assets/button.png"
-    },
-    {
         "url": "https://thinliquid.dev/",
         "title": "thinliquid's button",
         "alt": "thinliquid's button",
@@ -358,5 +352,11 @@
         "title": "the website of all time",
         "alt": "splashy",
         "imgUrl": "https://splashy.neocities.org/splashy.gif"
+    },
+    {
+        "url": "https://sheep.nekoweb.org/",
+        "title": "Sheep",
+        "alt": "Sheep",
+        "imgUrl": "https://sheep.nekoweb.org/assets/mybutton.gif"
     }
 ]

@@ -41,7 +41,7 @@ buttons = buttons.concat(nonbtns)
                             <img src={btn.slug} alt={btn.title} />
                             <h3>{btn.alt}</h3>
                         </div>
-                        <p>{btn.title}</p>
+                        <p>{btn.title.toLowerCase() != btn.alt.toLowerCase() && btn.title}</p>
                     </div>
                 </div>
                 <img class="bg" aria-hidden="true" alt="" src={btn.prv} />
@@ -72,7 +72,7 @@ buttons = buttons.concat(nonbtns)
                         visibility: hidden;
                         height: 31px;
                         object-fit: contain;
-                        object-position: bottom;
+                        object-position: left bottom;
                     }
                 }
 
