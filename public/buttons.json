@@ -25,14 +25,14 @@
     },
     {
         "url": "https://darkosparko.nekoweb.org/",
-        "title": "darkosparko/Spark-Web: Rocket into the Spark-web!",
-        "alt": "darkosparko/Spark-Web: Rocket into the Spark-web!",
+        "title": "Rocket into the Spark-web!",
+        "alt": "darkosparko",
         "imgUrl": "https://darkosparko.nekoweb.org/rocket-button.gif"
     },
     {
         "url": "https://max.nekoweb.org/",
-        "title": "maxpixels: max's apartment",
-        "alt": "maxpixels: max's apartment",
+        "title": "max's apartment",
+        "alt": "maxpixels",
         "imgUrl": "https://max.nekoweb.org/images/button.gif"
     },
     {
@@ -43,14 +43,14 @@
     },
     {
         "url": "https://drfred.nekoweb.org/",
-        "title": "Dr. Fred: Enter the Fredzone...",
-        "alt": "Dr. Fred: Enter the Fredzone...",
+        "title": "Enter the Fredzone...",
+        "alt": "Dr. Fred",
         "imgUrl": "https://drfred.nekoweb.org/collection/buttons/sites/button-drfred.png"
     },
     {
         "url": "https://ultrakill.nekoweb.org/",
-        "title": "Sol/Ultrakill: click for a FREE gabriel plushie!",
-        "alt": "Sol/Ultrakill: click for a FREE gabriel plushie!",
+        "title": "click for a FREE gabriel plushie!",
+        "alt": "Ultrakill",
         "imgUrl": "https://ultrakill.nekoweb.org/awawawawa.png"
     },
     {
@@ -62,7 +62,7 @@
     {
         "url": "https://mechagic.party/",
         "title": "Mechagic's Fun Button",
-        "alt": "Mechagic's Fun Button",
+        "alt": "Mechagic",
         "imgUrl": "https://mechagic.party/2images/1button.webp"
     },
     {
@@ -145,8 +145,8 @@
     },
     {
         "url": "https://exclave.city/",
-        "title": "Whey Isolate: Explore Exclave",
-        "alt": "Whey Isolate: Explore Exclave",
+        "title": "Explore Exclave",
+        "alt": "Explore Exclave",
         "imgUrl": "https://exclave.city/images/button1.gif"
     },
     {
@@ -157,14 +157,14 @@
     },
     {
         "url": "https://libraryofgurkistan.nekoweb.org/",
-        "title": "LibraryofGurkistan: HELLO MORTAL",
-        "alt": "LibraryofGurkistan: HELLO MORTAL",
+        "title": "HELLO MORTAL",
+        "alt": "HELLO MORTAL",
         "imgUrl": "/imgs/buttons/hellomortal.png"
     },
     {
         "url": "https://duducat.moe/",
         "title": "duducat's corner on the interwebz!",
-        "alt": "duducat's corner on the interwebz!",
+        "alt": "duducat",
         "imgUrl": "/imgs/buttons/duducat.svg"
     },
     {
@@ -246,10 +246,10 @@
         "imgUrl": "https://strudelfatpaws.neocities.org/badge.gif"
     },
     {
-        "url": "https://arataka.neocities.org/",
+        "url": "https://arataka.moe/",
         "title": "arataka",
         "alt": "arataka",
-        "imgUrl": "https://arataka.neocities.org/image/88by31.gif"
+        "imgUrl": "https://arataka.moe/image/88by31.gif"
     },
     {
         "url": "https://luxfero.nekoweb.org/",
@@ -265,7 +265,7 @@
     },
     {
         "url": "https://tsukinio.nekoweb.org/",
-        "title": "Tsukinio:: Chiikawa Edition",
+        "title": "Chiikawa Edition",
         "alt": "tsukinio",
         "imgUrl": "/imgs/buttons/tsukinio.gif"
     },
@@ -277,7 +277,7 @@
     },
     {
         "url": "https://remblanc.com/",
-        "title": "remblanc: the owner of this button's website dares anyone copypasting this button link to keep this wacky title or come up with a different title of proportionate wackiness",
+        "title": "the owner of this button's website dares anyone copypasting this button link to keep this wacky title or come up with a different title of proportionate wackiness",
         "alt": "remblanc",
         "imgUrl": "https://remblanc.com/images/button.png"
     },

@@ -18,7 +18,6 @@ export function getStaticPaths() {
 }
 
 export const GET: APIRoute = async ({ params }) => {
-	console.log(params)
 	const post = posts.find((val) => val.url.includes('posts/' + params.slug?.replace('.png', '')))
 	let img = '';
 

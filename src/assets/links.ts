@@ -159,6 +159,12 @@ export const LinkObjs: LinkObj = [
                 icon: "link"
             },
             {
+                name: "Other sites (beta)",
+                path: "/other-sites/",
+                redirect: false,
+                icon: "link"
+            },
+            {
                 name: "Webrings",
                 path: "/webrings/",
                 redirect: false,
