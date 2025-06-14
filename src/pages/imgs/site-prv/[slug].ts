@@ -24,9 +24,13 @@ export const GET: APIRoute = async ({ params }) => {
 
     try {
         await page.goto('https://' + params.slug?.replace('.png', ''));
-        await page.waitForLoadState('networkidle', {
-            timeout: 15000
-        });
+        try {
+            await page.waitForLoadState('networkidle', {
+                timeout: 15000
+            });
+        } catch {
+            console.log('Timeout exceeded, screenshoting while page isn\'t fully loaded yet...')
+        }
         const imageBuf = await page.screenshot({
             type: 'png',
         })
