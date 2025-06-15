@@ -58,10 +58,15 @@ const adapter = packages.filter((v) => v[0].includes('astro-adapter-nekoweb'))[0
                 );
                 console.log(sr.host);
             }
+            let title = bt.title;
+            if (!title) {
+                title = li.title
+            }
+            let alt = bt.alt;
             let v = {
                 url: li.href,
-                title: li.title ?? bt.title ?? bt.alt ?? li.href,
-                alt: bt.alt ?? li.href,
+                title: title,
+                alt: alt,
                 imgUrl: sr.toString(),
             };
             e.value = JSON.stringify(v, null, 4);
