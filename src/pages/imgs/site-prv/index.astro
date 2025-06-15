@@ -1,0 +1,35 @@
+---
+import BgOnlyLayout from "../../../layouts/BgOnlyLayout.astro";
+import Buttons from '../../../../public/buttons.json' with {type: 'json'};
+
+function shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+  }
+  return array;
+}
+
+const btns = shuffleArray(Buttons);
+---
+
+<BgOnlyLayout title="site-prv debug page">
+    <div class="f">
+        {btns.map(val => {
+            let link = new URL(val.url);
+            return <a href={val.url}>
+                <img src={'/imgs/site-prv/' + link.hostname + '.png/'} width="426" height="240"/>
+            </a>
+        })}
+    </div>
+
+    <style>
+        .f {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px;
+        }
+    </style>
+</BgOnlyLayout>
