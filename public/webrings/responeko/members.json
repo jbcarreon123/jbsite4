@@ -48,5 +48,10 @@
         "host": "aglovale.nekoweb.org",
         "title": "aglovale",
         "expression": "https://i.imgur.com/vvFFFrG.png"
+    },
+    {
+        "host": "calico.nekoweb.org",
+        "title": "calico",
+        "expression": "https://i.imgur.com/33hogC2.png"
     }
 ]

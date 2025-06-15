@@ -68,5 +68,21 @@
         "button": "https://raccoonland.us/media/funb_button.png",
         "type": "14+",
         "pitch": "It is my personal website. I share Opinions."
-    }   
+    },
+    {
+        "host": "theoliveoli.nekoweb.org",
+        "username": "theoliveoli",
+        "framework": "<a href='https://www.11ty.dev/' target='_blank'>Eleventy</a>",
+        "button": "https://theoliveoli.nekoweb.org/assets/button.png",
+        "type": "14+",
+        "pitch": "My little personal site, where I talk about various things in small (or big) blocks of text I call blog posts."
+    },
+    {
+        "host": "sharkyfur.nekoweb.org",
+        "username": "sharky",
+        "framework": "<a href='https://www.11ty.dev/' target='_blank'>Eleventy</a>",
+        "button": "https://sharkyfur.nekoweb.org/assets/sharky.gif",
+        "type": "15+",
+        "pitch": "Do you like sharks? I like sharks. Sharks are awesome."
+    }
 ]
