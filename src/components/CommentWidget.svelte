@@ -141,6 +141,7 @@
 	let c_submitButton: HTMLButtonElement = $state();
 	let c_replyingText: HTMLSpanElement = $state();
 	let c_replyInput: HTMLInputElement = $state();
+	let c_replyReset: HTMLButtonElement = $state();
 	let c_nameInput: HTMLInputElement = $state();
 	let c_siteInput: HTMLInputElement = $state();
 	let c_textInput: HTMLTextAreaElement = $state();
@@ -617,9 +618,11 @@
 		if (c_replyingText.innerText == '') {
 			c_replyingText.innerHTML = s_replyingText + ` ${id.split('|--|')[0]}...`;
 			c_replyInput.value = id;
+			c_replyReset.style.display = 'block';
 		} else {
 			c_replyingText.innerHTML = '';
 			c_replyInput.value = '';
+			c_replyReset.style.display = 'none';
 		}
 		link.click(); // Jump to the space to type
 	}
@@ -783,14 +786,22 @@
 				<div id="c_submit">
 					<span id="c_replyingText" bind:this={c_replyingText}></span>
 
-					<button
-						id="c_submitButton"
-						bind:this={c_submitButton}
-						name="c_submitButton"
-						type="submit"
-						value={s_submitButtonLabel}
-						disabled={s_commentsOpen}
-					><span aria-hidden="true" class="ms" data-icon="send"></span> Send!</button>
+					<div id="c_btns">
+						<button
+							id="c_replyReset"
+							bind:this={c_replyReset}
+							onclick={openReply(null)}
+							style="display: none;"
+						><span aria-hidden="true" class="ms" data-icon="cancel"></span> Cancel Reply</button>
+						<button
+							id="c_submitButton"
+							bind:this={c_submitButton}
+							name="c_submitButton"
+							type="submit"
+							value={s_submitButtonLabel}
+							disabled={s_commentsOpen}
+						><span aria-hidden="true" class="ms" data-icon="send"></span> Send!</button>
+					</div>
 				</div>
 			{:else}
 				<p>{s_closedCommentsText}</p>

@@ -63,7 +63,13 @@
     color: rgba(var(--ctp-text));
 }
 
-#c_widget button#c_submitButton {
+#c_btns {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+#c_widget button#c_submitButton, #c_widget button#c_replyReset {
     padding: 4px;
     text-decoration: none;
 	text-align: center;
