@@ -90,7 +90,7 @@
 	let s_commentsPerPage = 5; // The max amount of comments that can be displayed on one page, any number >= 1 (Replies not counted)
 	let s_maxLength = 1024; // The max character length of a comment
 	let s_maxLengthName = 24; // The max character length of a name
-	let s_commentsOpen = !(false || disabled); // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
+	let s_commentsOpen = !(true || disabled); // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
 	let s_collapsedReplies = false; // True for collapsed replies with a button, false for replies to display automatically
 	let s_longTimestamp = false; // True for a date + time, false for just the date
 	let s_includeUrlParameters = false; // Makes new comment sections on pages with URL parameters when set to true (If you don't know what this does, leave it disabled)
@@ -113,7 +113,7 @@
 	let s_submitButtonLabel = 'Submit';
 	let s_loadingText = 'Loading comments...';
 	let s_noCommentsText = 'No comments yet!';
-	let s_closedCommentsText = 'Comments are disabled on this post.';
+	let s_closedCommentsText = 'Comments are currently disabled while I'm working on migrating to another comments host.';
 	let s_websiteText = ' <span aria-hidden="true" class="ms" data-icon="open_in_new"></span> '; // The links to websites left by users on their comments
 	let s_replyButtonText = '<span aria-hidden="true" class="ms" data-icon="reply"></span> Reply'; // The button for replying to someone
 	let s_replyLockedText = '<span aria-hidden="true" class="ms" data-icon="lock"></span> Locked';
