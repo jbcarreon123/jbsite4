@@ -1,7 +1,7 @@
 ---
 layout: '../../../layouts/PostLayout.astro'
-title: 'XSS on Status Cafe: What you need to know'
-published: 06/16/2025 23:00
+title: '[UPDATE: PATCHED] XSS on Status Cafe: What you need to know'
+published: 06/18/2025 23:00
 description: As these kinds of vulnerabilities should be fixed, I think this post might give you an insight of how does this vulnerability affects you if you're using status.cafe.
 tags: vulnerability, xss, status-cafe
 background: '/imgs/posts/status-cafe-xss/image.png'
@@ -11,7 +11,10 @@ background: '/imgs/posts/status-cafe-xss/image.png'
 >
 > ## Patched
 > The vulnerability has been patched by sanitizing user input.
+> 
 > **This is huge.** Even though the worm is still lingering out there, I'm glad that it won't infect other people and future worm attempts will be difficult to do.
+> 
+> m15o (the Status Cafe developer) also said that they will find a way to removing the existing worm on infected user profiles. [See their response on the Status Cafe Forums](https://forum.status.cafe/topics/74#1097)!
 
 Hey there! [Status Cafe](https://status.cafe/) is a status-posting site where users can share their status for anyone can see, and it's popular among indie web developers as it's easy to use it for posting your own status and embedding it on your site.
 
