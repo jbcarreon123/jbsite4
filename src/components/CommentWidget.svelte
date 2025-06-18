@@ -113,7 +113,7 @@
 	let s_submitButtonLabel = 'Submit';
 	let s_loadingText = 'Loading comments...';
 	let s_noCommentsText = 'No comments yet!';
-	let s_closedCommentsText = 'Comments are currently disabled while I'm working on migrating to another comments host.';
+	let s_closedCommentsText = 'Comments are currently disabled while I\'m working on migrating to another comments host.';
 	let s_websiteText = ' <span aria-hidden="true" class="ms" data-icon="open_in_new"></span> '; // The links to websites left by users on their comments
 	let s_replyButtonText = '<span aria-hidden="true" class="ms" data-icon="reply"></span> Reply'; // The button for replying to someone
 	let s_replyLockedText = '<span aria-hidden="true" class="ms" data-icon="lock"></span> Locked';
