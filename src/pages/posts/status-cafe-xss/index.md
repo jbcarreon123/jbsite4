@@ -7,6 +7,12 @@ tags: vulnerability, xss, status-cafe
 background: '/imgs/posts/status-cafe-xss/image.png'
 ---
 
+> <p class="text-xs">Update 06/18/2025</p>
+>
+> ## Patched
+> The vulnerability has been patched by sanitizing user input.
+> **This is huge.** Even though the worm is still lingering out there, I'm glad that it won't infect other people and future worm attempts will be difficult to do.
+
 Hey there! [Status Cafe](https://status.cafe/) is a status-posting site where users can share their status for anyone can see, and it's popular among indie web developers as it's easy to use it for posting your own status and embedding it on your site.
 
 Each user has their own page that shows their status history and whatnot. It contains some things, like your profile image, a "Subscribe via Atom" link, your homepage, email, and an about me section.
@@ -166,6 +172,7 @@ document.body.append(f);
 - **2025-04-23** - first report of an worm being spread into status.cafe
 - **2025-05-22** - emailed status.cafe developer about it, for an update
 - **2025-06-16** - public disclosure
+- **2025-06-18** - issue patched
 
 # Wrap-up
 Although this would not compromise your status.cafe account, you should be still wary of visiting other people's user pages while this hasn't been fixed yet.
