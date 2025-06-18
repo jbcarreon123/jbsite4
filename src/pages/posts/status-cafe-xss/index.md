@@ -10,9 +10,9 @@ background: '/imgs/posts/status-cafe-xss/image.png'
 > <p class="text-xs">Update 06/18/2025</p>
 >
 > ## Patched
-> The vulnerability has been patched by sanitizing user input.
+> The vulnerability has been patched by sanitizing user input, and preventing execution of JS by using Content Security Policy.
 > 
-> **This is huge.** Even though the worm is still lingering out there, I'm glad that it won't infect other people and future worm attempts will be difficult to do.
+> **This is huge.** Even though the worm is still lingering out there, I'm glad that it won't run anymore and infect other people and future worm attempts will be difficult to do.
 > 
 > m15o (the Status Cafe developer) also said that they will find a way to removing the existing worm on infected user profiles. [See their response on the Status Cafe Forums](https://forum.status.cafe/topics/74#1097)!
 
