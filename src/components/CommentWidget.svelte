@@ -90,7 +90,7 @@
 	let s_commentsPerPage = 5; // The max amount of comments that can be displayed on one page, any number >= 1 (Replies not counted)
 	let s_maxLength = 1024; // The max character length of a comment
 	let s_maxLengthName = 24; // The max character length of a name
-	let s_commentsOpen = !(true || disabled); // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
+	let s_commentsOpen = !(false || disabled); // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
 	let s_collapsedReplies = false; // True for collapsed replies with a button, false for replies to display automatically
 	let s_longTimestamp = false; // True for a date + time, false for just the date
 	let s_includeUrlParameters = false; // Makes new comment sections on pages with URL parameters when set to true (If you don't know what this does, leave it disabled)
@@ -113,7 +113,7 @@
 	let s_submitButtonLabel = 'Submit';
 	let s_loadingText = 'Loading comments...';
 	let s_noCommentsText = 'No comments yet!';
-	let s_closedCommentsText = 'Comments are currently disabled while I\'m working on migrating to another comments host.';
+	let s_closedCommentsText = 'Comments are disabled on this post.';
 	let s_websiteText = ' <span aria-hidden="true" class="ms" data-icon="open_in_new"></span> '; // The links to websites left by users on their comments
 	let s_replyButtonText = '<span aria-hidden="true" class="ms" data-icon="reply"></span> Reply'; // The button for replying to someone
 	let s_replyLockedText = '<span aria-hidden="true" class="ms" data-icon="lock"></span> Locked';
@@ -122,6 +122,8 @@
 	let s_expandRepliesText = 'Show Replies';
 	let s_leftButtonText = '<span aria-hidden="true" class="ms" data-icon="arrow_back_ios_new"></span> Prev';
 	let s_rightButtonText = 'Next <span aria-hidden="true" class="ms" data-icon="arrow_forward_ios"></span>';
+	let s_moderatedName = 'Guest';
+	let s_moderatedContent = 'This comment is awaiting moderation.';
 
 	/*
         DO NOT edit below this point unless you are confident you know what you're doing!
@@ -282,8 +284,6 @@
 			}
 		}
 
-		
-
 		// Values for pagination
 		v_amountOfPages = Math.ceil(comments.length / s_commentsPerPage);
 		v_commentMax = s_commentsPerPage * v_pageNum;
@@ -419,6 +419,8 @@
 	function createComment(data) {
 		var comment = document.createElement('div');
 
+		if (window.location.pathname !== '/' && window.location.pathname !== '/guestbook/') data.Moderated = true;
+
 		// Get the right timestamps
 		var timestamps = convertTimestamp(data.Timestamp);
 		var timestamp;
@@ -447,6 +449,10 @@
 		if (data.Pinned == true) {
 			name.insertAdjacentHTML('beforeend', s_pinnedText);
 		}
+		if(data.Moderated != true) {
+			name.innerText = s_moderatedName;
+		}
+		
 		comment.appendChild(name);
 
 		// Timestamp
@@ -456,7 +462,7 @@
 		comment.appendChild(time);
 
 		// Website URL, if one was provided
-		if (data.Website) {
+		if (data.Website && data.Moderated == true) {
 			var site = document.createElement('a');
 			site.innerHTML = (new URL(data.Website)).host + s_websiteText;
 			site.href = data.Website;
@@ -471,12 +477,15 @@
 		if (s_wordFilterOn) {
 			filteredText = filteredText.replace(v_filteredWords, s_filterReplacement);
 		}
+		if(data.Moderated != true) {
+			filteredText = s_moderatedContent;
+		}
 		text.innerHTML = sanitizeHtml(parser.render(filteredText), {
 			allowedTags: [
 				...sanitizeHtml.defaults.allowedTags,
 				'img', 'iframe', 'video'
 			],
-			allowedClasses: {
+			allowedClasses: {	
 				'span': ['ms'],
 			},
 			allowedAttributes: {
