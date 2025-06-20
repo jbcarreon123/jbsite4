@@ -370,5 +370,11 @@
         "title": "WiiCHiCKEN",
         "alt": "WiiCHiCKEN",
         "imgUrl": "https://wiggle.monster/button.gif"
+    },
+    {
+        "url": "https://pokestitch.nekoweb.org/",
+        "title": "stitchin' mons",
+        "alt": "Pokestitch",
+        "imgUrl": "https://pokestitch.nekoweb.org/buttons/animated.gif"
     }
 ]
