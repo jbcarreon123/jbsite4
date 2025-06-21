@@ -14,7 +14,6 @@ console.log(pathname)
                 {obj.name && <p class="tg s">{obj.name}</p>}
                 {obj.links.map((l) =>
                     <a
-                        id={l.id ?? l.path.replace(/\/$/, '').split('/')[l.path.replace(/\/$/, '').split('/').length - 1]}
                         class={pathname == l.path ? 'active' : ''}
                         href={l.path}
                         target={l.redirect ? '_blank' : '_parent'}>
