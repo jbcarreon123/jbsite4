@@ -3,7 +3,7 @@
         "host": "jbcarreon123.nekoweb.org",
         "title": "jbcarreon123",
         "expression": "https://jbcarreon123.nekoweb.org/imgs/responeko/jb.png",
-        "altMatch": [
+        "altHosts": [
             "jbcarreon123.github.io"
         ]
     },
@@ -11,7 +11,7 @@
         "host": "layercake.moe",
         "title": "layercake",
         "expression": "https://jbcarreon123.nekoweb.org/imgs/responeko/layercake.png",
-        "altMatch": [
+        "altHosts": [
             "layercake.nekoweb.org"
         ]
     },

@@ -12,7 +12,7 @@ function centerScrollbar(element) {
 ;(async (s) => {
   let config = (await import('https://jbcarreon123.github.io/webrings/responeko/pmoring.config.js')).default,
     h = config.value,
-    i = config.list.findIndex(v => v[config.match] === h || v[config.altmatch].includes(h));
+    i = config.list.findIndex(v => v[config.match] === h || (v[config.altMatch] && v[config.altMatch].includes(h)));
     
   function extractAllContentBetweenBraces(str) {
     const contents = [];
