@@ -3,6 +3,7 @@ let members = await fetch('https://jbcarreon123.github.io/webrings/responeko/mem
 export default {
     match: 'host',
     value: location.host,
+    altMatch: 'altHosts',
 
     list: await members.json(),
 

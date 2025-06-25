@@ -11,6 +11,7 @@ import { ClientRouter } from "astro:transitions";
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 <title>{title ? title : "jb's site"}</title>
@@ -104,6 +105,46 @@ import { ClientRouter } from "astro:transitions";
 
 <!-- Scripts and stuff -->
 <!-- <ClientRouter /> -->
+
+<script is:inline>
+    // IE7 polyfills
+    if (navigator.userAgent.indexOf("MSIE 7.0") !== -1) {
+        document.write(
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.10/es5-shim.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.10/es5-sham.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"><\/script>'
+        );
+    }
+    // IE8 polyfills
+    if (navigator.userAgent.indexOf("MSIE 8.0") !== -1) {
+        document.write(
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.10/es5-shim.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.10/es5-sham.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"><\/script>'
+        );
+    }
+    // IE11 polyfills
+    if (window.MSInputMethodContext && document.documentMode) {
+        document.write(
+            '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\/script>' +
+            '<script src="https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.42/polyfill.min.js"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/gh/codler/Grid-Layout-Polyfill@gh-pages/grid-layout-polyfill.min.js"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3.32.2/minified.js"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/npm/classlist-polyfill@1.2.0/src/index.min.js"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/npm/element-closest@2.0.2/browser.js"><\/script>' +
+            '<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"><\/script>' +
+            '<script src="https://cdn.jsdelivr.net/npm/element-qsa-scope@1.1.0"><\/script>' +
+            '<script crossorigin="anonymous" src="https://polyfill-fastly.io/v3/polyfill.min.js?features=default%2CNumber.parseInt%2CNumber.parseFloat%2CArray.prototype.find%2CArray.prototype.includes"><\/script>'
+        );
+    }
+</script>
 
 <script is:inline>
     let cLog = console.log;

@@ -2,12 +2,18 @@
     {
         "host": "jbcarreon123.nekoweb.org",
         "title": "jbcarreon123",
-        "expression": "https://jbcarreon123.nekoweb.org/imgs/responeko/jb.png"
+        "expression": "https://jbcarreon123.nekoweb.org/imgs/responeko/jb.png",
+        "altMatch": [
+            "jbcarreon123.github.io"
+        ]
     },
     {
-        "host": "layercake.nekoweb.org",
+        "host": "layercake.moe",
         "title": "layercake",
-        "expression": "https://jbcarreon123.nekoweb.org/imgs/responeko/layercake.png"
+        "expression": "https://jbcarreon123.nekoweb.org/imgs/responeko/layercake.png",
+        "altMatch": [
+            "layercake.nekoweb.org"
+        ]
     },
     {
         "host": "pc98.club",
