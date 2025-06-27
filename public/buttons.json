@@ -376,5 +376,11 @@
         "title": "stitchin' mons",
         "alt": "Pokestitch",
         "imgUrl": "https://pokestitch.nekoweb.org/buttons/animated.gif"
+    },
+    {
+        "url": "https://cufustis-cool-kitchen.nekoweb.org/",
+        "title": "peep some terraria biomes while you're websurfin'",
+        "alt": "Cufusti's Cool Kitchen",
+        "imgUrl": "https://cufustis-cool-kitchen.nekoweb.org/[img-path-here]/cufusti-button.png"
     }
 ]
