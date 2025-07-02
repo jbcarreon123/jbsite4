@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-nocheck
 	// Import stuff, do not remove or touch this!
 	import { onMount } from 'svelte';
 	const { disabled, pagePath, hideTitle = false } = $props();
@@ -253,8 +254,8 @@
 		return new Promise(function (resolve, reject) {
 			fetch(url).then((response) => {
 				if (!response.ok) {
-					reject('Could not find Google Sheet with that URL');
-				} // Checking for a 404
+					reject('Could not find Google Sheet with that URL');  // Checking for a 404
+				}
 				else {
 					response.text().then((data) => {
 						if (!data) {
@@ -347,8 +348,8 @@
 				container = document.createElement('div');
 				container.id = parentId + '-replies';
 				if (s_collapsedReplies) {
-					container.style.display = 'none';
-				} // Default to hidden if collapsed
+					container.style.display = 'none'; // Default to hidden if collapsed
+				}
 				container.className = 'c-replyContainer';
 				parentDiv.appendChild(container);
 			} else {
@@ -389,8 +390,8 @@
 			leftButton.name = 'left';
 			leftButton.addEventListener('click', () => changePage('left'));
 			if (v_pageNum == 1) {
-				leftButton.disabled = true;
-			} // Can't go before page 1
+				leftButton.disabled = true; // Can't go before page 1
+			}
 			leftButton.className = 'c-paginationButton';
 			pagination.appendChild(leftButton);
 
@@ -405,8 +406,8 @@
 			rightButton.name = 'right';
 			rightButton.addEventListener('click', () => changePage('right'));
 			if (v_pageNum == v_amountOfPages) {
-				rightButton.disabled = true;
-			} // Can't go after the last page
+				rightButton.disabled = true; // Can't go after the last page
+			}
 			rightButton.className = 'c-paginationButton';
 			pagination.appendChild(rightButton);
 
@@ -675,11 +676,11 @@
 		leftButton.disabled = false;
 		rightButton.disabled = false;
 		if (targetPage == 1) {
-			leftButton.disabled = true;
-		} // Can't go before page 1
+			leftButton.disabled = true; // Can't go before page 1
+		}
 		if (targetPage == v_amountOfPages) {
-			rightButton.disabled = true;
-		} // Can't go past the last page
+			rightButton.disabled = true; // Can't go past the last page
+		}
 
 		// Hide all comments and then display the correct ones
 		v_pageNum = targetPage;
