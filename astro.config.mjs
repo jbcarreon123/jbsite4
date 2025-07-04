@@ -128,9 +128,6 @@ export default defineConfig({
   vite: {
     css: {
       transformer: 'lightningcss'
-    },
-    build: {
-      cssMinify: 'lightningcss'
     }
   }
 });
