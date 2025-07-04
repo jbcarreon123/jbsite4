@@ -112,6 +112,7 @@ postSorted.forEach((v) => {
                     {val.frontmatter.background && (
                         <img
                             class="bg"
+                            loading="lazy" decoding="async"
                             src={val.frontmatter.background}
                             alt=""
                         />
