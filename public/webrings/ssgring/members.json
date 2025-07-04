@@ -30,12 +30,6 @@
         "button": "https://file.garden/ZvadqiE050beWbgP/buttons/mechagic_button.webp"
     },
     {
-        "host": "inaccessible.nekoweb.org",
-        "username": "inaccessible",
-        "framework": "<a href='https://www.svelte.dev/' target='_blank'>Svelte/SvelteKit</a>",
-        "pitch": "The Most Inaccessible Website (in Nekoweb at Least)"
-    },
-    {
         "host": "32enoki.net",
         "username": "32enoki",
         "framework": "<a href='https://www.svelte.dev/' target='_blank'>Svelte/SvelteKit</a>",
