@@ -41,6 +41,8 @@
     "markdown-it": "^14.1.0",
     "playwright": "^1.53.2",
     "postcss": "^8.5.6",
+    "postcss-color-converter": "^1.2.1",
+    "postcss-lightningcss": "^1.0.1",
     "prism-code-editor": "^3.4.0",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^7.1.0",

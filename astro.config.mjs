@@ -20,6 +20,10 @@ import rehypeSlug from 'rehype-slug';
 import playformCompress from '@playform/compress';
 import { transform } from 'lightningcss';
 import rehypeToc from "@stefanprobst/rehype-extract-toc";
+// @ts-ignore
+import postcssColorConverter from 'postcss-color-converter';
+// @ts-ignore
+import lightningCss from 'postcss-lightningcss'
 
 let nkw = [];
 
@@ -127,7 +131,12 @@ export default defineConfig({
 
   vite: {
     css: {
-      transformer: 'lightningcss'
+      postcss: {
+        plugins: [
+          postcssColorConverter({ outputColorFormat: 'oklch' }),
+          lightningCss({ minify: true })
+        ]
+      }
     }
   }
 });
