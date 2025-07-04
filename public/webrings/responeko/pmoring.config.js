@@ -1,4 +1,4 @@
-let members = await fetch('https://gh.jbc.lol/webrings/responeko/members.json');
+let members = await fetch('https://jbcarreon123.github.io/webrings/responeko/members.json');
 
 export default {
     match: 'host',

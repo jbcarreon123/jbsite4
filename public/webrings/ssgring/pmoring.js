@@ -1,5 +1,5 @@
 ; (async (s) => {
-    let config = (await import('https://gh.jbc.lol/webrings/ssgring/pmoring.config.js')).default,
+    let config = (await import('https://jbcarreon123.github.io/webrings/ssgring/pmoring.config.js')).default,
         h = config.value,
         i = config.list.findIndex(v => v[config.match] === h);
 

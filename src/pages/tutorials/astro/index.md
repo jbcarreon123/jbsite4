@@ -10,7 +10,7 @@ Astro is a web framework for building fast, content-driven websites. It allows y
 
 Unlike static site generators, like 11ty or Jekyll, Astro is a web framework, and can be used to drive both statically-generated sites and dynamically-generated sites (or both), but on this tutorial, I'm going to just focus on it's static site functionality, basically mimicking a feature of a static site generator, but with the features Astro gives, as almost all indie web hosting platforms (e.g. Neocities or Nekoweb) is static only web hosts.
 
-> If you want to look a site that runs Astro, look at [my site's repository](https://github.com/jbcarreon123/gh.jbc.lol/)!
+> If you want to look a site that runs Astro, look at [my site's repository](https://github.com/jbcarreon123/jbcarreon123.github.io/)!
 
 # Prerequisites
 You will need:

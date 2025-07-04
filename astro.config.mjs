@@ -127,10 +127,10 @@ export default defineConfig({
 
   vite: {
     css: {
-      transformer: "lightningcss",
-      lightningcss: {
-        targets: { chrome: 95 << 16 }
-      }
+      transformer: 'lightningcss'
     },
+    build: {
+      cssMinify: 'lightningcss'
+    }
   }
 });
