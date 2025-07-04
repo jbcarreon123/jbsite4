@@ -1,0 +1,31 @@
+---
+import LayoutNoSidebar from "../layouts/LayoutNoSidebar.astro";
+---
+
+<LayoutNoSidebar>
+    <Fragment slot="head">
+        <title>Hey.</title>
+        <script>
+            const strings = [
+                "Hey.",
+                "this seems to work fine, no?",
+                "well, unless you refresh then it goes to 404 lol",
+                "so yeah, if you copy the url it won't also work",
+                "the url changes with the text and the title because i can",
+                "wanna share this? just use https://jbc.lol/url/ and it should work",
+                "this is just a history shenanigan by jb lawl"
+            ];
+
+            (()=>{
+                strings.forEach((v, i) => {
+                    setTimeout(()=>{
+                        document.title = v;
+                        document.querySelector('#heading').textContent = v;
+                        history.replaceState({}, '', `/${v.replaceAll(' ', '-')}`)
+                    }, 2500*i)
+                });
+            })()
+        </script>
+    </Fragment>
+    <h1 id="heading">Hey.</h1>
+</LayoutNoSidebar>
