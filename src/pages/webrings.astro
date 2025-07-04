@@ -224,6 +224,14 @@ import WebringCard from '../components/WebringCard.astro';
             
             *:not(.ms) {
                 font-family: var(--font);
+                
+                &:is(a) {
+                    color: var(--link);
+
+                    &:hover {
+                        color: var(--link-hover);
+                    }
+                }
             }
         }
 
