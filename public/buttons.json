@@ -388,5 +388,11 @@
         "title": "Thumtacka's Half-assed Domain",
         "alt": "Thumtacka",
         "imgUrl": "https://thumtacka.nekoweb.org/booton.gif"
+    },
+    {
+        "url": "https://rover.nekoweb.org/",
+        "title": "rover !",
+        "alt": "rover !",
+        "imgUrl": "https://rover.nekoweb.org/images/rover88x31.gif"
     }
 ]

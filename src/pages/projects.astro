@@ -91,7 +91,8 @@ let r = [
     "jbcarreon123.github.io",
     "jbsite3",
     "jbs-website",
-    "jbsite5"
+    "jbsite5",
+    "nekomment"
 ]
 
 let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.description);
@@ -105,6 +106,16 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
     <h1>My Projects</h1>
     <h2>Main projects (owned or contributed)</h2>
     <div class="proj">
+        <a href="https://beta.cmt.nkko.link/" target="_blank">
+            <div>
+                <div>
+                    <h3>Nekomment</h3>
+                    <p>A dynamic comments system.</p>
+                </div>
+                <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("nekomment")}</p>
+            </div>
+            <img class="bg" loading="lazy" decoding="async" aria-hidden="true" alt="" src="/imgs/projs/nekomment.png" />
+        </a>
         <a href="https://nekobox.nekoweb.org/" target="_blank">
             <div>
                 <div>
@@ -201,7 +212,7 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
         </a>)}
     </div>
 
-    <style is:global slot="head">
+    <style is:inline slot="head">
         .proj {
             display: grid;
             grid-template-columns: repeat(2, minmax(100px, 1fr));
