@@ -37,7 +37,8 @@ export const GET: APIRoute = async ({ params }) => {
             type: 'png',
         })
 
-        await context.close()
+        await page.close();
+        await context.close();
 
         return new Response(imageBuf);
     } catch (e) {
