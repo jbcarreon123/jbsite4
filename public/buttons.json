@@ -394,5 +394,11 @@
         "title": "rover !",
         "alt": "rover !",
         "imgUrl": "https://rover.nekoweb.org/images/rover88x31.gif"
+    },
+    {
+        "url": "https://aglovale.nekoweb.org/",
+        "title": "@ nekoweb",
+        "alt": "aglovale",
+        "imgUrl": "https://aglovale.nekoweb.org/elements/button.gif"
     }
 ]
