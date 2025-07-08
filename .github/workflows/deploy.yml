@@ -46,6 +46,8 @@ jobs:
           NEKOWEB_COOKIE: '${{ secrets.NEKOWEB_COOKIE }}'
           COMMIT_HASH: '<a href="https://github.com/jbcarreon123/jbcarreon123.github.io/commit/${{ steps.commit.outputs.hash }}">${{ steps.commit.outputs.short }}</a>'
         run: bun run build
+      - name: Rename not_found back to 404
+        run: mv ./dist/not_found.html ./dist/404.html
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
