@@ -5,7 +5,7 @@ import Layout from '../layouts/LandingLayout.astro';
 <Layout title="404" id="404">
     <script>
         (async()=>{
-            let path = 'jbsite3' + window.location.pathname;
+            let path = window.location.pathname;
             let url = new URL(path, 'https://v3.jbc.lol')
             let res = await fetch(url);
 
