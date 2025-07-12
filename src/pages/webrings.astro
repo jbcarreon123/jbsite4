@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import WebringCard from '../components/WebringCard.astro';
 ---
 
-<Layout title="Webrings" id="webring">
+<Layout title="Webrings" id="webrings">
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let rings = document.querySelector('#webrings')?.querySelectorAll('&>div:not(.pending)');
@@ -43,6 +43,17 @@ import WebringCard from '../components/WebringCard.astro';
                 textStyle="color: transparent;";
             ></WebringCard>
         </div>
+
+        <div>
+            <WebringCard
+                name="Code Collective Webring"
+                link="https://petrapixel.neocities.org/webring"
+                prev="https://petrapixel.neocities.org/webring?action=previous"
+                next="https://petrapixel.neocities.org/webring?action=next"
+                random="https://petrapixel.neocities.org/webring?action=random"
+            ></WebringCard>
+        </div>
+
 
         <div>
             <WebringCard
