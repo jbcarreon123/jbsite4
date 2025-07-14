@@ -78,5 +78,13 @@
         "button": "https://sharkyfur.nekoweb.org/assets/sharky.gif",
         "type": "15+",
         "pitch": "Do you like sharks? I like sharks. Sharks are awesome."
+    },
+    {
+        "host": "sheep.nekoweb.org",
+        "username": "sheep",
+        "framework": "<a href='https://www.astro.build/' target='_blank'>Astro</a>",
+        "button": "https://sheep.nekoweb.org/assets/mybutton.gif",
+        "type": "13+",
+        "pitch": "Collections and ramblings about things I enjoy :3"
     }
 ]
