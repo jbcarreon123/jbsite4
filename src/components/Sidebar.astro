@@ -11,26 +11,41 @@ console.log(pathname)
         <slot />
         {LinkObjs.map((obj) => 
             <Fragment>
-                {obj.name && <p class="tg s">{obj.name}</p>}
-                {obj.links.map((l) =>
-                    <a
-                        class={pathname == l.path ? 'active' : ''}
-                        href={l.path}
-                        target={l.redirect ? '_blank' : '_parent'}>
-                        <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
-                    </a>
-                )}
+                {!!obj.name ? <details open>
+                    <summary>{obj.name}</summary>
+                    {obj.links.map((l) =>
+                        <a
+                            class={pathname == l.path ? 'active' : ''}
+                            href={l.path}
+                            target={l.redirect ? '_blank' : null}>
+                            <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
+                        </a>
+                    )}
+                </details> : <Fragment>
+                    {obj.links.map((l) =>
+                        <a
+                            class={pathname == l.path ? 'active' : ''}
+                            href={l.path}
+                            target={l.redirect ? '_blank' : null}>
+                            <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
+                        </a>
+                    )}
+                </Fragment>}
             </Fragment>
         )}
-        <span class="tg s">windows</span>
-        <button class="window-toggle" data-id="customize" onclick="showWindow(this)">
-            Customize
-        </button>
-        <button class="window-toggle" data-id="tty" onclick="showWindow(this)">
-            jTTY
-        </button>
-        <button class="window-toggle" data-id="player" onclick="showWindow(this)">
-            jPlayer
-        </button>
+        <details open>
+            <summary>
+                Windows
+            </summary>    
+            <button class="window-toggle" data-id="customize" onclick="showWindow(this)">
+                Customize
+            </button>
+            <button class="window-toggle" data-id="tty" onclick="showWindow(this)">
+                jTTY
+            </button>
+            <button class="window-toggle" data-id="player" onclick="showWindow(this)">
+                jPlayer
+            </button>
+        </details>
     </nav>
 </aside>

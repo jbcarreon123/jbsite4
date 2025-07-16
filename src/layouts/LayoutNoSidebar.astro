@@ -13,6 +13,7 @@ import CommonHead from "../components/CommonHead.astro";
 import Sidebar from "../components/Sidebar.astro";
 import RichTooltip from "../components/RichTooltip.astro";
 import NotifModal from "../components/NotifModal.astro";
+import ThemeLoader from '../components/ThemeLoader.astro';
 
 const hash = import.meta.env.COMMIT_HASH ?? "null";
 ---
@@ -42,87 +43,9 @@ const hash = import.meta.env.COMMIT_HASH ?? "null";
 	<head>
 		<CommonHead title={title} id={id} description={description} />
 		<slot name="head" />
-		<script is:inline>
-			document.addEventListener("DOMContentLoaded", loadCustomize);
-			document.addEventListener("DOMContentLoaded", loadCustomize);
-		
-			function loadCustomize() {
-				document.querySelectorAll(".palette .select").forEach((el) => {
-					el.addEventListener("click", (e) => {
-						document.body.className = el.dataset.value;
-						document.querySelectorAll(".palette .select").forEach((el) => {
-							el.classList.remove("selected");
-						});
-						el.classList.add("selected");
-						localStorage.setItem("jbsite-theme", el.dataset.value);
-					});
-				});
-		
-				document.querySelectorAll(".scheme .select").forEach((el) => {
-					el.addEventListener("click", (e) => {
-						let val = el.dataset.value;
-						if (el.dataset.value === "system") {
-							val = matchMedia("(prefers-color-scheme:dark)").matches
-								? "dark"
-								: "light";
-						}
-						document.documentElement.dataset.color = val;
-						document.querySelectorAll(".scheme .select").forEach((el) => {
-							el.classList.remove("selected");
-						});
-						el.classList.add("selected");
-						localStorage.setItem("jbsite-theme-scheme", val);
-					});
-				});
-		
-				document.querySelectorAll(".main-font .select").forEach((el) => {
-					el.addEventListener("click", (e) => {
-						document.documentElement.className = el.dataset.value;
-						document.querySelectorAll(".main-font .select").forEach((el) => {
-							el.classList.remove("selected");
-						});
-						el.classList.add("selected");
-						localStorage.setItem("jbsite-font", el.dataset.value);
-					});
-				});
-		
-				loadTheme();
-			}
-		
-			function loadTheme() {
-				let scheme = localStorage.getItem("jbsite-theme-scheme");
-				scheme = scheme ? scheme : "system";
-				if (scheme === "system") {
-					scheme = matchMedia("(prefers-color-scheme:dark)").matches
-						? "dark"
-						: "light";
-				}
-		
-				let theme = localStorage.getItem("jbsite-theme");
-				theme = theme ? theme : "jcolor";
-		
-				let font = localStorage.getItem("jbsite-font");
-				font = font ? font : "inter"
-		
-				document.body.className = theme;
-				document.querySelectorAll(".palette .select").forEach((el) => {
-					if (el.dataset.value !== theme) el.classList.remove("selected");
-					else el.classList.add("selected");
-				});
-				document.documentElement.dataset.color = scheme;
-				document.querySelectorAll(".scheme .select").forEach((el) => {
-					if (el.dataset.value !== scheme) el.classList.remove("selected");
-					else el.classList.add("selected");
-				});
-				document.documentElement.classList = font;
-				document.querySelectorAll(".main-font .select").forEach((el) => {
-					if (el.dataset.value !== font) el.classList.remove("selected");
-					else el.classList.add("selected");
-				});
-			}
-		</script>
+		<ThemeLoader />
 	</head>
-	<body class="jcolor">
+    <body class="jcolor" transition:animate="fade">
 		<p class="style-broken">If you're seeing this, please hard reload. You can do it by using CTRL+SHIFT+R or SHIFT+F5.</p>
 		<NotifModal />
 		<RichTooltip />

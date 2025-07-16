@@ -44,11 +44,12 @@ import "prism-code-editor/invisibles.css";
 
         let s =
             localStorage.getItem("nekobox:value") ??
-            document
+            cssbeautify(document
                 .querySelector("#user-style")
                 ?.innerHTML.trim()
                 .replaceAll("        ", "") ??
-            "";
+                "") ??
+                "";
 
         (document.querySelector(`input[type="text"]#username`) as any).value =
             localStorage.getItem("nekobox:username") ?? "jbcarreon123";

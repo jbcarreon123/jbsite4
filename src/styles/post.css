@@ -27,7 +27,7 @@ p:not(.small):not(.page-title), li, figure {
     font-size: 2.5em;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 85vw;
+    max-width: 85dvw;
 }
 
 article:not(.link-preview) {
