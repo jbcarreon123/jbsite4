@@ -213,6 +213,10 @@ html[data-color='light'] .inf {
     }
 }
 
+.style-broken {
+    display: none;
+}
+
 .expressive-code .title {
     font-family: var(--font) !important;
 }
