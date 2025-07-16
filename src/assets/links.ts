@@ -159,7 +159,7 @@ export const LinkObjs: LinkObj = [
                 icon: "link"
             },
             {
-                name: "Other sites (beta)",
+                name: "Other sites",
                 path: "/other-sites/",
                 redirect: false,
                 icon: "link"

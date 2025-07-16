@@ -9,7 +9,7 @@ import WebringCard from "../components/WebringCard.astro";
         document.addEventListener("DOMContentLoaded", () => {
             let rings = document
                 .querySelector("#webrings")
-                ?.querySelectorAll("&>div:not(.pending)");
+                ?.querySelectorAll("&>.webring-inner>div:not(.pending)");
 
             document.querySelector("h1 .count").textContent =
                 `(part of ${rings?.length} rings)`;
@@ -265,7 +265,7 @@ import WebringCard from "../components/WebringCard.astro";
                 />
             </div>
 
-            <div style="height: 200px;">
+            <div style="height: 225px;">
                 <div id="rice-ring">
                     <link
                         rel="stylesheet"

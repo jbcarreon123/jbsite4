@@ -91,7 +91,7 @@
 	let s_commentsPerPage = 5; // The max amount of comments that can be displayed on one page, any number >= 1 (Replies not counted)
 	let s_maxLength = 1024; // The max character length of a comment
 	let s_maxLengthName = 24; // The max character length of a name
-	let s_commentsOpen = !(true || disabled); // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
+	let s_commentsOpen = !(false || disabled); // Change to false if you'd like to close your comment section site-wide (Turn it off on Google Forms too!)
 	let s_collapsedReplies = false; // True for collapsed replies with a button, false for replies to display automatically
 	let s_longTimestamp = false; // True for a date + time, false for just the date
 	let s_includeUrlParameters = false; // Makes new comment sections on pages with URL parameters when set to true (If you don't know what this does, leave it disabled)
@@ -780,6 +780,10 @@
 					name="entry.{s_replyId}"
 					style="display: none !important;"
 				/>
+
+				<input type="hidden" name="fvv" value="1">
+    			<input type="hidden" name="fbzx" value="-1936193330607065842">
+				<input type="hidden" name="pageHistory" value="0,1">
 
 				<iframe
 					id="c_hiddenIframe"

@@ -337,6 +337,20 @@ optgroup {
     margin-left: 12px;
     text-transform: uppercase;
     background-color: var(--acc);
+    list-style-type: none;
+}
+
+aside details {
+    summary::after {
+        font-family: 'Material Symbols';
+        content: 'stat_minus_1';
+        float: right;
+        padding-right: 12px;
+    }
+
+    &[open] summary::after {
+        content: 'stat_1';
+    }
 }
 
 .small {
@@ -404,7 +418,7 @@ aside {
     align-content: stretch;
     justify-content: space-between;
     padding: 12px 0;
-    height: 100vh;
+    height: 100dvh;
     position: sticky;
     top: 0;
     align-items: end;
@@ -595,15 +609,17 @@ footer .right {
     }
 
     header {
-        position: sticky;
-        top: 0;
-        z-index: 99;
-        align-self: flex-start;
+        height: 100%;
+        width: 100%;
     }
 
     .container main {
         scroll-snap-align: end;
         min-width: 100dvw;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
     }
 
     .container aside {
@@ -612,12 +628,10 @@ footer .right {
         max-height: 100dvh;
     }
 
-    main {
-        overflow-y: auto;
-    }
-
     main>div {
-        max-height: 100dvh;
+        max-height: 100%;
+        overflow: auto;
+        padding-bottom: 35px;
     }
 
     aside nav {
