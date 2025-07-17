@@ -137,6 +137,9 @@ export default defineConfig({
           lightningCss({ minify: true })
         ]
       }
+    },
+    server: {
+      allowedHosts: ['localhost', 'local.jbc.lol']
     }
   }
 });

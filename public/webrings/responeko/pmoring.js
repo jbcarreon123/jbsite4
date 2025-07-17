@@ -89,30 +89,26 @@ function centerScrollbar(element) {
   widgetHtml = location.host.startsWith('localhost') || location.host.startsWith('127.0.0.1') ? config.localhostWiget : widgetHtml;
 
   const widget = document.createElement('div');
+  widget.id = 'responeko';
+  widget.dataset.pmoId = crypto.randomUUID ? crypto.randomUUID() : generateB64UniqueIDBrowser();
+  widget.innerHTML = widgetHtml;
+  widget.classList.value = `${s?.classList.value}`
 
-  try {
-    widget.id = 'responeko';
-    widget.dataset.pmoId = crypto.randomUUID ? crypto.randomUUID() : generateB64UniqueIDBrowser();
-    widget.innerHTML = widgetHtml;
-    widget.classList.value = `${s?.classList.value}`
+  s?.parentElement?.insertBefore(widget, s);
 
-    const item = document.getElementById('responeko-phone');
-    centerScrollbar(item)
+  const item = document.getElementById('responeko-phone');
+  centerScrollbar(item)
 
-    item.addEventListener("wheel", function (e) {
-      e.preventDefault()
+  item.addEventListener("wheel", function (e) {
+    e.preventDefault()
 
-      if (e.deltaY > 0) item.scrollLeft += 50;
-      else item.scrollLeft -= 50;
-    });
-  } catch (e) {
-    widget.innerText = `pmoring-responeko threw an exception. Please email jb@jbc.lol with this error:\n${e}`
-  }
+    if (e.deltaY > 0) item.scrollLeft += 50;
+    else item.scrollLeft -= 50;
+  });
 
   const style = document.createElement('style');
   style.innerHTML = config.style.replace(/:webring/g, `*[data-pmo-id="${widget.dataset.pmoId}"]`);
   document.head.appendChild(style);
-
-  s?.parentElement?.insertBefore(widget, s);
+  
   s?.remove();
 })(document.currentScript);
