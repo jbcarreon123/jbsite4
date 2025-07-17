@@ -12,7 +12,8 @@ export const trailingSlash = 'never';
 export function getStaticPaths() {
 	return posts.map((val) => {
 		let path = val.url.split('/');
-		let slug = path[path.length - 2];
+		let slug = path[path.length - 1];
+		console.log(val.url, slug + '.png');
 		return { params: { slug: slug + '.png' } }
 	})
 }
