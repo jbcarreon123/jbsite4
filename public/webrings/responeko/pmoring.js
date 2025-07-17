@@ -9,16 +9,16 @@ function centerScrollbar(element) {
   element.scrollLeft = centerScroll;
 }
 
-;(async (s) => {
+; (async (s) => {
   let config = (await import('https://gh.jbc.lol/webrings/responeko/pmoring.config.js')).default,
     h = config.value,
     i = config.list.findIndex(v => v[config.match] === h || (v[config.altMatch] && v[config.altMatch].includes(h)));
-    
+
   function extractAllContentBetweenBraces(str) {
     const contents = [];
     let current = '';
     let depth = 0;
-  
+
     for (const char of str) {
       if (char === '{') {
         if (depth > 0) {
@@ -39,14 +39,14 @@ function centerScrollbar(element) {
         current += char;
       }
     }
-  
+
     return contents;
   }
-  
+
   const generateB64UniqueIDBrowser = () => {
-      console.log('%c WARNING', 'color: yellow; font-size: 32px;')
-      console.log('%c SSGRing detected that crypto.randomUUID() is not defined. It will still work, albeit it\'ll use a fallback (which is from UUID to now Base64 randomness). This is likely caused by you visiting this page in HTTP, not HTTPS, and note that some webring scripts might not work in HTTP.', 'font-size: 16px;')
-      return btoa(Date.now().toString(36) + Math.random().toString(36).substr(2))
+    console.log('%c WARNING', 'color: yellow; font-size: 32px;')
+    console.log('%c SSGRing detected that crypto.randomUUID() is not defined. It will still work, albeit it\'ll use a fallback (which is from UUID to now Base64 randomness). This is likely caused by you visiting this page in HTTP, not HTTPS, and note that some webring scripts might not work in HTTP.', 'font-size: 16px;')
+    return btoa(Date.now().toString(36) + Math.random().toString(36).substr(2))
   };
 
   async function asyncReplace(str, asyncFn) {
@@ -59,55 +59,60 @@ function centerScrollbar(element) {
     return str;
   }
 
-  
+
   let widgetHtml = config.defaultWidget;
   if (i > -1) {
     const ctx = {
-        prev: config.list.at(i - 1) ?? config.list.at(config.list.length - 1),
-        next: config.list.at(i + 1) ?? config.list.at(0),
-        index: i,
-        random: config.list[Math.floor(Math.random() * config.list.length)],
-        list: config.list,
-        item: config.list[i]
+      prev: config.list.at(i - 1) ?? config.list.at(config.list.length - 1),
+      next: config.list.at(i + 1) ?? config.list.at(0),
+      index: i,
+      random: config.list[Math.floor(Math.random() * config.list.length)],
+      list: config.list,
+      item: config.list[i]
     };
 
     async function evaluateExpression(expr) {
-        const keys = Object.keys(ctx);
-        const values = Object.values(ctx);
-        try {
-            const asyncFunc = new Function(...keys, `return (async () => { return ${expr} })();`);
-            return await asyncFunc(...values);
-        } catch (error) {
-            console.error("Error evaluating expression:", expr, error);
-            return "";
-        }
+      const keys = Object.keys(ctx);
+      const values = Object.values(ctx);
+      try {
+        const asyncFunc = new Function(...keys, `return (async () => { return ${expr} })();`);
+        return await asyncFunc(...values);
+      } catch (error) {
+        console.error("Error evaluating expression:", expr, error);
+        return "";
+      }
     }
 
     widgetHtml = await asyncReplace(config.widget, evaluateExpression);
-}
+  }
 
   widgetHtml = location.host.startsWith('localhost') || location.host.startsWith('127.0.0.1') ? config.localhostWiget : widgetHtml;
 
   const widget = document.createElement('div');
-  widget.id = 'responeko';
-  widget.dataset.pmoId = crypto.randomUUID ? crypto.randomUUID() : generateB64UniqueIDBrowser();
+
+  try {
+    widget.id = 'responeko';
+    widget.dataset.pmoId = crypto.randomUUID ? crypto.randomUUID() : generateB64UniqueIDBrowser();
     widget.innerHTML = widgetHtml;
     widget.classList.value = `${s?.classList.value}`
-    s?.parentElement?.insertBefore(widget, s);
 
-    const style = document.createElement('style');
-    style.innerHTML = config.style.replace(/:webring/g, `*[data-pmo-id="${widget.dataset.pmoId}"]`);
-    document.head.appendChild(style);
+    const item = document.getElementById('responeko-phone');
+    centerScrollbar(item)
 
-    s?.remove();
+    item.addEventListener("wheel", function (e) {
+      e.preventDefault()
 
-  const item = document.getElementById('responeko-phone');
-  centerScrollbar(item)
+      if (e.deltaY > 0) item.scrollLeft += 50;
+      else item.scrollLeft -= 50;
+    });
+  } catch (e) {
+    widget.innerText = `pmoring-responeko threw an exception. Please email jb@jbc.lol with this error:\n${e}`
+  }
 
-  item.addEventListener("wheel", function (e) {
-    e.preventDefault()
+  const style = document.createElement('style');
+  style.innerHTML = config.style.replace(/:webring/g, `*[data-pmo-id="${widget.dataset.pmoId}"]`);
+  document.head.appendChild(style);
 
-    if (e.deltaY > 0) item.scrollLeft += 50;
-    else item.scrollLeft -= 50;
-});
+  s?.parentElement?.insertBefore(widget, s);
+  s?.remove();
 })(document.currentScript);
