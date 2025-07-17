@@ -96,7 +96,7 @@ export default defineConfig({
     Image: (process.env.GITHUB_ACTIONS === 'true')
   }), htmlStyleMinify(), ...nkw],
 
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
 
   markdown: {
     rehypePlugins: [
