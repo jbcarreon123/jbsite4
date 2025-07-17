@@ -19,6 +19,16 @@ blockquote {
     padding: 0;
 }
 
+#toc {
+    [data-heading-level="2"] {
+        padding-left: 18px;
+    }
+
+    [data-heading-level="3"] {
+        padding-lefT: 30px;
+    }
+}
+
 p:not(.small):not(.page-title), li, figure {
     padding: 6px 0;
 }
@@ -71,7 +81,7 @@ article h1 {
     top: 0px;
     background: var(--bg);
     z-index: 99;
-    padding-top: 12px;
+    padding-top: 18px;
 }
 
 article h1::after {
