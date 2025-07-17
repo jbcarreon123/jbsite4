@@ -4,6 +4,8 @@ import CommentWidget from '../components/CommentWidget.svelte';
 import '../styles/post.css';
 import '../styles/comment-widget-dark.css';
 const { frontmatter, headings } = Astro.props;
+
+console.log(headings);
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description} id="posts">
@@ -11,7 +13,7 @@ const { frontmatter, headings } = Astro.props;
         <details id="toc" open>
             <summary>table of contents</summary>
             <a href="#content">Start of post</a>
-            {headings.map(h => <a href={"#" + h.slug}>{h.text}</a>)}
+            {headings.map(h => h.depth == 1 && <a data-heading-level={h.depth} href={"#" + h.slug}>{h.text}</a>)}
         </details>
     </Fragment>
     <div class="article-info" style={'--banner:url(' + frontmatter.background + ')'}>
@@ -37,7 +39,7 @@ const { frontmatter, headings } = Astro.props;
             var article = document.querySelector("article");
             if (article) {
                 var obv = new IntersectionObserver(setToc,options);
-                article.querySelectorAll('h1, h2, h3').forEach(el => {
+                article.querySelectorAll('h1').forEach(el => {
                     obv.observe(el.parentElement ?? el);
                 })
 
@@ -45,11 +47,12 @@ const { frontmatter, headings } = Astro.props;
                     if (article) {
                         let toc = document.querySelector('#toc');
                         let tocItems = toc?.querySelectorAll('a');
+                        let isAny = false;
                         e.map(i => {
                             tocItems?.forEach(it => {
                                 if (it.href.replace('#', '').includes(i.target.querySelector('h1, h2, h3')?.id ?? i.target.id)) {
                                     if (i.isIntersecting) {
-                                        it.classList.add('active')
+                                        it.classList.add('active');
                                     } else {
                                         it.classList.remove('active')
                                     }
