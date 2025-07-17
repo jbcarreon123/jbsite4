@@ -21,6 +21,8 @@ export const GET: APIRoute = async ({ params }) => {
 	const post = posts.find((val) => val.url.includes('posts/' + params.slug?.replace('.png', '')))
 	let img = '';
 
+	if (!post.frontmatter) return new Response(null);
+
 	if (existsSync('./public/imgs/posts/' + params.slug?.replace('.png', '') + '/banner.png')) {
 		img = 'data:image/png;base64,' + readFileSync('./public/imgs/posts/' + params.slug?.replace('.png', '') + '/banner.png', {encoding: 'base64'});
 	}
