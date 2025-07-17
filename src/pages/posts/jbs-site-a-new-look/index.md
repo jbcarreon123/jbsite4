@@ -4,7 +4,7 @@ title: jbsite4, preparing for takeoff.
 published: 04/15/25 11:00
 tags: migration, astro, sveltekit
 description: jbSite, now in version 4, is now written in Astro, and more!
-background: '/imgs/posts/jbs-site-a-new-look/banner.png'
+background: '/imgs/posts/jbs-site-a-new-look/banner.webp'
 ---
 
 Hey there! I just made the decision to rewrite my entire site as its currently a mess, but I was satisfied on keeping it, until now.
