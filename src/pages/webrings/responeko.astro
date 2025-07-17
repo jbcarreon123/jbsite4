@@ -186,8 +186,8 @@ import { Image } from "astro:assets";
         }
 
         .members {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(117px, 1fr));
             gap: 6px;
         }
 
