@@ -1,13 +1,14 @@
 import { chromium } from 'playwright';
 import type { APIRoute } from "astro";
 import Buttons from '../../../../public/buttons.json' with {type: 'json'};
+import sharp from 'sharp';
 
 const browser = await chromium.launch();
 
 export function getStaticPaths() {
     return Buttons.map((val) => {
         let link = new URL(val.url);
-        return { params: { slug: link.hostname + '.png' } }
+        return { params: { slug: link.hostname + '.webp' } }
     })
 }
 
@@ -25,7 +26,7 @@ export const GET: APIRoute = async ({ params }) => {
     })
 
     try {
-        await page.goto('https://' + params.slug?.replace('.png', ''), {
+        await page.goto('https://' + params.slug?.replace('.webp', ''), {
             waitUntil: 'domcontentloaded'
         });
         try {
@@ -38,11 +39,13 @@ export const GET: APIRoute = async ({ params }) => {
         const imageBuf = await page.screenshot({
             type: 'png',
         })
+        const webpBuf = sharp(imageBuf)
+            .toFormat('webp');
 
         await page.close();
         await context.close();
 
-        return new Response(imageBuf);
+        return new Response(webpBuf);
     } catch (e) {
         console.log('screenshot failed. returning nothing instead...', e)
         return new Response(null);
