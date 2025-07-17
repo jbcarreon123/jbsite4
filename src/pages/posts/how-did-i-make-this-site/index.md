@@ -198,7 +198,7 @@ For the transitions between pages and widget transitions, I use [AutoAnimate](ht
 I use mostly flexboxes and grids on my layouts to ensure mobile responsiveness.
 
 # Blog posts
-For blog posts, I make them in svelte-hybrid markdown files using [MDSveX](https://mdsvex.pngwn.io), with these [unified](https://unifiedjs.com/) plugins:
+For blog posts, I make them in svelte-hybrid markdown files using [MDSveX](https://mdsvex.webpwn.io), with these [unified](https://unifiedjs.com/) plugins:
  - [`rehype-external-links`](https://github.com/rehypejs/rehype-external-links),
  - [`rehype-slug`](https://github.com/rehypejs/rehype-slug),
  - [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings), and

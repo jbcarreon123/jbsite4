@@ -12,11 +12,11 @@ Like I usually test my site on Firefox (or Zen), and sometimes I test it on Chro
 
 Like, look at this:
 
-![Browser engines having different font rendering method (Left is Thorium [using Blink], Firefox [using Gecko], and GNOME Web [using WebKit])](/imgs/posts/browser-inconsistencies/inconsistent-font-rendering.png)
+![Browser engines having different font rendering method (Left is Thorium [using Blink], Firefox [using Gecko], and GNOME Web [using WebKit])](/imgs/posts/browser-inconsistencies/inconsistent-font-rendering.webp)
 
 Why is WebKit making bold text like its the black variant?
 
-![Difference between Inter Bold and Inter Black, which the latter's font weight is much higher](/imgs/posts/browser-inconsistencies/interboldvsblack.png)
+![Difference between Inter Bold and Inter Black, which the latter's font weight is much higher](/imgs/posts/browser-inconsistencies/interboldvsblack.webp)
 
 There's also other stuff that irks me about this, like there's so many bugs on WebKit, that things like IndexedDB is broken in WebKit. [Yes, that happened](https://x.com/feross/status/1404568122158313474).
 
