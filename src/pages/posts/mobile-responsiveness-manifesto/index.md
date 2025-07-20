@@ -1,7 +1,7 @@
 ---
 layout: '../../../layouts/RedirectLayout.astro'
 title: 'The Mobile Responsiveness Manifesto'
-published: 06/15/2025 12:00
+published: 07/20/2025 12:00
 description: My thoughts about webmasters shunning mobile users
 tags: indie-web, mobile, manifesto
 slug: https://m.jbc.lol/
