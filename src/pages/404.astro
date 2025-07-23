@@ -1,28 +1,90 @@
 ---
-import Layout from '../layouts/LandingLayout.astro';
+import Layout from "../layouts/BgOnlyLayout.astro";
 ---
 
 <Layout title="404" id="404">
     <script>
-        (async()=>{
+        (async () => {
             let path = window.location.pathname;
-            let url = new URL(path, 'https://v3.jbc.lol')
+            let url = new URL(path, "https://v3.jbc.lol");
             let res = await fetch(url);
 
             if (res.ok) {
-                let found = document.querySelector('.found-on-v3');
-                let link = found?.querySelector('a');
-                found?.classList.add('yes');
+                let found = document.querySelector(".found-on-v3");
+                let link = found?.querySelector("a");
+                found?.classList.add("yes");
                 link.href = url;
             }
-        })()
+        })();
+    </script>
+
+    <script>
+        let x = 0,
+            y = 0,
+            dirX = 1,
+            dirY = 1,
+            eCount = 0;
+        const speed = 3;
+        let els = [];
+        let dvd = document.querySelector('.anim h1');
+        const dvdWidth = dvd.scrollWidth;
+        const dvdHeight = dvd.scrollHeight;
+
+        function animate() {
+            const screenHeight = document.body.scrollHeight;
+            const screenWidth = document.body.scrollWidth;
+
+            if (y + dvdHeight - 10 >= screenHeight || y < 0) {
+                dirY *= -1;
+            }
+            if (x + dvdWidth - 10 >= screenWidth || x < 0) {
+                dirX *= -1;
+            }
+            x += dirX * speed;
+            y += dirY * speed;
+            dvd.style.left = x + "px";
+            dvd.style.top = y + "px";
+            window.requestAnimationFrame(animate);
+            if (eCount) {
+                let animEl = document.querySelector('.anim');
+                eCount = 0;
+                let h1El = dvd.cloneNode();
+                h1El.innerText = '404';
+                els.push(h1El);
+                if (els.length > 64) {
+                    els[0].classList.add('fade');
+                    setTimeout(() => els[0].remove(), 260);
+                    els.shift();
+                }
+                animEl.querySelectorAll(`h1:nth-child(n+1 of .fade)`).forEach(e => 
+                    setTimeout(() => e.remove(), 260)
+                );
+                animEl.appendChild(h1El);
+            }
+            eCount++;
+        }
+
+        window.requestAnimationFrame(animate);
     </script>
 
     <div class="main">
-        <h1>Huh, seems like we can't find the page, unfortunately.</h1>
-        <a href="/">Back home?</a>
+        <div class="anim">
+            <h1 class="big">404</h1>
+        </div>
+        <div class="diag">
+            <h1>Huh, seems like we can't find the page, unfortunately.</h1>
+            <a href="/">Back home?</a>
 
-        <p class="found-on-v3">We can't find it here, but we found it on jbsite3. <a target="_blank">Wanna go there? <span aria-hidden="true" class="ms" data-icon="open_in_new"></span></a></p>
+            <p class="found-on-v3">
+                We can't find it here, but we found it on jbsite3. <a
+                    target="_blank"
+                    >Wanna go there? <span
+                        aria-hidden="true"
+                        class="ms"
+                        data-icon="open_in_new"></span></a
+                >
+            </p>
+        </div>
     </div>
 
     <style slot="head">
@@ -32,6 +94,61 @@ import Layout from '../layouts/LandingLayout.astro';
 
         .found-on-v3:not(.yes) {
             display: none;
+        }
+
+        .main {
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .anim {
+            z-index: 0;
+            position: absolute;
+            inset: 0;
+            height: 100dvh;
+
+            & h1 {
+                font-size: 3em;
+                position: fixed;
+                padding: 0;
+                padding-inline: 6px;
+                text-shadow: 1px 1px var(--acc);
+                z-index: 0;
+                color: var(--acc);
+                text-overflow: clip;
+                overflow-wrap: normal;
+                transition: none;
+                
+                &.fade {
+                    animation: fade 250ms forwards;
+                }
+
+                &:first-child {
+                    z-index: 1;
+                    color: var(--text);
+                }
+            }
+        }
+
+        .diag {
+            position: relative;
+            z-index: 2;
+            background-color: var(--bg);
+            padding: 12px;
+            width: fit-content;
+            max-width: 800px;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
         }
     </style>
 </Layout>
