@@ -305,7 +305,7 @@ figcaption,
     text-transform: uppercase;
 }
 
-.tg span::after {
+.tg span:not(.ms)::after {
     content: ' ';
 }
 
@@ -371,12 +371,6 @@ aside h1 {
 #content {
     display: flex;
     flex-direction: column;
-}
-
-* h1:first-of-type,
-* h2:first-of-type {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
 }
 
 aside div {
@@ -567,6 +561,12 @@ footer .right {
     padding-right: 6px;
     padding-top: 10px;
     max-height: 250px;
+}
+
+h1:first-of-type,
+h2:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
 }
 
 @media screen and (prefers-reduced-motion) {

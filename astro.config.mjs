@@ -1,4 +1,9 @@
-// @ts-check
+/**
+ * @import {} from 'mdast-util-directive'
+ * @import {} from 'mdast-util-to-hast'
+ * @import {Root} from 'mdast'
+ */
+
 import { defineConfig, envField, passthroughImageService } from 'astro/config';
 import { loadEnv } from "vite";
 import nekoweb from "@indiefellas/astro-adapter-nekoweb";
@@ -24,8 +29,106 @@ import rehypeToc from "@stefanprobst/rehype-extract-toc";
 import postcssColorConverter from 'postcss-color-converter';
 // @ts-ignore
 import lightningCss from 'postcss-lightningcss'
+import remarkDirective from 'remark-directive';
+import remarkParse from 'remark-parse';
+import { h } from 'hastscript'
+import { visit } from 'unist-util-visit';
+import { fromMarkdown } from 'mdast-util-from-markdown';
+import { toHast } from 'mdast-util-to-hast';
+import { toHtml } from 'hast-util-to-html';
+import { isElement } from 'hast-util-is-element';
+import { parse } from 'url';
+import {fromHtml} from 'hast-util-from-html'
 
 let nkw = [];
+
+function remarkQuoteDirective() {
+  return (tree, file) => {
+    function vEl(tree) {
+      visit(tree, function (node) {
+        if (node.type === 'element' || node.type === 'root') {
+          if (node.children && node.children.length > 0) {
+            vEl(node.children);
+          }
+
+          if (node.tagName === 'a') {
+            if (node.properties.href.startsWith('http') || node.properties.href.startsWith('//')) {
+              node.properties.target = '_blank';
+              node.children.push({
+                type: 'text', value: ' '
+              },
+              {
+                type: 'element', tagName: 'span',
+                properties: { className: ['ms'], dataIcon: ['open_in_new'] },
+              })
+            }
+          }
+        }
+      })
+      return tree;
+    }
+
+    visit(tree, function (node) {
+      if (
+        node.type === 'containerDirective' ||
+        node.type === 'leafDirective' ||
+        node.type === 'textDirective'
+      ) {
+        if (node.name !== 'quote') return;
+
+        const data = node.data || (node.data = {})
+        const attributes = node.attributes || {}
+
+        data.hName = 'blockquote';
+        data.hProperties = {
+          class: [`quote`]
+        }
+
+        let labelNode = node.children.filter(c => c.data?.directiveLabel)[0];
+        if (labelNode) {
+          node.children.shift();
+          let labelHast = toHast(labelNode);
+          labelHast = vEl(labelHast);
+          const footerNode = {
+            type: 'html',
+            value: toHtml(h('cite', { class: ['tg'] }, labelHast))
+          };
+          node.children.push(footerNode);
+        }
+      }
+    })
+  }
+}
+
+export function rehypeTargetBlank() {
+  return (tree) => {
+    function vEl(tree) {
+      visit(tree, function (node) {
+        if (node.type === 'element' || node.type === 'root') {
+          if (node.children && node.children.length > 0) {
+            vEl(node.children);
+          }
+
+          if (node.tagName === 'a') {
+            if (node.properties.href.startsWith('http') || node.properties.href.startsWith('//')) {
+              node.properties.target = '_blank';
+              node.children.push({
+                type: 'text', value: ' '
+              },
+              {
+                type: 'element', tagName: 'span',
+                properties: { className: ['ms'], dataIcon: ['open_in_new'] },
+              })
+            }
+          }
+        }
+      })
+      return tree;
+    }
+
+    tree = vEl(tree);
+  };
+}
 
 if (process.env.GITHUB_ACTIONS === 'true') {
   nkw.push(nekoweb({
@@ -99,25 +202,14 @@ export default defineConfig({
   trailingSlash: 'ignore',
 
   markdown: {
+    remarkPlugins: [
+      remarkParse,
+      remarkDirective,
+      remarkQuoteDirective
+    ],
     rehypePlugins: [
       rehypeAccessibleEmojis,
-      [rehypeExternalLinks, {
-        rel: ['nofollow'], target: '_blank',
-        content: {
-          type: 'element', tagName: 'span',
-          properties: { ariaHidden: "true" },
-          children: [
-            {
-              type: 'text', value: ' '
-            },
-            {
-              type: 'element', tagName: 'span',
-              properties: { className: ['ms'], dataIcon: ['open_in_new'] },
-            }
-          ]
-        }
-      }
-      ],
+      rehypeTargetBlank,
       rehypeFigure,
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'append' }],

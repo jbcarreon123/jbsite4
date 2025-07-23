@@ -15,7 +15,7 @@ blockquote {
     margin-bottom: 12px;
 }
 
-.article-info > * {
+.article-info>* {
     padding: 0;
 }
 
@@ -29,7 +29,9 @@ blockquote {
     }
 }
 
-p:not(.small):not(.page-title), li, figure {
+p:not(.small):not(.page-title),
+li,
+figure {
     padding: 6px 0;
 }
 
@@ -77,20 +79,11 @@ code {
 }
 
 article h1 {
-    position: sticky;
-    top: 0px;
-    background: var(--bg);
-    z-index: 99;
-    padding-top: 18px;
+    padding-top: 18px !important;
 }
 
-article h1::after {
-    content: "";
-    position: absolute;
-    display: block;
-    background: linear-gradient(to bottom, var(--bg), transparent);
-    height: 12px;
-    width: 100%;
+article h2 {
+    padding-top: 6px !important;
 }
 
 .icon.icon-link {
@@ -111,12 +104,43 @@ article h1::after {
     vertical-align: bottom;
 }
 
-@media screen and (width <= 640px) {
+.footnotes {
+  font-size: smaller;
+  color: var(--sec);
+  border-top: 1px solid var(--acc);
+  margin-top: 24px;
+
+  li {
+    padding: 0;
+  }
+}
+
+[data-footnote-ref]::before {
+  content: '[';
+}
+
+[data-footnote-ref]::after {
+  content: ']';
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    word-wrap: normal;
+    border: 0;
+}
+
+@media screen and (width <=640px) {
     article h1 {
         position: static;
     }
 
-    figure, img {
+    figure,
+    img {
         max-width: 100%;
     }
 }
