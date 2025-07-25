@@ -283,6 +283,15 @@ import { ClientRouter } from "astro:transitions";
             "%c🔒 Remember: Security is YOUR responsibility.",
             "color: yellow; font-size: 16px; font-weight: bold;",
         );
+
+        document.querySelector('#to-top').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('main>div').scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        })
     });
 </script>
 
