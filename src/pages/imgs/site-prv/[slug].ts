@@ -40,7 +40,7 @@ export const GET: APIRoute = async ({ params }) => {
             type: 'png',
         })
         const webpBuf = sharp(imageBuf)
-            .toFormat('jfif');
+            .toFormat('webp');
 
         await page.close();
         await context.close();
