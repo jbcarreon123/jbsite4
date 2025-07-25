@@ -1,3 +1,7 @@
+---
+import { LinkObjs } from '../assets/links';
+---
+
 <script is:inline>
     setInterval(() => {
         document.querySelectorAll('.modal--notifcontainer .notif:not(.ok):not(.pr)').forEach((v) => {
@@ -26,10 +30,17 @@
 
 <div class="modal--notifcontainer" aria-live="polite" aria-relevant="additions" transition:persist>
     <noscript>
-        <div class="notif pr" style="animation: notif-rem 500ms 5s linear forwards !important;">
-            <h2>JavaScript is disabled.</h2>
-            <p>jbSite should work without JS, but I recommend enabling JS.</p>
-        </div>
+        {!LinkObjs.find(a => a.links.find(l => l.reqJS) || a.reqJS)?.links.find(l => l.path === Astro.url.pathname)?.reqJS ? (
+            <div class="notif pr" style="animation: notif-rem 500ms 5s linear forwards !important;">
+                <h2>JavaScript is disabled.</h2>
+                <p>jbSite should work without JS, but I recommend enabling JS.</p>
+            </div>
+        ) : (
+            <div class="notif pr">
+                <h2>This page requires JavaScript.</h2>
+                <p>To view this page, please enable JavaScript.</p>
+            </div>
+        )}
     </noscript>
 </div>
 
