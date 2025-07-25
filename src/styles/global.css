@@ -578,7 +578,7 @@ h2:first-of-type
     margin-top: 0;
 }
 
-a:not(:has(.ms)):not(:has(img))[target='_blank']::after {
+a:not(:has(.ms)):not(:has(img)):not(:has(div))[target='_blank']::after {
     font-family: 'Material Symbols';
     content: 'open_in_new';
     margin-left: 3px;
