@@ -1,7 +1,10 @@
+import { readFileSync } from 'node:fs';
 import Buttons from '../../../../public/buttons.json' with {type: 'json'};
 import type { APIRoute } from "astro";
+import sharp from 'sharp';
 
-let buttons: {slug: string, url: string}[] = [];
+let buttons: {slug: string, url: string, format?: string}[] = [];
+const placeholder = sharp(readFileSync('./public/imgs/buttons/placeholder.png'));
 
 export function getStaticPaths() {
     buttons = Buttons
@@ -11,8 +14,9 @@ export function getStaticPaths() {
             let spl = url.pathname.split('/')
             let ext = spl[spl.length - 1]
             let nme = url.hostname.replace('www', '').split('.')[0]
+            let fex = ext.split('.')
 
-            return { slug: `${nme}-${ext}`, url: btn.imgUrl }
+            return { slug: `${nme}-${ext}`, url: btn.imgUrl, format: fex[fex.length - 1] }
         });
 
     let btns = buttons.map((btn) => ({
@@ -27,6 +31,9 @@ export const GET: APIRoute = async ({ params }) => {
         let btn = buttons.find((bt) => bt.slug === params.slug)
         if (btn) {
             let res = await fetch(btn.url)
+            if (!res.ok || res.headers.get('Content-Type')?.includes('text/html')) {
+                return new Response(await placeholder.toFormat(btn.format ?? 'png').toBuffer())
+            }
             return new Response(await res.arrayBuffer())
         } else {
             return new Response('button not found', {

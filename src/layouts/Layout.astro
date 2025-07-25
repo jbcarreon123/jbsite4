@@ -14,6 +14,7 @@ import Sidebar from "../components/Sidebar.astro";
 import RichTooltip from "../components/RichTooltip.astro";
 import NotifModal from "../components/NotifModal.astro";
 import ImageViewer from '../components/ImageViewer.astro';
+import JumpToContent from '../components/JumpToContent.astro';
 
 const hash = import.meta.env.COMMIT_HASH ?? "null";
 ---
@@ -52,6 +53,7 @@ const hash = import.meta.env.COMMIT_HASH ?? "null";
 		<NotifModal />
 		<RichTooltip />
 		<ImageViewer />
+		<JumpToContent />
 		
 		<div class="container" transition:animate="none">
 			<Sidebar title={title} id={id} description={description}>

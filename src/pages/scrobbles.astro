@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ScrobblesCP from "../components/ScrobblesCP.svelte";
+---
+
+<Layout>
+    <h1>Jb's Last.fm Scrobbles</h1>
+
+    <div class="currently-playing">
+        <ScrobblesCP client:only="svelte" />
+    </div>
+
+    <style slot="head">
+
+    </style>
+</Layout>

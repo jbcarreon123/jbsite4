@@ -48,19 +48,17 @@
 
 <div>
 	{#await loadStatus()}
+		<p class="tg">Latest ramble</p>
 		<p>Loading rambles...</p>
 	{:then out}
-		<a href={out.id} class="sta tg">
-			{out.time}
-		</a>
+		<p class="tg">
+			Latest ramble - 
+			<a href={out.id} target="_blank">
+				{out.time} <span class="ms" data-icon="open_in_new"></span>
+			</a>
+		</p>
 		<p>{out.post}</p>
 	{:catch err}
 		<p>Error occured. {err}</p>
 	{/await}
-
-	<style>
-        a.sta.tg {
-            padding-top: 0 !important;
-        }
-    </style>
 </div>

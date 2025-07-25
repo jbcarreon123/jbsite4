@@ -13,7 +13,7 @@ let buttons = Buttons
 
         return { 
             ...btn,
-            slug: `/imgs/site-buttons/${nme}-${ext}/`
+            slug: `/imgs/site-buttons/${nme}-${encodeURIComponent(ext)}/`
         }
     });
 ---

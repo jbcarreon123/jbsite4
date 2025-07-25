@@ -213,7 +213,7 @@
         "url": "https://raccoonbutt.com/",
         "title": "raccoonbutt.com",
         "alt": "raccoonbutt.com",
-        "imgUrl": "https://raccoonbutt.com/static/images/button.gif"
+        "imgUrl": "https://raccoonbutt.com/static/raccoonbutt.gif"
     },
     {
         "url": "https://olivia.nekoweb.org/",
@@ -309,7 +309,7 @@
         "url": "https://seeingstarz.nekoweb.org/",
         "title": "Pry's silly site",
         "alt": "seeingstarz",
-        "imgUrl": "https://files.catbox.moe/wfsnmh.gif"
+        "imgUrl": "https://seeingstarz.nekoweb.org/images/seeingstarz%20gif.gif"
     },
     {
         "url": "https://lexp.dev/en/index.html",
@@ -394,5 +394,29 @@
         "title": "@ nekoweb",
         "alt": "aglovale",
         "imgUrl": "https://aglovale.nekoweb.org/elements/button.gif"
+    },
+    {
+        "url": "https://xavierhm.com/",
+        "title": "",
+        "alt": "Xavier H.M.",
+        "imgUrl": "https://xavierhm.com/graphics/buttons/sitebutton/xavierhmsitebutton.gif"
+    },
+    {
+        "url": "https://melankorin.net/",
+        "title": "",
+        "alt": "melankorin.net",
+        "imgUrl": "https://melankorin.net/assets/img/buttons/button-1.gif"
+    },
+    {
+        "url": "https://laura.nekoweb.org/",
+        "title": "",
+        "alt": "Laura Sofia",
+        "imgUrl": "https://laura.nekoweb.org/img/banner.webp"
+    },
+    {
+        "url": "https://toriii.nekoweb.org/",
+        "title": "",
+        "alt": "Tori's Corner!",
+        "imgUrl": "https://toriii.nekoweb.org/img/button.png"
     }
 ]

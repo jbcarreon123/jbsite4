@@ -23,10 +23,10 @@
 </script>
 
 {#if !json}
-    <h2>Last played</h2>
+    <p class="tg">Last played - <a target="_blank" href="https://www.last.fm/user/jbcarreon123">my last.fm  <span class="ms" data-icon="open_in_new"></span></a></p>
     <p>Loading now playing stats...</p>
 {:else} 
-    <h2>{json['@attr'] && json['@attr'].nowplaying == 'true' ? 'Now playing' : 'Last played'}</h2>
+    <p class="tg">{json['@attr'] && json['@attr'].nowplaying == 'true' ? 'Now playing' : 'Last played'} - <a target="_blank" href="https://www.last.fm/user/jbcarreon123">my last.fm <span class="ms" data-icon="open_in_new"></span></a></p>
     <div class="np">
         <img src={json.image[2]['#text']} alt="Album art" />
         <div>
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <style>
+    <style scoped>
         .np {
             display: grid;
             grid-template-columns: 85px 1fr;

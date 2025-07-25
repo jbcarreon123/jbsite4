@@ -39,9 +39,17 @@ const latestPost = postSorted[0];
 	<p>Oh yeah, don't forget to <a href="/guestbook/">sign my guestbook</a> and <a href="https://nekoweb.org/follow/jbcarreon123" target="_blank">follow me on Nekoweb <span class="ms" data-icon="open_in_new" aria-hidden="true"></span></a>!</p>
 
 	<div class="widget-container">
-		<div class="widget-full">
+		<div class="widget-full img">
 			<div>
-				<h2>Latest post</h2>
+				{latestPost.frontmatter.background && (
+					<img
+						class="bg"
+						loading="lazy" decoding="async"
+						src={latestPost.frontmatter.background}
+						alt=""
+					/>
+				)}
+				<p class="tg">Latest post</p>
 				<div>
 					<h3><a href={latestPost.url}>{latestPost.frontmatter.title}</a></h3>
 					<p>{latestPost.frontmatter.description}</p>
@@ -50,18 +58,16 @@ const latestPost = postSorted[0];
 		</div>
 		<div class="widgets">
 			<div>
-				<h2>Stats</h2>
+				<p class="tg">Stats</p>
 				<Stats client:only="svelte" />
 			</div>
 			<div>
 				<LastFM client:only="svelte" />
 			</div>
 			<div>
-				<h2>Latest ramble</h2>
 				<Nekocafe client:only="svelte" />
 			</div>
 			<div>
-				<h2>JB's status</h2>
 				<StatusCafe client:only="svelte" />
 			</div>
 		</div>
@@ -90,6 +96,32 @@ const latestPost = postSorted[0];
 		.widgets > div, .widget-full > div {
 			background-color: var(--acc);
 			padding: 6px;
+
+			&.img {
+				padding: 0;
+			}
+		}
+
+		.widget-full.img {
+			position: relative;
+			max-height: 100%;
+			overflow: hidden;
+
+			&>* {
+				z-index: 1;
+			}
+
+			.bg {
+				position: absolute;
+				inset: 0;
+				z-index: 0;
+				opacity: 0.25;
+				filter: blur(4px);
+				transform: scale(1.25);
+				min-width: 100%;
+				max-height: 100%;
+				object-fit: cover;
+			}
 		}
 
 		#c_widget {
