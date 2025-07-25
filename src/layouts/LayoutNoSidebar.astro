@@ -14,6 +14,7 @@ import Sidebar from "../components/Sidebar.astro";
 import RichTooltip from "../components/RichTooltip.astro";
 import NotifModal from "../components/NotifModal.astro";
 import ThemeLoader from '../components/ThemeLoader.astro';
+import JumpToContent from '../components/JumpToContent.astro';
 
 const hash = import.meta.env.COMMIT_HASH ?? "null";
 ---
@@ -52,6 +53,7 @@ const hash = import.meta.env.COMMIT_HASH ?? "null";
 		<p class="style-broken">If you're seeing this, please hard reload. You can do it by using CTRL+SHIFT+R or SHIFT+F5.</p>
 		<NotifModal />
 		<RichTooltip />
+		<JumpToContent />
 		<div transition:animate="none">
 			<main id="main">
 				<div>

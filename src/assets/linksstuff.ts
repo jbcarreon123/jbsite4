@@ -35,6 +35,7 @@ export const linksStuff: LinksStuff[] = [
         name: 'IndieSeas',
         url: 'https://indieseas.net',
         description: 'An indie web search engine',
-        tags: ['search', 'indieweb']
+        tags: ['search', 'indieweb'],
+        button: 'https://indieseas.net/indieseas_button.png'
     }
 ]
