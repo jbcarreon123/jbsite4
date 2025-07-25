@@ -534,6 +534,9 @@ header {
     background-color: var(--acc);
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    inset: 0;
+    z-index: 100;
 }
 
 header * {
@@ -545,6 +548,7 @@ footer {
     border-top: 1px solid var(--acc);
     margin-top: 12px;
     padding-top: 4px;
+    margin-bottom: 12px;
     display: flex;
     justify-content: space-between;
 }
@@ -608,8 +612,6 @@ a:not(:has(.ms)):not(:has(img))[target='_blank']::after {
     }
 
     header {
-        height: 100%;
-        width: 100%;
     }
 
     .container main {
@@ -630,7 +632,6 @@ a:not(:has(.ms)):not(:has(img))[target='_blank']::after {
     main>div {
         max-height: 100%;
         overflow: auto;
-        padding-bottom: 35px;
     }
 
     aside nav {
