@@ -1,11 +1,13 @@
 export type LinkObj = {
     name?: string,
+    reqJS?: boolean,
     links: {
         name: string,
         path: string,
         redirect: boolean,
         icon: string,
         id?: string,
+        reqJS?: boolean
     }[]
 }[]
 
@@ -23,7 +25,8 @@ export const LinkObjs: LinkObj = [
                 name: "Sign my guestbook!",
                 path: "/guestbook/",
                 redirect: false,
-                icon: "contract_edit"
+                icon: "contract_edit",
+                reqJS: true,
             },
             {
                 name: "Follow me on Nekoweb!",
@@ -46,7 +49,8 @@ export const LinkObjs: LinkObj = [
                 name: "Time",
                 path: "/time/",
                 redirect: false,
-                icon: "schedule"
+                icon: "schedule",
+                reqJS: true,
             },
             {
                 name: "Projects",
@@ -82,12 +86,14 @@ export const LinkObjs: LinkObj = [
                 name: "Album List",
                 path: "/albumlist/",
                 redirect: false,
-                icon: "library_music"
+                icon: "library_music",
+                reqJS: true,
             },
         ]
     },
     {
         name: "tools & stuff",
+        reqJS: true,
         links: [
             {
                 name: "\"AI\" Chat",
@@ -128,6 +134,7 @@ export const LinkObjs: LinkObj = [
     },
     {
         name: "my webrings",
+        reqJS: true,
         links: [
             {
                 name: "SSGRing",
@@ -168,7 +175,8 @@ export const LinkObjs: LinkObj = [
                 name: "Webrings",
                 path: "/webrings/",
                 redirect: false,
-                icon: "donut_large"
+                icon: "donut_large",
+                reqJS: true,
             },
             {
                 name: "Bookmarks",

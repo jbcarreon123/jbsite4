@@ -15,7 +15,7 @@ console.log(pathname)
                     <summary>{obj.name}</summary>
                     {obj.links.map((l) =>
                         <a
-                            class={pathname == l.path ? 'active' : ''}
+                            class={(pathname == l.path ? 'active ' : '') + (l.reqJS || obj.reqJS ? 'jsreq' : '')}
                             href={l.path}
                             target={l.redirect ? '_blank' : null}>
                             <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
@@ -24,7 +24,7 @@ console.log(pathname)
                 </details> : <Fragment>
                     {obj.links.map((l) =>
                         <a
-                            class={pathname == l.path ? 'active' : ''}
+                            class={(pathname == l.path ? 'active ' : '') + (l.reqJS || obj.reqJS ? 'jsreq' : '')}
                             href={l.path}
                             target={l.redirect ? '_blank' : null}>
                             <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}

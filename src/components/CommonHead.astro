@@ -295,4 +295,18 @@ import { ClientRouter } from "astro:transitions";
     });
 </script>
 
+<noscript>
+    <style>
+        /* weirdest way to force specificity lmao */
+        div.jsreq.jsreq.jsreq.jsreq.jsreq {
+            display: none;
+        }
+
+        a.jsreq::after {
+            content: ' [JS]';
+            font-size: 0.75em;
+        }
+    </style>
+</noscript>
+
 <style is:inline id="customCSS"></style>
