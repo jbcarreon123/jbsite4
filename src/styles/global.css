@@ -601,6 +601,7 @@ a:not(:has(.ms)):not(:has(img))[target='_blank']::after {
 @media screen and (width <=890px) {
     .container {
         overflow-x: scroll;
+        overflow-y: hidden;
         scroll-snap-type: x mandatory;
         width: auto;
         max-height: 100dvh;
