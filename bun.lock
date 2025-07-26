@@ -13,7 +13,7 @@
         "@csstools/normalize.css": "^12.1.1",
         "@expressive-code/plugin-collapsible-sections": "^0.41.3",
         "@hbsnow/rehype-sectionize": "^1.0.7",
-        "@indiefellas/astro-adapter-nekoweb": "^3.5.0",
+        "@indiefellas/astro-adapter-nekoweb": "^3.6.0",
         "@kindspells/astro-shield": "^1.7.1",
         "@nodelib/fs.walk": "^3.0.1",
         "@playform/compress": "^0.1.9",
@@ -405,7 +405,7 @@
 
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.34.3", "", { "os": "win32", "cpu": "x64" }, "sha512-OWwz05d++TxzLEv4VnsTz5CmZ6mI6S05sfQGEMrNrQcOEERbX46332IvE7pO/EUiw7jUrrS40z/M7kPyjfl04g=="],
 
-    "@indiefellas/astro-adapter-nekoweb": ["@indiefellas/astro-adapter-nekoweb@3.6.0", "", { "dependencies": { "@indiefellas/nekoweb-api": "^2.1.0", "archiver": "^7.0.1" }, "peerDependencies": { "typescript": "^5.8.2" } }, "sha512-KomlOd93zcu2esjwj+2dvAioTTUUP3IzhAyxhF5idcdJxOFsISW7TT4srFZZId0eHd0X+0V92f0ORCCaluMGNw=="],
+    "@indiefellas/astro-adapter-nekoweb": ["@indiefellas/astro-adapter-nekoweb@3.7.0", "", { "dependencies": { "@indiefellas/nekoweb-api": "^2.1.0", "archiver": "^7.0.1" }, "peerDependencies": { "typescript": "^5.8.2" } }, "sha512-5QjKD6HWJ7y1KPp4/Nd3aZSV9Cd9JPCz0LPJhkSQaIFYaOM5vcfz/s3ZtQSKcJUgjTbeh3gyIn/cfivC8kWXfw=="],
 
     "@indiefellas/nekoweb-api": ["@indiefellas/nekoweb-api@2.1.0", "", { "dependencies": { "axios": "^1.9.0", "form-data": "^4.0.2" }, "peerDependencies": { "typescript": "^5" } }, "sha512-iGcT6JdVsWlFvpLZx8mXTejHaaK5Rodx2W9bYpHP+1zQztW71QrAEOoOsQ3gZ3X0W/otqe8wpsmRmZGfdXsV7w=="],
 
