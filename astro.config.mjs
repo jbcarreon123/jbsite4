@@ -134,7 +134,9 @@ if (process.env.GITHUB_ACTIONS === 'true') {
   nkw.push(nekoweb({
     apiKey: env.NEKOWEB_APIKEY,
     cookie: env.NEKOWEB_COOKIE,
-    folder: 'jbcarreon123.nekoweb.org'
+    domain: 'jbcarreon123.nekoweb.org',
+    siteName: 'jbcarreon123',
+    rssFeed: '/nekoweb.xml'
   }));
 } else {
   console.log(!(process.env.GITHUB_ACTIONS !== 'true'));
