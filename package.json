@@ -11,7 +11,7 @@
     "@csstools/normalize.css": "^12.1.1",
     "@expressive-code/plugin-collapsible-sections": "^0.41.3",
     "@hbsnow/rehype-sectionize": "^1.0.7",
-    "@indiefellas/astro-adapter-nekoweb": "^3.0.1",
+    "@indiefellas/astro-adapter-nekoweb": "^3.1.0",
     "@kindspells/astro-shield": "^1.7.1",
     "@nodelib/fs.walk": "^3.0.1",
     "@playform/compress": "^0.1.9",
