@@ -6,14 +6,15 @@ import { Image } from 'astro:assets';
 let buttons = Buttons
     .filter((btn) => !btn.imgUrl.startsWith('/imgs'))
     .map((btn) => {
-        let url = new URL(btn.imgUrl)
+        let dom = new URL(btn.url);
+        let url = new URL(btn.imgUrl);
         let spl = url.pathname.split('/')
         let ext = spl[spl.length - 1]
-        let nme = url.hostname.replace('www', '').split('.')[0]
+        let fex = ext.split('.')
 
         return { 
             ...btn,
-            slug: `/imgs/site-buttons/${nme}-${encodeURIComponent(ext)}/`
+            slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}/`
         }
     });
 ---
