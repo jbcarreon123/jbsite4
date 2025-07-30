@@ -336,7 +336,7 @@ ${editor.value}`;
                             localStorage.setItem("nekobox:value", m.css);
                             localStorage.setItem(
                                 "nekobox:domain",
-                                new URL(url).hostname,
+                                m.data.domain,
                             );
                             localStorage.setItem(
                                 "nekobox:overflow",
@@ -355,8 +355,7 @@ ${editor.value}`;
                                 "Loaded from Nekobox Metadata Format",
                             );
                         } else {
-                            let u = url.replace(/https?:\/\//, "");
-                            createNotif("Loaded, reloading...", `Domain: ${u}`);
+                            createNotif("Loaded, reloading...", `Domain: ${new URL(url).hostname}`);
                             localStorage.setItem(
                                 "nekobox:value",
                                 unMinifyCss(css),
@@ -400,7 +399,7 @@ ${editor.value}`;
                             localStorage.setItem("nekobox:value", m.css);
                             localStorage.setItem(
                                 "nekobox:domain",
-                                getNekowebDomainFromCSS(css, u),
+                                m.data.domain,
                             );
                             localStorage.setItem(
                                 "nekobox:overflow",
@@ -419,7 +418,7 @@ ${editor.value}`;
                                 "nekobox:value",
                                 unMinifyCss(css),
                             );
-                            localStorage.setItem("nekobox:domain", load);
+                            localStorage.setItem("nekobox:domain", new URL(url).hostname);
                             localStorage.setItem(
                                 "nekobox:overflow",
                                 `${!url.includes("nekoweb.org")}`,
