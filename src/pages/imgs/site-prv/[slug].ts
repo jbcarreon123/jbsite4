@@ -3,7 +3,13 @@ import type { APIRoute } from "astro";
 import Buttons from '../../../../public/buttons.json' with {type: 'json'};
 import sharp from 'sharp';
 
-const browser = await chromium.launch();
+let browser;
+
+try {
+    browser = await chromium.launch();
+} catch (e) {
+    console.error(e);
+}
 
 export function getStaticPaths() {
     return Buttons.map((val) => {
