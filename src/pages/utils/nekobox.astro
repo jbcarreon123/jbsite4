@@ -247,15 +247,13 @@ ${value}`;
         function replaceInvalidCSS(cssString: string | null | undefined) {
             if (!cssString) return "";
             const urlRegex1 =
-                /(url\('?(?:https:)?\/\/)((?:[\w\-]+).nekoweb.org\/([\S]+\)))/gm;
+                /(url\("?'?(?:https:)?\/\/)((?:[\w\-]+).nekoweb.org\/([\S]+\)))/gm;
             const regex = /^(?!\.site-box|\.follow|\.post-box).*{/gm;
             let c = cssString.replace(
                 regex,
                 "/* This will not work in Nekoweb, unfortunately. */\n#WILL-NOT-WORK {",
             );
-            c = c.replaceAll('"', "")
-                 .replaceAll("'", "")
-                 .replace(urlRegex1, "$1$3");
+            c = c.replace(urlRegex1, "$1$3");
             return c
         }
 
