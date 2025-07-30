@@ -40,6 +40,21 @@ import "prism-code-editor/invisibles.css";
             loadUrl(`https://${params.get("domain")}/elements.css`);
         }
 
+        if (localStorage.getItem("nekobox:username")) {
+            const result = confirm(`Do you want to migrate to the new Nekoweb routing system?
+            
+It will make your username (${localStorage.getItem("nekobox:username")}) to the domain (${localStorage.getItem("nekobox:username")}.nekoweb.org). If you have a custom domain, change it on Settings.
+
+If you press OK, this page will reload.`);
+            if (result) {
+                let username = localStorage.getItem("nekobox:username");
+                localStorage.setItem("nekobox:domain", username + '.nekoweb.org');
+                localStorage.removeItem("nekobox:username");
+                createNotif("Successfully migrated", "Reloading...")
+                window.location.reload();
+            }
+        }
+
         let s =
             localStorage.getItem("nekobox:value") ||
             cssbeautify(
