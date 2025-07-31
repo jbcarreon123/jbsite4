@@ -33,7 +33,7 @@ buttons = buttons.concat(nonbtns)
             a.alt.localeCompare(b.alt)
         ).map((btn) => <a href={btn.url}>
             <Image class="btn" src={btn.slug} alt={btn.alt} title={btn.title} data-tooltip-data={
-				`<p class='tg'>${new URL(btn.url).hostname}</p><h2>${btn.alt}</h2>${btn.alt.toLowerCase() != btn.title.toLowerCase() ? `<p>${btn.title}</p>` : ''}`
+				`<p class='tg'>${new URL(btn.url).hostname}</p><h2>${btn.alt}</h2>${btn.alt.toLowerCase() != btn.title.toLowerCase() ? `<p>${btn.title}</p>` : ''}${btn.eighteen ? '<p class="tg"><span class="ms" data-icon="warning"></span> This site is 18+, and might have content that you might not wanna see.</p>' : ''}`
 			} width="88" height="31" />
         </a>)
     }
