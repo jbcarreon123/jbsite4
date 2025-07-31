@@ -42,7 +42,10 @@ buttons = buttons.concat(nonbtns)
                             <img src={btn.slug} alt={btn.title} />
                             <h3>{btn.alt}</h3>
                         </div>
-                        <p>{btn.title.toLowerCase() != btn.alt.toLowerCase() && btn.title}</p>
+                        <p>
+                            {btn.eighteen && <span class="tg"><span class="ms" data-icon="warning"></span> 18+ site, might have NSFW content.<br /></span>}
+                            <span>{btn.title.toLowerCase() != btn.alt.toLowerCase() && btn.title}</span>
+                        </p>
                     </div>
                 </div>
                 <img class="bg" loading="lazy" decoding="async" aria-hidden="true" alt="" src={btn.prv} />
