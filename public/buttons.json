@@ -418,5 +418,17 @@
         "title": "",
         "alt": "Tori's Corner!",
         "imgUrl": "https://toriii.nekoweb.org/img/button.png"
+    },
+    {
+        "url": "https://32enoki.net/",
+        "title": "enokiton-3 site",
+        "alt": "32enoki",
+        "imgUrl": "https://32enoki.net/88x31.png"
+    },
+    {
+        "url": "https://hijpixel.nekoweb.org/",
+        "title": "the cozy lil' webzone of a silly lil' Cait'si artist.",
+        "alt": "heyitsjustpIxel",
+        "imgUrl": "https://hijpixel.nekoweb.org/img/buttons/hijpixel/button-88x31.gif"
     }
 ]
