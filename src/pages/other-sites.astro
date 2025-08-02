@@ -1,55 +1,80 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Buttons from '../../public/buttons.json';
+import Layout from "../layouts/Layout.astro";
+import Buttons from "../../public/buttons.json";
 
-let buttons = Buttons
-    .filter((btn) => !btn.imgUrl.startsWith('/imgs'))
-    .map((btn) => {
-        let dom = new URL(btn.url);
-        let url = new URL(btn.imgUrl);
-        let spl = url.pathname.split('/')
-        let ext = spl[spl.length - 1]
-        let fex = ext.split('.')
+let buttons = Buttons.filter(
+    (btn) => !btn.imgUrl || !btn.imgUrl?.startsWith("/imgs"),
+).map((btn) => {
+    let dom = new URL(btn.url);
+    let url = btn.imgUrl ? new URL(btn.imgUrl) : null;
+    let spl = url ? url.pathname.split("/") : ["placeholder_button.svg"];
+    let ext = spl[spl.length - 1];
+    let fex = ext.split(".");
 
-        return { 
-            ...btn,
-            slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}/`,
-            prv: `/imgs/site-prv/${(new URL(btn.url)).hostname}.webp`
-        }
-    });
+    return {
+        ...btn,
+        slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}/`,
+        prv: `/imgs/site-prv/${new URL(btn.url).hostname}.webp`,
+    };
+});
 
-let nonbtns = Buttons
-    .filter((btn) => btn.imgUrl.startsWith('/imgs'))
-	.map((btn) => ({
-		...btn,
-		slug: btn.imgUrl,
-        prv: `/imgs/site-prv/${(new URL(btn.url)).hostname}.webp`
-	}))
+let nonbtns = Buttons.filter((btn) => btn.imgUrl?.startsWith("/imgs")).map(
+    (btn) => ({
+        ...btn,
+        slug: btn.imgUrl,
+        prv: `/imgs/site-prv/${new URL(btn.url).hostname}.webp`,
+    }),
+);
 
-buttons = buttons.concat(nonbtns)
+buttons = buttons.concat(nonbtns);
 ---
 
-<Layout title="Other sites" id="other-sites" description="Pages of other people's sites">
+<Layout
+    title="Other sites"
+    id="other-sites"
+    description="Pages of other people's sites"
+>
     <h1>Other sites</h1>
     <div class="sites">
         {
-            buttons.sort((a, b) => 
-                a.alt.localeCompare(b.alt)
-            ).map((btn) => <a href={btn.url} target="_blank">
-                <div>
-                    <div>
-                        <div class="lh">
-                            <img src={btn.slug} alt={btn.title} />
-                            <h3>{btn.alt}</h3>
+            buttons
+                .sort((a, b) => a.alt.localeCompare(b.alt))
+                .map((btn) => (
+                    <a href={btn.url} target="_blank">
+                        <div>
+                            <div>
+                                <div class="lh">
+                                    <img src={btn.slug} alt={btn.title} />
+                                    <h3>{btn.alt}</h3>
+                                </div>
+                                <p>
+                                    {btn.eighteen && (
+                                        <span class="tg">
+                                            <span
+                                                class="ms"
+                                                data-icon="warning"
+                                            />{" "}
+                                            18+ site, might have NSFW content.
+                                            <br />
+                                        </span>
+                                    )}
+                                    <span>
+                                        {btn.title.toLowerCase() !=
+                                            btn.alt.toLowerCase() && btn.title}
+                                    </span>
+                                </p>
+                            </div>
                         </div>
-                        <p>
-                            {btn.eighteen && <span class="tg"><span class="ms" data-icon="warning"></span> 18+ site, might have NSFW content.<br /></span>}
-                            <span>{btn.title.toLowerCase() != btn.alt.toLowerCase() && btn.title}</span>
-                        </p>
-                    </div>
-                </div>
-                <img class="bg" loading="lazy" decoding="async" aria-hidden="true" alt="" src={btn.prv} />
-            </a>)
+                        <img
+                            class="bg"
+                            loading="lazy"
+                            decoding="async"
+                            aria-hidden="true"
+                            alt=""
+                            src={btn.prv}
+                        />
+                    </a>
+                ))
         }
     </div>
     <style is:global slot="head">
@@ -63,7 +88,11 @@ buttons = buttons.concat(nonbtns)
                 vertical-align: bottom;
                 min-height: 150px;
                 position: relative;
-                color: color-mix(in srgb, var(--link) 50%, var(--text)) !important;
+                color: color-mix(
+                    in srgb,
+                    var(--link) 50%,
+                    var(--text)
+                ) !important;
                 text-decoration: none !important;
 
                 .lh {
@@ -101,7 +130,11 @@ buttons = buttons.concat(nonbtns)
                 }
 
                 & > div {
-                    background: linear-gradient(to top, color-mix(in srgb, var(--altbg) 65%, transparent), transparent);
+                    background: linear-gradient(
+                        to top,
+                        color-mix(in srgb, var(--altbg) 65%, transparent),
+                        transparent
+                    );
                     padding: 6px;
                     display: flex;
                     align-items: end;
@@ -114,7 +147,7 @@ buttons = buttons.concat(nonbtns)
                         padding: 0;
                     }
 
-                    &>div {
+                    & > div {
                         position: relative;
                         height: 100%;
                         display: flex;
@@ -122,12 +155,12 @@ buttons = buttons.concat(nonbtns)
                         flex-direction: column-reverse;
                         gap: 12px;
                         width: 100%;
-                        &>p {
+                        & > p {
                             opacity: 0;
                         }
                     }
 
-                    &>p {
+                    & > p {
                         padding-right: 3px;
                         width: fit-content;
                         text-wrap-mode: nowrap;
@@ -143,21 +176,29 @@ buttons = buttons.concat(nonbtns)
 
                     background: var(--acc);
 
-                    &:hover, &:active, &:focus-within {
+                    &:hover,
+                    &:active,
+                    &:focus-within {
                         background: var(--altbg);
                     }
                 }
 
-                &:has(.bg):hover, &:has(.bg):active, &:has(.bg):focus-within {
-                    background: linear-gradient(to bottom, var(--bg), transparent);
+                &:has(.bg):hover,
+                &:has(.bg):active,
+                &:has(.bg):focus-within {
+                    background: linear-gradient(
+                        to bottom,
+                        var(--bg),
+                        transparent
+                    );
 
-                    &>.bg {
+                    & > .bg {
                         opacity: 0.25;
                     }
 
-                    &>div {
-                        &>div {
-                            &>p {
+                    & > div {
+                        & > div {
+                            & > p {
                                 opacity: 1;
                             }
                         }

@@ -1,42 +1,50 @@
 ---
-import Buttons from '../../public/buttons.json';
-import { Image } from 'astro:assets';
+import Buttons from "../../public/buttons.json";
+import { Image } from "astro:assets";
 
-let buttons = Buttons
-    .filter((btn) => !btn.imgUrl.startsWith('/imgs'))
-    .map((btn) => {
-        let dom = new URL(btn.url);
-        let url = new URL(btn.imgUrl);
-        let spl = url.pathname.split('/')
-        let ext = spl[spl.length - 1]
-        let fex = ext.split('.')
+let buttons = Buttons.filter(
+	(btn) => !btn.imgUrl || !btn.imgUrl?.startsWith("/imgs"),
+).map((btn) => {
+	let dom = new URL(btn.url);
+	let url = btn.imgUrl ? new URL(btn.imgUrl) : null;
+	let spl = url ? url.pathname.split("/") : ["placeholder_button.svg"];
+	let ext = spl[spl.length - 1];
+	let fex = ext.split(".");
 
-        return { 
-            ...btn,
-            slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}/`
-        }
-    });
-
-let nonbtns = Buttons
-    .filter((btn) => btn.imgUrl.startsWith('/imgs'))
-	.map((btn) => ({
+	return {
 		...btn,
-		slug: btn.imgUrl
-	}))
+		slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}/`,
+	};
+});
 
-buttons = buttons.concat(nonbtns)
+let nonbtns = Buttons.filter((btn) => btn.imgUrl?.startsWith("/imgs")).map(
+	(btn) => ({
+		...btn,
+		slug: btn.imgUrl,
+	}),
+);
+
+buttons = buttons.concat(nonbtns);
 ---
 
 <div class="btn-container">
-    {
-        buttons.sort((a, b) => 
-            a.alt.localeCompare(b.alt)
-        ).map((btn) => <a href={btn.url}>
-            <Image class="btn" src={btn.slug} alt={btn.alt} title={btn.title} data-tooltip-data={
-				`<p class='tg'>${new URL(btn.url).hostname}</p><h2>${btn.alt}</h2>${btn.alt.toLowerCase() != btn.title.toLowerCase() ? `<p>${btn.title}</p>` : ''}${btn.eighteen ? '<p class="tg"><span class="ms" data-icon="warning"></span> This site is 18+, and might have content that you might not wanna see.</p>' : ''}`
-			} width="88" height="31" />
-        </a>)
-    }
+	{
+		buttons
+			.sort((a, b) => a.alt.localeCompare(b.alt))
+			.map((btn) => (
+				<a href={btn.url}>
+					<Image
+						class="btn"
+						src={btn.slug}
+						alt={btn.alt}
+						title={btn.title}
+						data-tooltip-data={`<p class='tg'>${new URL(btn.url).hostname}</p><h2>${btn.alt}</h2>${btn.alt.toLowerCase() != btn.title.toLowerCase() ? `<p>${btn.title}</p>` : ""}${btn.eighteen ? '<p class="tg"><span class="ms" data-icon="warning"></span> This site is 18+, and might have content that you might not wanna see.</p>' : ""}`}
+						width="88"
+						height="31"
+					/>
+				</a>
+			))
+	}
 </div>
 
 <style>
