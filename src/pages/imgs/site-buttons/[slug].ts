@@ -37,7 +37,7 @@ export const GET: APIRoute = async ({ params }) => {
                 }
             }
 
-            let title = btn.title.match(/.{1,9}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('');
+            let title = btn.title.match(/.{1,10}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('');
             if (btn.format !== 'svg') {
                 return new Response(await sharp(Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title))).toBuffer(btn.format))
             }

@@ -436,5 +436,11 @@
         "url": "https://commonpolarity.nekoweb.org/",
         "title": "",
         "alt": "CommonPolarity"
+    },
+    {
+        "url": "https://nonomo.nekoweb.org/",
+        "title": "NO RULES",
+        "alt": "NONOMO",
+        "imgUrl": "https://nonomo.nekoweb.org/rsrc/button.gif"
     }
 ]

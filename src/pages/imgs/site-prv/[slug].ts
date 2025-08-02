@@ -23,7 +23,7 @@ export function getStaticPaths() {
 
 export const GET: APIRoute = async ({ params }) => {
     try {
-        if (process.env.GITHUB_ACTIONS !== 'true') throw new Error();
+        if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
         const context = await browser.newContext({
             colorScheme: 'dark'
         });
