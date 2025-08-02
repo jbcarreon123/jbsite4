@@ -3,20 +3,20 @@ import Buttons from '../../../../public/buttons.json' with {type: 'json'};
 import type { APIRoute } from "astro";
 import sharp from 'sharp';
 
-let buttons: {slug: string, url: string, format?: string}[] = [];
-const placeholder = sharp(readFileSync('./public/imgs/buttons/placeholder.png'));
+let buttons: { slug: string, url: string, format?: string, placeholder: string, domain: string, title: string }[] = [];
+const placeholderSvg = readFileSync('./public/imgs/buttons/placeholder.svg', 'utf-8');
 
 export function getStaticPaths() {
     buttons = Buttons
-        .filter((btn) => !btn.imgUrl.startsWith('/imgs'))
+        .filter((btn) => !btn.imgUrl || !btn.imgUrl?.startsWith('/imgs'))
         .map((btn) => {
             let dom = new URL(btn.url);
-            let url = new URL(btn.imgUrl);
-            let spl = url.pathname.split('/')
+            let url = btn.imgUrl ? new URL(btn.imgUrl) : null;
+            let spl = url ? url.pathname.split('/') : ['placeholder_button.svg'];
             let ext = spl[spl.length - 1]
             let fex = ext.split('.')
 
-            return { slug: `${dom.hostname}.${fex[fex.length - 1]}`, url: btn.imgUrl, format: fex[fex.length - 1] }
+            return { domain: dom.hostname, title: btn.alt, slug: `${dom.hostname}.${fex[fex.length - 1]}`, url: btn.imgUrl, format: fex[fex.length - 1], placeholder: spl[0] === 'placeholder_button.svg' }
         });
 
     let btns = buttons.map((btn) => ({
@@ -27,14 +27,28 @@ export function getStaticPaths() {
 }
 
 export const GET: APIRoute = async ({ params }) => {
+    let btn = buttons.find((bt) => bt.slug === params.slug)
     try {
-        let btn = buttons.find((bt) => bt.slug === params.slug)
         if (btn) {
-            let res = await fetch(btn.url)
-            if (!res.ok || res.headers.get('Content-Type')?.includes('text/html')) {
-                return new Response(await placeholder.toFormat(btn.format ?? 'png').toBuffer())
+            if (!btn.placeholder) {
+                let res = await fetch(btn.url)
+                if (res.ok && !res.headers.get('Content-Type')?.includes('text/html')) {
+                    return new Response(await res.arrayBuffer())
+                }
             }
-            return new Response(await res.arrayBuffer())
+
+            let title = btn.title.match(/.{1,9}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('');
+            if (btn.format !== 'svg') {
+                return new Response(await sharp(Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title))).toBuffer(btn.format))
+            }
+            return new Response(
+                Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title)),
+                {
+                    headers: {
+                        'Content-Type': 'image/svg+xml'
+                    }
+                }
+            )
         } else {
             return new Response('button not found', {
                 status: 404,
@@ -42,9 +56,24 @@ export const GET: APIRoute = async ({ params }) => {
             })
         }
     } catch (e) {
-        return new Response(`button fetch failed: ${e}`, {
-            status: 500,
-            statusText: 'button fetch failed'
-        })
+        if (btn) {
+            let title = btn.title.match(/.{1,9}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('');
+            if (btn.format !== 'svg') {
+                return new Response(await sharp(Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title))).toBuffer(btn.format))
+            }
+            return new Response(
+                Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title)),
+                {
+                    headers: {
+                        'Content-Type': 'image/svg+xml'
+                    }
+                }
+            )
+        } else {
+            return new Response('button fetch failed', {
+                status: 500,
+                statusText: 'button fetch failed'
+            })
+        }
     }
 }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="88"
+   height="31"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="placeholder.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="15.011364"
+     inkscape:cx="37.904618"
+     inkscape:cy="15.521575"
+     inkscape:window-width="1920"
+     inkscape:window-height="988"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <defs
+     id="defs9" />
+  <!-- 
+        jbSite4 Button 1 in SVG by jbcarreon123!
+        Feel free to hotlink, use or alter!
+
+        Made with some stuff from duducat's
+        "Enhanced by SMIL!" button
+    -->
+  <title
+     id="title1">jb's sitebutton</title>
+  <style
+     id="style1">
+        text {
+            font-size: 1.10rem;
+            font-family: &quot;Arial&quot;, &quot;FreeSans&quot;, sans-serif;
+            font-weight: bold;
+        }
+    </style>
+  <rect
+     width="88"
+     height="31"
+     fill="#343a40"
+     id="rect1" />
+  <text
+     xml:space="preserve"
+     style="font-size:13.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#4d4d4d"
+     x="12.190766"
+     y="29.111279"
+     id="text1"><tspan
+       sodipodi:role="line"
+       id="tspan1"
+       x="12.190766"
+       y="29.111279"
+       style="font-size:13.3333px;fill:#4d4d4d">placeholder</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:12px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#f9f9f9"
+     x="2.6646481"
+     y="4"
+     id="text9"><tspan
+       id="tspan9"
+       x="2.6646481"
+       y="4"
+       style="font-size:14px;">BTN_NAME</tspan></text>
+  <path
+     d="M 0 0 L 88 0 L 86 2 L 2 2 L 2 29 L 0 31 Z"
+     fill="#ced4da"
+     id="path8" />
+  <path
+     d="M 88 31 L 0 31 L 2 29 L 86 29 L 86 2 L 88 0 Z"
+     fill="#1d1f20"
+     id="path9" />
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>jb's sitebutton</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
