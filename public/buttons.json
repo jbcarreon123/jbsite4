@@ -435,7 +435,8 @@
     {
         "url": "https://commonpolarity.nekoweb.org/",
         "title": "",
-        "alt": "CommonPolarity"
+        "alt": "CommonPolarity",
+        "imgUrl": "/imgs/buttons/commpol.png"
     },
     {
         "url": "https://nonomo.nekoweb.org/",
