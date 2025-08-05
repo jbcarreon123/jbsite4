@@ -29,6 +29,12 @@ export const LinkObjs: LinkObj = [
                 reqJS: true,
             },
             {
+                name: "Contact me!",
+                path: "/contact/",
+                redirect: false,
+                icon: "contact_page"
+            },
+            {
                 name: "Follow me on Nekoweb!",
                 path: "https://nekoweb.org/follow/jbcarreon123.nekoweb.org",
                 redirect: true,

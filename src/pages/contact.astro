@@ -1,0 +1,202 @@
+---
+import ContactMe from "../components/Contact.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact JB" description="for your burning discussions!">
+    <h1>Contact me</h1>
+    <p>You can reach me out in these platforms!</p>
+    <div class="cards">
+        <div class="col">
+            <div class="card">
+                <h2>
+                    <a
+                        href="https://discord.com/users/908002848967626842"
+                        target="_blank"
+                        >Discord: @jbcrn <span
+                            aria-hidden="true"
+                            class="ms"
+                            data-icon="open_in_new"></span></a
+                    >
+                </h2>
+                <p>I'm active on these servers:</p>
+                <ul>
+                    <li>
+                        <a href="https://discord.gg/hvfHKyVS6b" target="_blank"
+                            >Nekoweb Discord <span
+                                aria-hidden="true"
+                                class="ms"
+                                data-icon="open_in_new"></span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://discord.gg/etaj8Pb7FS" target="_blank"
+                            >Pebble Lounge <span
+                                aria-hidden="true"
+                                class="ms"
+                                data-icon="open_in_new"></span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://discord.gg/TxWGcBmeEc" target="_blank"
+                            >Lua's Hotel <span
+                                aria-hidden="true"
+                                class="ms"
+                                data-icon="open_in_new"></span></a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>
+                    <a href="https://github.com/jbcarreon123" target="_blank"
+                        >GitHub: jbcarreon123 <span
+                            aria-hidden="true"
+                            class="ms"
+                            data-icon="open_in_new"></span></a
+                    >
+                </h2>
+                <a href="/projects">Looking at my projects?</a>
+            </div>
+            <div class="card">
+                <h2>
+                    <a href="mailto:jb@jbc.lol" target="_blank"
+                        >Email: jb [at] jbc [dot] lol <span
+                            aria-hidden="true"
+                            class="ms"
+                            data-icon="open_in_new"></span></a
+                    >
+                </h2>
+                <p>You can also use the contact form below!</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <h2>
+                    <a href="https://bsky.app/profile/jbc.lol" target="_blank"
+                        >Bluesky: @jbc.lol <span
+                            aria-hidden="true"
+                            class="ms"
+                            data-icon="open_in_new"></span></a
+                    >
+                </h2>
+            </div>
+            <div class="card">
+                <h2>
+                    <a href="https://spacehey.com/jbcarreon123" target="_blank"
+                        >Spacehey: jbcarreon123 <span
+                            aria-hidden="true"
+                            class="ms"
+                            data-icon="open_in_new"></span></a
+                    >
+                </h2>
+            </div>
+            <div class="card">
+                <h2>
+                    <a
+                        href="https://fosstodon.org/@jbcarreon123"
+                        target="_blank"
+                        >Mastodon: jbcarreon123 @ fosstodon.org <span
+                            aria-hidden="true"
+                            class="ms"
+                            data-icon="open_in_new"></span></a
+                    >
+                </h2>
+            </div>
+            <div class="card">
+                <h2>SHARP: jb#twoblade.com</h2>
+                <p>
+                    You can use any SHARP clients, like
+                    <a href="https://twoblade.com" target="_blank"
+                        >Twoblade <span
+                            aria-hidden="true"
+                            class="ms"
+                            data-icon="open_in_new"></span></a
+                    >.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card contact">
+        <h2>You can also contact me here!</h2>
+        <ContactMe />
+    </div>
+
+    <style is:inline>
+        img {
+            image-rendering: pixelated;
+            position: relative;
+            z-index: 2;
+        }
+
+        img:hover {
+            z-index: 50;
+            transform: scale(1.25);
+            filter: blur(0);
+        }
+
+        .about-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .about-buttons:has(img:hover) img:not(:hover),
+        #albums:has(img:hover) img:not(:hover) {
+            z-index: 1;
+            opacity: 0.5;
+            filter: blur(1px);
+        }
+
+        tr td:first-child {
+            width: 80px;
+        }
+
+        tr td:last-child {
+            padding-left: 8px;
+        }
+
+        #albums img {
+            width: 128px;
+            height: auto;
+        }
+
+        #specs,
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+
+        .cards .col {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card {
+            padding: 6px;
+            background: var(--acc);
+        }
+
+        .card.contact {
+            margin-top: 6px;
+        }
+
+        .card h2 {
+            padding-top: 0;
+        }
+
+        .card ul {
+            margin-left: 0;
+        }
+
+        @media screen and (width <= 640px) {
+            #specs,
+            .cards {
+                grid-template-columns: repeat(1, 100%);
+            }
+        }
+    </style>
+</Layout>
