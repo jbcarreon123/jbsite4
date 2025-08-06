@@ -29,7 +29,7 @@ export const GET: APIRoute = async ({ params }) => {
 	}
 
 	return await satoriAstroOG({
-		template: html`
+	template: html`
 			<div class="container">
 				<div class="bg-image"></div>
 				<div class="info">
