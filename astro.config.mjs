@@ -134,7 +134,7 @@ if (process.env.GITHUB_ACTIONS === 'true') {
   nkw.push(nekoweb({
     apiKey: env.NEKOWEB_APIKEY,
     cookie: env.NEKOWEB_COOKIE,
-    domain: 'jbcarreon123.nekoweb.org',
+    domain: 'jbc.lol',
     siteName: 'jbcarreon123',
     rssFeed: '/nekoweb.xml'
   }));
@@ -144,7 +144,7 @@ if (process.env.GITHUB_ACTIONS === 'true') {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jbcarreon123.nekoweb.org",
+  site: "https://jbc.lol",
 
   scopedStyleStrategy: 'class',
 

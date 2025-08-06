@@ -1,6 +1,6 @@
 <script lang="ts">
 	async function loadStats() {
-        const request = await fetch(`https://nekoweb.org/api/site/info/jbcarreon123.nekoweb.org`,);
+        const request = await fetch(`https://nekoweb.org/api/site/info/jbc.lol`,);
         let json = await request.json();
 
         return {
