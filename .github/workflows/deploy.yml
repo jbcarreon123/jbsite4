@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: nekoweb
-      url: 'https://jbcarreon123.nekoweb.org'
+      url: 'https://jbc.lol'
     steps:
       - name: Checkout
         uses: actions/checkout@v3

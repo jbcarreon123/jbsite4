@@ -52,7 +52,7 @@ be mentioning all of them (but if you want to, people seems to like [Dreamhost](
 hosting, and [Porkbun](https://porkbun.com/) for domains).
 
 > 🗒️ Domains and subdomains are different. Subdomains are `[your-name].[service-name].[tld]`
-> like jbcarreon123.nekoweb.org (nekoweb.org is the domain) or jb.is-a.dev (is-a.dev is the domain).
+> like jbc.lol (nekoweb.org is the domain) or jb.is-a.dev (is-a.dev is the domain).
 
 # Static vs Dynamic sites
 Have you seen I mentioned "static"? That's because there are 2 kinds of websites,

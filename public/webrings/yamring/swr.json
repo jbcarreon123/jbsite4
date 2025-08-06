@@ -1,11 +1,11 @@
 {
     "name": "YAMring",
     "description": "yet another meta webring. used to showcase simple-webring-redirect.",
-    "url": "//jbcarreon123.nekoweb.org/webrings/yamring",
+    "url": "//jbc.lol/webrings/yamring",
     "members": [
         {
             "username": "jbcarreon123",
-            "url": "//jbcarreon123.nekoweb.org"
+            "url": "//jbc.lol"
         },
         {
             "username": "8y7",

@@ -36,7 +36,7 @@ export const LinkObjs: LinkObj = [
             },
             {
                 name: "Follow me on Nekoweb!",
-                path: "https://nekoweb.org/follow/jbcarreon123.nekoweb.org",
+                path: "https://nekoweb.org/follow/jbc.lol",
                 redirect: true,
                 icon: "add"
             }

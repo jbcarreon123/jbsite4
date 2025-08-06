@@ -19,7 +19,7 @@ Let's see 2 common accessibility issues on webring widgets:
 This is really common, especially if the webring primarily uses images on their widget. This shouldn't be a difficult thing to fix as you'll just put a single attribute on your img tags, the `alt` attribute:
 
 ```html
-<img src="https://jbcarreon123.nekoweb.org/wr/testring/previous.png" alt="Previous page" />
+<img src="https://jbc.lol/wr/testring/previous.png" alt="Previous page" />
 ```
 
 It's mindblowingly easy to fix as you can just put alt attributes on all of them, and it's fixed!

@@ -1,11 +1,11 @@
 [
     {
-        "host": "jbcarreon123.nekoweb.org",
+        "host": "jbc.lol",
         "username": "jbcarreon123",
         "framework": "<a href='https://www.astro.build/' target='_blank'>Astro</a>",
         "pitch": "A personal website that contains my ramblings and stuff. Also contains my personal projects.",
         "type": "14+",
-        "button": "https://jbcarreon123.nekoweb.org/sitebuttonv2.png"
+        "button": "https://jbc.lol/sitebuttonv2.png"
     },
     {
         "host": "reduxflakes.nekoweb.org",

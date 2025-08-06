@@ -5,7 +5,7 @@ export const GET: APIRoute = async ({ params }) => {
     let m = {
         name: 'Responeko Ring',
         description: 'A webring for Nekoweb sites that is responsive by design',
-        url: 'https://jbcarreon123.nekoweb.org/webrings/responeko/',
+        url: 'https://jbc.lol/webrings/responeko/',
         members: Members.map((m) => ({
             username: m.host,
             url: `//${m.host}`

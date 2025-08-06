@@ -35,4 +35,4 @@ You can utilize flexboxes and grids in your layout! It can also serve as the fra
 You can also use things like media queries, and stuff so your layout can easily adapt to your needs in mobile mode.
 
 ## and is there any resources that I can follow?
-My post about [Web Responsiveness](https://jbcarreon123.nekoweb.org/posts/web-responsiveness-do-it/) has some resources that you can follow, and [Loveberry](https://loveberry.nekoweb.org/links) also contains some resources that you can use.
+My post about [Web Responsiveness](https://jbc.lol/posts/web-responsiveness-do-it/) has some resources that you can follow, and [Loveberry](https://loveberry.nekoweb.org/links) also contains some resources that you can use.
