@@ -2,7 +2,7 @@
 import '../styles/fa-brands.css';
 const { title, id, description } = Astro.props;
 const { url, site } = Astro;
-const ogImage = '/imgs/og' + (url.pathname === '' ? '/index' : url.pathname).replace(/\/$/, "") + '/';
+const ogImage = 'https://' + url.hostname + '/imgs/og' + (url.pathname === '' ? '/index' : url.pathname).replace(/\/$/, "") + '/';
 import { ClientRouter } from "astro:transitions";
 ---
 
