@@ -88,7 +88,7 @@ export const GET: APIRoute = async ({ params }) => {
 					width: 100vw;
 					height: 100vh;
 					display: flex;
-					padding: 36px;
+					padding: 60px;
 				}
 
 				.placeholder { 
