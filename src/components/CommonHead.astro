@@ -2,10 +2,7 @@
 import '../styles/fa-brands.css';
 const { title, id, description } = Astro.props;
 const { url, site } = Astro;
-const ogImage = url
-    .toString()
-    .replace("/posts/", "/post-og/")
-    .replace(/\/$/, "");
+const ogImage = '/imgs/og' + (url.pathname === '/' ? '/index' : url.pathname).replace(/\/$/, "");
 import { ClientRouter } from "astro:transitions";
 ---
 
@@ -80,26 +77,26 @@ import { ClientRouter } from "astro:transitions";
     property="og:type"
     content={url.pathname.includes("posts") ? "article" : "website"}
 />
-<meta property="twitter:image" content={ogImage + ".png"} />
+<meta property="twitter:image" content={ogImage + ".webp"} />
 
 <!-- Alternate links -->
 <link
     rel="alternate"
     type="application/rss+xml"
     title="jb's posts"
-    href={new URL("feed.xml", Astro.site)}
+    href={new URL("feed.xml", new URL(Astro.url))}
 />
 <link
     rel="alternate"
     type="application/atom+xml"
     title="jb's posts"
-    href={new URL("feed.atom", Astro.site)}
+    href={new URL("feed.atom", new URL(Astro.url))}
 />
 <link
     rel="alternate"
     type="application/json"
     title="jb's posts"
-    href={new URL("feed.json", Astro.site)}
+    href={new URL("feed.json", new URL(Astro.url))}
 />
 <link rel="me" href="https://fosstodon.org/@jbcarreon123" />
 
