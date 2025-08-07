@@ -22,8 +22,6 @@ const pagesTitles = pagesRendered.map(v => ({ ...getTitle(v.html), url: (!!v.url
 
 const placeholder = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzM1M2I0MSIvPjxwYXRoIGZpbGw9IiMyMjI2MmEiIGQ9Ik0wIDBoMTB2MTBIMHpNMTAgMTBoMTB2MTBIMTB6Ii8+PC9zdmc+";
 
-console.log(pagesTitles);
-
 function getTitle(html: string) {
 	const c = cheerio.load(html);
 	const t = c('title').text();
@@ -52,8 +50,6 @@ export const GET: APIRoute = async ({ params }) => {
 
 	if ((!post || !post.frontmatter) && (!page)) return new Response(null);
 
-	let chunk = post.frontmatter.background.split('.');
-	let format = chunk[chunk.length - 1];
 	if (existsSync('./public' + post.frontmatter.background)) {
 		img = `data:image/png;base64,` + (await sharp(readFileSync('./public' + post.frontmatter.background)).png().toBuffer()).toString('base64');
 	}
