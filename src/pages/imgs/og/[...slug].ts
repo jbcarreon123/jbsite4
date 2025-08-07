@@ -50,7 +50,7 @@ export const GET: APIRoute = async ({ params }) => {
 
 	if ((!post || !post.frontmatter) && (!page)) return new Response(null);
 
-	if (existsSync('./public' + post.frontmatter.background)) {
+	if (existsSync('./public' + post?.frontmatter?.background)) {
 		img = `data:image/png;base64,` + (await sharp(readFileSync('./public' + post.frontmatter.background)).png().toBuffer()).toString('base64');
 	}
 
@@ -62,7 +62,7 @@ export const GET: APIRoute = async ({ params }) => {
 				<div class="info">
 					<p class="tg">https://<b>jbc.lol</b>${(page?.url === '/index' ? '/' : page?.url) ?? post.url}</p>
 					<div class="title">
-						<h1>${page?.title ?? post?.frontmatter.title}</h1>
+						<h1>${page?.title ?? post?.frontmatter?.title ?? "jb's site"}</h1>
 					</div>
 				</div>
 			</div>
