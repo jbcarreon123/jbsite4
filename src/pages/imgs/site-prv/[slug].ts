@@ -33,7 +33,7 @@ export const GET: APIRoute = async ({ params }) => {
                 height: 900
             }
         });
-        context.setDefaultTimeout(60000);
+        context.setDefaultTimeout(120000);
         const page = await context.newPage();
         await page.setExtraHTTPHeaders({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 jbSite4-SBR/2.0.0 (jb+sbr@jbc.lol)',
@@ -53,7 +53,7 @@ export const GET: APIRoute = async ({ params }) => {
             if (button?.clickElm) {
                 page.click(button.clickElm);
             }
-            await page.waitForTimeout(2000);
+            await page.waitForTimeout(1500);
         } catch {
             console.log('Timeout exceeded, screenshoting while page isn\'t fully loaded yet...')
         }
@@ -61,9 +61,8 @@ export const GET: APIRoute = async ({ params }) => {
             type: 'png',
         })
         const webpBuf = sharp(imageBuf)
-            .webp()
             .resize(1280, 720)
-            .toBuffer();
+            .toFormat('webp');
 
         await page.close();
         await context.close();
