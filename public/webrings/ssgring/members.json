@@ -86,5 +86,13 @@
         "button": "https://sheep.nekoweb.org/assets/mybutton.gif",
         "type": "13+",
         "pitch": "Collections and ramblings about things I enjoy :3"
+    },
+    {
+        "host": "snails.town",
+        "username": "snails",
+        "framework": "<a href='https://www.11ty.dev/' target='_blank'>Eleventy</a>",
+        "button": "https://snails.town/images/buttons/sites/snailsv2.png",
+        "type": "14+",
+        "pitch": "snail-paced digital diary"
     }
 ]
