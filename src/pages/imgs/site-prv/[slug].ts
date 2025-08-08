@@ -27,12 +27,16 @@ export const GET: APIRoute = async ({ params }) => {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
         const context = await browser.newContext({
-            colorScheme: 'dark'
+            colorScheme: 'dark',
+            viewport: {
+                width: 1600,
+                height: 900
+            }
         });
         context.setDefaultTimeout(60000);
         const page = await context.newPage();
         await page.setExtraHTTPHeaders({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 jbSite4-SBR/2.0.0 (jb+sbr@jbc.lol)',
             'Accept-Language': 'en-US,en;q=0.9'
         })
 
@@ -57,7 +61,9 @@ export const GET: APIRoute = async ({ params }) => {
             type: 'png',
         })
         const webpBuf = sharp(imageBuf)
-            .toFormat('webp');
+            .webp()
+            .resize(1280, 720)
+            .toBuffer();
 
         await page.close();
         await context.close();
