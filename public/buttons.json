@@ -15,13 +15,15 @@
         "url": "https://rice.place/",
         "title": "rice.place",
         "alt": "rice.place",
-        "imgUrl": "https://rice.nekoweb.org/button/ricenodot.png"
+        "imgUrl": "https://rice.nekoweb.org/button/ricenodot.png",
+        "startPath": "/home.html"
     },
     {
         "url": "https://darkosparko.nekoweb.org/",
         "title": "Rocket into the Spark-web!",
         "alt": "darkosparko",
-        "imgUrl": "https://darkosparko.nekoweb.org/rocket-button.gif"
+        "imgUrl": "https://darkosparko.nekoweb.org/rocket-button.gif",
+        "startPath": "/home.html"
     },
     {
         "url": "https://max.nekoweb.org/",
@@ -75,7 +77,8 @@
         "url": "https://beaus-silly-folder.nekoweb.org/",
         "title": "Beau's Silly Folder",
         "alt": "Beau's Silly Folder",
-        "imgUrl": "https://beaus-silly-folder.nekoweb.org/BSF.gif"
+        "imgUrl": "https://beaus-silly-folder.nekoweb.org/BSF.gif",
+        "startPath": "/pages/hello-world"
     },
     {
         "url": "https://toasty.place/",
@@ -87,7 +90,8 @@
         "url": "https://biofreak.world/",
         "title": "biofreak.world",
         "alt": "biofreak.world",
-        "imgUrl": "https://biofreak.world/sitebuttons/biofreak-light.png"
+        "imgUrl": "https://biofreak.world/sitebuttons/biofreak-light.png",
+        "startPath": "/welcome.html"
     },
     {
         "url": "https://amoebalous.net/",
@@ -105,7 +109,8 @@
         "url": "https://bang1338.nekoweb.org/",
         "title": "Bang1338",
         "alt": "Bang1338",
-        "imgUrl": "https://bang1338.nekoweb.org/bang1338.gif"
+        "imgUrl": "https://bang1338.nekoweb.org/bang1338.gif",
+        "clickElm": "#expandingButton"
     },
     {
         "url": "https://bntarwarn.com/",
@@ -135,7 +140,8 @@
         "url": "https://chataigne.nekoweb.org/",
         "title": "Chataigne Online",
         "alt": "Chataigne Online",
-        "imgUrl": "https://chataigne.nekoweb.org/button1.jpg"
+        "imgUrl": "https://chataigne.nekoweb.org/button1.jpg",
+        "startPath": "/welcome_page.html"
     },
     {
         "url": "https://exclave.city/",
@@ -333,7 +339,8 @@
         "url": "https://chromix.nekoweb.org/",
         "title": "CHROMATOGRAPHICS",
         "alt": "CHROMIX's web archive",
-        "imgUrl": "https://chromix.nekoweb.org/assets/kromix_button.png"
+        "imgUrl": "https://chromix.nekoweb.org/assets/kromix_button.png",
+        "startPath": "/home.html"
     },
     {
         "url": "https://glassy-website.nekoweb.org/",
@@ -375,7 +382,8 @@
         "url": "https://cufustis-cool-kitchen.nekoweb.org/",
         "title": "peep some terraria biomes while you're websurfin'",
         "alt": "Cufusti's Cool Kitchen",
-        "imgUrl": "https://cufustis-cool-kitchen.nekoweb.org/some%20images%20just%20in%20case/cufusti-button.png"
+        "imgUrl": "https://cufustis-cool-kitchen.nekoweb.org/some%20images%20just%20in%20case/cufusti-button.png",
+        "startPath": "/pylon-zone"
     },
     {
         "url": "https://thumtacka.nekoweb.org/",
@@ -436,7 +444,8 @@
         "url": "https://commonpolarity.nekoweb.org/",
         "title": "",
         "alt": "CommonPolarity",
-        "imgUrl": "/imgs/buttons/commpol.png"
+        "imgUrl": "/imgs/buttons/commpol.png",
+        "startPath": "/site/"
     },
     {
         "url": "https://nonomo.nekoweb.org/",
@@ -448,6 +457,7 @@
         "url": "https://bugwatcher.nekoweb.org/",
         "title": "Pixel art of a black-haired character with antennae in a suit. Pixel-styled text reads SEND ORGANS",
         "alt": "Bugwatcher",
-        "imgUrl": "https://bugwatcher.nekoweb.org/images/bugwatcherButton.gif"
+        "imgUrl": "https://bugwatcher.nekoweb.org/images/bugwatcherButton.gif",
+        "startPath": "/home"
     }
 ]
