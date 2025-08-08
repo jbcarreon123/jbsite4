@@ -24,6 +24,8 @@ export function getStaticPaths() {
 export const GET: APIRoute = async ({ params }) => {
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
+
+        const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
         const context = await browser.newContext({
             colorScheme: 'dark'
         });
@@ -34,7 +36,7 @@ export const GET: APIRoute = async ({ params }) => {
             'Accept-Language': 'en-US,en;q=0.9'
         })
 
-        const response = await page.goto('https://' + params.slug?.replace('.webp', ''), {
+        const response = await page.goto(button?.url.replace(/\/$/, '') + (button?.startPath ?? ''),  {
             waitUntil: 'domcontentloaded'
         });
         if (response?.status() >= 400) {
@@ -44,6 +46,10 @@ export const GET: APIRoute = async ({ params }) => {
             await page.waitForLoadState('networkidle', {
                 timeout: 15000
             });
+            if (button?.clickElm) {
+                page.click(button.clickElm);
+                await page.waitForTimeout(1000);
+            }
         } catch {
             console.log('Timeout exceeded, screenshoting while page isn\'t fully loaded yet...')
         }
