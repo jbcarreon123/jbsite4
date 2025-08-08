@@ -22,10 +22,10 @@ export function getStaticPaths() {
 }
 
 export const GET: APIRoute = async ({ params }) => {
+    const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
-        const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
         const context = await browser.newContext({
             colorScheme: 'dark'
         });
@@ -67,7 +67,7 @@ export const GET: APIRoute = async ({ params }) => {
         let bg = await satoriAstroOG({
                 template: html`
                     <div class="container">
-                        <h1>${'https://' + params.slug?.replace('.webp', '')} failed to load!</h1>
+                        <h1>${button?.url.replace(/\/$/, '') + (button?.startPath ?? '')} failed to load!</h1>
                         <p>${e}</p>
                     </div>
         
