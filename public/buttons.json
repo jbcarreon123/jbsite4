@@ -443,5 +443,11 @@
         "title": "NO RULES",
         "alt": "NONOMO",
         "imgUrl": "https://nonomo.nekoweb.org/rsrc/button.gif"
+    },
+    {
+        "url": "https://bugwatcher.nekoweb.org/",
+        "title": "Pixel art of a black-haired character with antennae in a suit. Pixel-styled text reads SEND ORGANS",
+        "alt": "Bugwatcher",
+        "imgUrl": "https://bugwatcher.nekoweb.org/images/bugwatcherButton.gif"
     }
 ]
