@@ -44,7 +44,7 @@ export const GET: APIRoute = async ({ params }) => {
             waitUntil: 'domcontentloaded'
         });
         if (response?.status() >= 400) {
-            throw new Error(`SBR Page Load failed with status code ${response.status()}`);
+            // throw new Error(`SBR Page Load failed with status code ${response.status()}`);
         }
         try {
             await page.waitForLoadState('networkidle', {
