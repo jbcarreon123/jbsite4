@@ -48,8 +48,8 @@ export const GET: APIRoute = async ({ params }) => {
             });
             if (button?.clickElm) {
                 page.click(button.clickElm);
-                await page.waitForTimeout(1000);
             }
+            await page.waitForTimeout(2000);
         } catch {
             console.log('Timeout exceeded, screenshoting while page isn\'t fully loaded yet...')
         }
