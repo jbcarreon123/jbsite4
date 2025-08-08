@@ -35,7 +35,8 @@
         "url": "https://ddnikki.nekoweb.org/",
         "title": "DDNikki",
         "alt": "DDNikki",
-        "imgUrl": "https://ddnikki.nekoweb.org/images/nikkibutton.gif"
+        "imgUrl": "https://ddnikki.nekoweb.org/images/nikkibutton.gif",
+        "startPath": "/home"
     },
     {
         "url": "https://drfred.nekoweb.org/",
@@ -47,7 +48,8 @@
         "url": "https://ultrakill.nekoweb.org/",
         "title": "click for a FREE gabriel plushie!",
         "alt": "Ultrakill",
-        "imgUrl": "https://ultrakill.nekoweb.org/awawawawa.png"
+        "imgUrl": "https://ultrakill.nekoweb.org/awawawawa.png",
+        "startPath": "/home"
     },
     {
         "url": "https://july.lol/",
@@ -71,7 +73,8 @@
         "url": "https://layercake.nekoweb.org/",
         "title": "Layercake",
         "alt": "Layercake",
-        "imgUrl": "https://files.catbox.moe/h7nelz.gif"
+        "imgUrl": "https://files.catbox.moe/h7nelz.gif",
+        "clickElm": "#visitorbutton"
     },
     {
         "url": "https://beaus-silly-folder.nekoweb.org/",
@@ -147,7 +150,8 @@
         "url": "https://exclave.city/",
         "title": "Explore Exclave",
         "alt": "Explore Exclave",
-        "imgUrl": "https://exclave.city/images/button1.gif"
+        "imgUrl": "https://exclave.city/images/button1.gif",
+        "startPath": "/plaza.html"
     },
     {
         "url": "https://reduxflakes.nekoweb.org/",
@@ -159,13 +163,15 @@
         "url": "https://libraryofgurkistan.nekoweb.org/",
         "title": "HELLO MORTAL",
         "alt": "HELLO MORTAL",
-        "imgUrl": "/imgs/buttons/hellomortal.png"
+        "imgUrl": "/imgs/buttons/hellomortal.png",
+        "startPath": "/home"
     },
     {
         "url": "https://duducat.moe/",
         "title": "duducat's corner on the interwebz!",
         "alt": "duducat",
-        "imgUrl": "/imgs/buttons/duducat.svg"
+        "imgUrl": "/imgs/buttons/duducat.svg",
+        "startPath": "/?main"
     },
     {
         "url": "https://theoliveoli.nekoweb.org/",
@@ -177,19 +183,22 @@
         "url": "https://yumeoi.skin/",
         "title": "yumeoi.skin",
         "alt": "yumeoi.skin",
-        "imgUrl": "/imgs/buttons/yumeo.gif"
+        "imgUrl": "/imgs/buttons/yumeo.gif",
+        "startPath": "/home.html"
     },
     {
         "url": "https://eyeorb.net/",
         "title": "eyeorb.net",
         "alt": "eyeorb.net",
-        "imgUrl": "https://eyeorb.net/site_button.gif"
+        "imgUrl": "https://eyeorb.net/site_button.gif",
+        "startPath": "/main.html"
     },
     {
         "url": "https://thepersonever.net/",
         "title": "thepersonever",
         "alt": "thepersonever",
-        "imgUrl": "https://thepersonever.net/thepersoneverbutton.gif"
+        "imgUrl": "https://thepersonever.net/thepersoneverbutton.gif",
+        "startPath": "/home"  
     },
     {
         "url": "https://aoki553.nekoweb.org/",
@@ -201,7 +210,7 @@
         "url": "https://satorikeiko.nekoweb.org/",
         "title": "Satorikeiko",
         "alt": "Satorikeiko",
-        "imgUrl": "/imgs/buttons/satorikeiko.png"
+        "imgUrl": "/imgs/buttons/satorikeiko.png",
     },
     {
         "url": "https://ceat.nekoweb.org/",
@@ -243,7 +252,8 @@
         "url": "https://reigen.moe/",
         "title": "reigen",
         "alt": "reigen",
-        "imgUrl": "https://reigen.moe/image/88by31.gif"
+        "imgUrl": "https://reigen.moe/image/88by31.gif",
+        "startPath": "/home.html"
     },
     {
         "url": "https://luxfero.nekoweb.org/",
@@ -256,12 +266,6 @@
         "title": "metatronius",
         "alt": "metatronius",
         "imgUrl": "https://metatronius.net/buttons/2.png"
-    },
-    {
-        "url": "https://tsukinio.nekoweb.org/",
-        "title": "Chiikawa Edition",
-        "alt": "tsukinio",
-        "imgUrl": "/imgs/buttons/tsukinio.gif"
     },
     {
         "url": "https://medjed.nekoweb.org/",
@@ -279,7 +283,8 @@
         "url": "https://demgoze.nekoweb.org",
         "title": "Demgoze",
         "alt": "demgoze",
-        "imgUrl": "/imgs/buttons/demgoze.png"
+        "imgUrl": "/imgs/buttons/demgoze.png",
+        "startPath": "/home.html"
     },
     {
         "url": "https://petrapixel.neocities.org",
@@ -288,16 +293,18 @@
         "imgUrl": "https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif"
     },
     {
-        "url": "https://deadonrip.nekoweb.org",
+        "url": "https://deadon.rip",
         "title": "Dead On RIP",
         "alt": "deadonrip",
-        "imgUrl": "https://deadonrip.nekoweb.org/style/dead-on-button.gif"
+        "imgUrl": "https://deadonrip.nekoweb.org/style/dead-on-button.gif",
+        "startPath": "/home"
     },
     {
         "url": "https://puddingpudd.com",
         "title": "Pudding's Cove",
         "alt": "puddingpudd",
-        "imgUrl": "https://puddingpudd.com/buttons/Pudd_Button.gif"
+        "imgUrl": "https://puddingpudd.com/buttons/Pudd_Button.gif",
+        "startPath": "/Home_Comfy_Home"
     },
     {
         "url": "https://cathaks.nekoweb.org",
@@ -309,13 +316,15 @@
         "url": "https://mec-v02.nekoweb.org/",
         "title": "Pixel art of a mini terminal console window. Inside it, it says 'MEC_v02'.",
         "alt": "MEC_v02",
-        "imgUrl": "https://mec-v02.nekoweb.org/images/buttons/mec_v02.gif"
+        "imgUrl": "https://mec-v02.nekoweb.org/images/buttons/mec_v02.gif",
+        "clickElm": "button[aria-description='Proceed to site.']"
     },
     {
         "url": "https://seeingstarz.nekoweb.org/",
         "title": "Pry's silly site",
         "alt": "seeingstarz",
-        "imgUrl": "https://seeingstarz.nekoweb.org/images/seeingstarz%20gif.gif"
+        "imgUrl": "https://seeingstarz.nekoweb.org/images/seeingstarz%20gif.gif",
+        "startPath": "/homepage.html"
     },
     {
         "url": "https://lexp.dev/en/index.html",
@@ -333,7 +342,8 @@
         "url": "https://moondvsted.space/",
         "title": "stel @ moondvsted",
         "alt": "stel @ moondvsted",
-        "imgUrl": "/imgs/buttons/stel-at-moondvsted.gif"
+        "imgUrl": "/imgs/buttons/stel-at-moondvsted.gif",
+        "startPath": "/home"
     },
     {
         "url": "https://chromix.nekoweb.org/",
@@ -364,7 +374,8 @@
         "url": "https://scythe.nekoweb.org/",
         "title": "Digital Scythesizing of My Mind ~ 了解！",
         "alt": "Scytheisizer",
-        "imgUrl": "https://scythe.nekoweb.org/scytheisizerbtn.png"
+        "imgUrl": "https://scythe.nekoweb.org/scytheisizerbtn.png",
+        "startPath": "/REBOOT-V1/pages/home"
     },
     {
         "url": "https://wiggle.monster/",
@@ -376,7 +387,8 @@
         "url": "https://pokestitch.nekoweb.org/",
         "title": "stitchin' mons",
         "alt": "Pokestitch",
-        "imgUrl": "https://pokestitch.nekoweb.org/images/animated.gif"
+        "imgUrl": "https://pokestitch.nekoweb.org/images/animated.gif",
+        "startPath": "/top.html"
     },
     {
         "url": "https://cufustis-cool-kitchen.nekoweb.org/",
@@ -389,7 +401,8 @@
         "url": "https://thumtacka.nekoweb.org/",
         "title": "Thumtacka's Half-assed Domain",
         "alt": "Thumtacka",
-        "imgUrl": "https://thumtacka.nekoweb.org/booton.gif"
+        "imgUrl": "https://thumtacka.nekoweb.org/booton.gif",
+        "startPath": "/main.html"
     },
     {
         "url": "https://rover.nekoweb.org/",
@@ -422,10 +435,10 @@
         "imgUrl": "https://laura.nekoweb.org/img/banner.webp"
     },
     {
-        "url": "https://toriii.nekoweb.org/",
+        "url": "https://toriii.dev/",
         "title": "",
         "alt": "Tori's Corner!",
-        "imgUrl": "https://toriii.nekoweb.org/img/button.png"
+        "imgUrl": "https://toriii.dev/img/button.png"
     },
     {
         "url": "https://32enoki.net/",
@@ -438,7 +451,8 @@
         "title": "the cozy lil' webzone of a silly lil' Cait'si artist.",
         "alt": "heyitsjustpIxel",
         "imgUrl": "https://hijpixel.nekoweb.org/img/buttons/hijpixel/button-88x31.gif",
-        "eighteen": true
+        "eighteen": true,
+        "startPath": "/home?page=/homepage"
     },
     {
         "url": "https://commonpolarity.nekoweb.org/",
@@ -451,7 +465,8 @@
         "url": "https://nonomo.nekoweb.org/",
         "title": "NO RULES",
         "alt": "NONOMO",
-        "imgUrl": "https://nonomo.nekoweb.org/rsrc/button.gif"
+        "imgUrl": "https://nonomo.nekoweb.org/rsrc/button.gif",
+        "startPath": "/home"
     },
     {
         "url": "https://bugwatcher.nekoweb.org/",
