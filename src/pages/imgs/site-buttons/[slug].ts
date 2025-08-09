@@ -45,7 +45,8 @@ export const GET: APIRoute = async ({ params }) => {
                 Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title)),
                 {
                     headers: {
-                        'Content-Type': 'image/svg+xml'
+                        'Content-Type': 'image/svg+xml',
+                        'User-Agent': 'jbSite4-SBR/2.0.0 (jb+sbr@jbc.lol)'
                     }
                 }
             )
