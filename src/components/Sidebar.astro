@@ -2,8 +2,6 @@
 const { pathname } = Astro.url;
 const { title, id, description } = Astro.props;
 import { LinkObjs } from "../assets/links";
-
-console.log(pathname)
 ---
 
 <aside data-active-page={id} id="sidebar">

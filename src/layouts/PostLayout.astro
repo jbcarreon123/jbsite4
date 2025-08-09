@@ -4,8 +4,6 @@ import CommentWidget from '../components/CommentWidget.svelte';
 import '../styles/post.css';
 import '../styles/comment-widget-dark.css';
 const { frontmatter, headings } = Astro.props;
-
-console.log(headings);
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description} id="posts">

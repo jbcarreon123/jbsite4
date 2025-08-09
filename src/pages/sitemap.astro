@@ -1,0 +1,287 @@
+---
+import BgOnlyLayout from "../layouts/BgOnlyLayout.astro";
+import { getLinks } from "../assets/sitemap";
+const LinkObjs = getLinks();
+---
+
+<BgOnlyLayout title="start test">
+    <div class="jbs-start">
+        <div class="top-links">
+            <div class="links">
+                {
+                    LinkObjs.map((a) => (
+                        <a
+                            href={
+                                "#" +
+                                a.name
+                                    ?.toLocaleLowerCase()
+                                    .replaceAll(" ", "-")
+                                    .replaceAll("&-", "")
+                            }
+                        >
+                            <h1>{a.name ?? "jb's site"}</h1>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+        <div class="links">
+            {
+                LinkObjs.map((a) => (
+                    <div
+                        class="links-container"
+                        id={
+                            "" +
+                            a.name
+                                ?.toLocaleLowerCase()
+                                .replaceAll(" ", "-")
+                                .replaceAll("&-", "")
+                        }
+                    >
+                        {a.links.map((b) => (
+                            <a href={b.path} style={!!b.innerHTML ? '--w: 420px' : ''}>
+                                {!!b.innerHTML ? 
+                                    <div set:html={b.innerHTML}></div> :
+                                    <span
+                                        class="ms"
+                                        data-icon={b.icon}
+                                        aria-hidden="true"
+                                    />  
+                                }
+                                <p>{b.name}</p>
+                            </a>
+                        ))}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const linkElms = document.querySelectorAll(
+                ".links .links-container",
+            );
+            const linkVals: HTMLAnchorElement[][] = Object.values(linkElms).map(e => Object.values(e.querySelectorAll('a')));
+            const topLinkElms: HTMLAnchorElement[] = Object.values(
+                document.querySelectorAll(".top-links a"),
+            );
+            const links = document.querySelector(".top-links .links");
+
+            const obsv = new IntersectionObserver((e) => {
+                e.forEach((en) => {
+                    let link = topLinkElms.find((a) =>
+                        a.href.includes(en.target.id),
+                    );
+                    if (en.isIntersecting) {
+                        topLinkElms.forEach((a) =>
+                            a.classList.remove("active"),
+                        );
+                        link?.scrollIntoView({
+                            block: "nearest",
+                            inline: "start",
+                        });
+                        link?.classList.add("active");
+                    }
+                }
+            );
+            }, { threshold: 0.05 });
+
+            linkElms.forEach((e) => obsv.observe(e));
+
+            // NEKOWEB FOLLOWERS
+            const flwrs = linkVals[0].find(a => a.href.includes('nekoweb.org'));
+            flwrs?.style.setProperty('--w', '420px')
+            try {
+                const flws = await fetch('https://nekoweb.org/api/site/info/jbc.lol');
+                const json = await flws.json();
+                const span = flwrs?.querySelector('span');
+                span?.classList.remove('ms');
+                span.innerHTML = json.followers + '<span style="font-size:0.35em;"> followers</span>'
+            } catch {}
+
+            const time = linkVals[1].find(a => a.href.includes('time'));
+            time?.style.setProperty('--w', '420px');
+            try {
+                const span = time?.querySelector('span');
+                span?.classList.remove('ms');
+                updateClock(span);
+                setInterval(() => updateClock(span), 950)
+            } catch {}
+        });
+
+        // @ts-ignore
+        function updateClock(time) {
+            const now = new Date();
+            const clockHM = now.toLocaleTimeString('en-US', {
+                timeZone: 'Asia/Manila',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            }).split(' ');
+
+            time.innerHTML = clockHM[0] + '<span style="font-size:0.35em;"> ' + clockHM[1] + '</span>';
+        }
+    </script>
+
+    <style scoped>
+        .jbs-start {
+            max-width: 100dvw;
+            min-height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .top-links {
+                max-width: 100dvw;
+                overflow: hidden;
+                position: fixed;
+                top: 0;
+                z-index: 1;
+                background: linear-gradient(to bottom, var(--altbg), transparent);
+
+                .links {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 36px;
+                    padding: 60px 120px;
+                    width: 250rem;
+                    overflow: scroll;
+                    -ms-overflow-style: none; /* IE and Edge */
+                    scrollbar-width: none;
+                }
+
+                .links::-webkit-scrollbar {
+                    display: none;
+                }
+
+                h1 {
+                    font-weight: 300;
+                    letter-spacing: 0.05em;
+                    font-size: 3.5em;
+                    overflow-wrap: normal;
+                    white-space: nowrap;
+                    padding: 0;
+                }
+
+                a {
+                    color: var(--sec);
+                    opacity: 0.75;
+                    scroll-margin-left: 120px;
+                }
+
+                a.active {
+                    color: var(--text);
+                    opacity: 1;
+                }
+            }
+
+            .links::-webkit-scrollbar {
+                display: none;
+            }
+
+            .links {
+                display: flex;
+                flex-direction: row;
+                padding-top: 200px;
+                scroll-margin-top: 200px;
+                padding-bottom: 40px;
+                gap: 60px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                flex-grow: 1;
+                height: 100%;
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none;
+
+                .links-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 20px;
+                    min-width: 100vw;
+                    padding-inline: 120px;
+                    scroll-snap-align: center;
+                    flex-basis: 200px;
+                    align-self: flex-start;
+
+                    a {
+                        aspect-ratio: 1 / 1;
+                        width: var(--w, 200px);
+                        height: 200px;
+                        display: flex;
+                        align-content: flex-start;
+                        color: var(--text);
+                        background-color: var(--acc);
+                        position: relative;
+                        padding: 15px;
+
+                        &:hover {
+                            background-color: var(--bg);
+                            text-decoration: none;
+                        }
+
+                        &:has(span) {
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        span {
+                            font-size: 4em;
+                            position: relative;
+                            font-weight: 300;
+                        }
+
+                        &>div {
+                            font-weight: 300;
+                        }
+
+                        &>p {
+                            position: absolute;
+                            left: 15px;
+                            bottom: 5px;
+                            padding-right: 15px;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (width <= 640px) {
+                .top-links {
+                    .links {
+                        padding: 20px 40px;
+                        width: 200rem;
+
+                        a {
+                            scroll-margin-left: 40px;
+                        }
+                    }
+                }
+
+                .links {
+                    padding-top: 120px;
+                    scroll-margin-top: 120px;
+
+                    .links-container {
+                        padding-inline: 40px;
+                        gap: 10px;
+
+                        a {
+                            width: calc(var(--w,260px) - 110px);
+                            height: 150px;
+
+                            span {
+                                font-size: 3em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </style>
+</BgOnlyLayout>

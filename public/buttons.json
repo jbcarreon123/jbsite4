@@ -473,5 +473,11 @@
         "alt": "Bugwatcher",
         "imgUrl": "https://bugwatcher.nekoweb.org/images/bugwatcherButton.gif",
         "startPath": "/home"
+    },
+    {
+        "url": "https://planet-bluto.net/",
+        "title": "",
+        "alt": ">PLANET_BLUTO.NET",
+        "clickElm": "#the-planet-bluto"
     }
 ]

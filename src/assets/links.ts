@@ -35,6 +35,12 @@ export const LinkObjs: LinkObj = [
                 icon: "contact_page"
             },
             {
+                name: "Sitemap",
+                path: "/sitemap/",
+                redirect: false,
+                icon: "map"
+            },
+            {
                 name: "Follow me on Nekoweb!",
                 path: "https://nekoweb.org/follow/jbc.lol",
                 redirect: true,
