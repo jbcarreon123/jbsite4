@@ -4,7 +4,7 @@ import { getLinks } from "../assets/sitemap";
 const LinkObjs = getLinks();
 ---
 
-<BgOnlyLayout title="start test">
+<BgOnlyLayout title="the map of jb's site" description="where da map?">
     <div class="jbs-start">
         <div class="top-links">
             <div class="links">
@@ -38,10 +38,11 @@ const LinkObjs = getLinks();
                                 .replaceAll("&-", "")
                         }
                     >
+                        <h2>{a.name}</h2>
                         {a.links.map((b) => (
                             <a href={b.path} style={!!b.innerHTML ? '--w: 420px' : ''}>
                                 {!!b.innerHTML ? 
-                                    <div set:html={b.innerHTML}></div> :
+                                    <Fragment set:html={b.innerHTML}></Fragment> :
                                     <span
                                         class="ms"
                                         data-icon={b.icon}
@@ -73,7 +74,7 @@ const LinkObjs = getLinks();
                     let link = topLinkElms.find((a) =>
                         a.href.includes(en.target.id),
                     );
-                    if (en.isIntersecting) {
+                    if (en.isIntersecting && matchMedia('(width <= 800px)').matches) {
                         topLinkElms.forEach((a) =>
                             a.classList.remove("active"),
                         );
@@ -98,7 +99,11 @@ const LinkObjs = getLinks();
                 const span = flwrs?.querySelector('span');
                 span?.classList.remove('ms');
                 span.innerHTML = json.followers + '<span style="font-size:0.35em;"> followers</span>'
-            } catch {}
+            } catch {
+                const span = flwrs?.querySelector('span');
+                span?.classList.remove('ms');
+                span.innerHTML = '<span style="font-size:0.35em;">error: </span>' + 429;
+            }
 
             const time = linkVals[1].find(a => a.href.includes('time'));
             time?.style.setProperty('--w', '420px');
@@ -125,7 +130,20 @@ const LinkObjs = getLinks();
         }
     </script>
 
-    <style scoped>
+    <style is:inline>
+        body {
+            font-family: 'Segoe UI', Inter, sans-serif;
+        }
+
+        @media screen and (width <= 640px) {
+            html, body {
+                overflow: hidden;
+            }
+        }
+    </style>
+
+    <style>
+
         .jbs-start {
             max-width: 100dvw;
             min-height: 100dvh;
@@ -177,6 +195,19 @@ const LinkObjs = getLinks();
                     color: var(--text);
                     opacity: 1;
                 }
+
+                &:not(a.active) a:first-child {
+                    color: var(--text);
+                    opacity: 1;
+                }
+
+                a:first-child h1::after {
+                    content: ' sitemap'
+                }
+
+                a:not(:first-child) {
+                    display: none;
+                } 
             }
 
             .links::-webkit-scrollbar {
@@ -185,19 +216,20 @@ const LinkObjs = getLinks();
 
             .links {
                 display: flex;
-                flex-direction: row;
-                padding-top: 200px;
+                flex-direction: column;
                 scroll-margin-top: 200px;
-                padding-bottom: 40px;
                 gap: 60px;
-                overflow-x: auto;
+                overflow: auto;
                 scroll-snap-type: x mandatory;
                 flex-grow: 1;
                 height: 100%;
                 -ms-overflow-style: none; /* IE and Edge */
                 scrollbar-width: none;
+                padding-top: 200px;
+                padding-bottom: 40px;
 
                 .links-container {
+                    position: relative;
                     display: flex;
                     flex-wrap: wrap;
                     flex-direction: row;
@@ -209,6 +241,14 @@ const LinkObjs = getLinks();
                     scroll-snap-align: center;
                     flex-basis: 200px;
                     align-self: flex-start;
+                    max-height: 100dvh;
+
+                    h2 {
+                        position: absolute;
+                        top: -40px;
+                        font-weight: 300;
+                        text-transform: capitalize;
+                    }
 
                     a {
                         aspect-ratio: 1 / 1;
@@ -231,7 +271,7 @@ const LinkObjs = getLinks();
                             align-items: center;
                         }
 
-                        span {
+                        span, :global(span) {
                             font-size: 4em;
                             position: relative;
                             font-weight: 300;
@@ -251,11 +291,19 @@ const LinkObjs = getLinks();
                 }
             }
 
-            @media screen and (width <= 640px) {
+            @media screen and (width <= 800px) {
                 .top-links {
                     .links {
                         padding: 20px 40px;
                         width: 200rem;
+
+                        a:first-child h1::after {
+                            content: ''
+                        }
+
+                        a:not(:first-child) {
+                            display: block;
+                        } 
 
                         a {
                             scroll-margin-left: 40px;
@@ -264,12 +312,19 @@ const LinkObjs = getLinks();
                 }
 
                 .links {
-                    padding-top: 120px;
                     scroll-margin-top: 120px;
+                    flex-direction: row;
+                    padding-block: 0;
 
                     .links-container {
                         padding-inline: 40px;
+                        padding-top: 120px;
                         gap: 10px;
+                        overflow: auto;
+
+                        h2 {
+                            display: none;
+                        }
 
                         a {
                             width: calc(var(--w,260px) - 110px);
