@@ -36,7 +36,7 @@ export function getStaticPaths() {
 		...posts.map((val) => {
 			return { params: { slug: val.url + '.webp' } }
 		}),
-		...pagesTitles.map(v => {
+	...pagesTitles.map(v => {
 			return { params: { slug: v.url + '.webp' } }
 		})
 	];
