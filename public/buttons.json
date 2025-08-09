@@ -479,5 +479,24 @@
         "title": "",
         "alt": ">PLANET_BLUTO.NET",
         "clickElm": "#the-planet-bluto"
+    },
+    {
+        "url": "https://adamngshrine.com/",
+        "title": "",
+        "alt": "Adamng's Shrine",
+        "imgUrl": "https://adamngshrine.com/images/button.png"
+    },
+    {
+        "url": "https://nyscyra.nekoweb.org/",
+        "title": "",
+        "alt": "NYSCYRA",
+        "imgUrl": "https://nyscyra.nekoweb.org/img/button.png"
+    },
+    {
+        "url": "https://pancontinental.nekoweb.org/",
+        "title": "",
+        "alt": "Pan Continental",
+        "imgUrl": "https://pancontinental.nekoweb.org/Images/Buttons/PCA-Button.gif",
+        "startPath": "/home"
     }
 ]

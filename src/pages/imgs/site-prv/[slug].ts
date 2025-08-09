@@ -24,7 +24,7 @@ export function getStaticPaths() {
 export const GET: APIRoute = async ({ params }) => {
     const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
     try {
-        //if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
+        if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
         const context = await browser.newContext({
             colorScheme: 'dark',
