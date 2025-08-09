@@ -1,5 +1,13 @@
 [
     {
+        "url": "https://hijpixel.nekoweb.org/",
+        "title": "the cozy lil' webzone of a silly lil' Cait'si artist.",
+        "alt": "heyitsjustpIxel",
+        "imgUrl": "https://hijpixel.nekoweb.org/img/buttons/hijpixel/button-88x31.gif",
+        "eighteen": true,
+        "startPath": "/home"
+    },
+    {
         "url": "https://dimden.dev/",
         "title": "Dimden's Hotel",
         "alt": "Dimden's Hotel",
@@ -24,6 +32,12 @@
         "alt": "darkosparko",
         "imgUrl": "https://darkosparko.nekoweb.org/rocket-button.gif",
         "startPath": "/home.html"
+    },
+    {
+        "url": "https://petrapixel.neocities.org",
+        "title": "petrapixel",
+        "alt": "petrapixel",
+        "imgUrl": "https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif"
     },
     {
         "url": "https://max.nekoweb.org/",
@@ -286,12 +300,6 @@
         "startPath": "/home.html"
     },
     {
-        "url": "https://petrapixel.neocities.org",
-        "title": "petrapixel",
-        "alt": "petrapixel",
-        "imgUrl": "https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif"
-    },
-    {
         "url": "https://deadon.rip",
         "title": "Dead On RIP",
         "alt": "deadonrip",
@@ -444,14 +452,6 @@
         "title": "enokiton-3 site",
         "alt": "32enoki",
         "imgUrl": "https://32enoki.net/88x31.png"
-    },
-    {
-        "url": "https://hijpixel.nekoweb.org/",
-        "title": "the cozy lil' webzone of a silly lil' Cait'si artist.",
-        "alt": "heyitsjustpIxel",
-        "imgUrl": "https://hijpixel.nekoweb.org/img/buttons/hijpixel/button-88x31.gif",
-        "eighteen": true,
-        "startPath": "/home"
     },
     {
         "url": "https://commonpolarity.nekoweb.org/",
