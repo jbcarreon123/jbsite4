@@ -41,10 +41,13 @@ export const GET: APIRoute = async ({ params }) => {
         })
 
         await page.goto(button?.url.replace(/\/$/, '') + (button?.startPath ?? ''),  {
-            waitUntil: 'domcontentloaded'
+            waitUntil: 'commit'
         });
 
         try {
+            await page.waitForLoadState('domcontentloaded', {
+                timeout: 60000
+            })
             await page.waitForLoadState('networkidle', {
                 timeout: 15000
             });
