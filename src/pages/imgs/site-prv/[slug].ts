@@ -70,6 +70,7 @@ export const GET: APIRoute = async ({ params }) => {
 
         return new Response(webpBuf);
     } catch (e) {
+        console.error(`Failed to render ${button?.url},`, e)
         let bg = await satoriAstroOG({
                 template: html`
                     <div class="container">
