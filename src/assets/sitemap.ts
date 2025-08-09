@@ -1,0 +1,228 @@
+import type { MarkdownInstance } from "astro";
+
+export type LinkObj = {
+    name?: string,
+    reqJS?: boolean,
+    links: {
+        name: string,
+        path: string,
+        redirect: boolean,
+        icon: string,
+        id?: string,
+        reqJS?: boolean,
+        innerHTML?: string,
+    }[]
+}[]
+
+
+export function getLinks(): LinkObj[] {
+    interface Frontmatter {
+        title: string;
+        published: string;
+        description: string;
+        tags: string;
+        background: string;
+    }
+    const posts = Object.values(
+        import.meta.glob<MarkdownInstance<Frontmatter>>("../pages/posts/**/*.md", {
+            eager: true,
+        }),
+    );
+
+    const postData = posts.map(p => ({
+        name: p.frontmatter.title,
+        innerHTML: `<p>${p.frontmatter.description}</p>`,
+        path: p.url ?? '/posts',
+        icon: '',
+        redirect: false
+    }))
+
+    const tutorials = Object.values(
+        import.meta.glob<MarkdownInstance<Frontmatter>>("../pages/tutorials/**/*.md", {
+            eager: true,
+        }),
+    );
+
+    const tutorialData = tutorials.map(p => ({
+        name: p.frontmatter.title,
+        innerHTML: `<p>${p.frontmatter.description}</p>`,
+        path: p.url ?? '/posts',
+        icon: '',
+        redirect: false
+    }))
+
+    return [
+        {
+            links: [
+                {
+                    name: "Home",
+                    path: "/",
+                    redirect: false,
+                    icon: "home",
+                    id: "index"
+                },
+                {
+                    name: "Sign my guestbook!",
+                    path: "/guestbook/",
+                    redirect: false,
+                    icon: "contract_edit",
+                    reqJS: true,
+                },
+                {
+                    name: "Contact me!",
+                    path: "/contact/",
+                    redirect: false,
+                    icon: "contact_page"
+                },
+                {
+                    name: "Follow me on Nekoweb!",
+                    path: "https://nekoweb.org/follow/jbc.lol",
+                    redirect: true,
+                    icon: "add"
+                }
+            ]
+        },
+        {
+            name: "whereabouts",
+            links: [
+                {
+                    name: "About JB",
+                    path: "/about/",
+                    redirect: false,
+                    icon: "person"
+                },
+                {
+                    name: "Time",
+                    path: "/time/",
+                    redirect: false,
+                    icon: "schedule",
+                    reqJS: true,
+                },
+                {
+                    name: "Projects",
+                    path: "/projects/",
+                    redirect: false,
+                    icon: "terminal"
+                },
+                {
+                    name: "FAQs",
+                    path: "/faq/",
+                    redirect: false,
+                    icon: "quick_reference"
+                },
+                {
+                    name: "RIIAtW",
+                    path: "/riiatw/",
+                    redirect: false,
+                    icon: "language"
+                },
+                {
+                    name: "Packages",
+                    path: "/packages/",
+                    redirect: false,
+                    icon: "inventory_2"
+                },
+                {
+                    name: "Gallery",
+                    path: "/gallery/",
+                    redirect: false,
+                    icon: "photo_library"
+                },
+                {
+                    name: "Album List",
+                    path: "/albumlist/",
+                    redirect: false,
+                    icon: "library_music",
+                    reqJS: true,
+                },
+            ]
+        },
+        {
+            name: "tools & stuff",
+            reqJS: true,
+            links: [
+                {
+                    name: "\"AI\" Chat",
+                    path: "/chat/",
+                    redirect: false,
+                    icon: "smart_toy"
+                },
+                {
+                    name: "Split It!",
+                    path: "/utils/split-it/",
+                    redirect: false,
+                    icon: "space_dashboard"
+                },
+                {
+                    name: "Nekobox",
+                    path: "/utils/nekobox/",
+                    redirect: false,
+                    icon: "inventory_2"
+                }
+            ]
+        },
+        {
+            name: "posts",
+            links: postData
+        },
+        {
+            name: "tutorials",
+            links: tutorialData
+        },
+        {
+            name: "my webrings",
+            reqJS: true,
+            links: [
+                {
+                    name: "SSGRing",
+                    path: "/webrings/ssgring/",
+                    redirect: false,
+                    icon: "build"
+                },
+                {
+                    name: "Responeko",
+                    path: "/webrings/responeko/",
+                    redirect: false,
+                    icon: "phone_android"
+                },
+                {
+                    name: "YAMring",
+                    path: "/webrings/yamring/",
+                    redirect: false,
+                    icon: "tag"
+                }
+            ]
+        },
+        {
+            name: "outlinks",
+            links: [
+                {
+                    name: "Links",
+                    path: "/links/",
+                    redirect: false,
+                    icon: "link"
+                },
+                {
+                    name: "Other sites",
+                    path: "/other-sites/",
+                    redirect: false,
+                    icon: "link"
+                },
+                {
+                    name: "Webrings",
+                    path: "/webrings/",
+                    redirect: false,
+                    icon: "donut_large",
+                    reqJS: true,
+                },
+                {
+                    name: "Bookmarks",
+                    path: "/bookmarks/",
+                    redirect: false,
+                    icon: "bookmark"
+                }
+            ]
+        },
+
+    ]
+}

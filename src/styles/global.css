@@ -428,7 +428,6 @@ main>div {
     justify-content: space-between;
     gap: 24px;
     padding: 12px;
-    min-height: 100dvh;
 }
 
 div#leftbar>* {
@@ -548,7 +547,6 @@ footer {
     border-top: 1px solid var(--acc);
     margin-top: 12px;
     padding-top: 4px;
-    margin-bottom: 12px;
     display: flex;
     justify-content: space-between;
 }

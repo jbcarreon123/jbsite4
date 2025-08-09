@@ -1,10 +1,6 @@
 ---
 import '@csstools/normalize.css';
 import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
-import { version } from "../../package.json";
-import { Image } from "astro:assets";
-import { Head } from 'astro-capo'
 
 const { title, id, description } = Astro.props;
 
@@ -15,8 +11,8 @@ import RichTooltip from "../components/RichTooltip.astro";
 import NotifModal from "../components/NotifModal.astro";
 import ImageViewer from '../components/ImageViewer.astro';
 import JumpToContent from '../components/JumpToContent.astro';
+import Footer from '../components/Footer.astro';
 
-const hash = import.meta.env.COMMIT_HASH ?? "null";
 ---
 
 <!doctype html>
@@ -70,117 +66,8 @@ const hash = import.meta.env.COMMIT_HASH ?? "null";
 				<div>
 					<div id="content" transition:animate="slide" style={Astro.props.style}>
 						<slot />
-					</div>
-					<footer transition:persist transition:animate="none">
-						<div class="sec">
-							<a id="to-top" href="#">
-								<p>Back to top</p>
-							</a>
-							<p class="small">
-								jbsite4@{version}/<span set:html={hash} /> © 2025
-								jbcarreon123. All rights reserved.
-							</p>
-							<p class="small">
-								Site content are licensed under CC BY-SA 4.0
-								unless specified.
-							</p>
-							<p class="small">
-								Made in Astro and Bun, hosted in Nekoweb
-							</p>
-							<p class="small">
-								<a
-									href="https://maxpixels.moe/manifesto/"
-									target="_blank"
-									>Copying is an act of theft, while taking
-									inspiration is the true act of love. <span
-										aria-hidden="true"
-										class="ms" data-icon="open_in_new"></span
-									></a
-								>
-							</p>
-						</div>
-						<div class="right">
-							<a
-								target="_blank"
-								rel="noopener"
-								class="w-fit shrink-0"
-								href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL"
-							>
-								<Image
-									src="/imgs/buttons/smil.svg"
-									alt="Enhanced with SMIL :D"
-									title="Enhanced with SMIL :D"
-									width="88"
-									height="31"
-								/>
-							</a>
-							<a
-								target="_blank"
-								rel="noopener"
-								class="w-fit shrink-0"
-								href="https://team.indieseas.net"
-							>
-								<Image
-									src="/imgs/buttons/indiefellas.svg"
-									alt="Indiefellas"
-									title="indieweb devs with no idea what they're doing"
-									width="88"
-									height="31"
-								/>
-							</a>
-							<a
-								target="_blank"
-								rel="noopener"
-								class="w-fit shrink-0"
-								href="https://nekoweb.org/"
-								><Image
-									src="https://nekoweb.org/assets/buttons/button5.gif"
-									loading="lazy"
-									alt="Nekoweb"
-									title="Nekoweb (button by maxpixels)"
-									width="88"
-									height="31"
-								/></a
-							>
-							<a
-								href="https://districts.nekoweb.org/"
-								target="_blank"
-								><Image
-									alt="Nekoweb Districts"
-									title="Nekoweb Districts"
-									src="https://districts.nekoweb.org/img/districts002.png"
-									width="88"
-									height="31"
-								/>
-								<a
-									target="_blank"
-									class="w-fit shrink-0"
-									href="https://kalechips.net/responsive/index"
-								>
-									<Image
-										src="/imgs/buttons/responsive-web-directory.png"
-										alt="Responsive Web Directory"
-										title="Responsive Web Directory"
-										width="88"
-										height="31"
-									/>
-								</a>
-								<a
-									target="_blank"
-									class="w-fit shrink-0"
-									href="https://pinkvampyr.leprd.space/accessiblenet/index.php"
-								>
-									<Image
-										src="/imgs/buttons/accessible-net.webp"
-										alt="Accessible Net Directory"
-										title="Accessible Net Directory"
-										width="88"
-										height="31"
-									/>
-								</a>
-							</a>
-						</div>
-					</footer>
+					</div>	
+					<Footer />
 				</div>
 			</main>
 		</div>
