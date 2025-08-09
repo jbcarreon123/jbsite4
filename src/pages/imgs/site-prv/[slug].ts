@@ -1,4 +1,4 @@
-import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
+import { chromium, type Browser } from 'playwright';
 import type { APIRoute } from "astro";
 import Buttons from '../../../../public/buttons.json' with {type: 'json'};
 import sharp from 'sharp';
@@ -7,25 +7,12 @@ import { html } from "satori-html";
 import { readFileSync } from 'fs';
 
 let browser: Browser;
-let page: Page;
-let context: BrowserContext;
 
 try {
     browser = await chromium.launch();
-
-    context = await browser.newContext({
-        colorScheme: 'dark',
-        viewport: {
-            width: 1600,
-            height: 900
-        }
-    });
-    context.setDefaultTimeout(60000);
 } catch (e) {
     console.error(e);
 }
-
-
 
 export function getStaticPaths() {
     return Buttons.map((val) => {
@@ -39,21 +26,26 @@ export const GET: APIRoute = async ({ params }) => {
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
-        if (page.url() !== button?.url.replace(/\/$/, '') + (button?.startPath ?? '')) {
-            page = await context.newPage();
-            await page.setExtraHTTPHeaders({
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 jbSite4-SBR/2.0.0 (jb+sbr@jbc.lol)',
-                'Accept-Language': 'en-US,en;q=0.9'
-            })
-
-            const response = await page.goto(button?.url.replace(/\/$/, '') + (button?.startPath ?? ''),  {
-                waitUntil: 'domcontentloaded'
-            });
-            if (response?.status() ?? 0 >= 400) {
-                throw new Error(`SBR Page Load failed with status code ${response.status()} (${page.url()}, ${page.title()})`);
+        const context = await browser.newContext({
+            colorScheme: 'dark',
+            viewport: {
+                width: 1600,
+                height: 900
             }
+        });
+        context.setDefaultTimeout(60000);
+        const page = await context.newPage();
+        await page.setExtraHTTPHeaders({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 jbSite4-SBR/2.0.0 (jb+sbr@jbc.lol)',
+            'Accept-Language': 'en-US,en;q=0.9'
+        })
+
+        const response = await page.goto(button?.url.replace(/\/$/, '') + (button?.startPath ?? ''),  {
+            waitUntil: 'domcontentloaded'
+        });
+        if (response?.status() ?? 0 >= 400) {
+            throw new Error(`SBR Page Load failed with status code ${response.status()}`);
         }
-        
         try {
             await page.waitForLoadState('networkidle', {
                 timeout: 15000
