@@ -1,4 +1,8 @@
 import type { MarkdownInstance } from "astro";
+import ssgMembers from "../../public/webrings/ssgring/members.json" with { type: 'json' }
+import rspMembers from "../../public/webrings/responeko/members.json" with { type: 'json' }
+import yamMembers from "../../public/webrings/yamring/swr.json" with { type: 'json' }
+import buttons from "../../public/buttons.json" with { type: 'json' }
 
 export type LinkObj = {
     name?: string,
@@ -177,19 +181,22 @@ export function getLinks(): LinkObj[] {
                     name: "SSGRing",
                     path: "/webrings/ssgring/",
                     redirect: false,
-                    icon: "build"
+                    icon: "build",
+                    innerHTML: `<span>${ssgMembers.length}<span style="font-size:0.35em;"> members</span></span>`
                 },
                 {
                     name: "Responeko",
                     path: "/webrings/responeko/",
                     redirect: false,
-                    icon: "phone_android"
+                    icon: "phone_android",
+                    innerHTML: `<span>${rspMembers.length}<span style="font-size:0.35em;"> members</span></span>`
                 },
                 {
                     name: "YAMring",
                     path: "/webrings/yamring/",
                     redirect: false,
-                    icon: "tag"
+                    icon: "tag",
+                    innerHTML: `<span>${yamMembers.members.length}<span style="font-size:0.35em;"> members</span></span>`
                 }
             ]
         },
@@ -206,7 +213,8 @@ export function getLinks(): LinkObj[] {
                     name: "Other sites",
                     path: "/other-sites/",
                     redirect: false,
-                    icon: "link"
+                    icon: "link",
+                    innerHTML: `<span><span style="font-size:0.35em;">has </span>${buttons.length}<span style="font-size:0.35em;"> other sites</span></span>`
                 },
                 {
                     name: "Webrings",
@@ -214,6 +222,7 @@ export function getLinks(): LinkObj[] {
                     redirect: false,
                     icon: "donut_large",
                     reqJS: true,
+                    innerHTML: `<span><span style="font-size:0.35em;">on </span>29<span style="font-size:0.35em;"> webrings</span></span>`
                 },
                 {
                     name: "Bookmarks",

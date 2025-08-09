@@ -54,5 +54,15 @@
         "host": "calico.nekoweb.org",
         "title": "calico",
         "expression": "https://i.imgur.com/33hogC2.png"
+    }, 
+    {
+        "host": "mirizip.nekoweb.org",
+        "title": "miri.zip",
+        "expression": "https://mirizip.nekoweb.org/assets/mirizip_105x175.png"
+    }, 
+    {
+        "host": "katrickthekirbyfan.nekoweb.org",
+        "title": "katrickthekirbyfan's site",
+        "expression": "https://katrickthekirbyfan.nekoweb.org/katrickbannerofwebringthing.png"
     }
 ]
