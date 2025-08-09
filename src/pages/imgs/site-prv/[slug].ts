@@ -24,7 +24,7 @@ export function getStaticPaths() {
 export const GET: APIRoute = async ({ params }) => {
     const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
     try {
-        if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
+        //if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
         const context = await browser.newContext({
             colorScheme: 'dark',
@@ -40,19 +40,19 @@ export const GET: APIRoute = async ({ params }) => {
             'Accept-Language': 'en-US,en;q=0.9'
         })
 
-        const response = await page.goto(button?.url.replace(/\/$/, '') + (button?.startPath ?? ''),  {
+        await page.goto(button?.url.replace(/\/$/, '') + (button?.startPath ?? ''),  {
             waitUntil: 'domcontentloaded'
         });
-        if (response?.status() ?? 0 >= 400) {
-            throw new Error(`SBR Page Load failed with status code ${response.status()}`);
-        }
+
         try {
             await page.waitForLoadState('networkidle', {
                 timeout: 15000
             });
             if (button?.clickElm) {
                 page.click(button.clickElm);
-                await page.waitForSelector(button?.clickElm ?? '', { state: 'hidden' })
+                await page.waitForSelector(button?.clickElm ?? '', { state: 'hidden', timeout: 5000 })
+            } else {
+                await page.waitForTimeout(2000)
             }
         } catch {
             console.log('Timeout exceeded, screenshoting while page isn\'t fully loaded yet...')
