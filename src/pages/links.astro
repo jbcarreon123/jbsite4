@@ -8,6 +8,7 @@ import { Code } from 'astro-expressive-code/components';
 
 const sitebtns = [
     '<a href="https://jbc.lol"><img src="https://jbc.lol/imgs/buttons/jbtn.svg" alt="jb\'s site" style="image-rendering: pixelated;"/> <img src="https://jbc.lol/imgs/buttons/jbtn.gif" alt="jb\'s site" style="image-rendering: pixelated;"/> <img src="https://jbc.lol/imgs/buttons/jbtn.png" alt="jb\'s site" style="image-rendering: pixelated;"/></a>',
+    '<a href="https://jbc.lol"><img src="https://jbc.lol/sitebutton3.png" alt="jb\'s site" style="image-rendering: pixelated;"/></a>',
     '<a href="https://jbc.lol"><img src="https://jbc.lol/sitebutton2.png" alt="jb\'s site" style="image-rendering: pixelated;"/></a>',
 ];
 
@@ -26,14 +27,14 @@ const oldsitebtns = [
     <p>jbSite4 and neutral styled buttons</p>
     <div id="webrings">
         {sitebtns.map((btn) => <div>
-            <div set:html={btn}></div>
+            <div set:html={btn.replaceAll('https://jbc.lol/', '/')}></div>
             <Code code={btn} lang="html" />
         </div>)}
     </div>
     <p>jbSite3 styled buttons</p>
     <div id="webrings">
         {oldsitebtns.map((btn) => <div>
-            <div set:html={btn}></div>
+            <div set:html={btn.replaceAll('https://jbc.lol/', '/')}></div>
             <Code code={btn} lang="html" />
         </div>)}
     </div>
