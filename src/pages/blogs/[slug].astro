@@ -4,8 +4,8 @@ import Layout from '../../layouts/LandingLayout.astro';
 export function getStaticPaths() {
     const posts = Object.values(import.meta.glob('../posts/**/*.md', { eager: true }));
     return posts.map((val: any) => {
-        let path = val.url.split('/');
-        let slug = path[path.length - 2];
+        let path = val.url.replace(/\/$/, '').split('/');
+        let slug = path[path.length - 1];
         return { params: { slug: slug } }
     })
 }
