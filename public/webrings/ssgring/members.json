@@ -94,5 +94,12 @@
         "button": "https://snails.town/images/buttons/sites/snailsv2.png",
         "type": "14+",
         "pitch": "snail-paced digital diary"
+    },
+    {
+        "host": "schafe-sind-bessere-rasenmaeher.de",
+        "username": "irgndsondepp",
+        "framework": "<a href='https://gohugo.io/' target='_blank'>Hugo</a>",
+        "type": "15+",
+        "pitch": "I talk about anything and everything with a heavy focus on tech things. Other top level categories are \"mindfulness\" and short \"stories\"."
     }
 ]
