@@ -9,6 +9,16 @@ import { readFileSync } from 'fs';
 let recentSites: string[] = [];
 let browser: Browser;
 
+type SbrButtonEntry = {
+    url: string,
+    title: string,
+    alt: string,
+    imgUrl: string,
+    startPath?: string,
+    clickElm?: string,
+    eighteen?: boolean
+}
+
 try {
     browser = await chromium.launch();
 } catch (e) {
@@ -25,7 +35,7 @@ export function getStaticPaths() {
 const placeholder = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzM1M2I0MSIvPjxwYXRoIGZpbGw9IiMyMjI2MmEiIGQ9Ik0wIDBoMTB2MTBIMHpNMTAgMTBoMTB2MTBIMTB6Ii8+PC9zdmc+";
 
 export const GET: APIRoute = async ({ params }) => {
-    const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
+    const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? '')) as SbrButtonEntry;
     recentSites.push(`${button?.url} (${button?.imgUrl})`)
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
@@ -78,6 +88,10 @@ export const GET: APIRoute = async ({ params }) => {
         return new Response(webpBuf);
     } catch (e) {
         console.error(`Failed to render ${button?.url},`, e)
+        const regex = /"(\w+)":/gm;
+        const subst = `$1:`;
+        const str = JSON.stringify(button, null, 4);
+        const result = str.replace(regex, subst);
         let bg = await satoriAstroOG({
                 template: html`
                     <div class="container">
@@ -92,6 +106,7 @@ export const GET: APIRoute = async ({ params }) => {
                             <h2>Debug output (poke jb plz)</h2>
                             <p>Recent rendered sites:${'\n'}    ${recentSites.slice(Math.max(recentSites.length - 5, 0)).join('\n    ')}</p>
                             <p>Stack trace:${'\n'}    ${e.stack.replace(`${e}`, '').trim()}</p>
+                            <p>Button entry: [object SbrButtonEntry] ${result}</p>
                         </div>
                     </div>
         

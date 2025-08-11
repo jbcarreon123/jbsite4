@@ -497,5 +497,12 @@
         "alt": "Pan Continental",
         "imgUrl": "https://pancontinental.nekoweb.org/Images/Buttons/PCA-Button.gif",
         "startPath": "/home"
+    },
+    {
+        "url": "https://ext4ntmusic.org/",
+        "title": "",
+        "alt": "EXT4NT",
+        "imgUrl": "https://ext4ntmusic.org/assets/images/ext4ntbutton.gif",
+        "startPath": "/#/home"
     }
 ]
