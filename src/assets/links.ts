@@ -65,6 +65,13 @@ export const LinkObjs: LinkObj = [
                 reqJS: true,
             },
             {
+                name: "Scrobbles",
+                path: "/scrobbles/",
+                redirect: false,
+                icon: "music_cast",
+                reqJS: true,
+            },
+            {
                 name: "Projects",
                 path: "/projects/",
                 redirect: false,

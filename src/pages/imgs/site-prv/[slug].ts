@@ -1,4 +1,4 @@
-import { chromium, type Browser } from 'playwright';
+import { chromium, type Browser, type BrowserContext } from 'playwright';
 import type { APIRoute } from "astro";
 import Buttons from '../../../../public/buttons.json' with {type: 'json'};
 import sharp from 'sharp';
@@ -37,10 +37,11 @@ const placeholder = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53M
 export const GET: APIRoute = async ({ params }) => {
     const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? '')) as SbrButtonEntry;
     recentSites.push(`${button?.url} (${button?.imgUrl})`)
+    let context: BrowserContext;
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
-        const context = await browser.newContext({
+        context = await browser.newContext({
             colorScheme: 'dark',
             viewport: {
                 width: 1600,
@@ -87,6 +88,8 @@ export const GET: APIRoute = async ({ params }) => {
 
         return new Response(webpBuf);
     } catch (e) {
+        //@ts-ignore
+        await context.close();
         console.error(`Failed to render ${button?.url},`, e)
         const regex = /"(\w+)":/gm;
         const subst = `$1:`;
@@ -105,7 +108,7 @@ export const GET: APIRoute = async ({ params }) => {
                         <div class="log">
                             <h2>Debug output (poke jb plz)</h2>
                             <p>Recent rendered sites:${'\n'}    ${recentSites.slice(Math.max(recentSites.length - 5, 0)).join('\n    ')}</p>
-                            <p>Stack trace:${'\n'}    ${e.stack.replace(`${e}`, '').trim()}</p>
+                            <p>Stack trace:${'\n'}    ${e.stack.replace('Error: ', '').replace(`${`${e}`.replace('Error: ', '')}`, '').trim()}</p>
                             <p>Button entry: [object SbrButtonEntry] ${result}</p>
                             <p>Chromium version: ${browser?.version() ?? 'undefined'}</p>
                         </div>

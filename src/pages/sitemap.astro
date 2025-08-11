@@ -113,7 +113,48 @@ const LinkObjs = getLinks();
                 updateClock(span);
                 setInterval(() => updateClock(span), 950)
             } catch {}
+
+
+
+            const scrobbles = linkVals[1].find(a => a.href.includes('scrobbles'));
+            try {
+                const span = scrobbles?.querySelector('span');
+                span?.remove();
+                const json = await fetchNp("user.getrecenttracks&limit=10");
+                const jsonFirst = json.recenttracks.track[0];
+                let el = Math.random().toString().replace('.', '');
+                let rc = jsonFirst.image[3]["#text"];
+                scrobbles.innerHTML = 
+                    '<img src="' + jsonFirst.image[3]["#text"] + '" class="hidething-' + el + '" style="inset:0;position: absolute;width: 100%;" />' +
+                    scrobbles?.innerHTML;
+                setInterval(async () => {
+                    const json = await fetchNp("user.getrecenttracks&limit=10");
+                    const jsonFirst = json.recenttracks.track[0];
+                    if (rc == jsonFirst.image[3]["#text"]) return;
+                    rc = jsonFirst.image[3]["#text"];
+                    let oel = el;
+                    el = Math.random().toString().replace('.', '');
+                    scrobbles.innerHTML = 
+                        '<img src="' + jsonFirst.image[3]["#text"] + '" class="hidething-' + el + '" style="inset:0;position: absolute;width: 100%;" />' +
+                        scrobbles?.innerHTML;
+                    scrobbles?.querySelector(`.hidething-${el}`)?.addEventListener('load', () => {
+                        scrobbles?.querySelector(`.hidething-${oel}`)?.classList.add('ht');
+                        setTimeout(() => scrobbles?.querySelector(`.hidething-${oel}`)?.remove(), 1000)
+                    })
+                }, 30000)
+            } catch {}
+
         });
+
+        const USERNAME = "jbcarreon123";
+        const API_KEY = "202d561e5fdd095326f43d95d47dd233";
+
+        async function fetchNp(method) {
+            const BASE_URL = `https://ws.audioscrobbler.com/2.0/?method=${method}&user=${USERNAME}&api_key=${API_KEY}&format=json`;
+            let r = await fetch(BASE_URL);
+            let j = await r.json();
+            return j;
+        }
 
         // @ts-ignore
         function updateClock(time) {
@@ -259,6 +300,7 @@ const LinkObjs = getLinks();
                         background-color: var(--acc);
                         position: relative;
                         padding: 15px;
+                        overflow: hidden;
 
                         &:hover {
                             background-color: var(--bg);
@@ -285,6 +327,12 @@ const LinkObjs = getLinks();
                             left: 15px;
                             bottom: 5px;
                             padding-right: 15px;
+                        }
+
+                        &:has(img) {
+                            &>p {
+                                text-shadow: 3px 3px 3px black;
+                            }
                         }
                     }
                 }
@@ -336,6 +384,22 @@ const LinkObjs = getLinks();
                         }
                     }
                 }
+            }
+        }
+    </style>
+
+    <style is:global>
+        .ht {
+            animation: hidething 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transform: translateY(0);
+        }
+
+        @keyframes hidething {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-200px);
             }
         }
     </style>
