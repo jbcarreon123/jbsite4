@@ -6,6 +6,7 @@ import { satoriAstroOG } from 'satori-astro';
 import { html } from "satori-html";
 import { readFileSync } from 'fs';
 
+let recentSites: string[] = [];
 let browser: Browser;
 
 try {
@@ -23,6 +24,7 @@ export function getStaticPaths() {
 
 export const GET: APIRoute = async ({ params }) => {
     const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
+    recentSites.push(`${button?.url} (${button?.imgUrl})`)
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
@@ -79,9 +81,33 @@ export const GET: APIRoute = async ({ params }) => {
                     <div class="container">
                         <h1>${button?.url.replace(/\/$/, '') + (button?.startPath ?? '')} failed to load!</h1>
                         <p>${e}</p>
+
+                        <div class="log">
+                            <h2>Debug output (poke jb plz)</h2>
+                            <p>Recent rendered sites:${'\n'}${recentSites.slice(Math.max(recentSites.length - 5, 0)).join('\n')}</p>
+                            <p>Stack trace:${'\n'}    ${e.stack}</p>
+                        </div>
                     </div>
         
                     <style slot="head">
+                        .log {
+                            display: flex;
+                            flex-direction: column;
+                            max-width: 100vw;
+                            gap: 6px;
+                        }
+
+                        .log * {
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .log p {
+                            overflow-wrap: anywhere;
+                            white-space: pre;
+                            text-align: left;
+                        }
+
                         .container {
                             position: relative;
                             background-color: #1d1f20;
