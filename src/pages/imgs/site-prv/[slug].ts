@@ -22,6 +22,8 @@ export function getStaticPaths() {
     })
 }
 
+const placeholder = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzM1M2I0MSIvPjxwYXRoIGZpbGw9IiMyMjI2MmEiIGQ9Ik0wIDBoMTB2MTBIMHpNMTAgMTBoMTB2MTBIMTB6Ii8+PC9zdmc+";
+
 export const GET: APIRoute = async ({ params }) => {
     const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? ''));
     recentSites.push(`${button?.url} (${button?.imgUrl})`)
@@ -79,32 +81,42 @@ export const GET: APIRoute = async ({ params }) => {
         let bg = await satoriAstroOG({
                 template: html`
                     <div class="container">
-                        <h1>${button?.url.replace(/\/$/, '') + (button?.startPath ?? '')} failed to load!</h1>
-                        <p>${e}</p>
+				        <div class="placeholder"></div>
+                        <div class="log">
+                            <h3>Failed to load URL</h3>
+                            <h1>${button?.url.replace(/\/$/, '') + (button?.startPath ?? '')}</h1>
+                            <p>${e}</p>
+                        </div>
 
                         <div class="log">
                             <h2>Debug output (poke jb plz)</h2>
-                            <p>Recent rendered sites:${'\n'}${recentSites.slice(Math.max(recentSites.length - 5, 0)).join('\n')}</p>
-                            <p>Stack trace:${'\n'}    ${e.stack}</p>
+                            <p>Recent rendered sites:${'\n'}    ${recentSites.slice(Math.max(recentSites.length - 5, 0)).join('\n    ')}</p>
+                            <p>Stack trace:${'\n'}    ${e.stack.replace(`${e}`, '').trim()}</p>
                         </div>
                     </div>
         
                     <style slot="head">
+                        div {
+                            display: flex;
+                        }
+
                         .log {
+                            position: relative;
                             display: flex;
                             flex-direction: column;
                             max-width: 100vw;
                             gap: 6px;
+                            padding-inline: 6px;
                         }
 
                         .log * {
                             margin: 0;
                             padding: 0;
+                            white-space: pre;
                         }
 
                         .log p {
                             overflow-wrap: anywhere;
-                            white-space: pre;
                             text-align: left;
                         }
 
@@ -115,11 +127,22 @@ export const GET: APIRoute = async ({ params }) => {
                             height: 100%;
                             display: flex;
                             justify-content:center;
-                            align-items: center;
+                            align-items: flex-start;
                             padding-top: 6px;
                             flex-direction: column;
                             font-size: 1.5em;
-                            gap: 6px;
+                            padding: 36px;
+                            gap: 24px;
+                        }
+
+                        .placeholder { 
+                            position: absolute;
+                            inset: 0;
+                            background-image: url(${placeholder});
+                            width: 100vw;
+                            height: 100vh;
+                            background-size: 150px 150px;
+                            opacity: 0.5;
                         }
         
                         h1 {
@@ -136,12 +159,11 @@ export const GET: APIRoute = async ({ params }) => {
                             padding: 0;
                             margin: 0;
                             color: #f1f3f5;
-                            text-align:center;
                         }
                     </style>
                 `,
-                width: 1280,
-                height: 720,
+                width: 1600,
+                height: 900,
             }).toResponse({
                 satori: {
                     fonts: [
@@ -162,6 +184,6 @@ export const GET: APIRoute = async ({ params }) => {
                 },
             });
 
-        return new Response(await sharp(await bg.arrayBuffer()).toBuffer('webp'));
+        return new Response(await sharp(await bg.arrayBuffer()).resize(1280, 720).toFormat('webp').toBuffer());
     }
 }
