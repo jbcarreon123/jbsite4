@@ -107,6 +107,7 @@ export const GET: APIRoute = async ({ params }) => {
                             <p>Recent rendered sites:${'\n'}    ${recentSites.slice(Math.max(recentSites.length - 5, 0)).join('\n    ')}</p>
                             <p>Stack trace:${'\n'}    ${e.stack.replace(`${e}`, '').trim()}</p>
                             <p>Button entry: [object SbrButtonEntry] ${result}</p>
+                            <p>Chromium version: ${browser?.version() ?? 'undefined'}</p>
                         </div>
                     </div>
         
