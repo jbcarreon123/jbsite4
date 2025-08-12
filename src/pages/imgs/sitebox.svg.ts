@@ -40,7 +40,6 @@ export async function GET(context: APIContext) {
     const ent = shuffleArray(arrays);
 
     siteboxSvg = siteboxSvg.replaceAll('[MOTD]', ent.map((a, i) => `<tspan x="22.258781" y="${22.808296 + (3.12954052 * (i))}">${a}</tspan>`).join(''));
-    console.log(siteboxSvg)
     
     return new Response(siteboxSvg, { headers: { 'Content-Type': 'image/svg+xml' } })
 }
