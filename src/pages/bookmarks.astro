@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { bookmarks, type Bookmark, type BookmarkUrl } from "../assets/bookmarks";
+import { bookmarks, type Bookmark, type BookmarkUrl } from "../lib/bookmarks";
 
 function groupArrayByCategory(arr: Bookmark[]) {
     const result: Dict<{name: string, bookmarks: Bookmark[]}> = {};

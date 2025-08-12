@@ -1,0 +1,83 @@
+---
+import { promisify } from 'util';
+import { exec } from "child_process";
+import Layout from "../layouts/Layout.astro";
+import { fromZonedTime } from "date-fns-tz";
+import { Changelogs as logs } from "../lib/changelogs";
+
+const execAsync = promisify(exec);
+const {stdout, stderr} = await execAsync(`git log --pretty=format:'{ "hash": "%H", "shortHash": "%h", "treeHash": "%T", "parentHashes": "%P", "author": { "name": "%an", "email": "%ae", "date": "%ad" }, "subject": "%s", "body": "%b" }' | jq -s '.'`);
+const json = JSON.parse(stdout);
+let jsonp: any[] = json?.map(a => {
+    const author = {
+        name: a.author.name,
+        email: a.author.email,
+        date: new Date(Date.parse(a.author.date))
+    };
+    return {
+        ...a,
+        author
+    }
+});
+const logsp = logs.map(a => ({...a, date: fromZonedTime(Date.parse(a.date), "Asia/Manila")}));
+let logcommits = [];
+for (let ind = 0; ind < logsp.length; ind++) {
+    const results = [];
+    const v = logsp[ind];
+    for (let i = 0; i < jsonp.length; i++) {
+        if (v.date.getTime() > jsonp[i].author.date.getTime() && (!logsp[ind + 1] || (logsp[ind + 1].date.getTime() < jsonp[i].author.date.getTime()))) {
+            results.push(jsonp[i]);
+            jsonp.splice(i, 1);
+        }
+    }
+    const res = {
+        ...v,
+        commits: results   
+    }
+    logcommits.push(res);
+}
+---
+
+<Layout>
+    <h1>Jb's Updates</h1>
+    <p>Let's see if JB actually uses this, oh yeah it contains the commits that happened before that update</p>
+
+    <div class="logs">
+        {logcommits.map(a => <div class="log" id={a.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase()}>
+            <p class="tg">{a.date.toLocaleDateString()}</p>
+            <h2>
+                {a.url ?
+                    <a href={a.url} target="_blank">{a.title}</a> :
+                    a.title
+                }
+            </h2>
+            <p>{a.description}</p>
+            <ul>
+                {a.commits.slice(0, 10).map(c => <li><a href={"https://github.com/jbcarreon123/jbsite4/commit/" + c.hash}><code>{c.shortHash}</code></a> {c.subject}</li>)}
+                {a.commits.slice(10).length > 0 && <li><i>...{a.commits.slice(10).length} more commit{a.commits.slice(10).length > 1 && 's'}</i></li>}
+            </ul>
+        </div>)}
+    </div>
+
+    <style>
+        .logs {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .log {
+            background-color: var(--acc);
+            padding: 12px;
+        }
+        .log ul {
+            list-style-type: none;
+            margin-left: 12px;
+            margin-top: 6px;
+
+            li {
+                margin-left: 0px;
+            }
+        }
+    </style>
+</Layout>

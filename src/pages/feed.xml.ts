@@ -1,5 +1,5 @@
 import type { APIContext } from "astro";
-import { generateFeed } from "../assets/feed.ts";
+import { generateFeed } from "../lib/feed.ts";
 
 
 export async function GET(context: APIContext) {

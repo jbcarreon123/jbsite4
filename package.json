@@ -32,6 +32,7 @@
     "clientjs": "^0.2.1",
     "cssbeautify": "^0.3.1",
     "csso": "^5.0.5",
+    "date-fns-tz": "^3.2.0",
     "exif-js": "^2.3.0",
     "exifreader": "^4.31.1",
     "feed": "^4.2.2",

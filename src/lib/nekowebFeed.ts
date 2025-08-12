@@ -2,6 +2,7 @@ import type { APIContext } from 'astro';
 import { Feed, type Item } from 'feed';
 import sanitize from 'sanitize-html';
 import { minify } from 'html-minifier-terser';
+import { Changelogs } from './changelogs.ts';
 
 export async function generateFeed(context: APIContext, type: 'json' | 'rss' | 'atom'): Promise<string> {
     let posts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true }));
@@ -9,7 +10,8 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
 
     let merge = [
         ...posts,
-        ...tutorials
+        ...tutorials,
+        ...Changelogs
     ]
 
     const feed = new Feed({
@@ -31,8 +33,8 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
     })
 
     const sortedPosts = merge.sort((a, b) => {
-        const dateA = new Date(a.frontmatter.published ?? '01/01/1980');
-        const dateB = new Date(b.frontmatter.published ?? '01/01/1980');
+        const dateA = new Date(a.frontmatter?.published ?? '01/01/1980');
+        const dateB = new Date(b.frontmatter?.published ?? '01/01/1980');
         return dateA.getTime() - dateB.getTime();
     }).reverse();
 
