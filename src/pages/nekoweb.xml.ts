@@ -1,5 +1,5 @@
 import type { APIContext } from "astro";
-import { generateFeed } from "../assets/nekowebFeed.ts";
+import { generateFeed } from "../lib/nekowebFeed.ts";
 
 
 export async function GET(context: APIContext) {

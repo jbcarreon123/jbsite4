@@ -1,11 +1,11 @@
 ---
-import { loadMusic } from "../assets/loadMusic";
+import { loadMusic } from "../lib/loadMusic";
 import { fromPath } from '@catamphetamine/id3js/node';
 
 const music = await loadMusic();
 ---
 
-<script src="../assets/jPlayer2.js"></script>
+<script src="../lib/jPlayer2.js"></script>
 
 <div class="floating-window" id="player" style="display: none;">
     <div class="floating-window-titlebar">
