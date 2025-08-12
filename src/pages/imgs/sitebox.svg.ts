@@ -35,7 +35,7 @@ const arrays = [
 ]
 
 export async function GET(context: APIContext) {
-    let siteboxSvg = readFileSync('./src/assets/sitebox.svg', { encoding: 'utf-8' });
+    let siteboxSvg = readFileSync('./src/lib/sitebox.svg', { encoding: 'utf-8' });
 
     const ent = shuffleArray(arrays);
 
