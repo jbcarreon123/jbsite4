@@ -33,32 +33,34 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
     })
 
     const sortedPosts = merge.sort((a, b) => {
-        const dateA = new Date(a.frontmatter?.published ?? '01/01/1980');
-        const dateB = new Date(b.frontmatter?.published ?? '01/01/1980');
+        const dateA = new Date(a.frontmatter?.published ?? a.date ?? '01/01/1980');
+        const dateB = new Date(b.frontmatter?.published ?? b.date ?? '01/01/1980');
         return dateA.getTime() - dateB.getTime();
     }).reverse();
 
     feed.items = await Promise.all<Item>(sortedPosts.map(async (post: any) => {
-        let cnt = await minify(sanitize(await post.compiledContent(), {
-            allowedTags: sanitize.defaults.allowedTags.concat(['img', 'code', 'a', 'p', 'figure', 'figcaption']),
-            disallowedTagsMode: 'discard'
-        }).replace(/="(\/[a-zA-Z0-9\/_ \+\.]+)"/gm, '="https://jbc.lol$1"').replaceAll(' <span>open_in_new</span>', '').replaceAll('<span><span></span></span>', ''), {
-            removeAttributeQuotes: true,
-            removeEmptyElements: true,
-            minifyCSS: false,
-            removeRedundantAttributes: true,
-        });
+        let cnt = ''
+        try {
+            cnt = await minify(sanitize(await post.compiledContent(), {
+                allowedTags: sanitize.defaults.allowedTags.concat(['img', 'code', 'a', 'p', 'figure', 'figcaption']),
+                disallowedTagsMode: 'discard'
+            }).replace(/="(\/[a-zA-Z0-9\/_ \+\.]+)"/gm, '="https://jbc.lol$1"').replaceAll(' <span>open_in_new</span>', '').replaceAll('<span><span></span></span>', ''), {
+                removeAttributeQuotes: true,
+                removeEmptyElements: true,
+                minifyCSS: false,
+                removeRedundantAttributes: true,
+            });
+        } catch {}
 
         return ({
             id: new URL(post.url, context.site).toString(),
-            title: post.frontmatter.title,
+            title: post.frontmatter?.title ?? post.title,
             description: 
-                (post.frontmatter.category ? 'Tutorial on ' + post.frontmatter.category + ': ' : '') +
-                post.frontmatter.description,
-            link: new URL(post.url, context.site).toString(),
-            date: new Date(post.frontmatter.published),
+                (post.frontmatter?.category ? 'Tutorial on ' + post.frontmatter.category + ': ' : '') +
+                (post.frontmatter?.description ?? post.description),
+            link: !!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
+            date: new Date(post.frontmatter?.published ?? post.date),
             content: cnt,
-            image: `${context.site}imgs/og/posts/${post.url.replace('/posts/', '').replace('/', '')}.png`,
             author: [{
                 name: 'JB Carreon',
                 link: context.site?.toString()
