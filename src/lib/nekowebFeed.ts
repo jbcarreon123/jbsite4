@@ -53,7 +53,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         } catch {}
 
         return ({
-            id: !!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase()!!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
+            id: !!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
             title: post.frontmatter?.title ?? post.title,
             description: 
                 (post.frontmatter?.category ? 'Tutorial on ' + post.frontmatter.category + ': ' : '') +
