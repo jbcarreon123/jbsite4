@@ -3,6 +3,7 @@ import ssgMembers from "../../public/webrings/ssgring/members.json" with { type:
 import rspMembers from "../../public/webrings/responeko/members.json" with { type: 'json' }
 import yamMembers from "../../public/webrings/yamring/swr.json" with { type: 'json' }
 import buttons from "../../public/buttons.json" with { type: 'json' }
+import { Changelogs } from "./changelogs.ts";
 
 export type LinkObj = {
     name?: string,
@@ -120,6 +121,13 @@ export function getLinks(): LinkObj[] {
                     path: "/faq/",
                     redirect: false,
                     icon: "quick_reference"
+                },
+                {
+                    name: "Updates",
+                    path: "/updates/",
+                    redirect: false,
+                    icon: "update",
+                    innerHTML: `<div class="flex-direction: column;"><h3 style="font-weight: 300;">${Changelogs[0].title}</h3><p>${Changelogs[0].description}</p></div>`
                 },
                 {
                     name: "RIIAtW",

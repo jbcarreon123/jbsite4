@@ -7,7 +7,6 @@ import { Changelogs as logs } from "../lib/changelogs";
 
 const execAsync = promisify(exec);
 const {stdout, stderr} = await execAsync(`git log --pretty=format:'{ "hash": "%H", "shortHash": "%h", "treeHash": "%T", "parentHashes": "%P", "author": { "name": "%an", "email": "%ae", "date": "%ad" }, "subject": "%s", "body": "%b" }' | jq -s '.'`);
-console.log(stdout, stderr);
 const json = JSON.parse(stdout);
 let jsonp: any[] = json?.map(a => {
     const author = {
