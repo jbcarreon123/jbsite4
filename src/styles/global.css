@@ -62,6 +62,22 @@ body {
     --font: 'Commit Mono', monospace;
 }
 
+.sheepish {
+    --font: 'Sheepish', sans-serif;
+    font-size: 1.25em;
+
+    h1,
+    h2,
+    h3 {
+        font-family: 'Sheepish SC';
+        line-height: 0.7em;
+    }
+
+    code, pre {
+        font-size: 0.8em;
+    }
+}
+
 .default {
     --font: sans-serif;
 }
@@ -484,7 +500,8 @@ h1 {
     padding-bottom: 6px;
 }
 
-h1:has(+ h2), h1:has(+ section h2) {
+h1:has(+ h2),
+h1:has(+ section h2) {
     margin-bottom: -8px;
 }
 
@@ -570,8 +587,7 @@ footer .right {
 }
 
 h1:first-of-type,
-h2:first-of-type
-{
+h2:first-of-type {
     padding-top: 0;
     margin-top: 0;
 }
@@ -613,8 +629,7 @@ a:not(:has(.ms)):not(:has(img)):not(:has(div))[target='_blank']::after {
         max-height: 100dvh;
     }
 
-    header {
-    }
+    header {}
 
     .container main {
         scroll-snap-align: end;
