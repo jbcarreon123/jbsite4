@@ -197,6 +197,12 @@ export const LinkObjs: LinkObj = [
                 icon: "link"
             },
             {
+                name: "Feedroll",
+                path: "/feedroll/",
+                redirect: false,
+                icon: "measuring_tape"
+            },
+            {
                 name: "Webrings",
                 path: "/webrings/",
                 redirect: false,
