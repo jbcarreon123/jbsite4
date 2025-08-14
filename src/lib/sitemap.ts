@@ -232,6 +232,12 @@ export function getLinks(): LinkObj[] {
                     innerHTML: `<span><span style="font-size:0.35em;">has </span>${buttons.length}<span style="font-size:0.35em;"> other sites</span></span>`
                 },
                 {
+                    name: "Feedroll",
+                    path: "/feedroll/",
+                    redirect: false,
+                    icon: "measuring_tape"
+                },
+                {
                     name: "Webrings",
                     path: "/webrings/",
                     redirect: false,
