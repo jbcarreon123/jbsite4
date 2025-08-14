@@ -231,6 +231,13 @@ export default defineConfig({
     },
     server: {
       allowedHosts: ['localhost', 'local.jbc.lol']
+    },
+    build: {
+      rollupOptions: {
+        external: [
+          'html-to-text-conv'
+        ]
+      }
     }
   }
 });
