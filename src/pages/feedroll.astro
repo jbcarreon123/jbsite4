@@ -1,11 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { loadFeeds } from "../lib/feedroll";
-import { HtmlToText } from 'html-to-text-conv';
 import lodash from "lodash";
 
 const feedItems = await loadFeeds();
-const conv = new HtmlToText();
 ---
 
 <Layout title="Feedroll">
@@ -46,7 +44,7 @@ const conv = new HtmlToText();
                             </p>
                             <div class="info">
                                 <h2>{val.title}</h2>
-                                <p>{val.summary ?? conv.convert(val.content ?? '')}</p>
+                                <p>{val.summary ?? <Fragment set:html={val.content} />}</p>
                             </div>
                         </div>
                     </a>
