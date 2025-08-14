@@ -43,7 +43,6 @@ body {
 
 .opendyslexic {
     --font: 'OpenDyslexic', 'sans-serif';
-    font-size: 0.85em;
 }
 
 .atkinson-hyperlegible {
@@ -64,17 +63,9 @@ body {
 
 .sheepish {
     --font: 'Sheepish', sans-serif;
-    font-size: 1.25em;
 
-    h1,
-    h2,
-    h3 {
-        font-family: 'Sheepish SC';
-        line-height: 0.7em;
-    }
-
-    code, pre {
-        font-size: 0.8em;
+    h1, h2, h3 {
+        font-family: 'Sheepish SC', 'Sheepish', sans-serif;
     }
 }
 
@@ -495,7 +486,7 @@ h6 {
 }
 
 h1 {
-    font-size: 2.75rem;
+    font-size: 2.75em;
     padding-top: 12px;
     padding-bottom: 6px;
 }
@@ -506,13 +497,13 @@ h1:has(+ section h2) {
 }
 
 h2 {
-    font-size: 1.75rem;
+    font-size: 1.75em;
     padding-top: 8px;
     padding-bottom: 4px;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     padding-top: 6px;
     padding-bottom: 3px;
 }
