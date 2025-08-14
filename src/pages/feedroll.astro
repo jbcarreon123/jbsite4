@@ -1,0 +1,257 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { loadFeeds } from "../lib/feedroll";
+import pt from "html2plaintext";
+import lodash from "lodash";
+
+const feedItems = await loadFeeds();
+---
+
+<Layout title="Feedroll">
+    <h1>Feedroll</h1>
+    <p class="post-desc">
+        <span>
+            Basically just a blogroll but actually shows the content of other site's
+            RSS feeds, jbsite4 style.
+        </span>
+
+        <span style="white-space: nowrap;"
+            ><a href="/feedroll.xml"
+                ><span aria-hidden="true" class="ms" data-icon="rss_feed"
+                ></span> RSS Feed</a
+            > - <a href="/feedroll.atom"
+                ><span aria-hidden="true" class="ms" data-icon="rss_feed"
+                ></span> Atom Feed</a
+            > - <a href="/feedroll.json"
+                ><span aria-hidden="true" class="ms" data-icon="data_object"
+                ></span> JSON Feed</a
+            ></span
+        >
+    </p>
+    <p class="feedroll-desc">
+        If you want to be here, ping @jbcrn on the Nekoweb Discord.
+    </p>
+    
+    {
+        lodash.chunk(feedItems, 20).map((items, ind) => <div class={"feedroll-container" + (ind == 0 ? " active" : "")} data-feedroll-page={ind + 1}>
+            {
+                items.map((val) => (
+                    <a href={val.link} class="feedroll" target="_blank">
+                        <div>
+                            <p class="tg">
+                                {val.siteTitle} - 
+                                {new Date(val.isoDate).toLocaleDateString()}
+                                <span class="ms" data-icon="open_in_new"></span>
+                            </p>
+                            <div class="info">
+                                <h2>{val.title}</h2>
+                                <p>{val.summary ?? pt(val.content)}</p>
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>)
+    }
+
+    <div class="feedroll-controls">
+        <button id="prev"><span aria-hidden="true" class="ms" data-icon="arrow_back_ios_new"></span> Prev</button>
+        <p id="inf" data-feedroll-length={lodash.chunk(feedItems, 20).length}>Page 1 of {lodash.chunk(feedItems, 20).length}</p>
+        <button id="next">Next <span aria-hidden="true" class="ms" data-icon="arrow_forward_ios"></span></button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prev = document.getElementById('prev');
+            const next = document.getElementById('next');
+            const info = document.getElementById('inf');
+
+            function prevNext(action: "prev" | "next") {
+                const page = document.querySelector(".feedroll-container.active") as HTMLDivElement;
+                const pageNum = page.dataset.feedrollPage;
+                const pageToNext = document.querySelector(`.feedroll-container[data-feedroll-page="${parseInt(pageNum) + (action === "next" ? 1 : -1)}"]`);
+                console.log(page, pageNum, pageToNext, parseInt(pageNum) + (action === "next" ? 1 : -1));
+                if (!pageToNext) return;
+                page.classList.remove("active");
+                pageToNext?.classList.add("active");
+                info.textContent = `Page ${parseInt(pageNum) + (action === "next" ? 1 : -1)} of ${info.dataset.feedrollLength}`;
+            }
+
+            prev?.addEventListener("click", () => prevNext("prev"))
+            next?.addEventListener("click", () => prevNext("next"))
+        })
+    </script>
+
+    <style slot="head">
+        .tag-filter {
+            padding-bottom: 12px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .feedroll-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
+            gap: 12px;
+
+            &:not(.active) {
+                display: none;
+            }
+
+            * {
+                text-decoration: none !important;
+            }
+        }
+
+        .feedroll-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+        }
+
+        .feedroll {
+            height: 100%;
+            min-height: 150px;
+            background-color: var(--acc);
+            position: relative;
+            color: color-mix(in srgb, var(--link) 50%, var(--text)) !important;
+
+            &:not(:has(.bg)) {
+                & > div {
+                    .info > p {
+                        opacity: 1;
+                    }
+
+                    .tg span {
+                        background-color: transparent;
+                    }
+                }
+
+                background: var(--acc);
+
+                &:hover,
+                &:active,
+                &:focus-within {
+                    background: var(--altbg);
+                }
+            }
+
+            &:has(.bg):hover,
+            &:has(.bg):active,
+            &:has(.bg):focus-within {
+                background: linear-gradient(to bottom, var(--bg), transparent);
+
+                & > .bg {
+                    opacity: 0.25;
+                }
+
+                & > div {
+                    .info > p {
+                        opacity: 1;
+                    }
+
+                    .tg span {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+
+        .feedroll .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 100%;
+            max-width: 100%;
+            opacity: 0.5;
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .feedroll > div {
+            background: linear-gradient(
+                to top,
+                color-mix(in srgb, var(--altbg) 65%, transparent),
+                transparent
+            );
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0 6px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feedroll h2 {
+            text-wrap-mode: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .feedroll .info {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            height: 100%;
+            overflow: hidden;
+
+            & > * {
+                padding-top: 0;
+            }
+
+            & > p {
+                opacity: 0;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+
+                text-overflow: ellipsis;
+            }
+        }
+
+        .feedroll-desc {
+            padding-bottom: 6px;
+        }
+
+        .post-desc {
+            display: flex;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .tg {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+        }
+
+        .tg span {
+            background: var(--altbg);
+            padding: 2px;
+        }
+
+        @media screen and (width <= 940px) {
+            .feedroll-container {
+                grid-template-columns: repeat(2, minmax(100px, 1fr));
+            }
+        }
+
+        @media screen and (width <= 640px) {
+            .feedroll-container {
+                grid-template-columns: repeat(1, 100%);
+            }
+
+            .feedroll-desc {
+                justify-content: left;
+                flex-direction: column;
+            }
+        }
+    </style>
+</Layout>

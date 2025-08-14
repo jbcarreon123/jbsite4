@@ -7,6 +7,12 @@ export type ChangelogObj = {
 
 export const Changelogs: ChangelogObj[] = [
     {
+        date: "08/14/2025 23:30",
+        title: "Added a new page, Feedroll!",
+        description: "Basically just a curated feed aggregator lol, if you want to be here ping me (@jbcrn) on the nekoweb discord",
+        url: "https://jbc.lol/feedroll/"
+    },
+    {
         date: "08/13/2025 21:45",
         title: "Added a new (handwriting) font in my site!",
         description: "and the first one too! Select 'Sheepish' on the Customize window if you want it, and thanks for sheep.nekoweb.org for sharing it!"
