@@ -44,7 +44,7 @@ const feedItems = await loadFeeds();
                             </p>
                             <div class="info">
                                 <h2>{val.title}</h2>
-                                <p>{val.summary ?? <Fragment set:html={val.content} />}</p>
+                                <p>{val.summary ?? val.content}</p>
                             </div>
                         </div>
                     </a>

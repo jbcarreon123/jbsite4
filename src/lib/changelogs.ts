@@ -7,7 +7,7 @@ export type ChangelogObj = {
 
 export const Changelogs: ChangelogObj[] = [
     {
-        date: "08/15/2025 00:00",
+        date: "08/15/2025 00:15",
         title: "Added a new page, Feedroll!",
         description: "Basically just a curated feed aggregator lol, if you want to be here ping me (@jbcrn) on the nekoweb discord",
         url: "https://jbc.lol/feedroll/"
