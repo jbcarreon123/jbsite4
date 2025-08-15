@@ -80,6 +80,12 @@ export function getLinks(): LinkObj[] {
                     icon: "contact_page"
                 },
                 {
+                    name: "Analytical",
+                    path: "/analytical/",
+                    redirect: false,
+                    icon: "analytics"
+                },
+                {
                     name: "Follow me on Nekoweb!",
                     path: "https://nekoweb.org/follow/jbc.lol",
                     redirect: true,

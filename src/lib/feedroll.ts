@@ -14,7 +14,8 @@ const feedrolls = [
     "https://blog.adamngshrine.com/rss.xml",
     "https://blog.xavierhm.com/feed/",
     "https://32enoki.net/rss.xml",
-    "https://sandwich.nekoweb.org/updates.xml"
+    "https://sandwich.nekoweb.org/updates.xml",
+    "https://kimberlygb.nekoweb.org/feed.xml",
 ];
 
 export async function loadFeeds() {
