@@ -106,7 +106,7 @@ export class Analytical {
     pageLoad(url: URL, data?: any) {
         const lastPage = this.data.pagesViewed.findLast(() => true);
         const dateRn = new Date();
-        if (
+        /*if (
             !lastPage ||
             (
                 dateRn.getTime() < (new Date(lastPage.lastViewed).getTime() + 600000) &&
@@ -115,7 +115,7 @@ export class Analytical {
                 dateRn.getTime() < (new Date(lastPage.lastViewed).getTime() + 30000) &&
                 this.stripQueriesAndHashes(url) !== lastPage.url
             )
-        ) {
+        ) {*/
             const page = this.data.pagesViewed.find(p => new URL(p.url).href === this.stripQueriesAndHashes(url).href) ?? new AnalyticalPagesViewed(this.stripQueriesAndHashes(url));
             const pageIndex = this.data.pagesViewed.indexOf(page);
             page.times += 1;
@@ -133,13 +133,13 @@ export class Analytical {
 
             this.handleStreaks();
             this.saveData();
-        }
+        //}
     }
 
     linkClicked(url: URL) {
         const lastPage = this.data.linksClicked.findLast(() => true);
         const dateRn = new Date();
-        if (
+        /*if (
             !lastPage ||
             (
                 this.stripQueriesAndHashes(url) !== lastPage.url &&
@@ -148,7 +148,7 @@ export class Analytical {
                     this.stripQueriesAndHashes(url) !== lastPage.url
                 )
             )
-        ) {
+        ) {*/
             const page = this.data.linksClicked.find(p => new URL(p.url).href === this.stripQueriesAndHashes(url).href) ?? new AnalyticalLinksClicked(this.stripQueriesAndHashes(url));
             const pageIndex = this.data.linksClicked.indexOf(page);
             page.times += 1;
@@ -162,7 +162,7 @@ export class Analytical {
             this.data.totalTimeVisited += 1;
 
             this.saveData();
-        }
+        //}
     }
 }
 
