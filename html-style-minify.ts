@@ -2,7 +2,7 @@ import type { AstroIntegration, AstroIntegrationLogger } from "astro";
 import { walkSync } from '@nodelib/fs.walk';
 import { fileURLToPath } from "url";
 import { transform } from "lightningcss";
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, statSync, writeFileSync } from "fs";
 
 // @ts-ignore
 function minifyStyleTags(htmlContent, logger) {
@@ -56,7 +56,7 @@ export default function createIntegration(): AstroIntegration {
                         processHTMLFile(v.path, logger);
                         logger.info(`Minified style tags of ${v.path}`);
                     }
-                    if (!v.stats?.isDirectory()) {
+                    if (!statSync(v.path).isDirectory() || !v.stats?.isDirectory()) {
                         processCid(v.path);
                         logger.info(`Processed scoped classes of ${v.path}`);
                     }
