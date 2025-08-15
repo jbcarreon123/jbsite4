@@ -49,7 +49,10 @@ jobs:
           COMMIT_HASH: '<a href="https://github.com/jbcarreon123/jbcarreon123.github.io/commit/${{ steps.commit.outputs.hash }}">${{ steps.commit.outputs.short }}</a>'
         run: bun run build
       - name: Rename not_found back to 404
+        continue-on-error: true
         run: mv ./dist/not_found.html ./dist/404.html
+      - name: Check if index.html exists
+        run: cat ./dist/index.html
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
