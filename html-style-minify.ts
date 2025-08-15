@@ -36,6 +36,13 @@ function processHTMLFile(filePath: string, logger: AstroIntegrationLogger) {
     return minifiedHTML;
 }
 
+function processCid(filePath: string) {
+    const htmlContent = readFileSync(filePath, 'utf8');
+    const minifiedHTML = htmlContent.replaceAll('data-astro-cid-', 'data-jbsite-');
+    writeFileSync(filePath, minifiedHTML, 'utf8');
+    return minifiedHTML;
+}
+
 export default function createIntegration(): AstroIntegration {
     return {
         name: 'html-style-minify',
@@ -49,6 +56,8 @@ export default function createIntegration(): AstroIntegration {
                         processHTMLFile(v.path, logger);
                         logger.info(`Minified style tags of ${v.path}`);
                     }
+                    processCid(v.path);
+                    logger.info(`Processed scoped classes of ${v.path}`);
                 })
             }
         }
