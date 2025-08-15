@@ -56,8 +56,10 @@ export default function createIntegration(): AstroIntegration {
                         processHTMLFile(v.path, logger);
                         logger.info(`Minified style tags of ${v.path}`);
                     }
-                    processCid(v.path);
-                    logger.info(`Processed scoped classes of ${v.path}`);
+                    if (!v.stats?.isDirectory()) {
+                        processCid(v.path);
+                        logger.info(`Processed scoped classes of ${v.path}`);
+                    }
                 })
             }
         }
