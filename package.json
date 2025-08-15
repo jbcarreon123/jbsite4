@@ -70,7 +70,8 @@
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
     "unist-util-visit": "^5.0.0",
-    "uwuifier": "^4.2.2"
+    "uwuifier": "^4.2.2",
+    "vite-plugin-optimize-css-modules": "^1.2.0"
   },
   "patchedDependencies": {
     "astro-opengraph-images@1.12.1": "patches/astro-opengraph-images@1.12.1.patch",
