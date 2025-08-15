@@ -292,6 +292,13 @@ import { ClientRouter } from "astro:transitions";
     });
 </script>
 
+<script>
+    import { Analytical } from "../lib/analytical.ts";
+
+    const analytical = new Analytical();
+    analytical.pageLoad(new URL(location.href));
+</script>
+
 <noscript>
     <style>
         /* weirdest way to force specificity lmao */

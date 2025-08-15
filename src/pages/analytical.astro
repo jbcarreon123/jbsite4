@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AnalyticalComponent from "../components/Analytical.svelte";
+---
+
+<Layout title="Analytical">
+    <h1>Analytical</h1>
+    <p>So you can see how much have you visited jbSite and stuff.</p>
+    <p>This is saved in your browser and it will never phone home.</p>
+    <AnalyticalComponent client:only="svelte" />
+</Layout>
