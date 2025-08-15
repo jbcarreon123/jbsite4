@@ -37,10 +37,14 @@ function processHTMLFile(filePath: string, logger: AstroIntegrationLogger) {
 }
 
 function processCid(filePath: string) {
-    const htmlContent = readFileSync(filePath, 'utf8');
-    const minifiedHTML = htmlContent.replaceAll('data-astro-cid-', 'data-jbsite-');
-    writeFileSync(filePath, minifiedHTML, 'utf8');
-    return minifiedHTML;
+    try {
+        const htmlContent = readFileSync(filePath, 'utf8');
+        const minifiedHTML = htmlContent.replaceAll('data-astro-cid-', 'data-jbsite-');
+        writeFileSync(filePath, minifiedHTML, 'utf8');
+        return minifiedHTML;
+    } catch {
+        return "";
+    }
 }
 
 export default function createIntegration(): AstroIntegration {
