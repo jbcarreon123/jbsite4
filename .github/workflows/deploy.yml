@@ -30,11 +30,11 @@ jobs:
           fetch-depth: 0
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
-      # - name: Setup Node
-      #   uses: actions/setup-node@v4
-      - name: Install dependencies (using Bun)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+      - name: Install dependencies (using NPM)
         continue-on-error: true
-        run: bun install
+        run: npm install --force
       - name: Install Playwright dependencies
         run: bunx playwright install chromium
       - name: Get commit hash
