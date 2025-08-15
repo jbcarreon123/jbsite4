@@ -18,36 +18,40 @@ const feedrolls = [
 ];
 
 export async function loadFeeds() {
-    const parser = new Parser();
-    const feedrollDatas = (await Promise.all(
-        feedrolls.map(async (f) => {
-            const res = await fetch(f);
-            const data = await res.text();
-                
-            try {
-                const rss = await parser.parseString(data);
+    try {
+        const parser = new Parser();
+        const feedrollDatas = (await Promise.all(
+            feedrolls.map(async (f) => {
+                const res = await fetch(f);
+                const data = await res.text();
 
-                return rss;
-            } catch { 
-                console.log(data);
-                return null;
-            }
-        }),
-    )).filter(a => a !== null);
-    const mappedData = feedrollDatas.map((v) => {
-        return v.items.map((i) => ({
-            siteTitle: v.title,
-            siteLink: v.link,
-            ...i,
-        }));
-    });
-    const mergedData = mappedData.flatMap((v) => [...v]);
+                try {
+                    const rss = await parser.parseString(data);
 
-    return mergedData.sort((a, b) => {
-        const dateA = new Date(a.isoDate);
-        const dateB = new Date(b.isoDate);
-        return dateA.getTime() - dateB.getTime();
-    }).reverse();
+                    return rss;
+                } catch {
+                    console.log(data);
+                    return null;
+                }
+            }),
+        )).filter(a => a !== null);
+        const mappedData = feedrollDatas.map((v) => {
+            return v.items.map((i) => ({
+                siteTitle: v.title,
+                siteLink: v.link,
+                ...i,
+            }));
+        });
+        const mergedData = mappedData.flatMap((v) => [...v]);
+
+        return mergedData.sort((a, b) => {
+            const dateA = new Date(a.isoDate);
+            const dateB = new Date(b.isoDate);
+            return dateA.getTime() - dateB.getTime();
+        }).reverse();
+    } catch {
+        return []
+    }
 }
 
 export async function generatefeedroll(context: APIContext, type: 'json' | 'rss' | 'atom'): Promise<string> {

@@ -16,6 +16,7 @@ import { env } from 'node:process';
 // @ts-ignore
 import rehypeFigure from 'rehype-figure';
 import serviceWorker from "astrojs-service-worker";
+import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import mdx from '@astrojs/mdx';
 import rehypeSectionize from '@hbsnow/rehype-sectionize'
 import expressiveCode from 'astro-expressive-code';
@@ -38,7 +39,7 @@ import { toHast } from 'mdast-util-to-hast';
 import { toHtml } from 'hast-util-to-html';
 import { isElement } from 'hast-util-is-element';
 import { parse } from 'url';
-import {fromHtml} from 'hast-util-from-html'
+import { fromHtml } from 'hast-util-from-html'
 
 let nkw = [];
 
@@ -57,10 +58,10 @@ function remarkQuoteDirective() {
               node.children.push({
                 type: 'text', value: ' '
               },
-              {
-                type: 'element', tagName: 'span',
-                properties: { className: ['ms'], dataIcon: ['open_in_new'] },
-              })
+                {
+                  type: 'element', tagName: 'span',
+                  properties: { className: ['ms'], dataIcon: ['open_in_new'] },
+                })
             }
           }
         }
@@ -115,10 +116,10 @@ export function rehypeTargetBlank() {
               node.children.push({
                 type: 'text', value: ' '
               },
-              {
-                type: 'element', tagName: 'span',
-                properties: { className: ['ms'], dataIcon: ['open_in_new'] },
-              })
+                {
+                  type: 'element', tagName: 'span',
+                  properties: { className: ['ms'], dataIcon: ['open_in_new'] },
+                })
             }
           }
         }
@@ -227,20 +228,21 @@ export default defineConfig({
     css: {
       postcss: {
         plugins: [
-          postcssColorConverter({ outputColorFormat: 'oklch' }),
           lightningCss({ minify: true })
         ]
       }
     },
+    css: {
+      transformer: 'lightningcss',
+      lightningcss: {
+        minify: true
+      }
+    },
+    build: {
+      cssMinify: 'lightningcss'
+    },
     server: {
       allowedHosts: ['localhost', 'local.jbc.lol']
     },
-    build: {
-      rollupOptions: {
-        external: [
-          'html-to-text-conv'
-        ]
-      }
-    }
   }
 });
