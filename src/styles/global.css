@@ -9,7 +9,8 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.noreset, .fancybox__dialog {
+.noreset,
+.fancybox__dialog {
     all: revert;
 }
 
@@ -64,7 +65,9 @@ body {
 .sheepish {
     --font: 'Sheepish', sans-serif;
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
         font-family: 'Sheepish SC', 'Sheepish', sans-serif;
     }
 }
@@ -79,6 +82,29 @@ body {
 
 .default-mono {
     --font: monospace;
+}
+
+/* No-JS theme vars */
+:root {
+    --bg: #212529;
+    --altbg: #1d1f20;
+    --acc: #343a40;
+    --text: #f1f3f5;
+    --sec: #ced4da;
+    --link: #30b8e6;
+    --link-hover: #4dc4eb;
+}
+
+@media screen and (prefers-color-scheme: light) {
+    :root {
+        --bg: #ffffff;
+        --altbg: #f8f9fa;
+        --acc: #e9ecef;
+        --text: #212529;
+        --sec: #495057;
+        --link: #6a6d73;
+        --link-hover: #83868b;
+    }
 }
 
 /* Theme variables */
