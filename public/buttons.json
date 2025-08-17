@@ -504,5 +504,11 @@
         "alt": "EXT4NT",
         "imgUrl": "https://ext4ntmusic.org/assets/images/ext4ntbutton.gif",
         "startPath": "/#/home"
+    },
+    {
+        "url": "https://uksz.org/",
+        "title": "",
+        "alt": "uksz",
+        "imgUrl": "https://uksz.org/buttons/uksz.gif"
     }
 ]
