@@ -40,6 +40,8 @@ import { toHtml } from 'hast-util-to-html';
 import { isElement } from 'hast-util-is-element';
 import { parse } from 'url';
 import { fromHtml } from 'hast-util-from-html'
+import playformInline from '@playform/inline';
+import playformFormat from '@playform/format';
 
 let nkw = [];
 
@@ -154,7 +156,7 @@ export default defineConfig({
   },
 
   build: {
-    concurrency: 6,
+    concurrency: 12,
     assets: '_jbsite4'
   },
 
@@ -178,7 +180,7 @@ export default defineConfig({
       }
       return item;
     },
-  }), svelte(), playformCompress({
+  }), svelte(), playformInline(), playformFormat(), playformCompress({
     SVG: false,
     CSS: {
       'csso': false,
@@ -202,7 +204,7 @@ export default defineConfig({
         toplevel: true
       }
     },
-    Image: (process.env.GITHUB_ACTIONS === 'true')
+    //Image: (process.env.GITHUB_ACTIONS === 'true')
   }), htmlStyleMinify(), ...nkw],
 
   trailingSlash: 'ignore',
