@@ -201,7 +201,7 @@ export default defineConfig({
         toplevel: true
       }
     },
-    //Image: (process.env.GITHUB_ACTIONS === 'true')
+    Image: (process.env.GITHUB_ACTIONS === 'true')
   }), htmlStyleMinify(), ...nkw],
 
   trailingSlash: 'ignore',
