@@ -1,159 +1,47 @@
-<script is:inline>
-    function containerClicked(el, ev) {
-        ev.stopPropagation();
-        el.classList.add('fadeout');
-        el.classList.remove('hide');
-        setTimeout(() => el.style.display = 'none', 260);
-    }
+---
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import "@fancyapps/ui/dist/fancybox/fancybox.compactmode.css";
+---
 
-    document.addEventListener('DOMContentLoaded', () => {
-        let container = document.querySelector('.imageviewer--container');
-        container.addEventListener('click', (ev) => containerClicked(container, ev))
+<script>
+    import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+    import { Compactmode } from "@fancyapps/ui/dist/fancybox/fancybox.compactmode.js";
 
-        document.querySelectorAll('.imageviewer--container a.link').forEach((el) => {
-            el.addEventListener('click', (ev) => ev.stopPropagation());
-        });
-
-        document.querySelector('.imageviewer--container img#image').addEventListener('click', (ev) => {
-            container.classList.toggle('hide');
+    let imgs = document.querySelector("main #content").querySelectorAll("img");
+    let els = Object.values(imgs);
+    imgs.forEach((el, ind) => {
+        if (el.width < 100) return;
+        el.addEventListener("click", (ev) => {
             ev.stopPropagation();
-        })
-
-        document.querySelectorAll('img').forEach(el => {
-            if (el.width <= 100) return;
-
-            el.addEventListener('click', ev => {
-                ev.preventDefault();
-                ev.stopPropagation();
-                console.log(el.src);
-                showImageViewer(el.src, el.alt ?? el.title ?? 'No description');
-            })
-        })
-    })
-
-    function showImageViewer(src, alt) {
-        let container = document.querySelector('.imageviewer--container');
-        container.querySelector('img#image').src = src;
-        container.querySelector('img#image').alt = alt;
-        container.querySelector('p#alt').textContent = alt;
-        let url = new URL((src.startsWith('/') ? window.location.protocol + '//' + window.location.host : '') + src);
-        let dom = url.hostname != window.location.hostname ? url.hostname : ''
-        let spl = url.pathname.split('/');
-        let filename = spl.pop();
-        let path = spl.join('/');
-        container.querySelector('p#filename').innerHTML = `<i>${dom && `${dom}`}</i>${path}/<b>${filename}</b>`;
-        container.querySelectorAll('a.link').forEach((el) => el.href = src);
-        container.classList.remove('fadeout');
-        container.style.display = 'block';
-    }
+            ev.preventDefault();
+            Fancybox.show(
+                els.map((e) => ({
+                    src: e.src,
+                    thumbSrc: e.src,
+                    caption: e.alt
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;"),
+                })),
+                {
+                    plugins: [Compactmode],
+                    startIndex: ind,
+                    Carousel: {
+                        Toolbar: {
+                            display: {
+                                left: ["filename"],
+                                middle: ["counter"],
+                                right: ["autoplay", "fullscreen", "download", "close"],
+                            },
+                        },
+                    },
+                },
+            );
+        });
+    });
 </script>
 
-<div class="imageviewer--container fadeout" style="display: none;">
-    <div class="span"></div>
-    <div class="main">
-        <div class="controls">
-            <a class="link" href="" download>Download image</a> <a class="link" href="" target="_blank">Open in new tab</a>
-        </div>
-        <div class="actualimage">
-            <p id="filename"></p>
-            <img id="image" alt="" />
-            <p id="alt"></p>
-        </div>
-        <div class="placeholder"></div>
-    </div>
-</div>
-
-<style slot="head">
-    .imageviewer--container {
+<style is:inline>
+    .fancybox__container {
         position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100dvw;
-        min-height: 100dvh;
-        z-index: 999;
-        opacity: 0;
-        visibility: hidden;
-        animation: ivfadein 0.15s ease-in-out forwards;
-    }
-
-    .imageviewer--container .span {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100dvw;
-        min-height: 100dvh;
-        pointer-events: none;
-        z-index: 99;
-        opacity: 0.8;
-        background: var(--altbg);
-    }
-
-    body:has(.imageviewer--container:not(.fadeout)) {
-        overflow: hidden;
-    }
-
-    .imageviewer--container.fadeout {
-        opacity: 1;
-        visibility: visible;
-        animation: ivfadeout 0.15s ease-in-out forwards;
-    }    
-
-    .imageviewer--container.hide p,
-    .imageviewer--container.hide a {
-        opacity: 0;
-    }
-
-    .imageviewer--container img {
-        object-fit: contain;
-        max-height: 80dvh;
-        max-width: calc(100dvw - 24px);
-    }
-
-    .imageviewer--container.hide img {
-        z-index: 1000;
-        width: 100dvw;
-        height: 100dvh;
-        max-height: 100dvh;
-        object-fit: contain;
-        position: fixed;
-        top: 0;
-    }
-
-    .imageviewer--container .main {
-        position: relative;
-        z-index: 999;
-        display: grid;
-        height: 100dvh;
-        padding: 12px;
-        grid-template-rows: 0.05fr 0.9fr 0.05fr;
-    }
-
-    .imageviewer--container p {
-        text-align: center;
-    }
-
-    .imageviewer--container .main .controls {
-        display: flex;
-        gap: 12px;
-        flex-direction: row;
-        justify-content: end;
-        height: fit-content;
-    }
-
-    .imageviewer--container .main .actualimage {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    @keyframes ivfadein {
-        from { opacity: 0; visibility: hidden; }
-        to { opacity: 1; visibility: visible; }
-    }
-
-    @keyframes ivfadeout {
-        from { opacity: 1; visibility: visible; }
-        to { opacity: 0; visibility: hidden; }
     }
 </style>

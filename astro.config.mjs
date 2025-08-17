@@ -43,6 +43,8 @@ import { fromHtml } from 'hast-util-from-html'
 import playformInline from '@playform/inline';
 import playformFormat from '@playform/format';
 
+import react from '@astrojs/react';
+
 let nkw = [];
 
 function remarkQuoteDirective() {
@@ -205,7 +207,7 @@ export default defineConfig({
       }
     },
     Image: (process.env.GITHUB_ACTIONS === 'true')
-  }), htmlStyleMinify(), ...nkw],
+  }), htmlStyleMinify(), ...nkw, react()],
 
   trailingSlash: 'ignore',
 
