@@ -89,7 +89,7 @@ export const GET: APIRoute = async ({ params }) => {
         return new Response(webpBuf);
     } catch (e) {
         //@ts-ignore
-        await context.close();
+        if (context) await context.close();
         console.error(`Failed to render ${button?.url},`, e)
         const regex = /"(\w+)":/gm;
         const subst = `$1:`;

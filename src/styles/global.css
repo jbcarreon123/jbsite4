@@ -9,7 +9,7 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.noreset {
+.noreset, .fancybox__dialog {
     all: revert;
 }
 
