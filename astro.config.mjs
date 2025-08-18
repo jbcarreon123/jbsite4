@@ -179,7 +179,7 @@ export default defineConfig({
       }
       return item;
     },
-  }), svelte(), playformInline(), playformFormat(), playformCompress({
+  }), svelte(), playformFormat(), playformCompress({
     SVG: false,
     CSS: {
       'csso': false,
