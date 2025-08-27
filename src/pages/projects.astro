@@ -84,6 +84,7 @@ function getStars(name: string): number {
 let r = [
     "nekobox",
     "nkko",
+    "postreq",
     "nekoweb-api",
     "jplayer2",
     ".github",
@@ -109,6 +110,16 @@ let f = repos.filter((s) => !r.includes(s.name.toLowerCase()) && !s.fork && s.de
     <h1>My Projects</h1>
     <h2>Main projects (owned or contributed)</h2>
     <div class="proj">
+        <a href="https://nkko.link/" target="_blank">
+            <div>
+                <div>
+                    <h3>POSTreq</h3>
+                    <p>A library that works around Neocities strict CSP by using iframes</p>
+                </div>
+                <p><span class="ms" data-icon="star" aria-hidden="true"></span>{getStars("postreq")}</p>
+            </div>
+            <img class="bg" loading="lazy" decoding="async" aria-hidden="true" alt="" src="/imgs/projs/postreq.webp" />
+        </a>
         <a href="https://cmt.nkko.link/" target="_blank">
             <div>
                 <div>

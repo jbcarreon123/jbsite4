@@ -11,6 +11,7 @@
     "@catamphetamine/id3js": "^1.0.2",
     "@csstools/normalize.css": "^12.1.1",
     "@expressive-code/plugin-collapsible-sections": "^0.41.3",
+    "@extractus/feed-extractor": "^7.1.6",
     "@fancyapps/ui": "^6.0.22",
     "@hbsnow/rehype-sectionize": "^1.0.7",
     "@indiefellas/astro-adapter-nekoweb": "^3.7.1",
