@@ -53,6 +53,14 @@ jobs:
         run: mv ./dist/not_found.html ./dist/404.html
       - name: Check if index.html exists
         run: cat ./dist/index.html
+      - name: Deploy on Neocities
+        uses: bcomnes/deploy-to-neocities@v3
+        with:
+          api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
+          cleanup: false
+          neocities_supporter: false
+          preview_before_deploy: true
+          dist_dir: 'dist/'
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
