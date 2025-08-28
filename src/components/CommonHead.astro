@@ -1,14 +1,19 @@
 ---
-import '../styles/fa-brands.css';
+import "../styles/fa-brands.css";
 const { title, id, description } = Astro.props;
 const { url, site } = Astro;
-const ogImage = 'https://' + url.hostname + '/imgs/og' + ((url.pathname === '/' ? '/index' : url.pathname).replace(/\/$/, ""));
+const ogImage =
+    "https://" +
+    url.hostname +
+    "/imgs/og" +
+    (url.pathname === "/" ? "/index" : url.pathname).replace(/\/$/, "");
 import { ClientRouter } from "astro:transitions";
 ---
 
 <meta charset="UTF-8" />
+<link rel="prefetch" href="https://postreq.jbc.lol/postreq" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <link rel="icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 <title>{title ? title : "jb's site"}</title>
@@ -24,6 +29,30 @@ import { ClientRouter } from "astro:transitions";
     content="#a4b6fd"
 />
 
+<script>
+    import { POSTreq } from "postreq";
+    import { waitUntil } from 'async-wait-until';
+
+    async function waitForPt() {
+        const pt = new POSTreq()
+
+        // @ts-ignore
+        window.fetch = async (a, b) => {
+            await waitUntil(() => pt.loaded, { timeout: 60000 });
+            await waitUntil(() => !pt.currentlyFetching, { timeout: 60000 });
+            const res =  await pt.fetch(a.toString(), b);
+            return res
+        };
+    }
+
+    if (window.location.hostname.includes('neocities')) {
+        waitForPt();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createNotif('You are viewing the Neocities mirror!', 'This might be slower than the other mirrors, but thanks to POSTreq, every dynamic stuff works!');
+        })
+    }
+</script>
 
 <style>
     @font-face {
@@ -122,56 +151,39 @@ import { ClientRouter } from "astro:transitions";
 <!-- <ClientRouter /> -->
 
 <script is:inline>
-    // IE11 polyfills
-    if (window.MSInputMethodContext && document.documentMode) {
-        document.write(
-            '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\/script>' +
-            '<script src="https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.42/polyfill.min.js"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/gh/codler/Grid-Layout-Polyfill@gh-pages/grid-layout-polyfill.min.js"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3.32.2/minified.js"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/npm/classlist-polyfill@1.2.0/src/index.min.js"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/npm/element-closest@2.0.2/browser.js"><\/script>' +
-            '<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"><\/script>' +
-            '<script src="https://cdn.jsdelivr.net/npm/element-qsa-scope@1.1.0"><\/script>' +
-            '<script crossorigin="anonymous" src="https://polyfill-fastly.io/v3/polyfill.min.js?features=default%2CNumber.parseInt%2CNumber.parseFloat%2CArray.prototype.find%2CArray.prototype.includes"><\/script>'
-        );
-    }
-</script>
-
-<script is:inline>
     let cLog = console.log;
     console.log = (message, ...params) => {
-        if (typeof message === 'string' && message.includes('%c')) {
+        if (typeof message === "string" && message.includes("%c")) {
             msg = message;
-            message = params[1] ?? ' ';
+            message = params[1] ?? " ";
             let tg1 = params.shift();
-            cLog(`%cjbsite4%c ${msg}`,
+            cLog(
+                `%cjbsite4%c ${msg}`,
                 "background: #0084ff; color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace;",
                 "background: initial; color: initial;",
                 tg1,
                 message,
-                ...params
-            )
+                ...params,
+            );
         } else {
-            cLog(`%cjbsite4`,
+            cLog(
+                `%cjbsite4`,
                 "background: #0084ff; color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace;",
                 message,
-                ...params
-            )
+                ...params,
+            );
         }
-    }
+    };
 
     let cErr = console.error;
     console.error = (message, ...params) => {
-        cErr(`%cjbsite4`,
+        cErr(
+            `%cjbsite4`,
             "background: #ff2424; color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace;",
             message,
-            ...params
-        )
-    }
+            ...params,
+        );
+    };
 
     Array.prototype.sample = function () {
         return this[Math.floor(Math.random() * this.length)];
@@ -186,32 +198,48 @@ import { ClientRouter } from "astro:transitions";
     document.addEventListener("DOMContentLoaded", () => {
         const inIframe = window.self !== window.top;
         if (inIframe) {
-            createNotif("You are visiting jb's site in an iframe!", "For full experience, I recommend you to visit my site on not an iframe.")
+            createNotif(
+                "You are visiting jb's site in an iframe!",
+                "For full experience, I recommend you to visit my site on not an iframe.",
+            );
         }
 
-        if (window.location.host !== 'jbc.lol' && window.location.hostname !== 'localhost') {
-            if (window.location.host === 'local.jbc.lol' || window.location.host.includes('github.dev')) {
-            createNotif("You are visiting jb's site preview!", 'This contains some things that isn\'t on the main site yet!')
+        if (
+            window.location.host !== "jbc.lol" &&
+            window.location.hostname !== "localhost"
+        ) {
+            if (
+                window.location.host === "local.jbc.lol" ||
+                window.location.host.includes("github.dev")
+            ) {
+                createNotif(
+                    "You are visiting jb's site preview!",
+                    "This contains some things that isn't on the main site yet!",
+                );
             } else {
-            createNotif("You are visiting jb's site on a backup host!", 'Note that some things that I only focused on the main host, jbc.lol, will break. Especially webrings.')
+                createNotif(
+                    "You are visiting jb's site on a backup host!",
+                    "Note that some things that I only focused on the main host, jbc.lol, will break. Especially webrings.",
+                );
             }
         }
 
         let headerMenu = document.querySelector("header a");
-        if (headerMenu) headerMenu.addEventListener("click", (e) => {
-            e.preventDefault();
+        if (headerMenu)
+            headerMenu.addEventListener("click", (e) => {
+                e.preventDefault();
 
-            let sidebar = document.getElementById("sidebar");
-            let main = document.getElementById("main");
+                let sidebar = document.getElementById("sidebar");
+                let main = document.getElementById("main");
 
-            if (sidebar.classList.contains("visible")) {
-                sidebar.classList.remove("visible");
-                main.scrollIntoView();
-            } else {
-                sidebar.classList.add("visible");
-                sidebar.scrollIntoView();
-            }
-        });
+                if (sidebar.classList.contains("visible")) {
+                    sidebar.classList.remove("visible");
+                    main.scrollIntoView();
+                } else {
+                    sidebar.classList.add("visible");
+                    sidebar.scrollIntoView();
+                }
+            });
 
         if (window.matchMedia("(width <= 890px)").matches)
             setTimeout(
@@ -279,14 +307,14 @@ import { ClientRouter } from "astro:transitions";
             "color: yellow; font-size: 16px; font-weight: bold;",
         );
 
-        document.querySelector('#to-top').addEventListener('click', (e) => {
+        document.querySelector("#to-top").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector('main>div').scroll({
+            document.querySelector("main>div").scroll({
                 top: 0,
                 left: 0,
-                behavior: 'smooth'
+                behavior: "smooth",
             });
-        })
+        });
     });
 </script>
 
@@ -305,7 +333,7 @@ import { ClientRouter } from "astro:transitions";
         }
 
         a.jsreq::after {
-            content: ' [JS]';
+            content: " [JS]";
             font-size: 0.75em;
         }
     </style>
