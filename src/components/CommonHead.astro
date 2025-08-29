@@ -38,14 +38,14 @@ import { ClientRouter } from "astro:transitions";
 
         // @ts-ignore
         window.fetch = async (a, b) => {
-            await waitUntil(() => pt.loaded, { timeout: 60000 });
-            await waitUntil(() => !pt.currentlyFetching, { timeout: 60000 });
+            await waitUntil(() => pt.loaded, { timeout: 60000 });   
             const res =  await pt.fetch(a.toString(), b);
+            console.log(a, res);
             return res
         };
     }
 
-    if (window.location.hostname.includes('neocities')) {
+    if (window.location.hostname.includes('localhost')) {
         waitForPt();
 
         document.addEventListener('DOMContentLoaded', () => {
