@@ -7,6 +7,11 @@ export type ChangelogObj = {
 
 export const Changelogs: ChangelogObj[] = [
     {
+        date: "08/31/2025 01:30",
+        title: "Contact form is now new, and I have a Patreon now!",
+        description: "Thanks to Layercake for the code for the contact form! Oh yeah, you can now throw money at me.",
+    },
+    {
         date: "08/28/2025 16:00",
         title: "jbsite4 on Neocities!",
         description: "Want to see jbsite4 with fetch workarounds? See jbsite4 on Neocities, powered by POSTreq!",
