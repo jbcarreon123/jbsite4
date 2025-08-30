@@ -9,7 +9,7 @@ export const Changelogs: ChangelogObj[] = [
     {
         date: "08/31/2025 01:30",
         title: "Contact form is now new, and I have a Patreon now!",
-        description: "Thanks to Layercake for the code for the contact form! Oh yeah, you can now throw money at me.",
+        description: "Thanks to Layercake (and Mars) for the code for the contact form! Oh yeah, you can now throw money at me.",
     },
     {
         date: "08/28/2025 16:00",
