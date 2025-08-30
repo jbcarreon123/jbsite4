@@ -1,57 +1,46 @@
-<form
-    action="https://docs.google.com/forms/d/e/1FAIpQLSePdRINoSfAlgl26Ho-rQOEAd-w8c3Y29qBbSdEKpQYzE49xg/formResponse"
-    method="POST"
-    target="contact_Iframe"
->
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
+></script>
+
+<form action="https://contact-form.jbcarreon212.workers.dev/" method="POST">
     <div class="form_1">
         <input
             type="text"
             placeholder="name *"
-            name="entry.134602215"
+            name="name"
             required
             aria-label="your name (required)"
         />
         <input
             type="text"
             placeholder="email *"
-            name="entry.1177902446"
+            name="email"
             required
             aria-label="your email (required)"
         />
         <input
             type="text"
             placeholder="website"
-            name="entry.189094834"
+            name="website"
             aria-label="your website (optional)"
         />
     </div>
 
     <textarea
         placeholder="your query *"
-        name="entry.512548917"
+        name="message"
         required
         aria-label="your query (required)"></textarea>
 
     <div class="form_2">
-        <p id="req"><i>* required</i></p>
+        <div>
+            <p id="req"><i>* required</i></p>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAABwXs7oYZ9A7qMFy"></div>
+        </div>
         <button type="submit"
             ><span aria-hidden="true" class="ms" data-icon="send"></span> Send!</button
         >
     </div>
 </form>
-
-<iframe
-    id="contact_Iframe"
-    name="contact_Iframe"
-    title="contact form"
-    style="display: none !important;"
-    onload="
-        document.querySelectorAll('input, textarea').forEach(el => el.value = '');
-        let a=document.querySelector(`.form_2 button[type='submit']`);
-        a.disabled = true;
-        setTimeout(() => a.disabled = false, 5000);
-    "
-></iframe>
 
 <style slot="head">
     input,
@@ -60,6 +49,10 @@
         padding: 6px;
         background: var(--altbg);
         text: var(--text);
+    }
+
+    button {
+        height: fit-content;
     }
 
     .form_1 {
