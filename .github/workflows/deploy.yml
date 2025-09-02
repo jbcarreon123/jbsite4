@@ -47,7 +47,7 @@ jobs:
           NEKOWEB_APIKEY: '${{ secrets.NEKOWEB_APIKEY }}'
           NEKOWEB_COOKIE: '${{ secrets.NEKOWEB_COOKIE }}'
           COMMIT_HASH: '<a href="https://github.com/jbcarreon123/jbcarreon123.github.io/commit/${{ steps.commit.outputs.hash }}">${{ steps.commit.outputs.short }}</a>'
-        run: bun run build
+        run: DEBUG=pw:browser bun run build
       - name: Rename not_found back to 404
         continue-on-error: true
         run: mv ./dist/not_found.html ./dist/404.html
