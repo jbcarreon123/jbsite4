@@ -32,6 +32,11 @@ export function getStaticPaths() {
     })
 }
 
+process.on("unhandledRejection", async () => {
+    console.log("Detected unhandled rejection, creating new browser and continuing");
+    browser = await chromium.launch();
+})
+
 const placeholder = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzM1M2I0MSIvPjxwYXRoIGZpbGw9IiMyMjI2MmEiIGQ9Ik0wIDBoMTB2MTBIMHpNMTAgMTBoMTB2MTBIMTB6Ii8+PC9zdmc+";
 
 export const GET: APIRoute = async ({ params }) => {
