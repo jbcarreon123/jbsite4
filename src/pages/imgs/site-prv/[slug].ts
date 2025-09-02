@@ -19,6 +19,12 @@ type SbrButtonEntry = {
     eighteen?: boolean
 }
 
+try {
+    browser = await chromium.launch();
+} catch (e) {
+    console.error(e);
+}
+
 export function getStaticPaths() {
     return Buttons.map((val) => {
         let link = new URL(val.url);
@@ -34,7 +40,7 @@ export const GET: APIRoute = async ({ params }) => {
     let context: BrowserContext;
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
-        browser = await chromium.launch();
+
         context = await browser.newContext({
             colorScheme: 'dark',
             viewport: {
@@ -79,13 +85,11 @@ export const GET: APIRoute = async ({ params }) => {
 
         await page.close();
         await context.close();
-        await browser.close();
 
         return new Response(webpBuf);
     } catch (e) {
         //@ts-ignore
         if (context) await context.close();
-        if (browser) await browser.close();
         console.error(`Failed to render ${button?.url},`, e)
         const regex = /"(\w+)":/gm;
         const subst = `$1:`;
