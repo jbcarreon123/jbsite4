@@ -19,12 +19,6 @@ type SbrButtonEntry = {
     eighteen?: boolean
 }
 
-try {
-    //browser = await chromium.launch();
-} catch (e) {
-    console.error(e);
-}
-
 export function getStaticPaths() {
     return Buttons.map((val) => {
         let link = new URL(val.url);
@@ -35,14 +29,12 @@ export function getStaticPaths() {
 const placeholder = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzM1M2I0MSIvPjxwYXRoIGZpbGw9IiMyMjI2MmEiIGQ9Ik0wIDBoMTB2MTBIMHpNMTAgMTBoMTB2MTBIMTB6Ii8+PC9zdmc+";
 
 export const GET: APIRoute = async ({ params }) => {
-    throw new Error("SBR is currently disabled while I'm looking on a solution of why its crashing")
-
     const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? '')) as SbrButtonEntry;
     recentSites.push(`${button?.url} (${button?.imgUrl})`)
     let context: BrowserContext;
     try {
         if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
-
+        browser = await chromium.launch();
         context = await browser.newContext({
             colorScheme: 'dark',
             viewport: {
@@ -87,11 +79,13 @@ export const GET: APIRoute = async ({ params }) => {
 
         await page.close();
         await context.close();
+        await browser.close();
 
         return new Response(webpBuf);
     } catch (e) {
         //@ts-ignore
         if (context) await context.close();
+        if (browser) await browser.close();
         console.error(`Failed to render ${button?.url},`, e)
         const regex = /"(\w+)":/gm;
         const subst = `$1:`;
