@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     environment:
       name: nekoweb
       url: 'https://jbc.lol'
@@ -30,11 +30,11 @@ jobs:
           fetch-depth: 0
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
-      - name: Setup Node
-        uses: actions/setup-node@v4
-      - name: Install dependencies (using NPM)
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      - name: Install dependencies (using Bun)
         continue-on-error: true
-        run: npm install --force
+        run: bun install
       - name: Install Playwright dependencies
         run: bunx playwright install chromium
       - name: Get commit hash
