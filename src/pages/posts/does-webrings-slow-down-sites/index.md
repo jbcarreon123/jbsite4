@@ -2,7 +2,7 @@
 layout: '../../../layouts/PostLayout.astro'
 title: Does having webrings slow down your site?
 published: 09/07/2025 20:44
-description: There is some debate lately of how webrings slow sites, so here's some data if it actually does slow down your site or not.
+description: There is some debate lately of how webrings slow down sites, so here's some data if it actually does slow down your site or not.
 tags: indie-web, webrings
 ---
 
@@ -87,7 +87,7 @@ What is the culprit? A webring that gone dark.
 This shows how third-party dependencies, not just webrings can ruin your site's performance.
 
 # What should I do?
-If you're putting your webrings in the index page, firstly count how many is it. If it's less than 3, its fine on the landing or index page, and if not, consider putting it seperately as a slow loading index page is bad.
+If you're putting your webrings in the index page, firstly count how many is your webrings. If it's less than 3, its fine on the landing or index page, and if not, consider putting it seperately as a slow loading index page is bad.
 
 If you're making or maintaining a webring, be wary if your webring is too slow for the users and check if it's fast enough. You can embed it on your site and use things like [Pagespeed Insights](https://pagespeed.web.dev/) or Lighthouse to measure your site.
 
