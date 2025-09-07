@@ -101,5 +101,19 @@
         "framework": "<a href='https://gohugo.io/' target='_blank'>Hugo</a>",
         "type": "15+",
         "pitch": "I talk about anything and everything with a heavy focus on tech things. Other top level categories are \"mindfulness\" and short \"stories\"."
+    },
+    {
+        "host": "writings.howsoonisnow.org",
+        "username": "howsoonisnow",
+        "framework": "<a href='https://quartz.jzhao.xyz/' target='_blank'>Quartz</a>",
+        "button": "https://writings.howsoonisnow.org/static/button.gif",
+        "pitch": "The writing hub of my personal site, How soon is now?, formatted as a digital garden: a space for my blog, journal, notes, recipes, research, knowledge dumps, etc."
+    },
+    {
+        "host": "xavierhm.com",
+        "username": "xavierhm",
+        "framework": "<a href='https://www.astro.build/' target='_blank'>Astro</a>",
+        "button": "https://xavierhm.com/graphics/buttons/sitebutton/xavierhmsitebutton.gif",
+        "pitch": "The personal site of an artist, writer, blogger, webdev, and all-around cool dude."
     }
 ]
