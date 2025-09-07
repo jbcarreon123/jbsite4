@@ -8,8 +8,8 @@ import "@fancyapps/ui/dist/fancybox/fancybox.compactmode.css";
     import { Compactmode } from "@fancyapps/ui/dist/fancybox/fancybox.compactmode.js";
 
     let imgs = document.querySelector("main #content").querySelectorAll("img");
-    let els = Object.values(imgs);
-    imgs.forEach((el, ind) => {
+    let els = Object.values(imgs).filter(el => !el.parentElement?.classList.contains('rlc-image-container') && !el.classList.contains('rlc-favicon'));
+    els.forEach((el, ind) => {
         if (el.width < 100) return;
         el.addEventListener("click", (ev) => {
             ev.stopPropagation();

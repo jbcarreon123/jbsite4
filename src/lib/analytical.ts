@@ -64,6 +64,11 @@ export class Analytical {
                 if (el.dataset.alytEvent || this.stripQueriesAndHashes(new URL(window.location.href)) === url) return;
                 el.addEventListener('click', () => this.linkClicked(url));
                 el.dataset.alytEvent = 'true';
+
+                // ext
+                if (new URL(el.href).hostname !== window.location.hostname && !el.hasAttribute('target')) {
+                    el.setAttribute('target', '_blank');
+                }
             })
         }, 500)
     }

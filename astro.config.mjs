@@ -42,8 +42,12 @@ import { parse } from 'url';
 import { fromHtml } from 'hast-util-from-html'
 import playformInline from '@playform/inline';
 import playformFormat from '@playform/format';
-
+import linkCard from "astro-link-card";
+import ogCard from "rehype-og-card";
+import embeds from 'astro-embed/integration';
 import react from '@astrojs/react';
+import rehypeOGCard from 'rehype-og-card';
+import remarkLinkCard from 'remark-link-card';
 
 let nkw = [];
 
@@ -166,7 +170,7 @@ export default defineConfig({
     service: passthroughImageService()
   },
 
-  integrations: [expressiveCode({
+  integrations: [linkCard(), expressiveCode({
     styleOverrides: {
       codeFontFamily: "'Commit Mono', monospace",
       codeFontSize: '1.125rem'
@@ -213,6 +217,7 @@ export default defineConfig({
 
   markdown: {
     remarkPlugins: [
+      remarkLinkCard,
       remarkParse,
       remarkDirective,
       remarkQuoteDirective

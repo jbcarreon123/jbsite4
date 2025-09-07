@@ -197,7 +197,7 @@ import { ClientRouter } from "astro:transitions";
 
     document.addEventListener("DOMContentLoaded", () => {
         const inIframe = window.self !== window.top;
-        if (inIframe) {
+        if (inIframe && !window.location.href.includes('/frame/')) {
             createNotif(
                 "You are visiting jb's site in an iframe!",
                 "For full experience, I recommend you to visit my site on not an iframe.",
