@@ -19,7 +19,7 @@ The movement of actively shunning mobile users is just not great, like you're ju
 
 Honestly, many manifestos on the indie web are saying that the corporate web is not built for users, and built for revenue, but I don't think those sites are also not built for users if they are actually shunning most of the users.
 
-:::quote[June from layercake.moe on [Manifesto or Manifes-don't](https://layercake.moe/writing/articles/manifes-dont#:~:text=Many%20manifesto%27s%20will%20turn%20and%20say%20that%20the%20corporate%20web%20is%20not%20built%20for%20the%20viewer%2C%20and%20is%20built%20for%20the%20money%2C%20but%20I%20could%20say%20the%20same%20about%20your%20eye%2Dstraining%20and%20hostile%20website.%20Responsive%20design%20is%20not%20hard%20to%20learn.)]
+:::quote[June from layercake.moe on [Manifesto or Manifes-don't](https://layercake.moe/writing/articles/manifes-dont#:~:text=Many%20manifesto%27s%20will%20turn%20and%20say%20that%20the%20corporate%20web%20is%20not%20built%20for%20the%20viewer%2C%20and%20is%20built%20for%20the%20money%2C%20but%20I%20could%20say%20the%20same%20about%20your%20eye%2Dstraining%20and%20hostile%20website.)]
 Many manifesto's will turn and say that the corporate web is not built for the viewer, and is built for the money, but I could say the same about your eye-straining and hostile website. 
 :::
 

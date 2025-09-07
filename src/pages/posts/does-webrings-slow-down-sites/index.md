@@ -97,4 +97,4 @@ If you're making or maintaining a webring, be wary if your webring is too slow f
 normalize lighthousing webrings oml
 :::
 
-That's about it, and if you wanna share something, share it in the comments! See you in the next post!
+That's about it, and if you wanna share something, share it in the comments! See you in the next post, and thanks for 150 followers in Nekoweb!
