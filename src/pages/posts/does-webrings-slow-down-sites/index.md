@@ -84,11 +84,17 @@ What is the culprit? A webring that gone dark.
 
 ![The response when you try to load that webring](/imgs/posts/does-webrings-slow-down-sites/gone-dark.png)
 
-When a JS script is waiting to be loaded, everything else stops. That's called render blocking and too much render blocking is bad for your site and for your users.
+This shows how third-party dependencies, not just webrings can ruin your site's performance.
 
 # What should I do?
 If you're putting your webrings in the index page, firstly count how many is it. If it's less than 3, its fine on the landing or index page, and if not, consider putting it seperately as a slow loading index page is bad.
 
-If you're making or maintaining a webring, be wary if your webring is too slow for the users and check if it's fast enough. You can embed it on your site and use things like [Pagespeed Insights](https://pagespeed.web.dev/) to measure your site.
+If you're making or maintaining a webring, be wary if your webring is too slow for the users and check if it's fast enough. You can embed it on your site and use things like [Pagespeed Insights](https://pagespeed.web.dev/) or Lighthouse to measure your site.
+
+:::quote[[ThinLiquid](https://thinliquid.dev/) on Nekoweb Discord]
+> OF COURSE IT'S THE F\*\*\*ING WEBRINGS
+
+normalize lighthousing webrings oml
+:::
 
 That's about it, and if you wanna share something, share it in the comments! See you in the next post!
