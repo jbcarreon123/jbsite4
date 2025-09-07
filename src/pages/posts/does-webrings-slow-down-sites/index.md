@@ -98,3 +98,10 @@ normalize lighthousing webrings oml
 :::
 
 That's about it, and if you wanna share something, share it in the comments! See you in the next post, and thanks for 150 followers in Nekoweb!
+
+## Update
+I'm just checking my site's analytics (because I am an absolute data freak), and seems like webrings strikes again!
+
+![/webrings/ path having very poor CLS (Cumulative Layout Shift)](/imgs/posts/does-webrings-slow-down-sites/cls-poor.png)
+
+Do I really need to do a sequel of this post so I can lighthouse some webring pages? I don't wanna do that lmao
