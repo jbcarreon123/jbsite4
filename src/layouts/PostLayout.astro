@@ -26,6 +26,9 @@ const { frontmatter, headings } = Astro.props;
     </div>
 
     <script>
+        import WebringTest from '../components/WebringTest.svelte';
+        customElements.define('webring-test-results', WebringTest.element)
+
         document.addEventListener('DOMContentLoaded', (ev) => {
             const options = {
                 root: null,
