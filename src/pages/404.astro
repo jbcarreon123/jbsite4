@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/BgOnlyLayout.astro";
+import Bg from "../components/404bg.svelte";
 ---
 
 <Layout title="404" id="404">
@@ -18,59 +19,9 @@ import Layout from "../layouts/BgOnlyLayout.astro";
         })();
     </script>
 
-    <script>
-        let x = 0,
-            y = 0,
-            dirX = 1,
-            dirY = 1,
-            eCount = 0;
-        const speed = 3;
-        let els = [];
-        let dvd = document.querySelector('.anim h1');
-        const dvdWidth = dvd.scrollWidth;
-        const dvdHeight = dvd.scrollHeight;
-
-        function animate() {
-            const screenHeight = document.body.scrollHeight;
-            const screenWidth = document.body.scrollWidth;
-
-            if (y + dvdHeight - 10 >= screenHeight || y < 0) {
-                dirY *= -1;
-            }
-            if (x + dvdWidth - 10 >= screenWidth || x < 0) {
-                dirX *= -1;
-            }
-            x += dirX * speed;
-            y += dirY * speed;
-            dvd.style.left = x + "px";
-            dvd.style.top = y + "px";
-            window.requestAnimationFrame(animate);
-            if (eCount) {
-                let animEl = document.querySelector('.anim');
-                eCount = 0;
-                let h1El = dvd.cloneNode();
-                h1El.innerText = '404';
-                els.push(h1El);
-                if (els.length > 64) {
-                    els[0].classList.add('fade');
-                    setTimeout(() => els[0].remove(), 260);
-                    els.shift();
-                }
-                animEl.querySelectorAll(`h1:nth-child(n+1 of .fade)`).forEach(e => 
-                    setTimeout(() => e.remove(), 260)
-                );
-                animEl.appendChild(h1El);
-            }
-            eCount++;
-        }
-
-        window.requestAnimationFrame(animate);
-    </script>
 
     <div class="main">
-        <div class="anim">
-            <h1 class="big">404</h1>
-        </div>
+        <Bg client:load />
         <div class="diag">
             <h1>Huh, seems like we can't find the page, unfortunately.</h1>
             <a href="/">Back home?</a>
@@ -88,6 +39,10 @@ import Layout from "../layouts/BgOnlyLayout.astro";
     </div>
 
     <style slot="head">
+        * {
+            user-select: none;
+        }
+
         .found-on-v3 {
             padding-top: 12px;
         }
