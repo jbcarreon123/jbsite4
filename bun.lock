@@ -29,6 +29,7 @@
         "@types/cssbeautify": "^0.3.5",
         "@types/csso": "^5.0.4",
         "@types/markdown-it": "^14.1.2",
+        "@types/matter-js": "^0.20.0",
         "@types/react": "^19.1.12",
         "@types/react-dom": "^19.1.9",
         "@types/sanitize-html": "^2.16.0",
@@ -57,6 +58,8 @@
         "lightningcss": "^1.30.1",
         "list-installed": "^5.3.1",
         "markdown-it": "^14.1.0",
+        "matter-dom-plugin": "^1.0.0",
+        "matter-js": "^0.12.0",
         "mdast-util-from-markdown": "^2.0.2",
         "mdast-util-to-hast": "^13.2.0",
         "playwright": "^1.55.0",
@@ -732,6 +735,8 @@
     "@types/linkify-it": ["@types/linkify-it@5.0.0", "", {}, "sha512-sVDA58zAw4eWAffKOaQH5/5j3XeayukzDk+ewSsnv3p4yJEZHCCzMDiZM8e0OUrRvmpGZ85jf4yDHkHsgBNr9Q=="],
 
     "@types/markdown-it": ["@types/markdown-it@14.1.2", "", { "dependencies": { "@types/linkify-it": "^5", "@types/mdurl": "^2" } }, "sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog=="],
+
+    "@types/matter-js": ["@types/matter-js@0.20.0", "", {}, "sha512-jOroeU1wEoizJ3rUnhS2HWzqbQrMHEmShTPUf8sbAghuZCAEQT7y3ojXAzrcQOWYkP93KhegDZI4gvMu5odfWw=="],
 
     "@types/mdast": ["@types/mdast@4.0.4", "", { "dependencies": { "@types/unist": "*" } }, "sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA=="],
 
@@ -1602,6 +1607,10 @@
     "math-intrinsics": ["math-intrinsics@1.1.0", "", {}, "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="],
 
     "mathml-tag-names": ["mathml-tag-names@2.1.3", "", {}, "sha512-APMBEanjybaPzUrfqU0IMU5I0AswKMH7k8OTLs0vvV4KZpExkTkY87nR/zpbuTPj+gARop7aGUbl11pnDfW6xg=="],
+
+    "matter-dom-plugin": ["matter-dom-plugin@1.0.0", "", {}, "sha512-Dhgk7bLcRLYyV3fC3vQ6iMg8x54ZojpQyJbz/mbHRQvUGF4j+QTZPN29Fwdy+xIgUAB9o3b1WmRStkf3aKwUlA=="],
+
+    "matter-js": ["matter-js@0.12.0", "", {}, "sha512-wCjN2SXGeLNGrL2HgFOrBxGa/JVdGHksVLoTglcN3SYweAZxg/aXPxk7JYMw/bn1KrfsuBby2+reB7bqXfttFg=="],
 
     "mdast-util-definitions": ["mdast-util-definitions@6.0.0", "", { "dependencies": { "@types/mdast": "^4.0.0", "@types/unist": "^3.0.0", "unist-util-visit": "^5.0.0" } }, "sha512-scTllyX6pnYNZH/AIp/0ePz6s4cZtARxImwoPJ7kS42n+MnVsI4XbnG6d4ibehRIldYMWM2LD7ImQblVhUejVQ=="],
 
