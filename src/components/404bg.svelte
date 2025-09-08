@@ -46,20 +46,20 @@
         function setupPhysics() {
             engine = Engine.create();
             world = engine.world;
-            const ground = Bodies.rectangle(width / 2, height - 10, width, 20, {
+            const ground = Bodies.rectangle(width / 2, height + 15, width, 50, {
                 isStatic: true,
             });
-            const leftWall = Bodies.rectangle(10, height / 2, 20, height, {
+            const leftWall = Bodies.rectangle(-15, height / 2, 50, height, {
                 isStatic: true,
             });
             const rightWall = Bodies.rectangle(
-                width - 10,
+                width + 15,
                 height / 2,
-                20,
+                50,
                 height,
                 { isStatic: true },
             );
-            const ceiling = Bodies.rectangle(width / 2, 10, width, 20, {
+            const ceiling = Bodies.rectangle(width / 2, -15, width, 50, {
                 isStatic: true,
             });
             World.add(world, [ground, leftWall, rightWall, ceiling]);
