@@ -66,7 +66,7 @@ export class Analytical {
                 el.dataset.alytEvent = 'true';
 
                 // ext
-                if (new URL(el.href).hostname !== window.location.hostname && !el.hasAttribute('target')) {
+                if (new URL(el.href).hostname !== window.location.hostname && !el.hasAttribute('target') && /\/posts\/\w/.test(window.location.pathname)) {
                     el.setAttribute('target', '_blank');
                 }
             })
