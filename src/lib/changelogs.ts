@@ -7,6 +7,12 @@ export type ChangelogObj = {
 
 export const Changelogs: ChangelogObj[] = [
     {
+        date: "09/08/2025 23:00",
+        title: "New 404 page background!",
+        description: "Out the 404 DVD screensaver, in the Matter.js physics simulation!",
+        url: "https://jbc.lol/not_found/"
+    },
+    {
         date: "08/31/2025 01:30",
         title: "Contact form is now new, and I have a Patreon now!",
         description: "Thanks to Layercake (and Mars) for the code for the contact form! Oh yeah, you can now throw money at me.",
