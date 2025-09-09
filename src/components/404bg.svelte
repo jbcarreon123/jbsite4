@@ -23,7 +23,7 @@
             window.innerHeight ||
             document.documentElement.clientHeight ||
             document.body.clientHeight;
-        let wordCount = width < 640 ? 8 : 24;
+        let wordCount = width < 640 ? getRndInteger(5, 12) : getRndInteger(24, 36);
 
         var Engine = Matter.Engine,
             World = Matter.World,
@@ -43,8 +43,8 @@
             }
         });
 
-        function sleep(ms) {
-            return new Promise((resolve) => setTimeout(resolve, ms));
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
         }
 
         function setupPhysics() {
@@ -53,14 +53,20 @@
             const ground = Bodies.rectangle(width / 2, height + 15, width, 50, {
                 isStatic: true,
             });
-            const leftWall = Bodies.rectangle(-15, height / 2, 50, height + (300*2), {
-                isStatic: true,
-            });
+            const leftWall = Bodies.rectangle(
+                -15,
+                height / 2,
+                50,
+                height + 300 * 2,
+                {
+                    isStatic: true,
+                },
+            );
             const rightWall = Bodies.rectangle(
                 width + 15,
                 height / 2,
                 50,
-                height + (300*2),
+                height + 300 * 2,
                 { isStatic: true },
             );
             const ceiling = Bodies.rectangle(width / 2, -300, width, 50, {
