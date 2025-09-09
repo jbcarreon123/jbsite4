@@ -43,27 +43,30 @@
             }
         });
 
+        function sleep(ms) {
+            return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+
         function setupPhysics() {
             engine = Engine.create();
             world = engine.world;
             const ground = Bodies.rectangle(width / 2, height + 15, width, 50, {
                 isStatic: true,
             });
-            const leftWall = Bodies.rectangle(-15, height / 2, 50, height, {
+            const leftWall = Bodies.rectangle(-15, height / 2, 50, height + (300*2), {
                 isStatic: true,
             });
             const rightWall = Bodies.rectangle(
                 width + 15,
                 height / 2,
                 50,
-                height,
+                height + (300*2),
                 { isStatic: true },
             );
-            const ceiling = Bodies.rectangle(width / 2, -15, width, 50, {
+            const ceiling = Bodies.rectangle(width / 2, -300, width, 50, {
                 isStatic: true,
             });
             World.add(world, [ground, leftWall, rightWall, ceiling]);
-            createWords();
             const mouse = Mouse.create(container);
             mouseConstraint = MouseConstraint.create(engine, {
                 mouse: mouse,
@@ -76,6 +79,7 @@
             World.add(world, mouseConstraint);
             runner = Runner.create();
             Runner.run(runner, engine);
+            createWords();
             updateLoop();
         }
 
@@ -93,10 +97,7 @@
                     Math.random() * (width - wordWidth - 40) +
                     wordWidth / 2 +
                     20;
-                const y =
-                    Math.random() * (height - wordHeight - 100) +
-                    wordHeight / 2 +
-                    50;
+                const y = -wordHeight - 200;
                 const body = Bodies.rectangle(x, y, wordWidth, wordHeight);
                 body.word = word;
                 body.element = el;
@@ -135,7 +136,6 @@
     .physics-container {
         position: fixed;
         inset: 0;
-        
     }
 
     :global(.word) {
