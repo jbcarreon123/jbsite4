@@ -204,7 +204,8 @@ export default defineConfig({
         keep_classnames: false,
         keep_fnames: false,
         mangle: true,
-        toplevel: true
+        toplevel: true,
+        sourceMap: true
       }
     },
     Image: (process.env.GITHUB_ACTIONS === 'true')
