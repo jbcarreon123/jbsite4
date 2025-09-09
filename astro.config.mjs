@@ -248,7 +248,8 @@ export default defineConfig({
       }
     },
     build: {
-      cssMinify: 'lightningcss'
+      cssMinify: 'lightningcss',
+      sourcemap: true
     },
     server: {
       allowedHosts: ['localhost', 'local.jbc.lol']
