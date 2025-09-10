@@ -13,8 +13,8 @@ const music = await loadMusic();
         <p onclick="closeWindow(this)"><span aria-hidden="true" class="ms" data-icon="close"></span></p>
     </div>
     <div class="floating-window-content" transition:persist>
-        <player-container id="player" css="/jPlayer/jPlayer2.css" fallback="/imgs/albums/fallback.png" transition:persist>
-            {music.map((tr) => <source src={"/music/" + tr} data-art={"/music/" + tr.replace('.it', '.jpg')} />)}
+        <player-container id="player" css="/jPlayer/jPlayer2.css" fallback="/imgs/albums/fallback.avif" transition:persist>
+            {music.map((tr) => <source src={"/music/" + tr} data-art={"/music/" + tr.replace('.it', '.avif')} />)}
         </player-container>
     </div>
 

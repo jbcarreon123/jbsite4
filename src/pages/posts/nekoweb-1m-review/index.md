@@ -4,7 +4,7 @@ title: Nekoweb 1-month Review
 published: 03/28/2025 18:35
 description: Nekoweb has it's ups and downs, and here's my review of it!
 tags: nekoweb, review
-background: '/imgs/posts/nekoweb-1m-review/banner.webp'
+background: '/imgs/posts/nekoweb-1m-review/banner.avif'
 ---
 
 Hey there! It's been a month since I joined Nekoweb and used it as the host of the new version of my site for a month now, so what do I think of it?

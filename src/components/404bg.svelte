@@ -11,10 +11,12 @@
     let wordElements = [];
     let runner;
     let mouseConstraint;
+    let c = 0;
 
     onMount(async () => {
         let words = ["404", "Not found", window.location.pathname];
         let fontSize = 48;
+        c = 0;
         width =
             window.innerWidth ||
             document.documentElement.clientWidth ||
@@ -112,7 +114,6 @@
                 wordElements.push(el);
             }
         }
-
         function updateLoop() {
             bodies.forEach((body) => {
                 const el = body.element;
@@ -120,6 +121,7 @@
                     const wordWidth = body.word.length * fontSize * 0.6;
                     const wordHeight = fontSize * 1.2;
                     el.style.transform = `translate(${body.position.x - wordWidth / 2}px, ${body.position.y - wordHeight / 2}px) rotate(${body.angle}rad)`;
+                    console.log(mouseConstraint.body)
                     if (mouseConstraint.body === body) {
                         el.style.transform += " scale(1.1)";
                     }

@@ -14,7 +14,7 @@ let buttons = Buttons.filter(
     return {
         ...btn,
         slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}/`,
-        prv: `/imgs/site-prv/${new URL(btn.url).hostname}.webp`,
+        prv: `/imgs/site-prv/${new URL(btn.url).hostname}.avif`,
     };
 });
 
@@ -22,7 +22,7 @@ let nonbtns = Buttons.filter((btn) => btn.imgUrl?.startsWith("/imgs")).map(
     (btn) => ({
         ...btn,
         slug: btn.imgUrl,
-        prv: `/imgs/site-prv/${new URL(btn.url).hostname}.webp`,
+        prv: `/imgs/site-prv/${new URL(btn.url).hostname}.avif`,
     }),
 );
 

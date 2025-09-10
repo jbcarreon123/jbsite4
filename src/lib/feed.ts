@@ -48,7 +48,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
             link: new URL(post.url, context.site).toString(),
             date: new Date(post.frontmatter.published),
             content: cnt,
-            image: `${context.site}imgs/og/posts/${post.url.replace('/posts/', '').replace('/', '')}.webp`,
+            image: `${context.site}imgs/og/posts/${post.url.replace('/posts/', '').replace('/', '')}.avif`,
             author: [{
                 name: 'JB Carreon',
                 link: context.site?.toString()

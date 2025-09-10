@@ -82,7 +82,7 @@ Here's how it works:
 ## Now, let's go back on the thing [earlier](#weirdly-slow).
 What is the culprit? A webring that gone dark.
 
-![The response when you try to load that webring](/imgs/posts/does-webrings-slow-down-sites/gone-dark.png)
+![The response when you try to load that webring](/imgs/posts/does-webrings-slow-down-sites/gone-dark.avif)
 
 This shows how third-party dependencies, not just webrings can ruin your site's performance.
 
@@ -102,6 +102,6 @@ That's about it, and if you wanna share something, share it in the comments! See
 ## Update
 I'm just checking my site's analytics (because I am an absolute data freak), and seems like webrings strikes again!
 
-![/webrings/ path having very poor CLS (Cumulative Layout Shift)](/imgs/posts/does-webrings-slow-down-sites/cls-poor.png)
+![/webrings/ path having very poor CLS (Cumulative Layout Shift)](/imgs/posts/does-webrings-slow-down-sites/cls-poor.avif)
 
 Do I really need to do a sequel of this post so I can lighthouse some webring pages? I don't wanna do that lmao

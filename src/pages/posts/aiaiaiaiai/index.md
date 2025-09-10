@@ -22,7 +22,7 @@ I switched from a Vivo Y03 to using a Infinix HOT 50i, and let me tell you, this
 is filled with much AI as possibly can. It also has this AskAI thing in the context menu
 WHICH IS JUST GETTING MISCLICKED.
 
-![AskAI shit](/imgs/posts/aiaiaiaiai/askai.webp)
+![AskAI shit](/imgs/posts/aiaiaiaiai/askai.avif)
 
 Well this phone is an example of copying someone else stuff (it also has a dynamic island clone
 called the 'Dynamic Bar' which I also don't want).
@@ -35,7 +35,7 @@ AI Summaries they got.
 
 It got mocked in it's infancy because it recommended people to eat rocks, put glue on pizza, and more:
 
-![Eat rocks (yummy rock flavored ice cream)](/imgs/posts/aiaiaiaiai/rocks.webp)
+![Eat rocks (yummy rock flavored ice cream)](/imgs/posts/aiaiaiaiai/rocks.avif)
 
 # That's about it for now
 And me will just idk, cope with these ai or something

@@ -12,6 +12,11 @@
 .noreset,
 .fancybox__dialog {
     all: revert;
+    transition: none !important;
+
+    * {
+        transition: none;
+    }
 }
 
 body {

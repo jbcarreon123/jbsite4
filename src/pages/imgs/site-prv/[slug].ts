@@ -28,7 +28,7 @@ try {
 export function getStaticPaths() {
     return Buttons.map((val) => {
         let link = new URL(val.url);
-        return { params: { slug: link.hostname + '.webp' } }
+        return { params: { slug: link.hostname + '.avif' } }
     })
 }
 
@@ -40,7 +40,7 @@ process.on("unhandledRejection", async () => {
 const placeholder = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzM1M2I0MSIvPjxwYXRoIGZpbGw9IiMyMjI2MmEiIGQ9Ik0wIDBoMTB2MTBIMHpNMTAgMTBoMTB2MTBIMTB6Ii8+PC9zdmc+";
 
 export const GET: APIRoute = async ({ params }) => {
-    const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.webp', '') ?? '')) as SbrButtonEntry;
+    const button = Buttons.find(x=>x.url.includes(params.slug?.replace('.avif', '') ?? '')) as SbrButtonEntry;
     recentSites.push(`${button?.url} (${button?.imgUrl})`)
     let context: BrowserContext;
     try {
@@ -85,7 +85,7 @@ export const GET: APIRoute = async ({ params }) => {
         })
         const webpBuf = await sharp(imageBuf)
             .resize(1280, 720)
-            .toFormat('webp')
+            .toFormat('avif')
             .toBuffer();
 
         await page.close();
@@ -208,6 +208,6 @@ export const GET: APIRoute = async ({ params }) => {
                 },
             });
 
-        return new Response(await sharp(await bg.arrayBuffer()).resize(1280, 720).toFormat('webp').toBuffer());
+        return new Response(await sharp(await bg.arrayBuffer()).resize(1280, 720).toFormat('avif').toBuffer());
     }
 }
