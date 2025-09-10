@@ -97,7 +97,7 @@
     .album-art-container {
         height: 48px;
         aspect-ratio: 1 / 1;
-        background-image: url('/jPlayer2/demo/fallback.png');
+        background-image: url('/jPlayer2/demo/fallback.avif');
         background-size: cover;
 
         img {

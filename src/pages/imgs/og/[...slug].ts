@@ -34,18 +34,18 @@ export const trailingSlash = 'never';
 export function getStaticPaths() {
 	const paths = [
 		...posts.map((val) => {
-			return { params: { slug: val.url + '.webp' } }
+			return { params: { slug: val.url + '.avif' } }
 		}),
 	...pagesTitles.map(v => {
-			return { params: { slug: v.url + '.webp' } }
+			return { params: { slug: v.url + '.avif' } }
 		})
 	];
 	return paths
 }
 
 export const GET: APIRoute = async ({ params }) => {
-	let page = pagesTitles.find((val) => val.url.replace('/', '') === params.slug?.replace('.webp', ''));
-	let post = posts.find((val) => val.url.replace('/', '') === params.slug?.replace('.webp', ''));
+	let page = pagesTitles.find((val) => val.url.replace('/', '') === params.slug?.replace('.avif', ''));
+	let post = posts.find((val) => val.url.replace('/', '') === params.slug?.replace('.avif', ''));
 	let img = '';
 
 	if ((!post || !post.frontmatter) && (!page)) return new Response(null);

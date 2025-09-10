@@ -18,12 +18,12 @@ stay tuned for that!
 
 Other than that, I am actively working on the long awaited [indieseas](https://indieseas.net/) frontend overhaul! Here's some preview images of it!
 
-![Preview of the homepage](/imgs/posts/16+1/indieseas_preview.webp)
-![Preview of the IndieRoulette™ system](/imgs/posts/16+1/indieroulette_preview.webp)
+![Preview of the homepage](/imgs/posts/16+1/indieseas_preview.avif)
+![Preview of the IndieRoulette™ system](/imgs/posts/16+1/indieroulette_preview.avif)
 
 Of course, we also support mobile!
 
-![Preview of the results page in mobile mode](/imgs/posts/16+1/indieseas_mobile_preview.webp)
+![Preview of the results page in mobile mode](/imgs/posts/16+1/indieseas_mobile_preview.avif)
 
 Alongside that, I'm also actively working on this site (duh!) and a thing that you don't wanna miss!
 

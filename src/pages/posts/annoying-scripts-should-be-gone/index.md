@@ -34,7 +34,7 @@ visiting your site, this is just plain annoying.
 Let's pull one script that I absolutely hate.
 
 # melonking's leaky homepage script
-![Leaky homepage script in action (note: simulated using inspect element)](/imgs/posts/annoying-scripts-should-be-gone/image2.webp)
+![Leaky homepage script in action (note: simulated using inspect element)](/imgs/posts/annoying-scripts-should-be-gone/image2.avif)
 
 This is melonking's leaky homepage script. It fills the webpage with water, and it's multiplayer, and
 I ABSOLUTELY DESPISE IT.
@@ -53,14 +53,14 @@ I have seen 2 great implementations (as of 03/01/2025 PHT), and that are:
 - [Xan's website](https://xan.lol/) where he put the flood behind
 the content, and
 - [WiiCHICKEN](https://wiggle.monster) where they put the flood on a respective area
-  ![the flood is on it's respective area](/imgs/posts/annoying-scripts-should-be-gone/image3.webp)
+  ![the flood is on it's respective area](/imgs/posts/annoying-scripts-should-be-gone/image3.avif)
 
 If you are just blocking the content with the fucking flood, please fucking stop.
 
 # So I just did what I'm gonna do
 and just blocked the scripts using ublock's custom filter lists.
 
-![ublock blocking melonking.net](/imgs/posts/annoying-scripts-should-be-gone/image.webp)
+![ublock blocking melonking.net](/imgs/posts/annoying-scripts-should-be-gone/image.avif)
 
 You can too by putting this:
 ```

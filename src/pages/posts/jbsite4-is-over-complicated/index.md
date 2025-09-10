@@ -4,7 +4,7 @@ title: jbsite4 is overcomplicated and I love it
 published: 06/14/2025 17:00
 description: just a journal and mini post
 tags: journal, jbs-site
-background: '/imgs/projs/jbsite4.webp'
+background: '/imgs/projs/jbsite4.avif'
 ---
 
 Hey there! It's been a long time since I posted anything, so here's a mini post about how overly complicated jbsite4 is to develop and do, and how I actually love this instead of hating it.

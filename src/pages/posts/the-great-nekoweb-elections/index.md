@@ -11,7 +11,7 @@ So, the Nekoweb community just did a unofficial official elections to see who wi
 
 # The nominations
 So it started.
-![the start](/imgs/posts/the-great-nekoweb-elections/img_1.webp)
+![the start](/imgs/posts/the-great-nekoweb-elections/img_1.avif)
 
 Everyone is nominating, and nominated. There are some issues like the form is set up so you can do multiple
 responses, and stuff (and xan decided to nominate himself).
@@ -23,7 +23,7 @@ The people that got nominated are:
 - [rice.place](https://rice.place/)
 
 # The voting phase
-![the voting](/imgs/posts/the-great-nekoweb-elections/img_2.webp)
+![the voting](/imgs/posts/the-great-nekoweb-elections/img_2.avif)
 
 Everyone is now voting their wanted candidates and chatting in #general. The voting phase lasted around 15 minutes.
 
@@ -42,7 +42,7 @@ Congrats Sol, for getting the president role!
 
 # The first orders
 Sol now did what any president would do, and issued some orders. The first 2 are:
-![orders](/imgs/posts/the-great-nekoweb-elections/img_3.webp)
+![orders](/imgs/posts/the-great-nekoweb-elections/img_3.avif)
 
 So that's the elections. You might see the blog as boring, but you haven't seen it in
 real time so...

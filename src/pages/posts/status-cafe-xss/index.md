@@ -4,7 +4,7 @@ title: '[UPDATE: PATCHED] XSS on Status Cafe: What you need to know'
 published: 06/18/2025 23:00
 description: As these kinds of vulnerabilities should be fixed, I think this post might give you an insight of how does this vulnerability affects you if you're using status.cafe.
 tags: vulnerability, xss, status-cafe
-background: '/imgs/posts/status-cafe-xss/image.webp'
+background: '/imgs/posts/status-cafe-xss/image.avif'
 ---
 
 > <p class="text-xs">Update 06/18/2025</p>
@@ -20,25 +20,25 @@ Hey there! [Status Cafe](https://status.cafe/) is a status-posting site where us
 
 Each user has their own page that shows their status history and whatnot. It contains some things, like your profile image, a "Subscribe via Atom" link, your homepage, email, and an about me section.
 
-![My status cafe profile page](/imgs/posts/status-cafe-xss/image2.webp)
+![My status cafe profile page](/imgs/posts/status-cafe-xss/image2.avif)
 
 But there's another thing, the about me section accepts HTML and CSS! Most people uses it for like styling their page, and like removing unnecessary things.
 
-![A styled status cafe profile page (from rice.place)](/imgs/posts/status-cafe-xss/image3.webp)
+![A styled status cafe profile page (from rice.place)](/imgs/posts/status-cafe-xss/image3.avif)
 
 There's also some people that makes their status cafe profile page look distinct from other sites by using CSS to remove things and readding it with HTML, like me!
 
-![my jbsite4-themed status cafe profile page](/imgs/posts/status-cafe-xss/image4.webp)
+![my jbsite4-themed status cafe profile page](/imgs/posts/status-cafe-xss/image4.avif)
 
 But, the thing it doesn't support is JavaScript. Adding script tags on it will result to this:
 
-![a page saying <script> tags is forbidden](/imgs/posts/status-cafe-xss/image5.webp)
+![a page saying <script> tags is forbidden](/imgs/posts/status-cafe-xss/image5.avif)
 
 But, it **should** sanitize user input and remove any mentions of JS, right? *right???*
 
 Script tags are blocked, but what about some workarounds? Let's try the classic img tag onerror XSS trick... and it worked.
 
-![an alert window saying 'xss'](/imgs/posts/status-cafe-xss/image6.webp)
+![an alert window saying 'xss'](/imgs/posts/status-cafe-xss/image6.avif)
 
 That means that it's not sanitizing event handler based scripts, which lead into the status.cafe worm.
 
