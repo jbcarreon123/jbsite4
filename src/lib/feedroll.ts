@@ -12,10 +12,10 @@ const feedrolls = [
     "https://nyscyra.nekoweb.org/rss.xml",
     "https://jbc.lol/feed.xml",
     "https://blog.adamngshrine.com/rss.xml",
-    "https://blog.xavierhm.com/feed/",
     "https://32enoki.net/rss.xml",
     "https://sandwich.nekoweb.org/updates.xml",
     "https://kimberlygb.nekoweb.org/feed.xml",
+    "https://xavierhm.com/rss.xml",
 ];
 
 export async function loadFeeds() {
