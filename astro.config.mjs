@@ -208,7 +208,7 @@ export default defineConfig({
         sourceMap: true
       }
     },
-    Image: (process.env.GITHUB_ACTIONS === 'true')
+    Image: false // disable for now
   }), htmlStyleMinify(), ...nkw, react()],
 
   trailingSlash: 'ignore',
