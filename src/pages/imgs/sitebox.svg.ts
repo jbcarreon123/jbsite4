@@ -20,17 +20,13 @@ const arrays = [
         "thank you dimden"
     ],
     [
-        "may i copy this site in the name",
-        "of love cuz copying is an act of",
-        "love and stuff"
-    ],
-    [
-        "can i follow this page, what do you",
-        "love and everything I do"
-    ],
-    [
         "compiled in \"html\"",
         "because you'll love it"
+    ],
+    [
+        "fun fact: this sitebox",
+        "has randomly generated motds",
+        "see it on /imgs/sitebox.svg.ts"
     ]
 ]
 
