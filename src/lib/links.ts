@@ -7,7 +7,8 @@ export type LinkObj = {
         redirect: boolean,
         icon: string,
         id?: string,
-        reqJS?: boolean
+        reqJS?: boolean,
+        mainSite?: boolean
     }[]
 }[]
 
@@ -27,12 +28,14 @@ export const LinkObjs: LinkObj = [
                 redirect: false,
                 icon: "contract_edit",
                 reqJS: true,
+                mainSite: true
             },
             {
                 name: "Contact me!",
                 path: "/contact/",
                 redirect: false,
-                icon: "contact_page"
+                icon: "contact_page",
+                mainSite: true
             },
             {
                 name: "Sitemap",
@@ -49,6 +52,12 @@ export const LinkObjs: LinkObj = [
             {
                 name: "Follow me on Nekoweb!",
                 path: "https://nekoweb.org/follow/jbc.lol",
+                redirect: true,
+                icon: "add"
+            },
+            {
+                name: "Follow me on Neocities!",
+                path: "https://neocities.org/site/jbcarreon123",
                 redirect: true,
                 icon: "add"
             },
@@ -148,7 +157,8 @@ export const LinkObjs: LinkObj = [
                 name: "Nekobox",
                 path: "/utils/nekobox/",
                 redirect: false,
-                icon: "inventory_2"
+                icon: "inventory_2",
+                mainSite: true
             }
         ]
     },
@@ -177,19 +187,22 @@ export const LinkObjs: LinkObj = [
                 name: "SSGRing",
                 path: "/webrings/ssgring/",
                 redirect: false,
-                icon: "build"
+                icon: "build",
+                mainSite: true
             },
             {
                 name: "Responeko",
                 path: "/webrings/responeko/",
                 redirect: false,
-                icon: "phone_android"
+                icon: "phone_android",
+                mainSite: true
             },
             {
                 name: "YAMring",
                 path: "/webrings/yamring/",
                 redirect: false,
-                icon: "tag"
+                icon: "tag",
+                mainSite: true
             }
         ]
     },
@@ -220,6 +233,7 @@ export const LinkObjs: LinkObj = [
                 redirect: false,
                 icon: "donut_large",
                 reqJS: true,
+                mainSite: true
             },
             {
                 name: "Bookmarks",

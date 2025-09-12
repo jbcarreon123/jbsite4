@@ -50,6 +50,8 @@ jobs:
         run: DEBUG=pw:browser bun run build
       - name: Check if index.html exists
         run: cat ./dist/index.html
+      - name: Modify some stuff
+        run: bun run ./mainsite.ts
       - name: Deploy on Neocities
         uses: bcomnes/deploy-to-neocities@v3
         with:
