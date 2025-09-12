@@ -71,7 +71,7 @@ export class Analytical {
                 }
 
                 if (el.dataset.mainSite === "true") {
-                    el.href = "https://jbc.lol" + el.href
+                    el.href = "https://jbc.lol" + new URL(el.href).pathname
                 }
             })
         }, 500)
