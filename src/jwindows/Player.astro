@@ -14,7 +14,7 @@ const music = await loadMusic();
     </div>
     <div class="floating-window-content" transition:persist>
         <player-container id="player" css="/jPlayer/jPlayer2.css" fallback="/imgs/albums/fallback.avif" transition:persist>
-            {music.map((tr) => <source src={"/music/" + tr} data-art={"/music/" + tr.replace('.it', '.avif')} />)}
+            {music.map((tr) => <source data-gh-site="true" src={"/music/" + tr} data-art={"/music/" + tr.replace('.it', '.avif')} />)}
         </player-container>
     </div>
 

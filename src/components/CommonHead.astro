@@ -47,10 +47,6 @@ import { ClientRouter } from "astro:transitions";
 
     if (window.location.hostname.includes('neocities')) {
         waitForPt();
-
-        document.addEventListener('DOMContentLoaded', () => {
-            createNotif('You are viewing the Neocities mirror!', 'This might be slower than the other mirrors, but thanks to POSTreq, every dynamic stuff works!');
-        })
     }
 </script>
 
@@ -148,7 +144,8 @@ import { ClientRouter } from "astro:transitions";
 <link rel="me" href="https://fosstodon.org/@jbcarreon123" />
 
 <!-- Scripts and stuff -->
-<!-- <ClientRouter /> -->
+<ClientRouter />
+
 
 <script is:inline>
     let cLog = console.log;
@@ -217,10 +214,14 @@ import { ClientRouter } from "astro:transitions";
                     "This contains some things that isn't on the main site yet!",
                 );
             } else {
-                createNotif(
-                    "You are visiting jb's site on a backup host!",
-                    "Note that some things that I only focused on the main host, jbc.lol, will break. Especially webrings.",
-                );
+                const showed = sessionStorage.getItem("jbsite:previewShowed");
+                if (!showed) {
+                    createNotif(
+                        "You are visiting jb's site on a backup host!",
+                        "Note that some things that I only focused on the main host, jbc.lol, will break. Especially webrings.",
+                    );
+                    sessionStorage.setItem("jbsite:previewShowed", "true")
+                }
             }
         }
 

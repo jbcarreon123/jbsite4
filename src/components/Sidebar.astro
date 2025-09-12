@@ -14,6 +14,7 @@ import { LinkObjs } from "../lib/links";
                     {obj.links.map((l) =>
                         <a
                             class={(pathname == l.path ? 'active ' : '') + (l.reqJS || obj.reqJS ? 'jsreq' : '')}
+                            data-main-site={l.mainSite ? "true" : ""}
                             href={l.path}
                             target={l.redirect ? '_blank' : null}>
                             <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
@@ -23,6 +24,7 @@ import { LinkObjs } from "../lib/links";
                     {obj.links.map((l) =>
                         <a
                             class={(pathname == l.path ? 'active ' : '') + (l.reqJS || obj.reqJS ? 'jsreq' : '')}
+                            data-main-site={l.mainSite ? "true" : ""}
                             href={l.path}
                             target={l.redirect ? '_blank' : null}>
                             <span aria-hidden="true" class="ms" data-icon={l.icon}></span> {l.name} {l.redirect && <span aria-hidden="true" class="ms" data-icon="open_in_new"></span>}
@@ -47,3 +49,10 @@ import { LinkObjs } from "../lib/links";
         </details>
     </nav>
 </aside>
+
+<style scoped>
+    a[data-main-site="true"]::after {
+        content: " [MAIN]";
+        font-size: 0.75em;
+    }
+</style>
