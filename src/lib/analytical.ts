@@ -69,6 +69,10 @@ export class Analytical {
                 if (new URL(el.href).hostname !== window.location.hostname && !el.hasAttribute('target') && /\/posts\/\w/.test(window.location.pathname)) {
                     el.setAttribute('target', '_blank');
                 }
+
+                if (el.dataset.mainSite === "true") {
+                    el.href = "https://jbc.lol" + el.href
+                }
             })
         }, 500)
     }
