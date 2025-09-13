@@ -50,8 +50,8 @@ import { LinkObjs } from "../lib/links";
     </nav>
 </aside>
 
-<style scoped>
-    a[data-main-site="true"]::after {
+<style is:inline>
+    a[data-main-site="true"][href^="https://jbc.lol"]::after {
         content: " [MAIN]";
         font-size: 0.75em;
     }

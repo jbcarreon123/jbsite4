@@ -4,44 +4,29 @@ import "@fancyapps/ui/dist/fancybox/fancybox.compactmode.css";
 ---
 
 <script>
-    import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+    import { Fancybox } from "@fancyapps/ui/dist/fancybox/fancybox.js";
     import { Compactmode } from "@fancyapps/ui/dist/fancybox/fancybox.compactmode.js";
 
     let imgs = document.querySelector("main #content").querySelectorAll("img");
-    let els = Object.values(imgs).filter(el => !el.parentElement?.classList.contains('rlc-image-container') && !el.classList.contains('rlc-favicon'));
-    els.forEach((el, ind) => {
-        if (el.width < 100) return;
-        el.addEventListener("click", (ev) => {
-            ev.stopPropagation();
-            ev.preventDefault();
-            Fancybox.show(
-                els.map((e) => ({
-                    src: e.src,
-                    thumbSrc: e.src,
-                    caption: e.alt
-                        .replaceAll("<", "&lt;")
-                        .replaceAll(">", "&gt;"),
-                })),
-                {
-                    plugins: [Compactmode],
-                    startIndex: ind,
-                    Carousel: {
-                        Toolbar: {
-                            display: {
-                                left: ["filename"],
-                                middle: ["counter"],
-                                right: ["autoplay", "fullscreen", "download", "close"],
-                            },
-                        },
-                    },
-                },
-            );
-        });
-    });
+    let els = Object.values(imgs).filter(el => !el.parentElement?.classList.contains('rlc-image-container') && !el.classList.contains('rlc-favicon')).filter(el => el.width > 100);
+    els.forEach(e => e.dataset.caption = e.alt);
+    els.forEach((e, i) => e.addEventListener("click", () => {
+        Fancybox.fromNodes(els, {
+            Carousel: {
+                transition: "slide"
+            },
+            plugins: { Compactmode },
+            startIndex: i
+        })
+    }))
 </script>
 
 <style is:inline>
     .fancybox__container {
         position: fixed;
+
+        * {
+            font-family: var(--font);
+        }
     }
 </style>
