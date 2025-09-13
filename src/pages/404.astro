@@ -19,26 +19,9 @@ import Bg from "../components/404bg.svelte";
         })();
     </script>
 
+    <Bg client:load />
 
-    <div class="main">
-        <Bg client:load />
-        <div class="diag">
-            <h1>Huh, seems like we can't find the page, unfortunately.</h1>
-            <a href="/">Back home?</a>
-
-            <p class="found-on-v3">
-                We can't find it here, but we found it on jbsite3. <a
-                    target="_blank"
-                    >Wanna go there? <span
-                        aria-hidden="true"
-                        class="ms"
-                        data-icon="open_in_new"></span></a
-                >
-            </p>
-        </div>
-    </div>
-
-    <style slot="head">
+    <style is:inline>
         * {
             user-select: none;
         }
@@ -59,35 +42,6 @@ import Bg from "../components/404bg.svelte";
             position: relative;
         }
 
-        .anim {
-            z-index: 0;
-            position: absolute;
-            inset: 0;
-            height: 100dvh;
-
-            & h1 {
-                font-size: 3em;
-                position: fixed;
-                padding: 0;
-                padding-inline: 6px;
-                text-shadow: 1px 1px var(--acc);
-                z-index: 0;
-                color: var(--acc);
-                text-overflow: clip;
-                overflow-wrap: normal;
-                transition: none;
-                
-                &.fade {
-                    animation: fade 250ms forwards;
-                }
-
-                &:first-child {
-                    z-index: 1;
-                    color: var(--text);
-                }
-            }
-        }
-
         .diag {
             position: relative;
             z-index: 2;
@@ -95,15 +49,6 @@ import Bg from "../components/404bg.svelte";
             padding: 12px;
             width: fit-content;
             max-width: 800px;
-        }
-
-        @keyframes fade {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
         }
     </style>
 </Layout>

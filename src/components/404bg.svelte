@@ -1,7 +1,6 @@
 <script>
     import { onMount, onDestroy } from "svelte";
     import Matter from "matter-js";
-
     let width, height;
 
     let container;
@@ -10,6 +9,7 @@
     let bodies = [];
     let wordElements = [];
     let runner;
+    let diag;
     let mouseConstraint;
     let c = 0;
 
@@ -25,7 +25,8 @@
             window.innerHeight ||
             document.documentElement.clientHeight ||
             document.body.clientHeight;
-        let wordCount = width < 640 ? getRndInteger(5, 12) : getRndInteger(24, 36);
+        let wordCount =
+            width < 640 ? getRndInteger(5, 12) : getRndInteger(24, 36);
 
         var Engine = Matter.Engine,
             World = Matter.World,
@@ -87,6 +88,11 @@
             World.add(world, mouseConstraint);
             runner = Runner.create();
             Runner.run(runner, engine);
+
+            const diagBody = Bodies.rectangle(width / 2, height / 2, diag.clientWidth, diag.clientHeight, {
+                isStatic: true
+            });
+            World.add(world, diagBody);
             createWords();
             updateLoop();
         }
@@ -121,7 +127,7 @@
                     const wordWidth = body.word.length * fontSize * 0.6;
                     const wordHeight = fontSize * 1.2;
                     el.style.transform = `translate(${body.position.x - wordWidth / 2}px, ${body.position.y - wordHeight / 2}px) rotate(${body.angle}rad)`;
-                    console.log(mouseConstraint.body)
+                    console.log(mouseConstraint.body);
                     if (mouseConstraint.body === body) {
                         el.style.transform += " scale(1.1)";
                     }
@@ -132,12 +138,29 @@
     });
 </script>
 
-<div class="physics-container">
-    <div
-        bind:this={container}
-        class="physics-world"
-        style="width: {width}px; height: {height}px;"
-    ></div>
+<div class="main">
+    <div class="physics-container">
+        <div
+            bind:this={container}
+            class="physics-world"
+            style="width: {width}px; height: {height}px;"
+        ></div>
+    </div>
+    <div class="diag" bind:this={diag}>
+        <h1>Huh, seems like we can't find the page, unfortunately.</h1>
+        <a href="/">Back home?</a>
+
+        <p class="found-on-v3">
+            We can't find it here, but we found it on jbsite3. <a
+                target="_blank"
+                >Wanna go there? <span
+                    aria-hidden="true"
+                    class="ms"
+                    data-icon="open_in_new"
+                ></span></a
+            >
+        </p>
+    </div>
 </div>
 
 <style>
