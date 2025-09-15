@@ -228,7 +228,7 @@ html[data-color='light'] .inf {
 }
 
 body {
-    .jPlayer3--MainPlayer {
+    .jBeat--MainPlayer {
         --jplayer-bg: var(--bg);
         --jplayer-acc: var(--altbg);
         --jplayer-acc2: var(--acc);
