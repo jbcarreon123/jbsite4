@@ -55,7 +55,7 @@
         "hast-util-to-html": "^9.0.5",
         "hastscript": "^9.0.1",
         "html-minifier-terser": "^7.2.0",
-        "jplayer3": "^0.0.5",
+        "jplayer3": "^0.0.6",
         "lightningcss": "^1.30.1",
         "list-installed": "^5.3.1",
         "markdown-it": "^14.1.0",
@@ -1523,7 +1523,7 @@
 
     "jiti": ["jiti@2.5.1", "", { "bin": { "jiti": "lib/jiti-cli.mjs" } }, "sha512-twQoecYPiVA5K/h6SxtORw/Bs3ar+mLUtoPSc7iMXzQzK8d7eJ/R09wmTwAjiamETn1cXYPGfNnu7DMoHgu12w=="],
 
-    "jplayer3": ["jplayer3@0.0.5", "", { "dependencies": { "@lucide/svelte": "^0.544.0", "chiptune3": "^0.8.3", "file-type": "^21.0.0", "lrclib-api": "^2.0.4", "music-metadata": "^11.8.3", "uint8array-extras": "^1.5.0" }, "peerDependencies": { "svelte": "^5.0.0" } }, "sha512-ucoa19zvXsTEi/MNCXeVpcVatqoKav94R8ExOzrGJDiGBpi8DCGIinGyh5YdjAt3NF1G544MsGaZEbxrTDcrXA=="],
+    "jplayer3": ["jplayer3@0.0.6", "", { "dependencies": { "@lucide/svelte": "^0.544.0", "chiptune3": "^0.8.3", "file-type": "^21.0.0", "lrclib-api": "^2.0.4", "music-metadata": "^11.8.3", "uint8array-extras": "^1.5.0" }, "peerDependencies": { "svelte": "^5.0.0" } }, "sha512-M516F9CT4UeEXkwq/aNxirbDVDVwcCUGBDQJ2zCGTNC0rDbycWnXNmll/u39hwci2uBQJoF2M1vAB0ceBSZtNQ=="],
 
     "js-tokens": ["js-tokens@4.0.0", "", {}, "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="],
 

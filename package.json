@@ -53,7 +53,7 @@
     "hast-util-to-html": "^9.0.5",
     "hastscript": "^9.0.1",
     "html-minifier-terser": "^7.2.0",
-    "jplayer3": "^0.0.5",
+    "jplayer3": "^0.0.6",
     "lightningcss": "^1.30.1",
     "list-installed": "^5.3.1",
     "markdown-it": "^14.1.0",
