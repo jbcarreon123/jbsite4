@@ -227,6 +227,20 @@ html[data-color='light'] .inf {
     --link-hover: #727592;
 }
 
+body {
+    .jPlayer3--MainPlayer {
+        --jplayer-bg: var(--bg);
+        --jplayer-acc: var(--altbg);
+        --jplayer-acc2: var(--acc);
+        --jplayer-text: var(--text);
+        --jplayer-sec: var(--sec);
+
+        * {
+            font-family: var(--font);
+        }
+    }
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;
