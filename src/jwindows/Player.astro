@@ -1,14 +1,14 @@
 ---
 import { loadMusic } from "../lib/loadMusic";
 import { fromPath } from '@catamphetamine/id3js/node';
-import PlayerContainer from 'jplayer3';
+import PlayerContainer from 'jbeat';
 
 const music = await loadMusic();
 ---
 
 <div class="floating-window" id="player" style="display: none;">
     <div class="floating-window-titlebar">
-        <p>jPlayer3</p>
+        <p>jBeat</p>
         <p onclick="closeWindow(this)"><span aria-hidden="true" class="ms" data-icon="close"></span></p>
     </div>
     <div class="floating-window-content">
