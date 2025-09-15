@@ -39,7 +39,7 @@ function processHTMLFile(filePath: string, logger: AstroIntegrationLogger) {
 function processCid(filePath: string) {
     try {
         const htmlContent = readFileSync(filePath, 'utf8');
-        const minifiedHTML = htmlContent.replaceAll('astro-', 'jbsite-');
+        const minifiedHTML = htmlContent.replaceAll('data-astro-', 'data-jbsite-');
         if (htmlContent.trim() === minifiedHTML.trim()) return '';
         writeFileSync(filePath, minifiedHTML, 'utf8');
         return minifiedHTML;
