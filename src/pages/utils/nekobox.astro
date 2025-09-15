@@ -184,7 +184,7 @@ ${value}`;
             }[] = [];
             const regex = /^(?!\.site-box|\.follow|\.post-box).*{/gm;
             const linkRegex =
-                /(^.+url)\((?!["']?(?:(?:https?:)?\/\/([a-z0-9A-Z\-]+\.)?nekoweb\.org)|(?:\/)).+(\);?)/gm;
+                /(^.+url)\((?!["']?(?:(?:https?:)\/\/([a-z0-9A-Z\-]+\.)?nekoweb\.org)|(?:\/)).+(\);?)/gm;
             let clines = css.split("\n");
             clines.forEach((s, i) => {
                 if (regex.test(s)) {

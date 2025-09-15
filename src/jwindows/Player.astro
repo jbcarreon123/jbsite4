@@ -1,27 +1,24 @@
 ---
 import { loadMusic } from "../lib/loadMusic";
 import { fromPath } from '@catamphetamine/id3js/node';
+import PlayerContainer from 'jplayer3';
 
 const music = await loadMusic();
 ---
 
-<script src="../lib/jPlayer2.js"></script>
-
 <div class="floating-window" id="player" style="display: none;">
     <div class="floating-window-titlebar">
-        <p>jPlayer2</p>
+        <p>jPlayer3</p>
         <p onclick="closeWindow(this)"><span aria-hidden="true" class="ms" data-icon="close"></span></p>
     </div>
-    <div class="floating-window-content" transition:persist>
-        <player-container id="player" css="/jPlayer/jPlayer2.css" fallback="/imgs/albums/fallback.avif" transition:persist>
-            {music.map((tr) => <source data-gh-site="true" src={"/music/" + tr} data-art={"/music/" + tr.replace('.it', '.avif')} />)}
-        </player-container>
-    </div>
+    <div class="floating-window-content">
+        <PlayerContainer client:load id="player" tracks={JSON.stringify(music.map(m => ({ url: '/music/' + m })))} />
+    </div> 
 
     <style>
         .floating-window {
-            width: 65dvw;
-            max-width: 750px;
+            width: 75dvw;
+            max-width: 850px;
         }
 
         @media screen and (width <= 640px) {
