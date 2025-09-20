@@ -332,6 +332,18 @@ import { ClientRouter } from "astro:transitions";
             content: " [JS]";
             font-size: 0.75em;
         }
+
+        webring-test-results::after, astro-island[component-url="/_astro/CommentWidget.BIDwo4x3.js"]::after {
+            display: block;
+            content: 'JavaScript is disabled. Please enable JS to see Webring Test Results component.';
+            padding: 12px;
+            background: var(--altbg);
+            margin-top: 5px;
+        }
+
+        astro-island[component-url="/_astro/CommentWidget.BIDwo4x3.js"]::after {
+            content: 'To see comments, enable JavaScript.';
+        }
     </style>
 </noscript>
 
