@@ -12,7 +12,7 @@ const music = await loadMusic();
         <p onclick="closeWindow(this)"><span aria-hidden="true" class="ms" data-icon="close"></span></p>
     </div>
     <div class="floating-window-content">
-        <PlayerContainer client:load id="player" tracks={JSON.stringify(music.map(m => ({ url: '/music/' + m })))} />
+        <PlayerContainer client:only="svelte" id="player" tracks={JSON.stringify(music.map(m => ({ url: '/music/' + m })))} />
     </div> 
 
     <style>

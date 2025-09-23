@@ -24,4 +24,6 @@ This is really common, especially if the webring primarily uses images on their 
 
 It's mindblowingly easy to fix as you can just put alt attributes on all of them, and it's fixed!
 
+Using inline SVG? Or maybe background-image? You can use the `aria-label` attribute.
+
 # Text being hard to read
