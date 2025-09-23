@@ -43,12 +43,6 @@
         "button": "https://nirefi.nekoweb.org/images/buttons/nirefi-btn.png"
     },
     {
-        "host": "ralsei.tech",
-        "username": "ralsei.tech",
-        "framework": "<a href='https://lume.land/' target='_blank'>Lume</a>",
-        "pitch": "a small site on the indieweb, centered around tech & fluffy boys."
-    },
-    {
         "host": "lime360.nekoweb.org",
         "username": "lime360",
         "framework": "<a href='https://codeberg.org/lime360/siteHX' target='_blank'>siteHX (Custom)</a>",
@@ -115,5 +109,20 @@
         "framework": "<a href='https://www.astro.build/' target='_blank'>Astro</a>",
         "button": "https://xavierhm.com/graphics/buttons/sitebutton/xavierhmsitebutton.gif",
         "pitch": "The personal site of an artist, writer, blogger, webdev, and all-around cool dude."
+    },
+    {
+        "host": "goeshard.org",
+        "username": "goeshard",
+        "framework": "<a href='https://www.mkdocs.org/' target='_blank'>MkDocs</a>",
+        "button": "https://board.goeshard.org/static/images/button-88-31.3b39bc79220a.png",
+        "pitch": "whatever i feel like publishing at the moment: often gamedev, programming, and the Internet. I write most of the content but also collaborate with guest posters."
+    },
+    {
+        "host": "bureaumirror.neocities.org",
+        "username": "bureaumirror",
+        "framework": "<a href='https://lume.land/' target='_blank'>Lume</a>",
+        "button": "https://bureaumirror.neocities.org/src/img/buttonbuoy.gif",
+        "type": "18+",
+        "pitch": "It's a blog where I talk about my interests, my day, interesting findings, cultural work that moves me etc."
     }
 ]
