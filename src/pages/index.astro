@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Stats from '../components/Stats.svelte';
 import Bluesky from '../components/Bluesky.svelte';
+import Nekocafe from '../components/Nekocafe.svelte';
 import StatusCafe from '../components/StatusCafe.svelte';
 import CommentWidget from '../components/CommentWidget.svelte';
 import LastFM from '../components/LastFM.svelte';
@@ -40,6 +41,11 @@ const latestPost = postSorted[0];
 	<p>Oh yeah, don't forget to <a href="/guestbook/">sign my guestbook</a> and <a href="https://nekoweb.org/follow/jbc.lol" target="_blank">follow me on Nekoweb <span class="ms" data-icon="open_in_new" aria-hidden="true"></span></a>!</p>
 
 	<div class="widget-container">
+		<div class="widget-full img nobg">
+			<div class="img">
+				<Stats client:only="svelte" />
+			</div>
+		</div>
 		<div class="widget-full img">
 			<div>
 				{latestPost.frontmatter.background && (
@@ -58,14 +64,15 @@ const latestPost = postSorted[0];
 			</div>
 		</div>
 		<div class="widgets jsreq">
+			
 			<div>
-				<Stats client:only="svelte" />
+				<Bluesky client:only="svelte" />
 			</div>
 			<div>
 				<LastFM client:only="svelte" />
 			</div>
 			<div>
-				<Bluesky client:only="svelte" />
+				<Nekocafe client:only="svelte" />
 			</div>
 			<div>
 				<StatusCafe client:only="svelte" />
@@ -99,6 +106,14 @@ const latestPost = postSorted[0];
 
 			&.img {
 				padding: 0;
+			}
+		}
+
+		.widget-full.nobg {
+			background-color: transparent;
+
+			& > div {
+				background-color: transparent;
 			}
 		}
 

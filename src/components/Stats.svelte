@@ -1,88 +1,67 @@
 <script lang="ts">
-	async function loadStats() {
-        const request = await fetch(`https://nekoweb.org/api/site/info/jbc.lol`);
+    async function loadNekoStats() {
+        const request = await fetch(
+            `https://nekoweb.org/api/site/info/jbc.lol`,
+        );
         let json = await request.json();
 
         return {
             updated: new Date(json.updated_at).toLocaleDateString(),
             created: new Date(json.created_at).toLocaleDateString(),
             views: json.views,
-            followers: json.followers
-        }
+            followers: json.followers,
+        };
     }
 
     async function loadNeoStats() {
-        const request = await fetch("https://corsproxy.io/?https://neocities.org/api/info?sitename=jbcarreon123");
+        const request = await fetch(
+            "https://corsproxy.io/?https://neocities.org/api/info?sitename=jbcarreon123",
+        );
         let json = await request.json();
 
         return {
             hits: json.info.hits,
             views: json.info.views,
             updated: new Date(json.info.last_updated).toLocaleDateString(),
-            created: new Date(json.info.created_at).toLocaleDateString()
+            created: new Date(json.info.created_at).toLocaleDateString(),
+        };
+    }
+
+    async function loadStats() {
+        return {
+            neko: await loadNekoStats(),
+            neo: await loadNeoStats()
         }
     }
 </script>
 
 <div class="stats-container">
-    <div class="nkw-stats">
-        <p class="tg">Nekoweb Stats</p>
-        {#await loadStats()}
+    {#await loadStats()}
+        <div>
             <p>Loading stats...</p>
-        {:then out}
-        <table>
-            <tbody>
-                <tr>
-                    <td><b>Created:</b></td>
-                    <td>{out.created}</td>
-                </tr>
-                <tr>
-                    <td><b>Updated:</b></td>
-                    <td>{out.updated}</td>
-                </tr>
-                <tr>
-                    <td><b>Views:</b></td>
-                    <td>{out.views}</td>
-                </tr>
-                <tr>
-                    <td><b>Followers:</b></td>
-                    <td>{out.followers}</td>
-                </tr>
-            </tbody>
-        </table>
-        {:catch err}
+        </div>
+    {:then out}
+        <div>
+            <p class="tg">Nekoweb: Views</p>
+            <h2>{out.neko.views}</h2>
+        </div>
+        <div>
+            <p class="tg">Nekoweb: Followers</p>
+            <h2>{out.neko.followers}</h2>
+        </div>
+        <div>
+            <p class="tg">Neocities: Views</p>
+            <h2>{out.neo.views}</h2>
+        </div>
+        <div>
+            <p class="tg">Neocities: Hits</p>
+            <h2>{out.neo.hits}</h2>
+        </div>
+    {:catch err}
+        <div>
             <p>Error occured. {err}</p>
-        {/await}
-    </div>
-    <div class="neo-stats">
-        <p class="tg">Neocities Stats</p>
-        {#await loadNeoStats()}
-            <p>Loading stats...</p>
-        {:then out}
-        <table>
-            <tbody>
-                <tr>
-                    <td><b>Created:</b></td>
-                    <td>{out.created}</td>
-                </tr>
-                <tr>
-                    <td><b>Updated:</b></td>
-                    <td>{out.updated}</td>
-                </tr>
-                <tr>
-                    <td><b>Views:</b></td>
-                    <td>{out.views}</td>
-                </tr>
-                <tr>
-                    <td><b>Hits:</b></td>
-                    <td>{out.hits}</td>
-                </tr>
-            </tbody>
-        </table>
-        {:catch err}
-            <p>Error occured. {err}</p>
-        {/await}
-    </div>
+        </div>
+    {/await}
 </div>
 
 <style>
@@ -91,8 +70,22 @@
     }
 
     .stats-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
         width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        & > div {
+            background-color: var(--acc);
+            padding: 6px;
+            min-width: 185px;
+            flex-basis: 0;
+            flex-grow: 1;
+
+            & > h2 {
+                margin-bottom: 0;
+                font-size: 1.425em;
+            }
+        }
     }
 </style>

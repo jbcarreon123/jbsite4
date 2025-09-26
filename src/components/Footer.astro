@@ -1,7 +1,7 @@
 ---
 import { version } from "../../package.json";
 import { Image } from "astro:assets";
-const hash = import.meta.env.COMMIT_HASH ?? "null";
+const hash = import.meta.env.COMMIT_HASH ?? "undefined";
 ---
 
 <footer transition:persist transition:animate="none">
@@ -10,7 +10,7 @@ const hash = import.meta.env.COMMIT_HASH ?? "null";
             <p>Back to top</p>
         </a>
         <p class="small">
-            jbsite4@{version}/<span set:html={hash} /> © 2025 jbcarreon123. All
+            jbsite4/<span set:html={hash} /> © 2025 jbcarreon123. All
             rights reserved.
         </p>
         <p class="small">
