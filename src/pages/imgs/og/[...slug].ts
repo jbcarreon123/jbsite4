@@ -60,7 +60,7 @@ export const GET: APIRoute = async ({ params }) => {
 				<div class="placeholder"></div>
 				<img src="${!!img ? img : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='}" />
 				<div class="info">
-					<p class="tg">https://<b>jbc.lol</b>${(page?.url === '/index' ? '/' : page?.url) ?? post.url}</p>
+					<p class="tg">https://<b>jbc.lol</b>${(page?.url === '/index' ? '/' : page?.url) ?? post.url}/</p>
 					<div class="title">
 						<h1>${page?.title ?? post?.frontmatter?.title ?? "jb's site"}</h1>
 					</div>
