@@ -184,6 +184,9 @@ export default defineConfig({
       if (/blogs\//.test(item.url)) {
         return undefined;
       }
+      if (/wip-posts\//.test(item.url)) {
+        return undefined;
+      }
       return item;
     },
   }), svelte(), playformFormat(), playformCompress({

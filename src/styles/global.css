@@ -351,7 +351,7 @@ code {
 }
 
 img,
-figure,
+figcaption,
 iframe {
     max-width: clamp(100px, 80dvw, 500px);
 }
