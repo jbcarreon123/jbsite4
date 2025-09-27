@@ -41,12 +41,16 @@
 		let like = 0;
 		let repost = 0;
 		let replies = 0;
+		let images = 0;
 
 		if (postJson["app.bsky.feed.like"]) like = postJson["app.bsky.feed.like"][".subject.uri"].records;
 		if (postJson["app.bsky.feed.repost"]) repost = postJson["app.bsky.feed.repost"][".subject.uri"].records;
 		if (postJson["app.bsky.feed.post"]) replies = postJson["app.bsky.feed.post"][".reply.parent.uri"].records;
+		if (json.value["embed"] && json.value["embed"]["images"]) images = json.value.embed.images.length;
 
 		let timestamp = Date.parse(json.value.createdAt);
+
+		console.log(json, images);
 
 		return {
 			post: json.value.text,
@@ -54,7 +58,8 @@
 			time: timeAgo(timestamp),
 			like,
 			repost,
-			replies
+			replies,
+			images
 		};
 	}
 </script>
@@ -74,6 +79,9 @@
 			</a>
 		</p>
 		<p>{out.post}</p>
+		{#if out.images > 0}
+			<p class="small"><em>this post contains {out.images} image{out.images !== 1 ? 's' : ''}. <a href={out.id} target="_blank">open the post <span class="ms" data-icon="open_in_new"></span></a>?</em></p> 
+		{/if}
 	{:catch err}
 		<p>Error occured. {err}</p>
 	{/await}
