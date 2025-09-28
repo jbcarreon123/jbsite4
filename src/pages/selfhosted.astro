@@ -1,0 +1,183 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+    title="jb's self hosted services"
+    description="his vps once said: kernel panic"
+    id="selfhosted"
+>
+    <h1>Jb's Self Hosted services</h1>
+    <p>basically just some things I now self host</p>
+    <p>idk if im gonna give access to anyone on these</p>
+    <p>i think more will be added if my vps can keep up</p>
+    <div class="proj">
+        <a href="https://at.jbc.lol/" target="_blank">
+            <div>
+                <div>
+                    <img src="/imgs/selfhosted/atpds.avif" alt="at.jbc.lol" />
+                    <div>
+                        <p>An AT Protocol data server that is used for platforms like Bluesky and Tangled</p>
+                        <p class="tg">version: {(await (await fetch('https://at.jbc.lol/xrpc/_health')).json()).version}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="https://wf.jbc.lol/" target="_blank">
+            <div>
+                <div>
+                    <img src="/imgs/selfhosted/wafrn.avif" alt="wf.jbc.lol" />
+                    <div>
+                        <p>A Wafrn instance that is a social platform akin to Tumblr.</p>
+                        <p class="tg">version: {(await (await fetch('https://wf.jbc.lol/.well-known/nodeinfo/2.0')).json()).software.version}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="https://sbr.jbc.lol/" target="_blank">
+            <div>
+                <div>
+                    <h2>simple-webring-redirect</h2>
+                    <p>A server side webring system.</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://spacehey-forums.jbc.lol/" target="_blank">
+            <div>
+                <div>
+                    <h2>heyforumfeed</h2>
+                    <p>A merged feed of SpaceHey's forums.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <style is:inline slot="head">
+        .proj {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
+            gap: 12px;
+            margin-top:12px;
+
+            & > a {
+                background-color: var(--acc);
+                vertical-align: bottom;
+                min-height: 150px;
+                position: relative;
+                color: color-mix(in srgb, var(--link) 50%, var(--text)) !important;
+                text-decoration: none !important;
+
+                & > .bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    min-width: 100%;
+                    height: 100%;
+                    max-width: 100%;
+                    border: none;
+                    opacity: 0.5;
+                    z-index: 0;
+                    object-fit: cover;
+                }
+
+                & > div {
+                    background: linear-gradient(to top, color-mix(in srgb, var(--altbg) 65%, transparent), transparent);
+                    padding: 6px;
+                    display: flex;
+                    align-items: end;
+                    height: 100%;
+                    z-index: 1;
+                    position: relative;
+                    justify-content: space-between;
+
+                    & * {
+                        padding: 0;
+                    }
+
+                    &>div {
+                        position: relative;
+                        height: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: column-reverse;
+                        gap: 12px;
+                        width: 100%;
+                        &>p {
+                            opacity: 0;
+                        }
+
+                        &>img {
+                            max-width: 220px;
+                            object-fit: contain;
+                            width: fit-content;
+
+                            &[src*='atpds'] {
+                                box-shadow: 2px 2px 1px #000;
+                            }
+                        }
+
+                        &>div {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 6px;
+                        }
+                    }
+
+                    &>p {
+                        padding-right: 3px;
+                        width: fit-content;
+                        text-wrap-mode: nowrap;
+                    }
+                }
+
+                &:not(:has(.bg)) {
+                    div {
+                        p {
+                            opacity: 1;
+                        }
+                    }
+
+                    background: var(--acc);
+
+                    &:hover, &:active, &:focus-within {
+                        background: var(--altbg);
+                    }
+                }
+
+                &:has(.bg):hover, &:has(.bg):active, &:has(.bg):focus-within {
+                    background: linear-gradient(to bottom, var(--bg), transparent);
+
+                    &>.bg {
+                        opacity: 0.25;
+                    }
+
+                    &>div {
+                        &>div {
+                            &>p {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (width <= 640px) {
+            .proj {
+                grid-template-columns: repeat(1, 100%);
+            }
+        }
+
+        h3 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            padding: 0;
+            margin: 0;
+            padding-bottom: 6px;
+            padding-top: 30px !important;
+        }
+    </style>
+</Layout>

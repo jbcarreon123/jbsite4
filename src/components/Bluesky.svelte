@@ -66,11 +66,11 @@
 
 <div>
 	{#await loadStatus()}
-		<p class="tg">Latest post</p>
-		<p>Loading latest Bluesky post...</p>
+		<p class="tg">Latest skeet</p>
+		<p>Loading latest Bluesky skeet...</p>
 	{:then out}
 		<p class="tg">
-			Latest post - 
+			Latest skeet - 
 			<span class="ms" data-icon="favorite"></span> {out.like}
 			<span class="ms" data-icon="comment"></span> {out.replies}
 			<span class="ms" data-icon="repeat"></span> {out.repost} - 
