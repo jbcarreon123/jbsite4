@@ -6,7 +6,7 @@ const entries = fsWalk.walkSync('./public/imgs/');
 
 entries.forEach(async e => {
     if (!e.path.includes('albums/') && !e.path.includes('gallery/') && !e.path.includes('id/') 
-        && !e.path.includes('posts/') && !e.path.includes('projs/')) return;
+        && !e.path.includes('posts/') && !e.path.includes('projs/') && !e.path.includes('selfhosted/')) return;
     if (e.name.endsWith('webp') || e.name.endsWith('png') || e.name.endsWith('gif')
         || e.name.endsWith('jpg')) {
         const image = sharp(readFileSync(e.path));
