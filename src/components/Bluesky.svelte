@@ -1,5 +1,5 @@
 <script>
-	const posts_url = "https://at.jbc.lol/xrpc/com.atproto.repo.listRecords?repo=did:plc:l2wisafcekcguy6kq627e5a3&collection=app.bsky.feed.post&limit=100&reverse=false";
+	const posts_url = "https://at2.jbc.lol/xrpc/com.atproto.repo.listRecords?repo=did:plc:l2wisafcekcguy6kq627e5a3&collection=app.bsky.feed.post&limit=100&reverse=false";
 
 	function timeAgo(timestamp) {
 		const now = new Date().getTime();
