@@ -198,11 +198,10 @@ export const LinkObjs: LinkObj = [
                 mainSite: true
             },
             {
-                name: "YAMring",
-                path: "/webrings/yamring/",
-                redirect: false,
-                icon: "tag",
-                mainSite: true
+                name: "Wafring",
+                path: "https://wafring.jbc.lol/",
+                redirect: true,
+                icon: "dns"
             }
         ]
     },

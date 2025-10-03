@@ -213,11 +213,10 @@ export function getLinks(): LinkObj[] {
                     innerHTML: `<span>${rspMembers.length}<span style="font-size:0.35em;"> members</span></span>`
                 },
                 {
-                    name: "YAMring",
-                    path: "/webrings/yamring/",
-                    redirect: false,
-                    icon: "tag",
-                    innerHTML: `<span>${yamMembers.members.length}<span style="font-size:0.35em;"> members</span></span>`
+                    name: "Wafring",
+                    path: "https://wafring.jbc.lol/",
+                    redirect: true,
+                    icon: "dns"
                 }
             ]
         },
