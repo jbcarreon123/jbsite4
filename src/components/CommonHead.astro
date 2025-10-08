@@ -231,13 +231,13 @@ import { ClientRouter } from "astro:transitions";
             }
         }
 
-        window.addEventListener("error", (e) => {
-            createNotif("An error occurred.", `${e.error.message}\n\nI recommend refreshing your browser.`);
-        })
+        // window.addEventListener("error", (e) => {
+        //     createNotif("An error occurred.", `${e.error.message}\n\nI recommend refreshing your browser.`);
+        // })
 
-        window.addEventListener("unhandledrejection", (e) => {
-            createNotif("An error occurred.", `${e.reason.message}\n\nI recommend refreshing your browser.`);
-        })
+        // window.addEventListener("unhandledrejection", (e) => {
+        //     createNotif("An error occurred.", `${e.reason.message}\n\nI recommend refreshing your browser.`);
+        // })
 
         let headerMenu = document.querySelector("header a");
         if (headerMenu)
