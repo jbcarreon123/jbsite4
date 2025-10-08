@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Stats from '../components/Stats.svelte';
-import Bluesky from '../components/Bluesky.svelte';
+import Wafrn from '../components/Wafrn.svelte';
 import Nekocafe from '../components/Nekocafe.svelte';
 import StatusCafe from '../components/StatusCafe.svelte';
 import CommentWidget from '../components/CommentWidget.svelte';
@@ -66,7 +66,7 @@ const latestPost = postSorted[0];
 		<div class="widgets jsreq">
 			
 			<div>
-				<Bluesky client:only="svelte" />
+				<Wafrn client:only="svelte" />
 			</div>
 			<div>
 				<LastFM client:only="svelte" />
