@@ -87,6 +87,7 @@
     "stylelint": "^16.24.0",
     "svelte": "^5.38.10",
     "tailwindcss": "^4.1.13",
+    "truncate-html": "^1.2.2",
     "typescript": "^5.9.2",
     "unist-util-visit": "^5.0.0",
     "uwuifier": "^4.2.2",

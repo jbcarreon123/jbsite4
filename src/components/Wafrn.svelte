@@ -1,5 +1,7 @@
 <script>
-	const posts_url = "https://at2.jbc.lol/xrpc/com.atproto.repo.listRecords?repo=did:plc:l2wisafcekcguy6kq627e5a3&collection=app.bsky.feed.post&limit=100&reverse=false";
+	import truncate from "truncate-html";
+
+	const posts_url = `https://wf.jbc.lol/api/v2/blog?page=0&startScroll=${Date.now()}&id=jbcrn`
 
 	function timeAgo(timestamp) {
 		const now = new Date().getTime();
@@ -28,49 +30,42 @@
 	async function loadStatus() {
 		const request = await fetch(posts_url);
 		let jsonr = await request.json();
-		let json = jsonr.records[0];
-		for (let i = 0; !!json.value.reply; i++) {
-			json = jsonr.records[i];
+		let posts = jsonr.posts.sort((a, b) => { return new Date(b.createdAt) - new Date(a.createdAt) });
+		let json = posts[0];
+		for (let i = 0; !!json.parentId; i++) {
+			json = posts[i];
 		}
 
-		const post = `https://constellation.microcosm.blue/links/all?target=${encodeURIComponent(json.uri)}`
+		let timestamp = Date.parse(json.createdAt);
 
-		const postRequest = await fetch(post);
-		let postJson = await postRequest.json();
-		postJson = postJson.links;
-		let like = 0;
-		let repost = 0;
-		let replies = 0;
-		let images = 0;
+		const woot = await fetch(`https://wf.jbc.lol/api/forum/${json.id}`);
+		let wootJson = await woot.json();
 
-		if (postJson["app.bsky.feed.like"]) like = postJson["app.bsky.feed.like"][".subject.uri"].records;
-		if (postJson["app.bsky.feed.repost"]) repost = postJson["app.bsky.feed.repost"][".subject.uri"].records;
-		if (postJson["app.bsky.feed.post"]) replies = postJson["app.bsky.feed.post"][".reply.parent.uri"].records;
-		if (json.value["embed"] && json.value["embed"]["images"]) images = json.value.embed.images.length;
+		const like = wootJson.likes.length;
+		const repost = wootJson.posts.filter(x => x.isReblog).length;
+		const replies = wootJson.posts.filter(x => !x.isReblog).length;
 
-		let timestamp = Date.parse(json.value.createdAt);
-
-		console.log(json, images);
+		const tags = jsonr.tags.filter(x => x.postId === json.id).map(x => "#" + x.tagName).join(', ')
 
 		return {
-			post: json.value.text,
-			id: `${json["uri"]}`.replace('at://', 'https://bsky.app/profile/').replace('app.bsky.feed.post', 'post'),
+			post: truncate(json.content, 25, { byWords: true }),
+			id: `https://wf.jbc.lol/fediverse/post/${json.id}`,
 			time: timeAgo(timestamp),
 			like,
 			repost,
 			replies,
-			images
+			tags
 		};
 	}
 </script>
 
 <div>
 	{#await loadStatus()}
-		<p class="tg">Latest skeet</p>
-		<p>Loading latest Bluesky skeet...</p>
+		<p class="tg">Latest Woot</p>
+		<p>Loading latest Wafrn woot...</p>
 	{:then out}
 		<p class="tg">
-			Latest skeet - 
+			Latest Woot - 
 			<span class="ms" data-icon="favorite"></span> {out.like}
 			<span class="ms" data-icon="comment"></span> {out.replies}
 			<span class="ms" data-icon="repeat"></span> {out.repost} - 
@@ -78,9 +73,10 @@
 				{out.time} <span class="ms" data-icon="open_in_new"></span>
 			</a>
 		</p>
-		<p>{out.post}</p>
-		{#if out.images > 0}
-			<p class="small"><em>this post contains {out.images} image{out.images !== 1 ? 's' : ''}. <a href={out.id} target="_blank">open the post <span class="ms" data-icon="open_in_new"></span></a>?</em></p> 
+		{@html out.post}
+		{#if out.post.endsWith('...</p>')}<p><a href={out.id} target="_blank">Open in wf.jbc.lol</a></p>{/if}
+		{#if out.tags}
+			<p class="tg">{out.tags}</p>
 		{/if}
 	{:catch err}
 		<p>Error occured. {err}</p>
