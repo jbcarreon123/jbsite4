@@ -15,15 +15,15 @@
 
     async function loadNeoStats() {
         const request = await fetch(
-            "https://corsproxy.io/?https://neocities.org/api/info?sitename=jbcarreon123",
+            "https://corsproxy.io/?https://neocities.org/site/jbcarreon123",
         );
-        let json = await request.json();
+        let text = await request.text();
+        let parser = new DOMParser();
+        let parsed = parser.parseFromString(text, "text/html");        
 
         return {
-            hits: json.info.hits,
-            views: json.info.views,
-            updated: new Date(json.info.last_updated).toLocaleDateString(),
-            created: new Date(json.info.created_at).toLocaleDateString(),
+            views: parsed.querySelector('.stat:nth-child(1) strong')?.textContent.replaceAll(',','') ?? "0",
+            followers: parsed.querySelector('.stat:nth-child(2) strong')?.textContent.replaceAll(',','') ?? "0"
         };
     }
 
@@ -54,8 +54,8 @@
             <h2>{out.neo.views}</h2>
         </div>
         <div>
-            <p class="tg">Neocities: Hits</p>
-            <h2>{out.neo.hits}</h2>
+            <p class="tg">Neocities: Followers</p>
+            <h2>{out.neo.followers}</h2>
         </div>
     {:catch err}
         <div>
