@@ -7,6 +7,12 @@ export type ChangelogObj = {
 
 export const Changelogs: ChangelogObj[] = [
     {
+        date: "10/09/2025 20:15",
+        title: "Modified my homepage widgets!",
+        description: "Added a new widget which is my Wafrn woots! Speaking of Wafrn, I'm hosting an AMA on my instance! Click this if you want to ask me something!",
+        url: "https://wf.jbc.lol/blog/jbcrn/ask"
+    },
+    {
         date: "09/08/2025 23:00",
         title: "New 404 page background!",
         description: "Out the 404 DVD screensaver, in the Matter.js physics simulation!",
