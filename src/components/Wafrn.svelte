@@ -41,6 +41,9 @@
 		const woot = await fetch(`https://wf.jbc.lol/api/forum/${json.id}`);
 		let wootJson = await woot.json();
 
+		const ask = jsonr.asks.find(x => x.postId === json.id);
+		if (ask) ask.user = jsonr.users.find(x => ask.id === ask.userAsker);
+
 		const like = wootJson.likes.length;
 		const repost = wootJson.posts.filter(x => x.isReblog).length;
 		const replies = wootJson.posts.filter(x => !x.isReblog).length;
@@ -54,7 +57,8 @@
 			like,
 			repost,
 			replies,
-			tags
+			tags,
+			ask
 		};
 	}
 </script>
@@ -73,6 +77,12 @@
 				{out.time} <span class="ms" data-icon="open_in_new"></span>
 			</a>
 		</p>
+		{#if out.ask}
+			<div class="ask">
+				<p class="tg">{out.ask.user ? out.ask.user.url : 'Someone'} asked</p>
+				<p>{out.ask.question}</p>
+			</div>
+		{/if}
 		{@html out.post}
 		{#if out.post.endsWith('...</p>')}<p><a href={out.id} target="_blank">Open in wf.jbc.lol</a></p>{/if}
 		{#if out.tags}
@@ -82,3 +92,15 @@
 		<p>Error occured. {err}</p>
 	{/await}
 </div>
+
+<style scoped>
+	div.ask {
+		padding: 6px;
+		margin-bottom: 6px;
+		background-color: var(--altbg);
+
+		p {
+			padding-bottom: 0;
+		}
+	}
+</style>
