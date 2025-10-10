@@ -81,7 +81,7 @@ export class Analytical {
 
     private saveData() {
         localStorage.setItem('alyt:analytics', JSON.stringify(this.data));
-        console.log("analytical, saved:", this.data);
+        console.debug("analytical, saved:", this.data);
     }
 
     private stripQueriesAndHashes(u: URL) {
@@ -127,7 +127,7 @@ export class Analytical {
             page.lastViewed = new Date();
             page.pageData = data;
 
-            console.log("page saved", pageIndex, this.data.pagesViewed[pageIndex], page);
+            console.debug("page saved", pageIndex, this.data.pagesViewed[pageIndex], page);
 
             if (pageIndex > -1)
                 this.data.pagesViewed[pageIndex] = page;

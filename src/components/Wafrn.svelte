@@ -38,15 +38,20 @@
 
 		let timestamp = Date.parse(json.createdAt);
 
-		const woot = await fetch(`https://wf.jbc.lol/api/forum/${json.id}`);
+		console.debug(json);
+
+		const woot = await fetch(`https://wf.jbc.lol/api/v2/post/${json.id}`);
 		let wootJson = await woot.json();
+
+		const forum = await fetch(`https://wf.jbc.lol/api/forum/${json.id}`);
+		let forumJson = await forum.json();
 
 		const ask = jsonr.asks.find(x => x.postId === json.id);
 		if (ask) ask.user = jsonr.users.find(x => ask.id === ask.userAsker);
 
 		const like = wootJson.likes.length;
-		const repost = wootJson.posts.filter(x => x.isReblog).length;
-		const replies = wootJson.posts.filter(x => !x.isReblog).length;
+		const repost = forumJson.posts.filter(x => x.isReblog).length;
+		const replies = forumJson.posts.filter(x => !x.isReblog).length;
 
 		const tags = jsonr.tags.filter(x => x.postId === json.id).map(x => "#" + x.tagName).join(', ')
 

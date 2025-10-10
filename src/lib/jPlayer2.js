@@ -255,7 +255,7 @@ class jPlayer extends HTMLElement {
     _handleIntersection(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                console.log('player is loading');
+                console.debug('player is loading');
                 this._mutationObserver.observe(this, { childList: true });
                 const placeholder = entry.target;
                 const placeholderStyle = window.getComputedStyle(placeholder);

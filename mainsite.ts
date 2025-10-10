@@ -12,7 +12,7 @@ entries.forEach(async e => {
         minifiedHTML = minifiedHTML.replaceAll("#REMOVE_THIS::", '::');
         if (htmlContent !== minifiedHTML) {
             writeFileSync(e.path, minifiedHTML, 'utf8');
-            console.log(`Converted urls for ${e.path}`);
+            console.debug(`Converted urls for ${e.path}`);
         }
     }
 })

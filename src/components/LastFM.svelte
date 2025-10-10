@@ -10,7 +10,7 @@
     async function fetchNp() {
         let r = await fetch(BASE_URL);
         let j = await r.json();
-        console.log(j);
+        console.debug(j);
         return j.recenttracks.track[0];
     }
 

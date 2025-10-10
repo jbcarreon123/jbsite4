@@ -148,7 +148,7 @@ if (process.env.GITHUB_ACTIONS === 'true') {
     rssFeed: '/nekoweb.xml'
   }));
 } else {
-  console.log(!(process.env.GITHUB_ACTIONS !== 'true'));
+  console.debug(!(process.env.GITHUB_ACTIONS !== 'true'));
 }
 
 // https://astro.build/config

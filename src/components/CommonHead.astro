@@ -40,7 +40,7 @@ import { ClientRouter } from "astro:transitions";
         window.fetch = async (a, b) => {
             await waitUntil(() => pt.loaded, { timeout: 60000 });   
             const res =  await pt.fetch(a.toString(), b);
-            console.log(a, res);
+            console.debug(a, res);
             return res
         };
     }
