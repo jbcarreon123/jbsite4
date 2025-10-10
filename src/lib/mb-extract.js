@@ -40,5 +40,5 @@ const subst = `$1:`;
 const str = JSON.stringify(r, null, 4);
 const result = str.replace(regex, subst);
 
-console.log(result);
+console.debug(result);
 navigator.clipboard.writeText(result);

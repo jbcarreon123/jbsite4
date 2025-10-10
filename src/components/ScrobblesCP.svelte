@@ -24,7 +24,7 @@
         albums = await fetchNp("user.gettopalbums&limit=5&period=1month");
         artists = await fetchNp("user.gettopartists&limit=5&period=1month");
         tracks = await fetchNp("user.gettoptracks&limit=10&period=1month");
-        console.log(json, albums, artists, tracks);
+        console.debug(json, albums, artists, tracks);
         setInterval(async () => {
             json = await fetchNp();
             jsonFirst = json[0];

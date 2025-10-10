@@ -536,7 +536,7 @@ ${editor.value}`;
                         p.parseString(await f.text(), (error, feed) => {
                             let frs = feed.items[0];
                             rssItems = feed.items;
-                            console.log(feed);
+                            console.debug(feed);
                             if (frs.style) {
                                 document.querySelector(
                                     "#feed-style",

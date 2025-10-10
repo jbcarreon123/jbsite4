@@ -22,7 +22,7 @@
 	parser.renderer.rules.link_open = function (tokens, idx, options, env, self) {
 		// Add a new `target` attribute, or replace the value of the existing one.
 		tokens[idx].attrSet('target', '_blank');
-		console.log(tokens[idx])
+		console.debug(tokens[idx])
 
 		// Pass the token to the default renderer.
 		return defaultRender(tokens, idx, options, env, self);
@@ -171,7 +171,7 @@
 	}
 
 	function getComments() {
-		console.log('loading comments...')
+		console.debug('loading comments...')
 
 		if (s_commentsOpen) {
 			// Disable the submit button while comments are reloaded

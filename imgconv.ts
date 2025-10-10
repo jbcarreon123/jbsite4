@@ -13,6 +13,6 @@ entries.forEach(async e => {
         const buf = await image.toFormat('avif').toBuffer();
         writeFileSync(e.path.replace(/\.(?:png|webp|jpg|gif)$/, '.avif'), buf);
         rmSync(e.path);
-        console.log(e.path, 'converted to avif');
+        console.debug(e.path, 'converted to avif');
     }
 })

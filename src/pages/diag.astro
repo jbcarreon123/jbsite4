@@ -49,14 +49,14 @@ const adapter = packages.filter((v) => v[0].includes('astro-adapter-nekoweb'))[0
                     ),
                     li.href,
                 );
-                console.log(
+                console.debug(
                     bt.src.replace(
                         `${window.location.protocol}//${window.location.host}`,
                         "",
                     ),
                     li.href,
                 );
-                console.log(sr.host);
+                console.debug(sr.host);
             }
             let title = bt.title;
             if (!title) {

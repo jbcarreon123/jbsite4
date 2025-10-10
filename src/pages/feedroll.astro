@@ -69,7 +69,7 @@ const feedItems = await loadFeeds();
                 const page = document.querySelector(".feedroll-container.active") as HTMLDivElement;
                 const pageNum = page.dataset.feedrollPage;
                 const pageToNext = document.querySelector(`.feedroll-container[data-feedroll-page="${parseInt(pageNum) + (action === "next" ? 1 : -1)}"]`);
-                console.log(page, pageNum, pageToNext, parseInt(pageNum) + (action === "next" ? 1 : -1));
+                console.debug(page, pageNum, pageToNext, parseInt(pageNum) + (action === "next" ? 1 : -1));
                 if (!pageToNext) return;
                 page.classList.remove("active");
                 pageToNext?.classList.add("active");

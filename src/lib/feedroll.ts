@@ -31,7 +31,7 @@ export async function loadFeeds() {
 
                     return rss;
                 } catch {
-                    console.log(data);
+                    console.debug(data);
                     return null;
                 }
             }),
