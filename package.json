@@ -80,6 +80,7 @@
     "remark-parse": "^11.0.0",
     "remark-sectionize": "^2.1.0",
     "remark-toc": "^9.0.0",
+    "rss": "^1.2.2",
     "rss-parser": "^3.13.0",
     "sanitize-html": "^2.17.0",
     "satori-astro": "^0.3.0",
@@ -106,6 +107,7 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^22.18.3",
+    "@types/rss": "^0.0.32",
     "stylelint-config-standard": "^38.0.0"
   }
 }

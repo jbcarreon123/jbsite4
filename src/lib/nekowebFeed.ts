@@ -1,5 +1,6 @@
 import type { APIContext } from 'astro';
 import { Feed, type Item } from 'feed';
+import RSS from 'rss';
 import sanitize from 'sanitize-html';
 import { minify } from 'html-minifier-terser';
 import { Changelogs } from './changelogs.ts';
@@ -9,27 +10,20 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
     let tutorials = Object.values(import.meta.glob('../pages/tutorials/**/*.md', { eager: true }));
 
     let merge = [
-        ...posts,
-        ...tutorials,
-        ...Changelogs
+        ...(posts as {}[]).map(m => ({...m, type: 'posts'})),
+        ...(tutorials as {}[]).map(m => ({...m, type: 'tutorials'})),
+        ...(Changelogs as {}[]).map(m => ({...m, type: 'updates'}))
     ]
 
-    const feed = new Feed({
+    const feed = new RSS({
         title: "jb's posts",
         description: "a platform where jb yaps on",
-        link: context.site?.toString(),
-        id: context.site?.toString() || 'https://jbc.lol',
+        site_url: context.site?.toString() ?? 'https://jbc.lol',
         copyright: 'Source code: 2025 jbcarreon123. All rights reserved. Content: Creative Commons Attribution-ShareAlike 4.0',
         generator: 'jbsite4',
-        author: {
-            name: 'JB Carreon',
-            link: context.site?.toString()
-        },
-        feedLinks: {
-            json: new URL('feed.json', context.site).toString(),
-            atom: new URL('feed.atom', context.site).toString(),
-            rss: new URL('feed.xml', context.site).toString(),
-        },
+        feed_url: new URL('feed.xml', context.site).toString(),
+        managingEditor: 'Jb Carreon',
+        webMaster: 'Jb Carreon',
     })
 
     const sortedPosts = merge.sort((a, b) => {
@@ -38,7 +32,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         return dateA.getTime() - dateB.getTime();
     }).reverse();
 
-    feed.items = await Promise.all<Item>(sortedPosts.map(async (post: any) => {
+    const items = await Promise.all<RSS.ItemOptions>(sortedPosts.map(async (post: any) => {
         let cnt = ''
         try {
             cnt = await minify(sanitize(await post.compiledContent(), {
@@ -53,27 +47,25 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         } catch {}
 
         return ({
-            id: !!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
             title: post.frontmatter?.title ?? post.title,
             description: 
                 (post.frontmatter?.category ? 'Tutorial on ' + post.frontmatter.category + ': ' : '') +
                 (post.frontmatter?.description ?? post.description),
-            link: !!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
+            url: !!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
             date: new Date(post.frontmatter?.published ?? post.date),
-            content: cnt,
-            author: [{
-                name: 'JB Carreon',
-                link: context.site?.toString()
-            }]
+            custom_elements: [
+                {style: `.post-box{--badge-text:'${post.type.toUpperCase()}';--post-link:'${!!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase()}';}`},
+                (!!cnt ? {'content:encoded': cnt} : {})
+            ]
         })
     }));
 
+    items.forEach(item => {
+        feed.item(item);
+    });;
+
     switch (type) {
-        case 'atom':
-            return feed.atom1();
-        case 'json':
-            return feed.json1();
         default:
-            return feed.rss2();
+            return feed.xml();
     }
 }
