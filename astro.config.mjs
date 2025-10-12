@@ -144,7 +144,7 @@ if (process.env.GITHUB_ACTIONS === 'true') {
     apiKey: env.NEKOWEB_APIKEY,
     cookie: env.NEKOWEB_COOKIE,
     domain: 'jbc.lol',
-    siteName: 'jbcarreon123',
+    siteName: 'jbcrn',
     rssFeed: '/nekoweb.xml'
   }));
 } else {
