@@ -19,7 +19,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         title: "jb's posts",
         description: "a platform where jb yaps on",
         site_url: context.site?.toString() ?? 'https://jbc.lol',
-        copyright: 'Source code: 2025 jbcarreon123. All rights reserved. Content: Creative Commons Attribution-ShareAlike 4.0',
+        copyright: 'Creative Commons Attribution-ShareAlike 4.0',
         generator: 'jbsite4',
         feed_url: new URL('feed.xml', context.site).toString(),
         managingEditor: 'Jb Carreon',
