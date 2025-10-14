@@ -77,6 +77,11 @@ body {
     }
 }
 
+.dann {
+    --font: 'Dann Inc', monospace;
+    font-size: 0.9em;
+}
+
 .default {
     --font: sans-serif;
 }
