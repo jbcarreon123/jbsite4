@@ -9,7 +9,7 @@ export const Changelogs: ChangelogObj[] = [
     {
         date: "10/15/2025 00:20",
         title: "New font: Dann Inc!",
-        description: "made by danneko.nekoweb.org, now available in the nearest jbc.lol server near you!"
+        description: "made by daneeko.nekoweb.org, now available in the nearest jbc.lol server near you!"
     },
     {
         date: "10/09/2025 20:15",
