@@ -51,7 +51,7 @@ const hash = import.meta.env.COMMIT_HASH ?? "null";
 		<div transition:animate="none">
 			<main id="main">
 				<div>
-					<a href="/">Go back home</a>
+					<a href="/" class="home">Go back home</a>
 					<div id="content" transition:animate="slide" style={Astro.props.style}>
 						<slot />
 					</div>

@@ -60,7 +60,7 @@
             </div>
             <div class="card">
                 <h4>Last Contextual Paint</h4>
-                {selectedIter.lcp.toFixed(2)}ms
+            {selectedIter.lcp.toFixed(2)}ms
             </div>
             <div class="card">
                 <h4>Cumulative Layout Shift</h4>

@@ -10,6 +10,9 @@ import "prism-code-editor/invisibles.css";
     description="The one stop shop for editing and previewing Nekoweb boxes."
     id="nekobox"
 >
+    <Fragment slot="head">
+        <link rel="manifest" href="/nekobox-manifest.json" />
+    </Fragment>
     <script src="../../lib/previewTab.ts"></script>
     <script>
         import { basicEditor } from "prism-code-editor/setups";
@@ -40,17 +43,47 @@ import "prism-code-editor/invisibles.css";
             loadUrl(`https://${params.get("domain")}/elements.css`);
         }
 
+        if (window.matchMedia("(display-mode: standalone)").matches) {
+            document.querySelector(".nkb-info")?.remove();
+            document.querySelector(".home")?.remove();
+            document.querySelector("footer")?.remove();
+            let h1 = document.querySelector("h1:not(.style-broken)");
+            console.log(h1);
+            if (h1) h1.style = "font-size: 2em;";
+            if (h1) h1.textContent = h1.textContent + " (via PWA)"
+        }
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("/nekobox-service.js")
+                    .then((registration) => {
+                        console.log("Service Worker registered:", registration);
+                    })
+                    .catch((error) => {
+                        console.error(
+                            "Service Worker registration failed:",
+                            error,
+                        );
+                    });
+            });
+        }
+
         if (localStorage.getItem("nekobox:username")) {
-            const result = confirm(`Do you want to migrate to the new Nekoweb routing system?
+            const result =
+                confirm(`Do you want to migrate to the new Nekoweb routing system?
             
 It will make your username (${localStorage.getItem("nekobox:username")}) to the domain (${localStorage.getItem("nekobox:username")}.nekoweb.org). If you have a custom domain, change it on Settings.
 
 Are you okay?`);
             if (result) {
                 let username = localStorage.getItem("nekobox:username");
-                localStorage.setItem("nekobox:domain", username + '.nekoweb.org');
+                localStorage.setItem(
+                    "nekobox:domain",
+                    username + ".nekoweb.org",
+                );
                 localStorage.removeItem("nekobox:username");
-                createNotif("Successfully migrated", "Reloading...")
+                createNotif("Successfully migrated", "Reloading...");
                 window.location.reload();
             }
         }
@@ -99,8 +132,7 @@ Are you okay?`);
             );
 
         (document.querySelector('input[type="text"]#domain') as any).value =
-            localStorage.getItem("nekobox:domain") ??
-            "jbc.lol";
+            localStorage.getItem("nekobox:domain") ?? "jbc.lol";
         (document.querySelector('input[type="text"]#rss') as any).value =
             localStorage.getItem("nekobox:rss") ?? "";
         (
@@ -254,7 +286,7 @@ ${value}`;
                 "/* This will not work in Nekoweb, unfortunately. */\n#WILL-NOT-WORK {",
             );
             c = c.replace(urlRegex1, "$1$3");
-            return c
+            return c;
         }
 
         function minifyCSS(css: string): string {
@@ -368,7 +400,10 @@ ${editor.value}`;
                                 "Loaded from Nekobox Metadata Format",
                             );
                         } else {
-                            createNotif("Loaded, reloading...", `Domain: ${new URL(url).hostname}`);
+                            createNotif(
+                                "Loaded, reloading...",
+                                `Domain: ${new URL(url).hostname}`,
+                            );
                             localStorage.setItem(
                                 "nekobox:value",
                                 unMinifyCss(css),
@@ -431,7 +466,10 @@ ${editor.value}`;
                                 "nekobox:value",
                                 unMinifyCss(css),
                             );
-                            localStorage.setItem("nekobox:domain", new URL(url).hostname);
+                            localStorage.setItem(
+                                "nekobox:domain",
+                                new URL(url).hostname,
+                            );
                             localStorage.setItem(
                                 "nekobox:overflow",
                                 `${!url.includes("nekoweb.org")}`,
@@ -712,8 +750,7 @@ ${editor.value}`;
     <div id="nkb-insp" style="display: none;"></div>
 
     <h1>Nekobox</h1>
-    <p>The one stop shop for editing and previewing Nekoweb boxes.</p>
-    <p>
+    <p class="mg">
         If you need help, join <a
             href="https://discord.gg/vB3FFZytCy"
             target="_blank"
@@ -724,23 +761,32 @@ ${editor.value}`;
         >
         and ask on #coding-help or #webdev!!
     </p>
-    <p>
-        If you want to use Nekobox fully, I recommend installing a CORS
-        unblocker extension. I use CORS Unblock (<a
-            href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino?hl=en&pli=1"
-            target="_blank"
-            >Chrome <span aria-hidden="true" class="ms" data-icon="open_in_new"
-            ></span></a
-        >, <a
-            href="https://addons.mozilla.org/en-US/firefox/addon/cors-unblock/"
-            target="_blank"
-            >Firefox <span aria-hidden="true" class="ms" data-icon="open_in_new"
-            ></span></a
-        >) but you can use anything as long as it unblocks CORS requests.
-    </p>
-    <p class="mg">
-        If you liked Nekobox, consider <a href="/links">grabbing my button</a>!
-    </p>
+
+    <div class="nkb-info">
+        <p>
+            If you want to use Nekobox fully, I recommend installing a CORS
+            unblocker extension. I use CORS Unblock (<a
+                href="https://chromewebstore.google.com/detail/cors -unblock/lfhmikememgdcahcdlaciloancbhjino?hl=en&pli=1"
+                target="_blank"
+                >Chrome <span
+                    aria-hidden="true"
+                    class="ms"
+                    data-icon="open_in_new"></span></a
+            >, <a
+                href="https://addons.mozilla.org/en-US/firefox/addon/cors-unblock/"
+                target="_blank"
+                >Firefox <span
+                    aria-hidden="true"
+                    class="ms"
+                    data-icon="open_in_new"></span></a
+            >) but you can use anything as long as it unblocks CORS requests.
+        </p>
+        <p class="mg">
+            If you liked Nekobox, consider <a href="/links"
+                >grabbing my button</a
+            >!
+        </p>
+    </div>
 
     <div id="nekobox-tab-container" class="previewTabLayout">
         <div id="nkb-insp-ovr" style="display: none;"></div>
@@ -939,7 +985,8 @@ ${editor.value}`;
                     </div>
                     <div>
                         <label for="domain"
-                            >Nekoweb domain ([domain].nekoweb.org or if you have a custom domain, your custom domain)</label
+                            >Nekoweb domain ([domain].nekoweb.org or if you have
+                            a custom domain, your custom domain)</label
                         ><br />
                         <input type="text" id="domain" value="jbcarreon123" />
                     </div>

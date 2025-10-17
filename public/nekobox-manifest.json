@@ -1,0 +1,35 @@
+{
+    "name": "Nekobox",
+    "display": "standalone",
+    "id": "utils/nekobox",
+    "start_url": "/utils/nekobox",
+    "scope": "/utils/nekobox",
+    "description": "Nekobox is a definitive Nekoweb.org elements.css editor and previewer! Edit your Nekoweb.org site's sitebox and RSS feed box here!",
+    "icons": [
+        {
+            "src": "/imgs/nekobox/icon-128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/imgs/nekobox/icon-256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/imgs/nekobox/screenshot.png",
+            "sizes": "1751x970",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Nekobox"
+        },
+        {
+            "src": "/imgs/nekobox/screenshot.png",
+            "sizes": "1751x970",
+            "type": "image/png",
+            "label": "Nekobox"
+        }
+    ]
+}
