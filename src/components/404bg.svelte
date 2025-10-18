@@ -148,7 +148,7 @@
     </div>
     <div class="diag" bind:this={diag}>
         <h1>Huh, seems like we can't find the page, unfortunately.</h1>
-        <a href="/">Back home?</a>
+        <a href="/home/">Back home?</a>
 
         <p class="found-on-v3">
             We can't find it here, but we found it on jbsite3. <a

@@ -17,7 +17,7 @@ export const LinkObjs: LinkObj = [
         links: [
             {
                 name: "Home",
-                path: "/",
+                path: "/home/",
                 redirect: false,
                 icon: "home",
                 id: "index"

@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Stats from '../components/Stats.svelte';
+import Wafrn from '../components/Wafrn.svelte';
+import Nekocafe from '../components/Nekocafe.svelte';
+import StatusCafe from '../components/StatusCafe.svelte';
+import CommentWidget from '../components/CommentWidget.svelte';
+import LastFM from '../components/LastFM.svelte';
+
+const posts = Object.values(import.meta.glob('./posts/**/*.md', { eager: true }));
+
+const postSorted = posts.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.published);
+    const dateB = new Date(b.frontmatter.published);
+    return dateA.getTime() - dateB.getTime();
+}).reverse()
+
+const latestPost = postSorted[0];
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+
+<Layout id="index" title="jb's site" description="a website">
+	<div class="widget-full">
+		<div class="c">
+			<h3>Content Warning: 16+, contains swears.</h3>
+		</div>
+	</div>
+
+	<h1 class="big">
+		Hello, folks! <br class="beforeim" />I'm <br class="afterim" />
+		<span style="--d:0ms">j</span><span style="--d:100ms">b</span><span style="--d:200ms">c</span><span style="--d:300ms">a</span><span style="--d:400ms">r</span><span style="--d:500ms">r</span><span style="--d:600ms">e</span><span style="--d:700ms">o</span><span style="--d:800ms">n</span><span style="--d:900ms">1</span><span style="--d:1000ms">2</span><span style="--d:1100ms">3</span>,
+	</h1>
+	<h2>and welcome to my webbed site!</h2>
+	<p>I do stuff, yap about stuff, and procrastinate on stuff!</p>
+	<p>In this site, you can find stuff that I have interests on, from writing, to tools, to tutorials, and more!</p>
+	<p>Wanted to know the things powering this site? Check out the <a href="/riiatw/">RIIAtW page</a> and the <a href="/packages/">Packages page</a>!</p>
+	<p>Wanna learn about me? Check out my <a href="/about/">about page</a>!</p>
+	<p>Oh yeah, don't forget to <a href="/guestbook/">sign my guestbook</a> and <a href="https://nekoweb.org/follow/jbc.lol" target="_blank">follow me on Nekoweb <span class="ms" data-icon="open_in_new" aria-hidden="true"></span></a>! (or maybe <a href="https://neocities.org/site/jbcarreon123" target="_blank">follow me on Neocities <span class="ms" data-icon="open_in_new" aria-hidden="true"></span></a>)</p>
+
+	<div class="widget-container">
+		<div class="widget-full img nobg">
+			<div class="img">
+				<Stats client:only="svelte" />
+			</div>
+		</div>
+		<div class="widget-full img">
+			<div>
+				{latestPost.frontmatter.background && (
+					<img
+						class="bg"
+						loading="lazy" decoding="async"
+						src={latestPost.frontmatter.background}
+						alt=""
+					/>
+				)}
+				<p class="tg">Latest post</p>
+				<div>
+					<h3><a href={latestPost.url}>{latestPost.frontmatter.title}</a></h3>
+					<p>{latestPost.frontmatter.description}</p>
+				</div>
+			</div>
+		</div>
+		<div class="widgets jsreq">
+			
+			<div>
+				<Wafrn client:only="svelte" />
+			</div>
+			<div>
+				<LastFM client:only="svelte" />
+			</div>
+			<div>
+				<Nekocafe client:only="svelte" />
+			</div>
+			<div>
+				<StatusCafe client:only="svelte" />
+			</div>
+		</div>
+	</div>
+
+	<style is:inline>
+		.widget-container {
+			padding-top: 12px;
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+		}
+
+		.widget-full {
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+		}
+
+		.widgets {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 6px;
+		}
+
+		.widgets > div, .widget-full > div {
+			background-color: var(--acc);
+			padding: 6px;
+
+			&.img {
+				padding: 0;
+			}
+
+			& p:last-child, & h2:last-child {
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+		}
+
+		.widget-full.nobg {
+			background-color: transparent;
+
+			& > div {
+				background-color: transparent;
+			}
+		}
+
+		.widget-full.img {
+			position: relative;
+			max-height: 100%;
+			overflow: hidden;
+
+			&>* {
+				z-index: 1;
+			}
+
+			.bg {
+				position: absolute;
+				inset: 0;
+				z-index: 0;
+				opacity: 0.25;
+				filter: blur(4px);
+				transform: scale(1.25);
+				min-width: 100%;
+				max-height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		#c_widget {
+			padding-top: 6px;
+		}
+
+		#c_container .c-comment {
+			background: var(--altbg);
+		}
+
+		#c_container .c-reply {
+			background: var(--acc);
+		}
+
+		.widget-full div .c {
+			text-align: center;
+			width: 100%;
+		}
+
+		.widget-full:has(.c) {
+			padding-bottom: 12px;
+		}
+
+		.big {
+			font-size: 3em;
+		}
+
+		.beforeim {
+			display: inline-block;
+		}
+
+		.afterim {
+			display: none;
+		}
+
+		@keyframes title {
+			from {
+				color: var(--anim-color1);
+			}
+			to {
+				color: var(--anim-color2);
+			}
+		}
+
+		@keyframes transform {
+			from {
+				top: -6px;
+			}
+			to {
+				top: 6px;
+			}
+		}
+
+		.big span {
+			position: relative;
+			display: inline-block;
+			color: var(--anim-color1);
+		}
+
+		.big span:nth-of-type(odd) {
+			animation:
+				title 1200ms var(--d) infinite alternate,
+				transform 2400ms calc(var(--d)*2) infinite alternate ease-in-out;
+			top: -6px;
+		}
+
+		.big span:nth-of-type(even) {
+			animation:
+				title 1200ms var(--d) infinite alternate,
+				transform 2400ms calc(var(--d)*2) infinite alternate-reverse ease-in-out;
+			top: 6px;
+		}
+
+		@media screen and (width <= 640px) {
+			.big {
+				font-size: 2.5em;
+			}
+
+			.beforeim {
+				display: none;
+			}
+
+			.afterim {
+				display: inline-block;
+			}
+
+			.widgets {
+				grid-template-columns: repeat(1, 100%);
+			}
+		}
+	</style>
+</Layout>
