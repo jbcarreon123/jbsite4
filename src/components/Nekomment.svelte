@@ -25,6 +25,13 @@
     let parentId = $state("");
     let name = $state("");
     let cbox: HTMLFormElement | undefined = $state();
+
+    function decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+    }
+
 </script>
 
 <div class="c_widget">
@@ -54,7 +61,7 @@
                     </p>
                 </span>
             </div>
-            <p>{processor.renderInline(comment.content)}</p>
+            <p>{@html processor.renderInline(comment.content)}</p>
             <button onclick={(e)=>{e.preventDefault();parentId=comment.id;name=comment.author;cbox?.scrollIntoView()}}><span aria-hidden="true" class="ms" data-icon="reply"></span> Reply</button>
             {#if comment.replies}
                 <div class="replies">
