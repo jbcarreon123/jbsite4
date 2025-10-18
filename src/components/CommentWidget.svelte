@@ -48,7 +48,7 @@
             In your <script> tag:
                 - import CommentWidget from 'where/is/CommentWidget.svelte'
             And this:
-                - <CommentWidget />
+                - <CommentWidget path={Astro.url.pathname} />
 
         Have fun! Bug reports are encouraged if you happen to run into any issues.
 
