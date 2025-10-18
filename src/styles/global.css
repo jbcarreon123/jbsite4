@@ -47,6 +47,11 @@ body {
     --font: 'Inter', sans-serif;
 }
 
+.boxy {
+    --font: 'Boxy', sans-serif;
+    font-family: 'Boxy', sans-serif !important;
+}
+
 .opendyslexic {
     --font: 'OpenDyslexic', 'sans-serif';
 }
@@ -526,6 +531,10 @@ aside {
 
 .sec {
     color: var(--sec);
+}
+
+.force-font {
+    font-family: var(--font) !important;
 }
 
 a,

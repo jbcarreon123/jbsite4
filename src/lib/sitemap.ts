@@ -60,8 +60,15 @@ export function getLinks(): LinkObj[] {
         {
             links: [
                 {
-                    name: "Home",
+                    name: "Landing",
                     path: "/",
+                    redirect: false,
+                    icon: "flight_takeoff",
+                    id: "index"
+                },
+                {
+                    name: "Home",
+                    path: "/home/",
                     redirect: false,
                     icon: "home",
                     id: "index"
