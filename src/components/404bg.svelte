@@ -89,10 +89,12 @@
             runner = Runner.create();
             Runner.run(runner, engine);
 
-            const diagBody = Bodies.rectangle(width / 2, height / 2, diag.clientWidth, diag.clientHeight, {
-                isStatic: true
-            });
-            World.add(world, diagBody);
+            if (!matchMedia('(width <= 640px)').matches) {
+                const diagBody = Bodies.rectangle(width / 2, height / 2, diag.clientWidth, diag.clientHeight, {
+                    isStatic: true
+                });
+                World.add(world, diagBody);
+            }
             createWords();
             updateLoop();
         }
