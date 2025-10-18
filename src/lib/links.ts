@@ -221,6 +221,12 @@ export const LinkObjs: LinkObj = [
                 icon: "link"
             },
             {
+                name: "Button Wall",
+                path: "/walls/buttons/",
+                redirect: false,
+                icon: "brick"
+            },
+            {
                 name: "Feedroll",
                 path: "/feedroll/",
                 redirect: false,

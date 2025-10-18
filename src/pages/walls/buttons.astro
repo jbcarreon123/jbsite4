@@ -1,0 +1,110 @@
+---
+import Layout from "../../layouts/BgOnlyLayout.astro";
+---
+
+<Layout title="the button wall." description="because your links page needs this wall" id="time">
+    <script>
+        import Buttons from "../../../public/buttons.json" with { type: "json" };
+
+        function sample<T = any>(arr: T[]) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        };
+
+        let buttons = Buttons.filter(
+            (btn) => !btn.imgUrl || !btn.imgUrl?.startsWith("/imgs"),
+        ).map((btn) => {
+            let dom = new URL(btn.url);
+            let url = btn.imgUrl ? new URL(btn.imgUrl) : null;
+            let spl = url
+                ? url.pathname.split("/")
+                : ["placeholder_button.svg"];
+            let ext = spl[spl.length - 1];
+            let fex = ext.split(".");
+
+            return {
+                ...btn,
+                slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}/`,
+            };
+        });
+
+        let nonbtns = Buttons.filter((btn) =>
+            btn.imgUrl?.startsWith("/imgs"),
+        ).map((btn) => ({
+            ...btn,
+            slug: btn.imgUrl,
+        }));
+
+        buttons = buttons.concat(nonbtns);
+        let filled = false;
+        let count = 0;
+
+        let container = document.querySelector(".buttons-container");
+
+        let opacity = new URLSearchParams(window.location.search).get('opacity') ?? "0.5";
+        container.style.opacity = opacity;
+
+        let intr = setInterval(() => {
+            setTimeout(() => {
+                let e = sample(buttons);
+                let a = document.createElement("a");
+                let img = document.createElement("img");
+                img.src = e.slug + "?" + Math.random();
+                img.alt = "";
+                img.width = 88;
+                img.height = 31;
+                img.loading = "lazy";
+                img.addEventListener("load", (e) => {
+                    img.classList.add("loaded");
+                });
+                a.href = e.url;
+                a.appendChild(img);
+                container?.appendChild(a);
+
+                if (
+                    container.scrollHeight > container.clientHeight ||
+                    container.scrollWidth > container.clientWidth
+                ) {
+                    container?.removeChild(a); // Remove the element that caused overflow
+                    filled = true;
+                }
+                count++;
+            }, count * 20);
+
+            if (filled || count > 1000) clearInterval(intr);
+        }, 10);
+    </script>
+
+    <div class="buttons-container"></div>
+
+    <style is:global>
+        body {
+            overflow: hidden;
+        }
+
+        .buttons-container {
+            width: 110dvw;
+            height: 110dvh;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .buttons-container img {
+            opacity: 0;
+
+            &.loaded {
+                animation: visible 0.5s forwards ease-in;
+            }
+        }
+
+        @keyframes visible {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</Layout>

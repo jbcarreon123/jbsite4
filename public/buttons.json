@@ -477,6 +477,7 @@
         "url": "https://planet-bluto.net/",
         "title": "",
         "alt": ">PLANET_BLUTO.NET",
+        "imgUrl": "https://preview.planet-bluto.net/img/site_button_placeholder.png",
         "clickElm": "#the-planet-bluto"
     },
     {
@@ -506,9 +507,40 @@
         "startPath": "/#/home"
     },
     {
-        "url": "https://uksz.org/",
+        "url": "https://jae.gg/",
         "title": "",
-        "alt": "uksz",
-        "imgUrl": "https://uksz.org/buttons/uksz.gif"
+        "alt": "jae.gg",
+        "imgUrl": "https://jae.gg/buttons/88x31.gif"
+    },
+    {
+        "url": "https://stupied.neocities.org/",
+        "title": "",
+        "alt": "stupied",
+        "imgUrl": "https://stupied.neocities.org/meta/button.png",
+        "clickElm": "[onclick=\"redirectBack()\"]"
+    },
+    {
+        "url": "https://racc.at/",
+        "title": "",
+        "alt": "racc.at",
+        "imgUrl": "https://racc.at/media/uploads/88x31.png"
+    },
+    {
+        "url": "https://verbina29.neocities.org/",
+        "title": "",
+        "alt": "verbina29",
+        "imgUrl": "https://verbina29.neocities.org/buttons/button_percival.png"
+    },
+    {
+        "url": "https://daneeko.nekoweb.org/",
+        "title": "",
+        "alt": "daneeko",
+        "imgUrl": "https://daneeko.nekoweb.org/assets/buttons/daneeko.gif"
+    },
+    {
+        "url": "https://pocketbroto.net/",
+        "title": "",
+        "alt": "Broto. Pocket Broto.",
+        "imgUrl": "https://pocketbroto.net/pocketbutton.png"
     }
 ]
