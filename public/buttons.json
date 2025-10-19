@@ -542,5 +542,11 @@
         "title": "",
         "alt": "Broto. Pocket Broto.",
         "imgUrl": "https://pocketbroto.net/pocketbutton.png"
+    },
+    {
+        "url": "https://ari.lt/",
+        "title": "",
+        "alt": "ari-web badge",
+        "imgUrl": "https://ari.lt/badge.png"
     }
 ]
