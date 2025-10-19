@@ -547,7 +547,13 @@
     {
         "url": "https://ari.lt/",
         "title": "",
-        "alt": "ari-web badge",
+        "alt": "ari-web",
         "imgUrl": "https://ari.lt/badge.png"
+    },
+    {
+        "url": "https://dabric.xyz/",
+        "title": "",
+        "alt": "dabric",
+        "imgUrl": "https://dabric.xyz/butt.png"
     }
 ]
