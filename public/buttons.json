@@ -541,7 +541,8 @@
         "url": "https://pocketbroto.net/",
         "title": "",
         "alt": "Broto. Pocket Broto.",
-        "imgUrl": "https://pocketbroto.net/pocketbutton.png"
+        "imgUrl": "https://pocketbroto.net/pocketbutton.png",
+        "startPath": "/en/home.html"
     },
     {
         "url": "https://ari.lt/",
