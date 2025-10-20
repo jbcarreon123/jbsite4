@@ -48,7 +48,7 @@ import Footer from '../components/Footer.astro';
 			<Sidebar title={title} id={id} description={description}>
 				<slot name="toc" />
 			</Sidebar>
-			<main id="main">
+			<main id="main" transition:animate="fade">
 				<header>
 					<a href="#sidebar"><span
 						aria-hidden="true"
@@ -57,7 +57,7 @@ import Footer from '../components/Footer.astro';
 					<p class="page-title">{title ? title : "jb's site"}</p>
 				</header>
 				<div>
-					<div id="content" transition:animate="slide" style={Astro.props.style}>
+					<div id="content" style={Astro.props.style}>
 						<slot />
 					</div>	
 					<Footer />
