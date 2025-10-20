@@ -4,6 +4,7 @@ import TabbedSvelte from "../components/Tabbed.svelte";
 ---
 
 <Layout title="welcome to jb's site" id="welcome">
+    <a class="center" href="/home"></a>
     <div class="welcome-container">
         <section class="greeting-container">
             <div class="greeting">
@@ -87,7 +88,7 @@ import TabbedSvelte from "../components/Tabbed.svelte";
                     <img src="/imgs/landing/webrings.png" style="height: 100px" alt="" />
                     <h3>Webrings</h3>
                 </a>
-                <a class="box-container" href="/home/">
+                <a class="box-container index" href="/home/">
                     <img src="/imgs/landing/main.png" alt="" />
                     <h3>Enter jb's site</h3>
                 </a>
@@ -96,6 +97,27 @@ import TabbedSvelte from "../components/Tabbed.svelte";
     </div>
 
     <style>
+        body:has(.shaking) {
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%; right: 50%;
+            transform: translate(50%,-50%);
+            background-color: var(--acc);
+            z-index: 100;
+            width: var(--w, 0);
+            height: var(--h, 0);
+            transform-origin: left left;
+            transition: transform 500ms;
+
+            &[style*="scale(20)"] {
+                opacity: 0;
+                transition: transform 500ms, opacity 1000ms 0.5s ease-in-out; 
+            }
+        }
 
         .welcome-container {
             display: flex;
@@ -184,6 +206,7 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             flex-direction: row !important;
             gap: 12px;
             padding: 0;
+            overflow: visible;
 
             &:hover {
                 background-color: transparent;
@@ -261,6 +284,15 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             top: 6px;
         }
 
+        .shaking {
+            animation:
+                shaking 0.2s forwards ease;
+            &>*{
+                opacity: 0 !important;
+            }
+        }
+
+
         @keyframes title {
             from {
                 color: var(--anim-color1);
@@ -276,6 +308,15 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             }
             to {
                 top: 6px;
+            }
+        }
+
+        @keyframes shaking {
+            from {
+                transform: none;
+            }
+            to {
+                transform: translate(var(--x, 0), var(--y, 0));
             }
         }
 
@@ -319,4 +360,42 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             }
         }
     </style>
+
+    <script>
+        const index = document.querySelector('.index');
+        const center = document.querySelector('.center');
+        const welcomeContainer = document.querySelector('.welcome-container');
+        index?.addEventListener('click', (e) => {
+            if (!center || !welcomeContainer || matchMedia('(prefers-reduced-motion: reduce)').matches || !!localStorage.getItem('jbsite:visitedOnce')) return;
+            localStorage.setItem('jbsite:visitedOnce', 'true')
+            e.preventDefault();
+            const rect = index.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const currPosX = rect.left;
+            const currPosY = rect.top;
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+            const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+            const centerVX = vw / 2;
+            const centerVY = vh / 2;
+
+            (index as HTMLAnchorElement).style.setProperty('--x', `${centerVX - (centerX + currPosX)}px`);
+            (index as HTMLAnchorElement).style.setProperty('--y', `${centerVY - (centerY + currPosY)}px`);
+
+            index.classList.add('shaking')
+            setTimeout(() => {
+                (center as HTMLDivElement).style.setProperty('--w', `${rect.width}px`);
+                (center as HTMLDivElement).style.setProperty('--h', `${rect.height}px`);
+
+                setTimeout(() => {
+                    (center as HTMLDivElement).style.setProperty('transform', `scale(20)`);
+                    (welcomeContainer as HTMLDivElement).style.opacity = "0";
+
+                    setTimeout(() => {
+                        window.location.href = '/home'
+                    }, 1000)
+                }, 500)
+            }, 250)
+        })
+    </script>
 </Layout>
