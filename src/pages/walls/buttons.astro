@@ -10,6 +10,20 @@ import Layout from "../../layouts/BgOnlyLayout.astro";
             return arr[Math.floor(Math.random() * arr.length)];
         };
 
+        let siteButtons = [
+            "/imgs/buttons/jb.svg",
+            "/sitebutton.png",
+            "/sitebutton2.png",
+            "/sitebutton3.png",
+            "/sitebuttonv2.png",
+        ].map(x=>({
+            url: "https://jbc.lol/",
+            title: "",
+            alt: "jbc.lol button",
+            imgUrl: "",
+            slug: x
+        }))
+
         let buttons = Buttons.filter(
             (btn) => !btn.imgUrl || !btn.imgUrl?.startsWith("/imgs"),
         ).map((btn) => {
@@ -35,6 +49,7 @@ import Layout from "../../layouts/BgOnlyLayout.astro";
         }));
 
         buttons = buttons.concat(nonbtns);
+        buttons = buttons.concat(siteButtons);
         let filled = false;
         let count = 0;
 
