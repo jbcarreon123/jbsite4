@@ -31,19 +31,30 @@ import TabbedSvelte from "../components/Tabbed.svelte";
                 <div class="warning">
                     <img src="/imgs/landing/rating_ma.gif" alt="" />
                     <h2>This page is rated 16+</h2>
-                    <p>Can contain moderate cursing, and some opinions children shouldn't see</p>
+                    <p>
+                        Can contain moderate cursing, and some opinions children
+                        shouldn't see
+                    </p>
                 </div>
             </div>
         </section>
         <div class="tc"><p class="tg">Popular All-seasons</p></div>
         <section>
             <a class="box-container" href="/utils/nekobox/">
-                <img src="/imgs/nekobox/icon-256.png" style="width: 150px; max-height: 150px;right: -32px;bottom:-32px;--r:-24px;--b:-16px;" alt="" />
+                <img
+                    src="/imgs/nekobox/icon-256.png"
+                    style="width: 150px; max-height: 150px;right: -32px;bottom:-32px;--r:-24px;--b:-16px;"
+                    alt=""
+                />
                 <p>Now installable via PWA!</p>
                 <h2>Nekobox</h2>
             </a>
             <a class="box-container" href="https://postrequest.neocities.org/">
-                <img src="/imgs/landing/postreq.png" style="width: 120px;bottom:-24px;" alt="" />
+                <img
+                    src="/imgs/landing/postreq.png"
+                    style="width: 120px;bottom:-24px;"
+                    alt=""
+                />
                 <p></p>
                 <h2>POSTreq</h2>
             </a>
@@ -63,7 +74,11 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             <a class="box-container" href="/about/">
                 <p></p>
                 <h2>About JB</h2>
-                <img src="/imgs/landing/about.png" style="filter:brightness(150%)" alt="" />
+                <img
+                    src="/imgs/landing/about.png"
+                    style="filter:brightness(150%)"
+                    alt=""
+                />
             </a>
             <a class="box-container" href="/links/">
                 <img src="/imgs/landing/links.png" alt="" />
@@ -76,20 +91,34 @@ import TabbedSvelte from "../components/Tabbed.svelte";
         <section class="nested">
             <div class="box-container welcome-container2">
                 <a class="box-container" href="https://wf.jbc.lol/blog/jbcrn">
-                    <img src="/imgs/landing/waffy.png" style="bottom: -4px" alt="" />
+                    <img
+                        src="/imgs/landing/waffy.png"
+                        style="bottom: -4px"
+                        alt=""
+                    />
                     <img src="/imgs/landing/fedi.png" alt="" class="left" />
                     <h3>@jbcrn@wf.jbc.lol</h3>
                 </a>
-                <a class="box-container" href="https://bsky.app/profile/jbc.lol">
+                <a
+                    class="box-container"
+                    href="https://bsky.app/profile/jbc.lol"
+                >
                     <img src="/imgs/landing/bsky.png" alt="" />
                     <img src="/imgs/landing/atproto.png" alt="" class="left" />
                     <h3>@jbc.lol</h3>
                 </a>
             </div>
 
-            <div class="box-container welcome-container2 ct3" style="justify-content: end;">
+            <div
+                class="box-container welcome-container2 ct3"
+                style="justify-content: end;"
+            >
                 <a class="box-container" href="/webrings/">
-                    <img src="/imgs/landing/webrings.png" style="height: 100px" alt="" />
+                    <img
+                        src="/imgs/landing/webrings.png"
+                        style="height: 100px"
+                        alt=""
+                    />
                     <h3>Webrings</h3>
                 </a>
                 <a class="box-container index" href="/home/">
@@ -98,6 +127,27 @@ import TabbedSvelte from "../components/Tabbed.svelte";
                 </a>
             </div>
         </section>
+    </div>
+
+    <div class="indieweb" style="display: none;">
+        <!-- IndieWeb Webring: all my webrings are on /webrings -->
+
+        <a href="https://xn--sr8hvo.ws/previous">←</a>
+        An <a href="https://xn--sr8hvo.ws">IndieWeb Webring</a> 🕸💍
+        <a href="https://xn--sr8hvo.ws/next">→</a>
+
+        <!-- h-card: done this because I need to format my site properly before I can properly use h-card -->
+
+        <div class="h-card">
+            <span class="p-name">John Benedict Carreon</span>
+            <span class="p-given-name">John Benedict</span>
+            <span class="p-family-name">Carreon</span>
+            <span class="p-nickname">Jb</span>
+            <a class="u-url" href="http://jbc.lol">w</a>,
+            <a class="u-email" href="mailto:jb@jbc.lol">@</a>
+            <div class="p-country-name">Philippines</div>
+            <time class="dt-bday">04-2008</time>
+        </div>
     </div>
 
     <style>
@@ -144,21 +194,23 @@ import TabbedSvelte from "../components/Tabbed.svelte";
                 gap: 12px;
                 align-items: center;
 
-                & > div, & > a {
+                & > div,
+                & > a {
                     display: flex;
                     flex-direction: column;
                 }
             }
         }
 
-        .warning, .box-container {
+        .warning,
+        .box-container {
             position: relative;
             background: var(--acc);
             padding: 6px;
             padding-right: 54px;
             overflow: hidden;
 
-            &>* {
+            & > * {
                 position: relative;
             }
 
@@ -220,7 +272,7 @@ import TabbedSvelte from "../components/Tabbed.svelte";
                 background-color: transparent;
             }
 
-            &>a {
+            & > a {
                 aspect-ratio: 1 / 1;
                 max-width: 150px;
                 padding-right: 6px;
@@ -228,7 +280,7 @@ import TabbedSvelte from "../components/Tabbed.svelte";
         }
 
         .ct3 {
-            &>a:last-child {
+            & > a:last-child {
                 flex-basis: 0;
                 flex-grow: 1;
                 width: 100%;
@@ -291,17 +343,15 @@ import TabbedSvelte from "../components/Tabbed.svelte";
         }
 
         .shaking {
-            animation:
-                shaking 1s forwards ease-in;
-            &>*{
+            animation: shaking 1s forwards ease-in;
+            & > * {
                 opacity: 0 !important;
             }
 
-            transition: opacity 2500ms 0.5s ease-in-out; 
+            transition: opacity 2500ms 0.5s ease-in-out;
             opacity: 0;
             z-index: 25;
         }
-
 
         @keyframes title {
             from {
@@ -331,14 +381,15 @@ import TabbedSvelte from "../components/Tabbed.svelte";
         }
 
         @media screen and (width <= 450px) {
-            section, .welcome-container2 {
+            section,
+            .welcome-container2 {
                 grid-template-columns: 1fr !important;
 
-                div, a {
+                div,
+                a {
                     padding-right: 6px !important;
                 }
             }
-
         }
 
         h3 {
@@ -347,7 +398,8 @@ import TabbedSvelte from "../components/Tabbed.svelte";
         }
 
         @media screen and (width <= 730px) {
-            .greeting-container, .nested {
+            .greeting-container,
+            .nested {
                 grid-template-columns: 1fr !important;
             }
 
@@ -362,7 +414,7 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             .welcome-container2 {
                 display: grid !important;
                 grid-template-columns: 1fr 1fr;
-                &>a {
+                & > a {
                     aspect-ratio: initial !important;
                     width: 100%;
                     max-width: initial;
@@ -372,19 +424,24 @@ import TabbedSvelte from "../components/Tabbed.svelte";
     </style>
 
     <script>
-        const index = document.querySelector('.index');
-        const center = document.querySelector('.center');
-        const welcomeContainer = document.querySelector('.welcome-container');
-        index?.addEventListener('click', (e) => {
-            if (!center || !welcomeContainer || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const index = document.querySelector(".index");
+        const center = document.querySelector(".center");
+        const welcomeContainer = document.querySelector(".welcome-container");
+        index?.addEventListener("click", (e) => {
+            if (
+                !center ||
+                !welcomeContainer ||
+                matchMedia("(prefers-reduced-motion: reduce)").matches
+            )
+                return;
             e.preventDefault();
-            index.classList.add('shaking')
+            index.classList.add("shaking");
             setTimeout(() => {
-                index.classList.add('shaking2')
-            }, 500)
+                index.classList.add("shaking2");
+            }, 500);
             setTimeout(() => {
-                window.location.href = '/home'
-            }, 1200)
-        })
+                window.location.href = "/home";
+            }, 1200);
+        });
     </script>
 </Layout>
