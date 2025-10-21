@@ -2,7 +2,10 @@
     import { onMount } from "svelte";
     import MarkdownIt from "markdown-it";
 
-    const processor = new MarkdownIt();
+    const processor = new MarkdownIt({
+        linkify: true,
+        typographer: true
+    });
 
     const { path } = $props();
     let comments: any[] = $state([]);
@@ -25,12 +28,6 @@
     let parentId = $state("");
     let name = $state("");
     let cbox: HTMLFormElement | undefined = $state();
-
-    function decodeHtml(html) {
-        var txt = document.createElement("textarea");
-        txt.innerHTML = html;
-        return txt.value;
-    }
 
 </script>
 
@@ -61,7 +58,7 @@
                     </p>
                 </span>
             </div>
-            <p>{@html processor.renderInline(comment.content)}</p>
+            <p>{@html processor.render(comment.content).replaceAll('<a', '<a target="_blank"')}</p>
             <button onclick={(e)=>{e.preventDefault();parentId=comment.id;name=comment.author;cbox?.scrollIntoView()}}><span aria-hidden="true" class="ms" data-icon="reply"></span> Reply</button>
             {#if comment.replies}
                 <div class="replies">
@@ -78,7 +75,7 @@
                                     </p></span
                                 >
                             </div>
-                            <p>{@html processor.renderInline(reply.content)}</p>
+                            <p>{@html processor.render(reply.content).replaceAll('<a', '<a target="_blank"')}</p>
                         </div>
                     {/each}
                 </div>
