@@ -106,9 +106,10 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             overflow: hidden;
         }
 
-        body:has(.shaking) .center {
+        body:has(.shaking2) .center {
             position: fixed;
             inset: 0;
+            opacity: 1;
             z-index: 5;
             background-color: var(--altbg);
 
@@ -291,12 +292,12 @@ import TabbedSvelte from "../components/Tabbed.svelte";
 
         .shaking {
             animation:
-                shaking 0.5s forwards ease;
+                shaking 1s forwards ease-in;
             &>*{
                 opacity: 0 !important;
             }
 
-            transition: opacity 1000ms 0.5s ease-in-out; 
+            transition: opacity 2500ms 0.5s ease-in-out; 
             opacity: 0;
             z-index: 25;
         }
@@ -312,10 +313,10 @@ import TabbedSvelte from "../components/Tabbed.svelte";
         }
 
         @keyframes transform {
-            from {
+            0% {
                 top: -6px;
             }
-            to {
+            80% {
                 top: 6px;
             }
         }
@@ -378,6 +379,9 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             if (!center || !welcomeContainer || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             e.preventDefault();
             index.classList.add('shaking')
+            setTimeout(() => {
+                index.classList.add('shaking2')
+            }, 500)
             setTimeout(() => {
                 window.location.href = '/home'
             }, 1200)
