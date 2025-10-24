@@ -1,6 +1,7 @@
 <script>
     import { onMount, onDestroy } from "svelte";
     import Matter from "matter-js";
+    import btns from "/buttons.json?url";
     let width, height;
 
     let container;
@@ -14,7 +15,54 @@
     let c = 0;
 
     onMount(async () => {
-        let words = ["404", "Not found", window.location.pathname];
+        let fr = await fetch(btns);
+        let Buttons = await fr.json();
+
+        let siteButtons = [
+            "/imgs/buttons/jbtn.svg",
+            "/sitebutton.png",
+            "/sitebutton2.png",
+            "/sitebutton3.png",
+            "/sitebuttonv2.png",
+        ].map((x) => ({
+            url: "https://jbc.lol/",
+            title: "",
+            alt: "jbc.lol button",
+            imgUrl: "",
+            slug: x,
+        }));
+
+        let buttons = Buttons.filter(
+            (btn) => !btn.imgUrl || !btn.imgUrl?.startsWith("/imgs"),
+        ).map((btn) => {
+            let dom = new URL(btn.url);
+            let url = btn.imgUrl ? new URL(btn.imgUrl) : null;
+            let spl = url
+                ? url.pathname.split("/")
+                : ["placeholder_button.svg"];
+            let ext = spl[spl.length - 1];
+            let fex = ext.split(".");
+
+            return {
+                ...btn,
+                slug: `/imgs/site-buttons/${dom.hostname}.${fex[fex.length - 1]}`,
+            };
+        });
+
+        let nonbtns = Buttons.filter((btn) =>
+            btn.imgUrl?.startsWith("/imgs"),
+        ).map((btn) => ({
+            ...btn,
+            slug: btn.imgUrl,
+        }));
+
+        buttons = buttons.concat(nonbtns);
+        buttons = buttons.concat(siteButtons);
+
+        let words = buttons.map(x => x.slug);
+
+        console.log(words);
+
         let fontSize = 48;
         c = 0;
         width =
@@ -26,7 +74,7 @@
             document.documentElement.clientHeight ||
             document.body.clientHeight;
         let wordCount =
-            width < 640 ? getRndInteger(5, 12) : getRndInteger(24, 36);
+            width < 640 ? getRndInteger(10, 30) : Buttons.length;
 
         var Engine = Matter.Engine,
             World = Matter.World,
@@ -89,10 +137,16 @@
             runner = Runner.create();
             Runner.run(runner, engine);
 
-            if (!matchMedia('(width <= 640px)').matches) {
-                const diagBody = Bodies.rectangle(width / 2, height / 2, diag.clientWidth, diag.clientHeight, {
-                    isStatic: true
-                });
+            if (!matchMedia("(width <= 640px)").matches) {
+                const diagBody = Bodies.rectangle(
+                    width / 2 + 10,
+                    height / 2,
+                    diag.clientWidth - 10,
+                    diag.clientHeight,
+                    {
+                        isStatic: true,
+                    },
+                );
                 World.add(world, diagBody);
             }
             createWords();
@@ -101,33 +155,40 @@
 
         function createWords() {
             for (let i = 0; i < wordCount; i++) {
-                const word = words[Math.floor(Math.random() * words.length)];
-                const el = document.createElement("div");
-                el.textContent = word;
-                el.className = "word";
-                el.style.fontSize = fontSize + "px";
-                container.appendChild(el);
-                const wordWidth = word.length * fontSize * 0.6;
-                const wordHeight = fontSize * 1.2;
-                const x =
-                    Math.random() * (width - wordWidth - 40) +
-                    wordWidth / 2 +
-                    20;
-                const y = -wordHeight - 200;
-                const body = Bodies.rectangle(x, y, wordWidth, wordHeight);
-                body.word = word;
-                body.element = el;
-                World.add(world, body);
-                bodies.push(body);
-                wordElements.push(el);
+                setTimeout(() => {
+                    const word = words[Math.floor(Math.random() * words.length)];
+                    const el = document.createElement("img");
+                    el.transform = "translateY(-200px)";
+                    el.src = word + "?test=" + Math.random();
+                    el.className = "word";
+                    el.style.visibility = "hidden";
+                    el.loading = "eager";
+                    container.appendChild(el);
+                    const wordWidth = 88;
+                    const wordHeight = 31;
+                    const x =
+                        Math.random() * (width - wordWidth - 40) +
+                        wordWidth / 2 +
+                        20;
+                    const y = -wordHeight - 200;
+                    const body = Bodies.rectangle(x, y, wordWidth, wordHeight);
+                    body.word = word;
+                    body.element = el;
+                    el.addEventListener('load', () => {
+                        World.add(world, body);
+                        bodies.push(body);
+                        wordElements.push(el);
+                        el.style.visibility = "";
+                    })
+                }, i * 25)
             }
         }
         function updateLoop() {
             bodies.forEach((body) => {
                 const el = body.element;
                 if (el) {
-                    const wordWidth = body.word.length * fontSize * 0.6;
-                    const wordHeight = fontSize * 1.2;
+                    const wordWidth = 88;
+                    const wordHeight = 31;
                     el.style.transform = `translate(${body.position.x - wordWidth / 2}px, ${body.position.y - wordHeight / 2}px) rotate(${body.angle}rad)`;
                     console.debug(mouseConstraint.body);
                     if (mouseConstraint.body === body) {
@@ -150,18 +211,22 @@
     </div>
     <div class="diag" bind:this={diag}>
         <h1>Huh, seems like we can't find the page, unfortunately.</h1>
-        <a href="/home/">Back home?</a>
-
-        <p class="found-on-v3">
-            We can't find it here, but we found it on jbsite3. <a
-                target="_blank"
-                >Wanna go there? <span
-                    aria-hidden="true"
-                    class="ms"
-                    data-icon="open_in_new"
-                ></span></a
-            >
+        <p>
+            <a href="/home/">Back home?</a>
+            <span class="found-on-v3">
+                We can't find it here, but we found it on jbsite3. <a
+                    href="/"
+                    target="_blank"
+                    >Wanna go there? <span
+                        aria-hidden="true"
+                        class="ms"
+                        data-icon="open_in_new"
+                    ></span></a
+                >
+            </span>
         </p>
+
+        
     </div>
 </div>
 
@@ -169,6 +234,10 @@
     .physics-container {
         position: fixed;
         inset: 0;
+    }
+
+    img {
+        transition: all 100ms ease-in-out;
     }
 
     :global(.word) {
@@ -181,5 +250,8 @@
         transform-origin: center center;
         background: transparent;
         transition: transform 0.1s ease;
+        background-image: var(--img);
+        width: 88px;
+        height: 31px;
     }
 </style>
