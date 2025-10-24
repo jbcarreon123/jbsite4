@@ -174,7 +174,7 @@
             for (let i = 0; i < wordCount; i++) {
                 setTimeout(() => {
                     const word =
-                        words[Math.floor(Math.random() * words.length)];
+                        words[width < 640 ? Math.floor(Math.random() * words.length) : i];
                     const el = document.createElement("img");
                     el.transform = "translateY(-200px)";
                     el.src = word.slug + "?test=" + Math.random();
