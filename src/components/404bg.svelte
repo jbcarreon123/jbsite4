@@ -59,7 +59,7 @@
         buttons = buttons.concat(nonbtns);
         buttons = buttons.concat(siteButtons);
 
-        let words = buttons.map(x => x.slug);
+        let words = buttons;
 
         console.log(words);
 
@@ -73,8 +73,7 @@
             window.innerHeight ||
             document.documentElement.clientHeight ||
             document.body.clientHeight;
-        let wordCount =
-            width < 640 ? getRndInteger(10, 30) : Buttons.length;
+        let wordCount = width < 640 ? getRndInteger(10, 30) : Buttons.length;
 
         var Engine = Matter.Engine,
             World = Matter.World,
@@ -151,18 +150,38 @@
             }
             createWords();
             updateLoop();
+
+            container.addEventListener("mousedown", (event) => {
+                if (event.button === 1) {
+                    event.preventDefault();
+                    const mousePosition = {
+                        x: event.offsetX,
+                        y: event.offsetY,
+                    };
+                    const bodies = Matter.Query.point(
+                        engine.world.bodies,
+                        mousePosition,
+                    );
+                    if (bodies.length > 0) {
+                        const clickedBody = bodies[0];
+                        document.open(clickedBody.element.dataset.mainSite, "", "noopener=true");
+                    }
+                }
+            });
         }
 
         function createWords() {
             for (let i = 0; i < wordCount; i++) {
                 setTimeout(() => {
-                    const word = words[Math.floor(Math.random() * words.length)];
+                    const word =
+                        words[Math.floor(Math.random() * words.length)];
                     const el = document.createElement("img");
                     el.transform = "translateY(-200px)";
-                    el.src = word + "?test=" + Math.random();
+                    el.src = word.slug + "?test=" + Math.random();
                     el.className = "word";
                     el.style.visibility = "hidden";
                     el.loading = "eager";
+                    el.dataset.mainSite = word.url
                     container.appendChild(el);
                     const wordWidth = 88;
                     const wordHeight = 31;
@@ -174,13 +193,13 @@
                     const body = Bodies.rectangle(x, y, wordWidth, wordHeight);
                     body.word = word;
                     body.element = el;
-                    el.addEventListener('load', () => {
+                    el.addEventListener("load", () => {
                         World.add(world, body);
                         bodies.push(body);
                         wordElements.push(el);
                         el.style.visibility = "";
-                    })
-                }, i * 25)
+                    });
+                }, i * 25);
             }
         }
         function updateLoop() {
@@ -190,7 +209,6 @@
                     const wordWidth = 88;
                     const wordHeight = 31;
                     el.style.transform = `translate(${body.position.x - wordWidth / 2}px, ${body.position.y - wordHeight / 2}px) rotate(${body.angle}rad)`;
-                    console.debug(mouseConstraint.body);
                     if (mouseConstraint.body === body) {
                         el.style.transform += " scale(1.1)";
                     }
@@ -202,6 +220,11 @@
 </script>
 
 <div class="main">
+    <div class="inst">
+        <h2>drag buttons by pressing and holding them then drag them</h2>
+        <h2>open buttons to their main site by middle clicking</h2>
+    </div>
+
     <div class="physics-container">
         <div
             bind:this={container}
@@ -225,8 +248,6 @@
                 >
             </span>
         </p>
-
-        
     </div>
 </div>
 
@@ -234,6 +255,18 @@
     .physics-container {
         position: fixed;
         inset: 0;
+    }
+
+    .inst {
+        position: fixed;
+        top: 24px;
+        left: 24px;
+
+        h2 {
+            font-weight: normal;
+            font-style: italic;
+            opacity: 0.25;
+        }
     }
 
     img {
@@ -253,5 +286,11 @@
         background-image: var(--img);
         width: 88px;
         height: 31px;
+    }
+
+    @media (width < 640px) {
+        .inst h2:last-child {
+            display: none;
+        }
     }
 </style>
