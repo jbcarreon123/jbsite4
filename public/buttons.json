@@ -86,7 +86,7 @@
         "url": "https://layercake.nekoweb.org/",
         "title": "Layercake",
         "alt": "Layercake",
-        "imgUrl": "https://files.catbox.moe/h7nelz.gif",
+        "imgUrl": "https://layercake.moe/assets/images/buttons/mine/layercakebutton.gif",
         "clickElm": "#visitorbutton"
     },
     {
@@ -253,12 +253,6 @@
         "title": "Randopaizer/Nandraid",
         "alt": "Randopaizer/Nandraid",
         "imgUrl": "/imgs/buttons/nandraid.gif"
-    },
-    {
-        "url": "https://strudelfatpaws.neocities.org/",
-        "title": "strudel fatpaws",
-        "alt": "strudelfatpaws",
-        "imgUrl": "https://strudelfatpaws.neocities.org/badge.gif"
     },
     {
         "url": "https://reigen.moe/",
@@ -464,13 +458,6 @@
         "title": "NO RULES",
         "alt": "NONOMO",
         "imgUrl": "https://nonomo.nekoweb.org/rsrc/button.gif",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://bugwatcher.nekoweb.org/",
-        "title": "Pixel art of a black-haired character with antennae in a suit. Pixel-styled text reads SEND ORGANS",
-        "alt": "Bugwatcher",
-        "imgUrl": "https://bugwatcher.nekoweb.org/images/bugwatcherButton.gif",
         "startPath": "/home"
     },
     {
