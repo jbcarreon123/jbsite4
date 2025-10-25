@@ -96,7 +96,7 @@
         resizeTimeout = setTimeout(() => {
             updateDimensions();
             updateWalls();
-        }, 100);
+        }, 10);
     }
 
     function setupPhysics() {
