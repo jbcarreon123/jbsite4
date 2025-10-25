@@ -7,6 +7,12 @@ export type ChangelogObj = {
 
 export const Changelogs: ChangelogObj[] = [
     {
+        date: "10/25/2025 11:00",
+        title: "New 404 page background, again!",
+        description: "Out the 404 texts which is difficult to get right, in the /links/ buttons!",
+        url: "https://jbc.lol/not_found/"
+    },
+    {
         date: "10/18/2025 20:20",
         title: "New landing page!",
         description: "with some quick links and my socials, just like how a carrd shows up"

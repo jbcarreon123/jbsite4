@@ -58,13 +58,6 @@
         "imgUrl": "https://drfred.nekoweb.org/collection/buttons/sites/button-drfred.png"
     },
     {
-        "url": "https://ultrakill.nekoweb.org/",
-        "title": "click for a FREE gabriel plushie!",
-        "alt": "Ultrakill",
-        "imgUrl": "https://ultrakill.nekoweb.org/awawawawa.png",
-        "startPath": "/home"
-    },
-    {
         "url": "https://july.lol/",
         "title": "july.lol",
         "alt": "july.lol",
@@ -169,7 +162,7 @@
         "url": "https://reduxflakes.nekoweb.org/",
         "title": "ReduxFlakes",
         "alt": "ReduxFlakes",
-        "imgUrl": "https://reduxflakes.nekoweb.org/public/img/buttons/reduc_anim.gif"
+        "imgUrl": "https://reduxflakes.nekoweb.org/public/buttons/reduc_anim.gif"
     },
     {
         "url": "https://libraryofgurkistan.nekoweb.org/",
@@ -344,13 +337,6 @@
         "alt": "stel @ moondvsted",
         "imgUrl": "/imgs/buttons/stel-at-moondvsted.gif",
         "startPath": "/home"
-    },
-    {
-        "url": "https://chromix.nekoweb.org/",
-        "title": "CHROMATOGRAPHICS",
-        "alt": "CHROMIX's web archive",
-        "imgUrl": "https://chromix.nekoweb.org/assets/kromix_button.png",
-        "startPath": "/home.html"
     },
     {
         "url": "https://glassy-website.nekoweb.org/",

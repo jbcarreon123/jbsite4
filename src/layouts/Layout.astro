@@ -7,6 +7,7 @@ const { title, id, description } = Astro.props;
 import Windows from "../components/Windows.astro";
 import CommonHead from "../components/CommonHead.astro";
 import Sidebar from "../components/Sidebar.astro";
+import FpsMeter from "../components/FpsMeter.svelte";
 import RichTooltip from "../components/RichTooltip.astro";
 import NotifModal from "../components/NotifModal.astro";
 import ImageViewer from '../components/ImageViewer.astro';
@@ -39,6 +40,7 @@ import Footer from '../components/Footer.astro';
 	</head>
 	<body class="">
 		<h1 class="style-broken">If you're seeing this, please hard reload. You can do it by using CTRL+SHIFT+R or SHIFT+F5.</h1>
+		<FpsMeter client:only="svelte" />
 		<NotifModal />
 		<RichTooltip />
 		<ImageViewer />

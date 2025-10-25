@@ -9,6 +9,7 @@ const { title, id, description } = Astro.props;
 const { url, site } = Astro;
 import CommonHead from "../components/CommonHead.astro";
 import Windows from "../components/Windows.astro";
+import FpsMeter from "../components/FpsMeter.svelte";
 import NotifModal from "../components/NotifModal.astro";
 import ThemeLoader from '../components/ThemeLoader.astro';
 
@@ -43,6 +44,7 @@ const ogImage = url
 	</head>
     <body class="" transition:animate="fade">
 		<h1 class="style-broken">If you're seeing this, please hard reload. You can do it by using CTRL+SHIFT+R or SHIFT+F5.</h1>
+        <FpsMeter client:only="svelte" />
 		<NotifModal />
         <slot />
     </body>
