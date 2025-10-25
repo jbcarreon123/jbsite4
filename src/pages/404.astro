@@ -19,7 +19,7 @@ import Bg from "../components/404bg.svelte";
         })();
     </script>
 
-    <Bg client:load />
+    <Bg client:only="svelte" />
 
     <style is:inline>
         * {
