@@ -217,7 +217,7 @@
                         wordWidth / 2 +
                         20;
                     const y = -wordHeight - 200;
-                    const body = Matter.Bodies.rectangle(x, 0, wordWidth, wordHeight, {
+                    const body = Matter.Bodies.rectangle(x, y, wordWidth, wordHeight, {
                         density: 0.01
                     });
                     body.word = word;
