@@ -156,7 +156,7 @@
                 diag.clientWidth,
                 diag.clientHeight,
                 {
-                    isStatic: true,
+                    isStatic: true
                 },
             );
             World.add(world, walls.diagBody);
@@ -191,6 +191,7 @@
     function createWords() {
         const wordCount = width < 640 ? getRndInteger(10, 30) : buttons.length;
         
+        const currBtns = []
         for (let i = 0; i < wordCount; i++) {
             setTimeout(() => {
                 const word =
@@ -199,30 +200,35 @@
                             ? Math.floor(Math.random() * buttons.length)
                             : i
                     ];
-                const el = document.createElement("img");
-                el.transform = "translateY(-200px)";
-                el.src = word.slug + "?test=" + Math.random();
-                el.className = "word";
-                el.style.visibility = "hidden";
-                el.loading = "eager";
-                el.dataset.mainSite = word.url;
-                container.appendChild(el);
-                const wordWidth = 88;
-                const wordHeight = 31;
-                const x =
-                    Math.random() * (width - wordWidth - 40) +
-                    wordWidth / 2 +
-                    20;
-                const y = -wordHeight - 200;
-                const body = Matter.Bodies.rectangle(x, y, wordWidth, wordHeight);
-                body.word = word;
-                body.element = el;
-                el.addEventListener("load", () => {
-                    Matter.World.add(world, body);
-                    bodies.push(body);
-                    wordElements.push(el);
-                    el.style.visibility = "";
-                });
+                if (!currBtns.includes(word)) {
+                    currBtns.push(word);
+                    const el = document.createElement("img");
+                    el.transform = "translateY(-200px)";
+                    el.src = word.slug + "?test=" + Math.random();
+                    el.className = "word";
+                    el.style.visibility = "hidden";
+                    el.loading = "eager";
+                    el.dataset.mainSite = word.url;
+                    container.appendChild(el);
+                    const wordWidth = 88;
+                    const wordHeight = 31;
+                    const x =
+                        Math.random() * (width - wordWidth - 40) +
+                        wordWidth / 2 +
+                        20;
+                    const y = -wordHeight - 200;
+                    const body = Matter.Bodies.rectangle(x, 0, wordWidth, wordHeight, {
+                        density: 0.01
+                    });
+                    body.word = word;
+                    body.element = el;
+                    el.addEventListener("load", () => {
+                        Matter.World.add(world, body);
+                        bodies.push(body);
+                        wordElements.push(el);
+                        el.style.visibility = "";
+                    });
+                } else { i-- }
             }, i * 25);
         }
     }
