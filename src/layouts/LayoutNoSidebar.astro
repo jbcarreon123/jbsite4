@@ -14,6 +14,7 @@ import CommonHead from "../components/CommonHead.astro";
 import Sidebar from "../components/Sidebar.astro";
 import RichTooltip from "../components/RichTooltip.astro";
 import NotifModal from "../components/NotifModal.astro";
+import Search from '../components/Search.svelte';
 import ThemeLoader from '../components/ThemeLoader.astro';
 import JumpToContent from '../components/JumpToContent.astro';
 import Footer from '../components/Footer.astro';
@@ -49,6 +50,7 @@ const hash = import.meta.env.COMMIT_HASH ?? "null";
 		<NotifModal />
 		<RichTooltip />
 		<FpsMeter client:only="svelte" />
+		<Search client:only="svelte" />
 		<JumpToContent />
 		<div transition:animate="none">
 			<main id="main" transition:animate="fade">
