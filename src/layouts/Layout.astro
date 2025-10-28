@@ -11,6 +11,7 @@ import FpsMeter from "../components/FpsMeter.svelte";
 import RichTooltip from "../components/RichTooltip.astro";
 import NotifModal from "../components/NotifModal.astro";
 import ImageViewer from '../components/ImageViewer.astro';
+import Search from '../components/Search.svelte';
 import JumpToContent from '../components/JumpToContent.astro';
 import Footer from '../components/Footer.astro';
 
@@ -44,6 +45,7 @@ import Footer from '../components/Footer.astro';
 		<NotifModal />
 		<RichTooltip />
 		<ImageViewer />
+		<Search client:load />
 		<JumpToContent />
 		
 		<div class="container" transition:animate="none">
