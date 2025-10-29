@@ -94,7 +94,10 @@
                     allResults[0].dataset.selected = 'true'
                 } else if (selected) {
                     let sel = Object.values(allResults).indexOf(selected)
-                    if (allResults.length - 1 === sel) return;
+                    if (allResults.length - 1 === sel) {
+                        searchInput?.focus();
+                        allResults[sel].removeAttribute('data-selected');
+                    }
                     sel++;
                     allResults[sel].focus();
                     allResults[sel].dataset.selected = 'true';
@@ -109,7 +112,10 @@
                     allResults[allResults.length - 1].dataset.selected = 'true'
                 } else if (selected) {
                     let sel = Object.values(allResults).indexOf(selected)
-                    if (0 === sel) return;
+                    if (0 === sel) {
+                        searchInput?.focus();
+                        allResults[sel].removeAttribute('data-selected');
+                    }
                     sel--;
                     allResults[sel].focus();
                     allResults[sel].dataset.selected = 'true';
