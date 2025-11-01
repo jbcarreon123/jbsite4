@@ -203,7 +203,7 @@
         "title": "thepersonever",
         "alt": "thepersonever",
         "imgUrl": "https://thepersonever.net/thepersoneverbutton.gif",
-        "startPath": "/home"  
+        "startPath": "/home"
     },
     {
         "url": "https://aoki553.nekoweb.org/",
@@ -534,5 +534,11 @@
         "title": "",
         "alt": "LucasTheGuy",
         "imgUrl": "https://lucastheguy.nekoweb.org/images/button.gif"
+    },
+    {
+        "url": "https://mattware.nekoweb.org/",
+        "title": "",
+        "alt": "MattWare Inc.",
+        "imgUrl": "https://mattware.nekoweb.org/assets/img/buttons/mattware1.png"
     }
 ]
