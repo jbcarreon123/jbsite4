@@ -539,6 +539,7 @@
         "url": "https://mattware.nekoweb.org/",
         "title": "",
         "alt": "MattWare Inc.",
+        "startPath": "/home",
         "imgUrl": "https://mattware.nekoweb.org/assets/img/buttons/mattware1.png"
     }
 ]
