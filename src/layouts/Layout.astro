@@ -64,7 +64,7 @@ import Footer from '../components/Footer.astro';
 					<div id="content" style={Astro.props.style}>
 						<slot />
 					</div>	
-					<Footer />
+					<Footer><slot name="footer"></slot></Footer>
 				</div>
 			</main>
 		</div>

@@ -7,6 +7,12 @@ export type ChangelogObj = {
 
 export const Changelogs: ChangelogObj[] = [
     {
+        date: "11/06/2025 13:00",
+        title: "New generator: DNI Generator!",
+        description: "just check it, you'll find out what it does",
+        url: "https://jbc.lol/dnigen/"
+    },
+    {
         date: "10/25/2025 11:00",
         title: "New 404 page background, again!",
         description: "Out the 404 texts which is difficult to get right, in the /links/ buttons!",
