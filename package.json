@@ -70,6 +70,8 @@
     "postcss-lightningcss": "^1.0.2",
     "postreq": "^1.1.12",
     "prism-code-editor": "^3.4.0",
+    "random-word": "^3.0.0",
+    "random-word-slugs": "^0.1.7",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "rehype-accessible-emojis": "^0.3.2",

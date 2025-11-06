@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title='DNI Generator' id="dnigen">
+    <h1>DNI Generator</h1>
+    <p>Don't have idea for a DNI list? Generate some with this tool!</p>
+    <div class="dnigen">
+        <button class="generate" disabled><h2>Generate!</h2></button>
+        <h1 class="genwindow">^^^</h1>
+    </div>
+
+    <style>
+        .dnigen {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            background-color: var(--altbg);
+            margin-top: 12px;
+
+            button {
+                width: 100%;
+            }
+
+            h1 {
+                text-align: center;
+            }
+        }
+
+        .small.dnigenp {
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+    </style>
+
+    <script>
+        // @ts-ignore
+        import { generateSlug } from "random-word-slugs";
+
+        function runFirstWordThing(str: string) {
+            return str[0].toLowerCase() + str.slice(1)
+        }
+
+        function sample<T>(arr: T[]): T {
+            return arr[Math.floor(Math.random() * arr.length)];
+        };
+
+        function randomWords() {
+            if (Math.random() < 0.01) return `DNI if you're a ${runFirstWordThing(generateSlug(3)).split(' ')[0]}-${Math.floor(Math.random() * 10000) - 1000}`
+            return sample([
+                `DNI if you're a ${runFirstWordThing(generateSlug(2, { format: "sentence" }))}`,
+                `DNI if you're ${runFirstWordThing(generateSlug(2, { format: "sentence" })).split(' ')[0]}`,
+                `DNI ${runFirstWordThing(generateSlug(2, { format: "sentence" })).split(' ')[1]} haters`,
+                `DNI ${runFirstWordThing(generateSlug(2, { format: "sentence" })).split(' ')[1]} touchers`,
+            ])
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let button = document.querySelector('.dnigen button.generate') as HTMLButtonElement;
+            let window = document.querySelector('.dnigen h1.genwindow') as HTMLHeadingElement;
+            button.disabled = false;
+            button.addEventListener('click', () => {
+                window.textContent = randomWords()
+            })
+        })
+    </script>
+
+    <p class="small dnigenp" slot="footer">Disclaimer: This is done on humor and does not intent to harass someone.</p>
+</Layout>

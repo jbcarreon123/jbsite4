@@ -9,6 +9,7 @@ const hash = import.meta.env.COMMIT_HASH ?? "undefined";
         <a id="to-top" href="#">
             <p>Back to top</p>
         </a>
+        <slot />
         <p class="small">
             jbsite4/<span set:html={hash} /> © 2025 jbcarreon123.
             Licensed under GNU AGPLv3.

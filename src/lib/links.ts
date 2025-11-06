@@ -148,6 +148,12 @@ export const LinkObjs: LinkObj = [
                 icon: "smart_toy"
             },
             {
+                name: "DNI Gen",
+                path: "/dnigen/",
+                redirect: false,
+                icon: "block"
+            },
+            {
                 name: "Split It!",
                 path: "/utils/split-it/",
                 redirect: false,
