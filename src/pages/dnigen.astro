@@ -40,6 +40,12 @@ import Layout from "../layouts/Layout.astro";
         // @ts-ignore
         import { generateSlug } from "random-word-slugs";
 
+        const nos = [
+            "fluffy",
+            "dog",
+            "cat"
+        ]
+
         function runFirstWordThing(str: string) {
             return str[0].toLowerCase() + str.slice(1)
         }
@@ -49,8 +55,7 @@ import Layout from "../layouts/Layout.astro";
         };
 
         function randomWords() {
-            if (Math.random() < 0.01) return `DNI if you're a ${runFirstWordThing(generateSlug(3)).split(' ')[0]}-${Math.floor(Math.random() * 10000) - 1000}`
-            return sample([
+            const rnd = sample([
                 `DNI if you're a ${runFirstWordThing(generateSlug(2, { format: "sentence" }))}`,
                 `DNI if you're ${runFirstWordThing(generateSlug(2, { format: "sentence" })).split(' ')[0]}`,
                 `DNI ${runFirstWordThing(generateSlug(2, { format: "sentence" })).split(' ')[1]} haters`,
@@ -59,6 +64,9 @@ import Layout from "../layouts/Layout.astro";
                 `DNI ${runFirstWordThing(generateSlug(2, { format: "sentence" })).split(' ')[1]} lovers`,
                 `DNI ${runFirstWordThing(generateSlug(2, { format: "sentence" })).split(' ')[1]} destroyers`,
             ])
+            if (rnd.split(' ').find(x => nos.includes(x))) return randomWords();
+            if (Math.random() < 0.01) return `DNI if you're a ${runFirstWordThing(generateSlug(3)).split(' ')[0]}-${Math.floor(Math.random() * 10000) - 1000}`
+            
         }
 
         document.addEventListener('DOMContentLoaded', () => {
