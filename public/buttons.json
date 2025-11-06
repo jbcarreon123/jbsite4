@@ -514,7 +514,7 @@
         "url": "https://pocketbroto.net/",
         "title": "",
         "alt": "Broto. Pocket Broto.",
-        "imgUrl": "https://pocketbroto.net/pocketbutton.png",
+        "imgUrl": "https://pocketbroto.net/pocketbroto.png",
         "startPath": "/en/home.html"
     },
     {
@@ -541,5 +541,11 @@
         "alt": "MattWare Inc.",
         "startPath": "/home",
         "imgUrl": "https://mattware.nekoweb.org/assets/img/buttons/mattware1.png"
+    },
+    {
+        "url": "https://redtail.works/",
+        "title": "",
+        "alt": "RedtailWorks",
+        "imgUrl": "https://www.redtail.works/content/redbutton.gif"
     }
 ]
