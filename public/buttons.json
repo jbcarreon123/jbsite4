@@ -553,5 +553,11 @@
         "title": "",
         "alt": "goatgirlclover",
         "imgUrl": "https://goatgirl.nekoweb.org/assets/buttons/88x31/goatgirlclover.gif"
+    },
+    {
+        "url": "https://mars.nekoweb.org/?button",
+        "title": "",
+        "alt": "mars' site",
+        "imgUrl": "https://mars.nekoweb.org/assets/buttons/button0.gif"
     }
 ]
