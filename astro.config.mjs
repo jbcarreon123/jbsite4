@@ -155,15 +155,12 @@ if (process.env.GITHUB_ACTIONS === 'true') {
 export default defineConfig({
   site: "https://jbc.lol",
 
-  scopedStyleStrategy: 'class',
-
   prefetch: {
     prefetchAll: true
   },
 
   build: {
-    concurrency: 6,
-    assets: '_jbsite4'
+    concurrency: 6
   },
 
   image: {
