@@ -44,7 +44,7 @@ export default defineConfig({
   },
 
   build: {
-    concurrency: 12,
+    concurrency: 6,
     assets: '_jbsite4'
   },
 
