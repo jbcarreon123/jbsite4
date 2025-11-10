@@ -63,6 +63,20 @@ jobs:
       - name: Rename not_found back to 404
         continue-on-error: true
         run: mv ./dist/not_found.html ./dist/404.html
+      - name: deploy to wisp
+        command: |
+          curl https://sites.wisp.place/nekomimi.pet/wisp-cli-binaries/wisp-cli-x86_64-linux -o wisp-cli
+          chmod +x wisp-cli
+          ./wisp-cli \
+            "$WISP_HANDLE" \
+            --path "$SITE_PATH" \
+            --site "$SITE_NAME" \
+            --password "$WISP_APP_PASSWORD"
+        env:
+          SITE_PATH: 'dist'
+          SITE_NAME: 'jb-site'
+          WISP_HANDLE: 'jbc.lol'
+          WISP_APP_PASSWORD: '${{ secrets.WISP_APP_PASSWORD }}'
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
