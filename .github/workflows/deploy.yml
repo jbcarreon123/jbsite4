@@ -64,7 +64,7 @@ jobs:
         continue-on-error: true
         run: mv ./dist/not_found.html ./dist/404.html
       - name: deploy to wisp
-        command: |
+        run: |
           curl https://sites.wisp.place/nekomimi.pet/wisp-cli-binaries/wisp-cli-x86_64-linux -o wisp-cli
           chmod +x wisp-cli
           ./wisp-cli \
