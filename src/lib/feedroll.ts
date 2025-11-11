@@ -31,7 +31,7 @@ export async function loadFeeds() {
 
                     return rss;
                 } catch {
-                    console.debug('Cannot get data from site', f, data);
+                    console.debug(data);
                     return null;
                 }
             }),
