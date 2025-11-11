@@ -1,0 +1,313 @@
+---
+import BgOnlyLayout from "../../layouts/BgOnlyLayout.astro";
+const { title, cl } = Astro.props.frontmatter;
+---
+
+<BgOnlyLayout title={"Behind the Nekoweb: " + title}>
+    <div class="home">
+        <a href="../..">go back?</a>
+        <a href="/">go home?</a>
+    </div>
+    <div class={"main " + cl}>
+        <div class="bg"></div>
+        <article class="inner">
+            <h1>{title}</h1>
+            <slot />
+        </article>
+    </div>
+
+    <link slot="head" rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        slot="head"
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    />
+    <link
+        slot="head"
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@80,200..900&display=swap"
+        rel="stylesheet"
+    />
+    <style is:global slot="head">
+        @font-face {
+            font-family: "Iosevka";
+            src: url("/fonts/btn/iosevka.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            padding: 0;
+        }
+
+        .main {
+            .inner {
+                min-height: 100vh;
+                padding: 24px;
+                max-width: 900px;
+                margin-inline: auto;
+
+                h1 {
+                    padding: 0;
+                }
+            }
+
+            &.districts {
+                background-image: url("https://nekoweb.org/static/assets/nekopattern.png");
+
+                .inner {
+                    font-family: "MS UI Gothic", Verdana, sans-serif;
+                    background: #fff2df;
+                    color: #774519;
+                }
+
+                a {
+                    color: #c092db;
+                    font-weight: bold;
+                }
+            }
+
+            &.july {
+                background-image: url("/imgs/btn/july_background.png");
+                background-size: cover;
+                padding-block: 24px;
+
+                .inner {
+                    background: #06130e;
+                    color: #73f3bb;
+                    border: 2px solid #39ffc1;
+                    box-shadow:
+                        0 0 8px #39ffc1,
+                        0 0 20px rgba(57, 255, 193, 0.4);
+                    font-family: "Iosevka", monospace;
+                }
+
+                a {
+                    color: var(--green-color);
+                    text-decoration: none;
+                    transition:
+                        text-shadow 0.2s ease,
+                        color 0.2s ease;
+                }
+                a:hover {
+                    color: #a1ffd8;
+                    text-decoration: underline;
+                    text-shadow: 0 0 5px var(--green-color);
+                }
+
+                --green-color: #73f3bb;
+            }
+
+            &.ivrry {
+                color: #cdd6f4;
+                font-family: Inconsolata, monospace;
+
+                h1 {
+                    background-color: #cdd6f4;
+                    color: #11111b;
+                    padding: 0;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    width: fit-content;
+                }
+
+                h2 {
+                    margin-top: 12px;
+                }
+
+                .bg {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    z-index: -5;
+                    height: 100vh;
+                    background: url("/imgs/btn/ivrry_stars.png");
+                    animation: scroll-bg 20s linear 0s forwards infinite;
+                }
+
+                .bg::after {
+                    content: "";
+                    position: absolute;
+                    backdrop-filter: saturate(0%) brightness(50%) invert(11%)
+                        sepia(42%) saturate(397%) hue-rotate(199deg)
+                        brightness(80%) contrast(100%);
+                    background: linear-gradient(
+                        to bottom,
+                        transparent,
+                        #11111b
+                    );
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    z-index: -4;
+                    height: 100vh;
+                }
+            }
+
+            &.wiki {
+                background-image: url(/imgs/btn/wiki_bg_dark.png);
+                padding-block: 12px;
+                animation: shiftbackground 5s linear infinite;
+                
+                .inner {
+                    background-color: #152936;
+                    color: #fff;
+                    border-radius: 25px;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                }
+
+                a {
+                    color: #fff !important;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        div.home {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        div.home a {
+            background: var(--acc);
+            opacity: 0.5;
+            padding: 6px;
+            width: fit-content;
+        }
+
+        div.home a:hover,
+        div.home a:active {
+            opacity: 1;
+        }
+
+        .crt::after {
+            content: " ";
+            display: block;
+            background: rgba(18, 16, 16, 0.1);
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            inset: 0;
+        }
+
+        .crt::before {
+            content: " ";
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(
+                    rgba(18, 16, 16, 0) 50%,
+                    rgba(0, 0, 0, 0.25) 50%
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 0, 0, 0.06),
+                    rgba(0, 255, 0, 0.02),
+                    rgba(0, 0, 255, 0.06)
+                );
+            background-size: auto, auto;
+            z-index: 9999;
+            background-size:
+                100% 2px,
+                3px 100%;
+            pointer-events: none;
+        }
+
+        @keyframes scroll-bg {
+            from {
+                background-position: 0px 0px;
+            }
+            to {
+                background-position: 304px 234px;
+            }
+        }
+
+        @keyframes shiftbackground {
+            from {
+                background-position-x: 0;
+            }
+            to {
+                background-position-x: 400px;
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 0.27861;
+            }
+            5% {
+                opacity: 0.34769;
+            }
+            10% {
+                opacity: 0.23604;
+            }
+            15% {
+                opacity: 0.90626;
+            }
+            20% {
+                opacity: 0.18128;
+            }
+            25% {
+                opacity: 0.83891;
+            }
+            30% {
+                opacity: 0.65583;
+            }
+            35% {
+                opacity: 0.67807;
+            }
+            40% {
+                opacity: 0.26559;
+            }
+            45% {
+                opacity: 0.84693;
+            }
+            50% {
+                opacity: 0.96019;
+            }
+            55% {
+                opacity: 0.08594;
+            }
+            60% {
+                opacity: 0.20313;
+            }
+            65% {
+                opacity: 0.71988;
+            }
+            70% {
+                opacity: 0.53455;
+            }
+            75% {
+                opacity: 0.37288;
+            }
+            80% {
+                opacity: 0.71428;
+            }
+            85% {
+                opacity: 0.70419;
+            }
+            90% {
+                opacity: 0.7003;
+            }
+            95% {
+                opacity: 0.36108;
+            }
+            100% {
+                opacity: 0.24387;
+            }
+        }
+    </style>
+</BgOnlyLayout>

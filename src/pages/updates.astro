@@ -4,10 +4,13 @@ import { exec } from "child_process";
 import Layout from "../layouts/Layout.astro";
 import { fromZonedTime } from "date-fns-tz";
 import { Changelogs as logs } from "../lib/changelogs";
+import { writeFileSync } from 'fs';
 
 const execAsync = promisify(exec);
-const {stdout, stderr} = await execAsync(`git log --pretty=format:'{ "hash": "%H", "shortHash": "%h", "treeHash": "%T", "parentHashes": "%P", "author": { "name": "%an", "email": "%ae", "date": "%ad" }, "subject": "%s", "body": "%b" }' | jq -s '.'`);
-const json = JSON.parse(stdout);
+const {stdout, stderr} = await execAsync(`git log --pretty=format:'{ ~~hash~~: ~~%H~~, ~~shortHash~~: ~~%h~~, ~~treeHash~~: ~~%T~~, ~~parentHashes~~: ~~%P~~, ~~author~~: { ~~name~~: ~~%an~~, ~~email~~: ~~%ae~~, ~~date~~: ~~%ad~~ }, ~~subject~~: ~~%s~~, ~~body~~: ~~%b~~ }'`);
+const thing = '[' + stdout.replaceAll('\n', ',').replaceAll('"', '\\"').replaceAll('~~', '"') + ']';
+writeFileSync('./thing.json', thing);
+const json = JSON.parse(thing);
 let jsonp: any[] = json?.map(a => {
     const author = {
         name: a.author.name,
