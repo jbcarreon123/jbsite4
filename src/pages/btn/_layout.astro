@@ -2,7 +2,10 @@
 import BgOnlyLayout from "../../layouts/BgOnlyLayout.astro";
 const { frontmatter } = Astro.props;
 
-if (!frontmatter) return Astro.rewrite('/404');
+if (!frontmatter) {
+    console.log(Astro.props, Astro.url);
+    return new Response(null);
+}
 
 const { title, cl } = frontmatter;
 ---
