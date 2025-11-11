@@ -48,6 +48,8 @@ export const GET: APIRoute = async ({ params }) => {
 	let post = posts.find((val) => val.url.replace('/', '') === params.slug?.replace('.avif', ''));
 	let img = '';
 
+	console.log(page, post);
+
 	if ((!post || !post.frontmatter) && (!page)) return new Response(null);
 
 	if (existsSync('./public' + post?.frontmatter?.background)) {
