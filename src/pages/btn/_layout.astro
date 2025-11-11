@@ -1,6 +1,10 @@
 ---
 import BgOnlyLayout from "../../layouts/BgOnlyLayout.astro";
-const { title, cl } = Astro.props.frontmatter;
+const { frontmatter } = Astro.props;
+
+if (!frontmatter) return Astro.rewrite('/404');
+
+const { title, cl } = frontmatter;
 ---
 
 <BgOnlyLayout title={"Behind the Nekoweb: " + title}>
