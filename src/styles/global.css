@@ -301,7 +301,8 @@ body {
 input,
 button,
 select,
-textarea {
+textarea,
+.input {
     background: var(--acc);
     color: var(--text);
     font-family: var(--font);

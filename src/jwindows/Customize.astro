@@ -97,9 +97,7 @@
     }
 
     function loadCustomCSS(el) {
-        let css = document.querySelector("#customCSS");
-        css.innerHTML = el.value;
-        localStorage.setItem("jbsite-customcss", el.value);
+        localStorage.setItem("jbsite-customcss", el.innerHTML);
     }
 
     function loadTheme() {
@@ -365,11 +363,7 @@
                     Yes, really. Just put any stuff here and my site will use
                     it.
                 </p>
-                <textarea
-                    id="customCSSField"
-                    placeholder="CSS here"
-                    aria-label="Custom CSS field"
-                    oninput="loadCustomCSS(this)"></textarea>
+                <style id="customCSS" class="input" contenteditable="" oninput="loadCustomCSS(this)" style="display: block; white-space: break-spaces; height: auto;" is:inline></style>
             </div>
             <div class="tab" id="danger">
                 <h1>Danger Zone</h1>
