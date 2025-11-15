@@ -40,6 +40,20 @@ import Footer from '../components/Footer.astro';
 		<slot name="head">
 	</head>
 	<body class="">
+		<div class="topbar">
+			<img src="x" style="display: none;" onerror="(()=>{if (localStorage.getItem('ann:cnt') || localStorage.getItem('ann:nkz:rm') || document.referrer == 'docs.google.com') this.parentElement.remove()})()">
+			<button onclick="(()=>{this.parentElement.remove(); localStorage.setItem('ann:nkz:rm', 'true')})()">X</button>
+			<p class="tg">Announcements</p>
+			<h2><a href="https://zine.nekoweb.org" target="_blank">NEKOZINE and merch preorders are out!</a></h2>
+			<p>Get yours at ZINE.nekoweb.org! <i>(psst. i participated there!)</i></p>
+		</div>
+		<div class="topbar cnt">
+			<img src="x" style="display: none;" onerror="(()=>{if (localStorage.getItem('ann:cnt:rm') || (document.referrer !== 'docs.google.com' && !sessionStorage.getItem('ann:cnt'))) this.parentElement.remove(); else sessionStorage.setItem('ann:cnt', 'true')})()">
+			<button onclick="(()=>{this.parentElement.remove(); localStorage.setItem('ann:cnt:rm', 'true')})()">X</button>
+			<p class="tg">Announcements</p>
+            <h2>Hello from Petra's Indie Web Contest!</h2>
+			<p>I hope you enjoyed visiting jb's site!</p>
+		</div>
 		<h1 class="style-broken">If you're seeing this, please hard reload. You can do it by using CTRL+SHIFT+R or SHIFT+F5.</h1>
 		<FpsMeter client:only="svelte" />
 		<NotifModal />

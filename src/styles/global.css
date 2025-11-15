@@ -297,6 +297,53 @@ body {
     font-family: var(--font) !important;
 }
 
+.topbar::before {
+    z-index: 0;
+    position: absolute;
+    inset: 0;
+    content: '';
+    background-image: url("https://nekoweb.org/assets/zinepattern.png");
+    background-repeat: repeat;
+    background-size: 50px 38px;
+    opacity: 0.15;
+}
+
+.topbar {
+    position: relative;
+    max-width: 1000px;
+    margin-inline: auto;
+    margin-bottom: 12px;
+    background-color: var(--bg);
+    padding: 12px;
+
+    &>* {
+        position: relative;
+        z-index: 20;
+    }
+
+    p.tg {
+        padding-bottom: 12px;
+    }
+
+    p:not(.tg) {
+        padding-bottom: 0 !important;
+    }
+
+    h2 {
+        padding: 0 !important;
+    }
+
+    button {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        z-index: 25;
+    }
+
+    &.cnt::before {
+        background-image: none !important;
+    }
+}
 
 input,
 button,
