@@ -50,10 +50,16 @@
 		if (ask) ask.user = jsonr.users.find(x => ask.id === ask.userAsker);
 
 		const like = wootJson.likes.length;
+		const emoji = wootJson.emojiRelations.postEmojiReactions.filter(x => x.content !== '❤')
+			.filter((t, i, a) => a.indexOf(a.find(x=> x.content === t.content)) !== a)
+			.map(x => ({ ...x, emojiId: wootJson.emojiRelations.emojis.find(y => y.id === x.emojiId).url }))
 		const repost = forumJson.posts.filter(x => x.isReblog).length;
 		const replies = forumJson.posts.filter(x => !x.isReblog).length;
-
+		const media = wootJson.medias.length;
 		const tags = jsonr.tags.filter(x => x.postId === json.id).map(x => "#" + x.tagName).join(', ')
+
+		
+		console.log(emoji)
 
 		return {
 			post: truncate(json.content, 25, { byWords: true }),
@@ -63,7 +69,9 @@
 			repost,
 			replies,
 			tags,
-			ask
+			ask,
+			emoji,
+			media
 		};
 	}
 </script>
@@ -90,8 +98,16 @@
 		{/if}
 		{@html out.post}
 		{#if out.post.endsWith('...</p>')}<p><a href={out.id} target="_blank">Open in wf.jbc.lol</a></p>{/if}
+		{#if !out.post.endsWith('...</p>') && out.media > 0}<p><a href={out.id} target="_blank">Contains {out.media} media{out.media > 1 ? 's' : ''}. Open in wf.jbc.lol?</a></p>{/if}
 		{#if out.tags}
 			<p class="tg">{out.tags}</p>
+		{/if}
+		{#if out.emoji.length > 0}
+		<div class="emojis">
+			{#each out.emoji as emoji}
+			<img class="emoji" src={`https://wfcdn.jbc.lol/api/cache?media=${encodeURIComponent(emoji.emojiId)}`} alt={emoji.content} title={emoji.content}>
+			{/each}
+		</div>
 		{/if}
 	{:catch err}
 		<p>Error occured. {err}</p>
@@ -106,6 +122,18 @@
 
 		p {
 			padding-bottom: 0;
+		}
+	}
+
+	.emojis {
+		display: flex;
+		gap: 6px;
+
+		.emoji {
+			background-color: var(--altbg);
+			padding-bottom: 0;
+			padding: 6px;
+			height: 2em;
 		}
 	}
 </style>
