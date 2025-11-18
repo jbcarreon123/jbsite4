@@ -127,14 +127,14 @@
     },
     {
         "host": "mystie.dev",
-        "username": "bureaumirror",
+        "username": "arfy",
         "framework": "<a href='https://jekyllrb.com' target='_blank'>Jekyll</a>",
         "button": "https://mystie.dev/st/img/mystie_btn.png",
         "pitch": "No description"
     },
     {
         "host": "eliana.lol",
-        "username": "bureaumirror",
+        "username": "eliana",
         "framework": "<a href='http://gohugo.io/' target='_blank'>Hugo</a>",
         "type": "18+",
         "pitch": "just my personal site"
