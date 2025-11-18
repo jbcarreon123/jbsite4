@@ -4,7 +4,9 @@
         "title": "jbcarreon123",
         "expression": "https://jbc.lol/imgs/responeko/jb.png",
         "altHosts": [
-            "gh.jbc.lol"
+            "gh.jbc.lol",
+            "jbcarreon123.neocities.org",
+            "wisp.jbc.lol"
         ]
     },
     {
@@ -64,5 +66,20 @@
         "host": "katrickthekirbyfan.nekoweb.org",
         "title": "katrickthekirbyfan's site",
         "expression": "https://katrickthekirbyfan.nekoweb.org/katrickbannerofwebringthing.png"
+    }, 
+    {
+        "host": "april.nekoweb.org",
+        "title": "April's Meowtastic Website!",
+        "expression": "https://april.nekoweb.org/images/amwei.png"
+    }, 
+    {
+        "host": "bekianee.art",
+        "title": "Bekianee",
+        "expression": "https://bekianee.art/Assets/Beki-Responsneko-img.png"
+    }, 
+    {
+        "host": "yoyle.city",
+        "title": "lime360",
+        "expression": "https://yoyle.city/img/responeko.png"
     }
 ]

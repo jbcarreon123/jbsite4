@@ -124,5 +124,27 @@
         "button": "https://bureaumirror.neocities.org/src/img/buttonbuoy.gif",
         "type": "18+",
         "pitch": "It's a blog where I talk about my interests, my day, interesting findings, cultural work that moves me etc."
+    },
+    {
+        "host": "mystie.dev",
+        "username": "bureaumirror",
+        "framework": "<a href='https://jekyllrb.com' target='_blank'>Jekyll</a>",
+        "button": "https://mystie.dev/st/img/mystie_btn.png",
+        "pitch": "No description"
+    },
+    {
+        "host": "eliana.lol",
+        "username": "bureaumirror",
+        "framework": "<a href='http://gohugo.io/' target='_blank'>Hugo</a>",
+        "type": "18+",
+        "pitch": "just my personal site"
+    },
+    {
+        "host": "smallpancakes.nekoweb.org",
+        "username": "smallpancakes",
+        "framework": "<a href='https://www.astro.build/' target='_blank'>Astro</a>",
+        "type": "13+",
+        "button": "https://l.huh.tw/smallpancakes",
+        "pitch": "our cozy corner of the web ♡ | status.cafe themes | personal blog"
     }
 ]
