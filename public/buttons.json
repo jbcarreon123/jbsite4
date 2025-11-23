@@ -559,5 +559,30 @@
         "title": "",
         "alt": "mars' site",
         "imgUrl": "https://mars.nekoweb.org/assets/buttons/button0.gif"
+    },
+    {
+        "url": "https://syfish.dev/",
+        "title": "",
+        "alt": "syfish.dev",
+        "imgUrl": "https://syfish.dev/sybutton.gif"
+    },
+    {
+        "url": "https://nomaakip.xyz/",
+        "title": "",
+        "alt": "nomaakip dot xyz",
+        "imgUrl": "https://nomaakip.xyz/img/buttons/button.png"
+    },
+    {
+        "url": "https://denpagirl.nekoweb.org/",
+        "title": "Denpagirl",
+        "alt": "Denpagirl",
+        "startPath": "/home.html",
+        "imgUrl": "https://denpagirl.nekoweb.org/dgbutton.gif"
+    },
+    {
+        "url": "https://code2craft.xyz/",
+        "title": "",
+        "alt": "Code2Craft dot xyz",
+        "imgUrl": "https://code2craft.xyz/media/buttons/b1.png"
     }
 ]

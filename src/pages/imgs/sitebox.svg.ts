@@ -14,6 +14,14 @@ const arrays = [
         "is this something? idk"
     ],
     [
+        "no one will believe you"
+    ],
+    [
+        "main social is wafrn",
+        "@jbcrn@wf.jbc.lol",
+        "i also have bsky at domain"
+    ],
+    [
         "maybe idk does this work"
     ],
     [
