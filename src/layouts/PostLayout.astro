@@ -21,7 +21,7 @@ const { frontmatter, headings } = Astro.props;
     <article>
         <slot />
     </article>
-    <div style="width: 100%;">
+    <div style="width: 100%;margin-top: 12px;">
         <CommentWidget path={Astro.url.pathname} client:only="svelte" disabled={frontmatter.commentsDisabled ?? false} />
     </div>
 
