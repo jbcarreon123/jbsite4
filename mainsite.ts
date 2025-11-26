@@ -1,5 +1,5 @@
 import * as fsWalk from '@nodelib/fs.walk';
-import { readFileSync, rmSync, writeFileSync } from 'fs';
+import { readFileSync, renameSync, rmSync, writeFileSync } from 'fs';
 import sharp from 'sharp';
 
 const entries = fsWalk.walkSync('./dist');
@@ -16,3 +16,5 @@ entries.forEach(async e => {
         }
     }
 })
+
+renameSync('./dist/redirects', './dist/_redirects')

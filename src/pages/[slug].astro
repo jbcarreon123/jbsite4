@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/LandingLayout.astro';
+
+export let slugs: { path: string, slug: string, val: any }[] = []
+
+export function getStaticPaths() {
+    const posts = Object.values(import.meta.glob('./posts/**/*.md', { eager: true }));
+    const tutorials = Object.values(import.meta.glob('./tutorials/**/*.md', { eager: true }));
+    slugs = posts.concat(tutorials).map((val: any) => {
+        let path = (val.url as string).replace(/\/$/, '').split('/');
+        let slug = path[path.length - 1].split('-').map(x => x[0]).join('');
+        return { path: path[path.length - 1], slug, val }
+    })
+    return slugs.map(x => ({ params: { slug: x.slug } }))
+}
+
+console.log(slugs)
+
+const { slug } = Astro.params;
+const redirSlug = slugs.find(x => x.slug === slug)
+
+if (!redirSlug) return Astro.rewrite('/404')
+---
+
+<Layout title={redirSlug.val?.frontmatter?.title ?? 'Redirecting...'} description={redirSlug.val?.frontmatter?.description ?? ''} id="redirecting">
+    <head>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta http-equiv="refresh" content={"0; url=/posts/" + redirSlug.path + '/'} />
+    </head>
+    <div class="main">
+        <h1>Redirecting to /posts/{redirSlug.path}/, please wait...</h1>
+    </div>
+</Layout>
