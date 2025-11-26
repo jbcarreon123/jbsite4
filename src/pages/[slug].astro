@@ -19,7 +19,7 @@ console.log(slugs)
 const { slug } = Astro.params;
 const redirSlug = slugs.find(x => x.slug === slug)
 
-if (!redirSlug) return Astro.rewrite('/404')
+if (!redirSlug) return new Response(null)
 ---
 
 <Layout title={redirSlug.val?.frontmatter?.title ?? 'Redirecting...'} description={redirSlug.val?.frontmatter?.description ?? ''} id="redirecting">
