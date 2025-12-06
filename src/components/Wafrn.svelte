@@ -1,7 +1,7 @@
 <script>
 	import truncate from "truncate-html";
 
-	const posts_url = `https://wf.jbc.lol/api/v2/blog?page=0&startScroll=${Date.now()}&id=jbcrn`
+	const posts_url = `https://waf.moe/api/v2/blog?page=0&startScroll=${Date.now()}&id=jb`
 
 	function timeAgo(timestamp) {
 		const now = new Date().getTime();
@@ -40,10 +40,10 @@
 
 		console.debug(json);
 
-		const woot = await fetch(`https://wf.jbc.lol/api/v2/post/${json.id}`);
+		const woot = await fetch(`https://waf.moe/api/v2/post/${json.id}`);
 		let wootJson = await woot.json();
 
-		const forum = await fetch(`https://wf.jbc.lol/api/forum/${json.id}`);
+		const forum = await fetch(`https://waf.moe/api/forum/${json.id}`);
 		let forumJson = await forum.json();
 
 		const ask = jsonr.asks.find(x => x.postId === json.id);
@@ -63,7 +63,7 @@
 
 		return {
 			post: truncate(json.content, 25, { byWords: true }),
-			id: `https://wf.jbc.lol/fediverse/post/${json.id}`,
+			id: `https://waf.moe/fediverse/post/${json.id}`,
 			time: timeAgo(timestamp),
 			like,
 			repost,
@@ -97,15 +97,15 @@
 			</div>
 		{/if}
 		{@html out.post}
-		{#if out.post.endsWith('...</p>')}<p><a href={out.id} target="_blank">Open in wf.jbc.lol</a></p>{/if}
-		{#if !out.post.endsWith('...</p>') && out.media > 0}<p><a href={out.id} target="_blank">Contains {out.media} media{out.media > 1 ? 's' : ''}. Open in wf.jbc.lol?</a></p>{/if}
+		{#if out.post.endsWith('...</p>')}<p><a href={out.id} target="_blank">Open in waf.moe</a></p>{/if}
+		{#if !out.post.endsWith('...</p>') && out.media > 0}<p><a href={out.id} target="_blank">Contains {out.media} media{out.media > 1 ? 's' : ''}. Open in waf.moe?</a></p>{/if}
 		{#if out.tags}
 			<p class="tg">{out.tags}</p>
 		{/if}
 		{#if out.emoji.length > 0}
 		<div class="emojis">
 			{#each out.emoji as emoji}
-			<img class="emoji" src={`https://wfcdn.jbc.lol/api/cache?media=${encodeURIComponent(emoji.emojiId)}`} alt={emoji.content} title={emoji.content}>
+			<img class="emoji" src={`${emoji.emojiId}`} alt={emoji.content} title={emoji.content}>
 			{/each}
 		</div>
 		{/if}
