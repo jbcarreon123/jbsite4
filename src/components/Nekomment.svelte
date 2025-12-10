@@ -17,9 +17,7 @@
             );
             const json = await request.json();
 
-            console.log(json);
-
-            comments = json.sort((a, b) => { return new Date(b.createdAt) - new Date(a.createdAt) });
+            comments = json.comments.sort((a, b) => { return new Date(b.createdAt) - new Date(a.createdAt) });
         } catch (error) {
             console.error("there was an attempt. " + error);
         }
