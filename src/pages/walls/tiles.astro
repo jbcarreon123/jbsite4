@@ -1,0 +1,68 @@
+---
+import BgOnlyLayout from "../../layouts/BgOnlyLayout.astro";
+---
+
+<BgOnlyLayout
+    title="FrameTiles"
+    description="WebTiles loader that... uses iframes"
+>
+    <div class="frameIters"></div>
+</BgOnlyLayout>
+
+<script>
+import { undefined } from "astro:schema";
+
+    if (
+        confirm("ARE YOU SURE? THIS CAN CRASH A BROWSER.") &&
+        confirm("ARE YOU REALLY SURE??? THIS CAN LITERALLY CRASH A BROWSER")
+    ) {
+        const tileRes = await fetch("https://waftiles.waf.moe/everyTile");
+        const tileJson = await tileRes.json();
+        const tiles = tileJson.tiles;
+        const frameIters = document.querySelector(".frameIters");
+
+        // this is not an array. needs special handling
+        function loadTile(x: number, f: Function | undefined) {
+            if (!tiles[`${x}`]) {
+                if (f) f()
+                return;
+            }
+
+            let lastFrame: HTMLElement | undefined;
+
+            // load every single y coord -25 to 25
+            for (let y = -25; y < 26; y++) {
+                if (!tiles[`${x}`][`${y}`]) continue;
+                const frame = document.createElement("iframe");
+                frame.frameBorder = "0";
+                frame.width = "250";
+                frame.height = "270";
+                frame.loading = "eager";
+                frame.src =
+                    "https://webtiles.kicya.net/e/" +
+                    tiles[`${x}`][`${y}`].domain;
+                frameIters?.appendChild(frame);
+                lastFrame = frame
+
+                console.log(x, y)
+            }
+
+            if (lastFrame && f) lastFrame.onload = () => {
+                f()
+            }
+        }
+
+        let xCoord = -26
+
+        function next() {
+            xCoord++
+            loadTile(xCoord, (xCoord < 26) ? () => {
+                next()
+            } : undefined)
+        }
+
+        next()
+    } else {
+        location.replace("https://webtiles.kicya.net");
+    }
+</script>
