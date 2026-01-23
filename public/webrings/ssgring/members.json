@@ -146,5 +146,45 @@
         "type": "13+",
         "button": "https://l.huh.tw/smallpancakes",
         "pitch": "our cozy corner of the web ♡ | status.cafe themes | personal blog"
+    },
+    {
+        "host": "kwaamfan.haliya.net",
+        "username": "kwaamfan",
+        "framework": "<a href='https://www.11ty.dev/' target='_blank'>Eleventy</a>",
+        "type": "16+",
+        "button": "https://kwaamfan.haliya.net/main/images/links/mine/kwaamfan_haruka.gif",
+        "pitch": "a personal website where i write about my interests, mostly related to video games, language learning, tech, and knitting"
+    },
+    {
+        "host": "kwaamfan.haliya.net",
+        "username": "kwaamfan",
+        "framework": "<a href='https://www.11ty.dev/' target='_blank'>Eleventy</a>",
+        "type": "16+",
+        "button": "https://kwaamfan.haliya.net/main/images/links/mine/kwaamfan_haruka.gif",
+        "pitch": "a personal website where i write about my interests, mostly related to video games, language learning, tech, and knitting"
+    },
+    {
+        "host": "netherpi.net",
+        "username": "netherpi-dot-net",
+        "framework": "<a href='https://www.11ty.dev/' target='_blank'>Eleventy</a>",
+        "type": "14+",
+        "button": "https://netherpi.net/assets/img/button/mine/netherpi-dark.gif",
+        "pitch": "It's a personal site for my many varied interests (mostly tech and video games)."
+    },
+    {
+        "host": "jarema.me",
+        "username": "jarema",
+        "framework": "<a href='https://www.astro.build/' target='_blank'>Astro</a>",
+        "type": "15+",
+        "button": "https://jarema.me/badge.png",
+        "pitch": "Hello hello, this is my personal website for all things about me, occasional catposting and some blogging too -w-"
+    },
+    {
+        "host": "stupied.neocities.org",
+        "username": "stupied",
+        "framework": "<a href='https://jekyllrb.com' target='_blank'>Jekyll</a>",
+        "type": "16+",
+        "button": "https://stupied.neocities.org/meta/button.png",
+        "pitch": "An archive of all my art and writings that I love it to absolute bits."
     }
 ]

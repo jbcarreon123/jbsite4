@@ -81,5 +81,15 @@
         "host": "yoyle.city",
         "title": "lime360",
         "expression": "https://yoyle.city/img/responeko.png"
+    }, 
+    {
+        "host": "whirrfox.moe",
+        "title": "WhirrFox",
+        "expression": "https://whirrfox.moe/assets/images/responeko.png"
+    }, 
+    {
+        "host": "oscleaks.nekoweb.org",
+        "title": "oscleaks",
+        "expression": "https://oscleaks.nekoweb.org/embeds/105x175.png"
     }
 ]
