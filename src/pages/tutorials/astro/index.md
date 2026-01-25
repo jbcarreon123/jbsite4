@@ -70,22 +70,6 @@ For this tutorial, I will use these. You can use anything else, but this should 
 ╰─────╯
 ```
 
-# Configuration
-Before we start, we need to change some settings on the Astro config file, `astro.config.mjs`. That should be in the root of your project folder. Open it and edit it to be like this:
-```js title="astro.config.mjs"
-// @ts-check
-import { defineConfig, passthroughImageService } from 'astro/config';
-
-// https://astro.build/config
-export default defineConfig({
-    image: {
-        service: passthroughImageService()
-    }
-});
-```
-
-That will tell Astro to disable the Sharp image optimization service, which is unsupported for many static web hosts (like Nekoweb or Neocities).
-
 # Creating your 'Hello World' page
 Now, open the `index.astro` file on the `src/pages` folder.
 
