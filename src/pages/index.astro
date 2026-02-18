@@ -10,13 +10,6 @@ import TabbedSvelte from "../components/Tabbed.svelte";
         </div>
     </div>
     <div class="welcome-container">
-        <div class="topbar cnt" style="width: 100%;">
-            <img src="x" style="display: none;" onerror="(()=>{if (localStorage.getItem('ann:cnt:rm') || (document.referrer !== 'docs.google.com' && !sessionStorage.getItem('ann:cnt'))) this.parentElement.remove(); else sessionStorage.setItem('ann:cnt', 'true')})()">
-            <button onclick="(()=>{this.parentElement.remove(); localStorage.setItem('ann:cnt:rm', 'true')})()">X</button>
-            <p class="tg">Announcements</p>
-            <h2>Hello from Petra's Indie Web Contest!</h2>
-            <p>I hope you enjoyed visiting jb's site!</p>
-        </div>
         <section class="greeting-container">
             <div class="greeting">
                 <h1 class="big inter force-font">
@@ -429,26 +422,4 @@ import TabbedSvelte from "../components/Tabbed.svelte";
             }
         }
     </style>
-
-    <script>
-        const index = document.querySelector(".index");
-        const center = document.querySelector(".center");
-        const welcomeContainer = document.querySelector(".welcome-container");
-        index?.addEventListener("click", (e) => {
-            if (
-                !center ||
-                !welcomeContainer ||
-                matchMedia("(prefers-reduced-motion: reduce)").matches
-            )
-                return;
-            e.preventDefault();
-            index.classList.add("shaking");
-            setTimeout(() => {
-                index.classList.add("shaking2");
-            }, 500);
-            setTimeout(() => {
-                window.location.replace("/home");
-            }, 1200);
-        });
-    </script>
 </Layout>

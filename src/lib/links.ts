@@ -63,7 +63,7 @@ export const LinkObjs: LinkObj = [
             },
             {
                 name: "Throw money at me!",
-                path: "https://www.patreon.com/jbcarreon123",
+                path: "https://ko-fi.com/jbcrn",
                 redirect: true,
                 icon: "money_bag"
             }

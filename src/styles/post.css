@@ -103,7 +103,7 @@ blockquote {
 
 p:not(.small):not(.page-title),
 li,
-figure {
+p img {
     padding: 6px 0;
 }
 
@@ -206,8 +206,8 @@ article h2 {
     border: 0;
 }
 
-figure {
-    text-align: center;
+p img {
+    margin-inline: auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -219,12 +219,17 @@ img {
     width: fit-content;
 }
 
+div[id^="f-caption-"] {
+    text-align: center;
+    max-width: 60vw;
+}
+
 @media screen and (width <=640px) {
     article h1 {
         position: static;
     }
 
-    figure,
+    p img,
     img {
         max-width: 100%;
     }

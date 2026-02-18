@@ -15,7 +15,7 @@
 
     async function loadNeoStats() {
         const request = await fetch(
-            "https://corsproxy.io/?https://neocities.org/site/jbcarreon123",
+            "https://cors-anywhere.com/https://neocities.org/site/jbcarreon123",
         );
         let text = await request.text();
         let parser = new DOMParser();

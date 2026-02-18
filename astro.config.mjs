@@ -226,7 +226,7 @@ export default defineConfig({
     rehypePlugins: [
       rehypeAccessibleEmojis,
       rehypeTargetBlank,
-      rehypeFigure,
+      //rehypeFigure,
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'append' }],
       rehypeToc,
