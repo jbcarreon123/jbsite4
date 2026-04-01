@@ -50,18 +50,6 @@ export const LinkObjs: LinkObj = [
                 icon: "analytics"
             },
             {
-                name: "Follow me on Nekoweb!",
-                path: "https://nekoweb.org/follow/jbc.lol",
-                redirect: true,
-                icon: "add"
-            },
-            {
-                name: "Follow me on Neocities!",
-                path: "https://neocities.org/site/jbcarreon123",
-                redirect: true,
-                icon: "add"
-            },
-            {
                 name: "Throw money at me!",
                 path: "https://ko-fi.com/jbcrn",
                 redirect: true,

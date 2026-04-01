@@ -90,21 +90,6 @@ const LinkObjs = getLinks();
 
             linkElms.forEach((e) => obsv.observe(e));
 
-            // NEKOWEB FOLLOWERS
-            const flwrs = linkVals[0].find(a => a.href.includes('nekoweb.org'));
-            flwrs?.style.setProperty('--w', '420px')
-            try {
-                const flws = await fetch('https://nekoweb.org/api/site/info/jbc.lol');
-                const json = await flws.json();
-                const span = flwrs?.querySelector('span');
-                span?.classList.remove('ms');
-                span.innerHTML = json.followers + '<span style="font-size:0.35em;"> followers</span>'
-            } catch {
-                const span = flwrs?.querySelector('span');
-                span?.classList.remove('ms');
-                span.innerHTML = '<span style="font-size:0.35em;">error: </span>' + 429;
-            }
-
             const time = linkVals[1].find(a => a.href.includes('time'));
             time?.style.setProperty('--w', '420px');
             try {
