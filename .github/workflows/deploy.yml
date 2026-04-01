@@ -50,6 +50,12 @@ jobs:
         run: DEBUG=pw:browser bun run build
       - name: Check if index.html exists
         run: cat ./dist/index.html
+      - name: Upload generated files
+        env:
+          COPYPARTY_DEPLOY_KEY: ${{ secrets.COPYPARTY_DEPLOY_KEY }}
+        run: |
+          curl -o u2c.py https://raw.githubusercontent.com/9001/copyparty/refs/heads/hovudstraum/bin/u2c.py
+          python3 ./u2c.py -a $COPYPARTY_DEPLOY_KEY --dr https://party.nomaakip.xyz/jbsite ./dist
       - name: Modify some stuff
         run: bun run ./mainsite.ts
       - name: Deploy on Neocities

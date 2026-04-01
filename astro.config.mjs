@@ -140,13 +140,13 @@ export function rehypeTargetBlank() {
 }
 
 if (process.env.GITHUB_ACTIONS === 'true') {
-  nkw.push(nekoweb({
-    apiKey: env.NEKOWEB_APIKEY,
-    cookie: env.NEKOWEB_COOKIE,
-    domain: 'jbc.lol',
-    siteName: 'jbcrn',
-    rssFeed: '/nekoweb.xml'
-  }));
+  // nkw.push(nekoweb({
+  //   apiKey: env.NEKOWEB_APIKEY,
+  //   cookie: env.NEKOWEB_COOKIE,
+  //   domain: 'jbc.lol',
+  //   siteName: 'jbcrn',
+  //   rssFeed: '/nekoweb.xml'
+  // }));
 } else {
   console.debug(!(process.env.GITHUB_ACTIONS !== 'true'));
 }
