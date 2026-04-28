@@ -16,7 +16,7 @@ import { undefined } from "astro:schema";
         confirm("ARE YOU SURE? THIS CAN CRASH A BROWSER.") &&
         confirm("ARE YOU REALLY SURE??? THIS CAN LITERALLY CRASH A BROWSER")
     ) {
-        const tileRes = await fetch("https://waftiles.waf.moe/everyTile");
+        const tileRes = await fetch("https://waftiles.tokyonight.city/everyTile");
         const tileJson = await tileRes.json();
         const tiles = tileJson.tiles;
         const frameIters = document.querySelector(".frameIters");
