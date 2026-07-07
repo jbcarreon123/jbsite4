@@ -18,7 +18,7 @@ const arrays = [
     ],
     [
         "main social is wafrn",
-        "@jb@tokyonight.city",
+        "@jb@sk.nomaakip.xyz",
         "i also have bsky at domain"
     ],
     [

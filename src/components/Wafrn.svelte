@@ -1,7 +1,7 @@
 <script>
 	import truncate from "truncate-html";
 
-	const posts_url = `https://tokyonight.city/api/v2/blog?page=0&startScroll=${Date.now()}&id=jb`
+	const posts_url = `https://sk.nomaakip.xyz/api/v2/blog?page=0&startScroll=${Date.now()}&id=jb`
 
 	function timeAgo(timestamp) {
 		const now = new Date().getTime();
@@ -40,10 +40,10 @@
 
 		console.debug(json);
 
-		const woot = await fetch(`https://tokyonight.city/api/v2/post/${json.id}`);
+		const woot = await fetch(`https://sk.nomaakip.xyz/api/v2/post/${json.id}`);
 		let wootJson = await woot.json();
 
-		const forum = await fetch(`https://tokyonight.city/api/forum/${json.id}`);
+		const forum = await fetch(`https://sk.nomaakip.xyz/api/forum/${json.id}`);
 		let forumJson = await forum.json();
 
 		const ask = jsonr.asks.find(x => x.postId === json.id);
@@ -63,7 +63,7 @@
 
 		return {
 			post: truncate(json.content, 25, { byWords: true }),
-			id: `https://tokyonight.city/fediverse/post/${json.id}`,
+			id: `https://sk.nomaakip.xyz/fediverse/post/${json.id}`,
 			time: timeAgo(timestamp),
 			like,
 			repost,
@@ -97,8 +97,8 @@
 			</div>
 		{/if}
 		{@html out.post}
-		{#if out.post.endsWith('...</p>')}<p><a href={out.id} target="_blank">Open in tokyonight.city</a></p>{/if}
-		{#if !out.post.endsWith('...</p>') && out.media > 0}<p><a href={out.id} target="_blank">Contains {out.media} media{out.media > 1 ? 's' : ''}. Open in tokyonight.city?</a></p>{/if}
+		{#if out.post.endsWith('...</p>')}<p><a href={out.id} target="_blank">Open in sk.nomaakip.xyz</a></p>{/if}
+		{#if !out.post.endsWith('...</p>') && out.media > 0}<p><a href={out.id} target="_blank">Contains {out.media} media{out.media > 1 ? 's' : ''}. Open in sk.nomaakip.xyz?</a></p>{/if}
 		{#if out.tags}
 			<p class="tg">{out.tags}</p>
 		{/if}
