@@ -16,7 +16,8 @@ type SbrButtonEntry = {
     imgUrl: string,
     startPath?: string,
     clickElm?: string,
-    eighteen?: boolean
+    eighteen?: boolean,
+    disableJS?: boolean
 }
 
 try {
@@ -44,14 +45,15 @@ export const GET: APIRoute = async ({ params }) => {
     recentSites.push(`${button?.url} (${button?.imgUrl})`)
     let context: BrowserContext;
     try {
-        if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
+        //if (process.env.GITHUB_ACTIONS !== 'true') throw new Error('In development mode; not rendering SBR previews');
 
         context = await browser.newContext({
             colorScheme: 'dark',
             viewport: {
                 width: 1600,
                 height: 900
-            }
+            },
+            javaScriptEnabled: !button.disableJS
         });
         context.setDefaultTimeout(60000);
         const page = await context.newPage();

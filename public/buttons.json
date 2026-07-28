@@ -1,606 +1,613 @@
 [
-    {
-        "url": "https://hijpixel.nekoweb.org/",
-        "title": "the cozy lil' webzone of a silly lil' Cait'si artist.",
-        "alt": "heyitsjustpIxel",
-        "imgUrl": "https://hijpixel.nekoweb.org/img/buttons/hijpixel/button-88x31.gif",
-        "eighteen": true
-    },
-    {
-        "url": "https://dimden.dev/",
-        "title": "Dimden's Hotel",
-        "alt": "Dimden's Hotel",
-        "imgUrl": "https://dimden.dev/services/images/88x31.gif"
-    },
-    {
-        "url": "https://thinliquid.dev/",
-        "title": "thinliquid's button",
-        "alt": "thinliquid's button",
-        "imgUrl": "https://thinliquid.dev/thnlqd.png"
-    },
-    {
-        "url": "https://rice.place/",
-        "title": "rice.place",
-        "alt": "rice.place",
-        "imgUrl": "https://rice.nekoweb.org/button/ricenodot.png",
-        "startPath": "/home.html"
-    },
-    {
-        "url": "https://darkosparko.nekoweb.org/",
-        "title": "Rocket into the Spark-web!",
-        "alt": "darkosparko",
-        "imgUrl": "https://darkosparko.nekoweb.org/rocket-button.gif",
-        "startPath": "/home.html"
-    },
-    {
-        "url": "https://petrapixel.neocities.org",
-        "title": "petrapixel",
-        "alt": "petrapixel",
-        "imgUrl": "https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif"
-    },
-    {
-        "url": "https://max.nekoweb.org/",
-        "title": "max's apartment",
-        "alt": "maxpixels",
-        "imgUrl": "https://max.nekoweb.org/images/button.gif"
-    },
-    {
-        "url": "https://ddnikki.nekoweb.org/",
-        "title": "DDNikki",
-        "alt": "DDNikki",
-        "imgUrl": "https://ddnikki.nekoweb.org/images/nikkibutton.gif",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://drfred.nekoweb.org/",
-        "title": "Enter the Fredzone...",
-        "alt": "Dr. Fred",
-        "imgUrl": "https://drfred.nekoweb.org/collection/buttons/sites/button-drfred.png"
-    },
-    {
-        "url": "https://july.lol/",
-        "title": "july.lol",
-        "alt": "july.lol",
-        "imgUrl": "https://july.lol/img/lonelyjulybutton.gif"
-    },
-    {
-        "url": "https://mechagic.party/",
-        "title": "Mechagic's Fun Button",
-        "alt": "Mechagic",
-        "imgUrl": "https://mechagic.party/2images/1button.webp"
-    },
-    {
-        "url": "https://joo.sh/",
-        "title": "joo.sh",
-        "alt": "joo.sh",
-        "imgUrl": "https://files.joo.sh/img/buttons/jooshRice.gif"
-    },
-    {
-        "url": "https://layercake.nekoweb.org/",
-        "title": "Layercake",
-        "alt": "Layercake",
-        "imgUrl": "https://layercake.moe/assets/images/buttons/mine/layercakebutton.gif",
-        "clickElm": "#visitorbutton"
-    },
-    {
-        "url": "https://beaus-silly-folder.nekoweb.org/",
-        "title": "Beau's Silly Folder",
-        "alt": "Beau's Silly Folder",
-        "imgUrl": "https://beaus-silly-folder.nekoweb.org/BSF.gif",
-        "startPath": "/pages/hello-world"
-    },
-    {
-        "url": "https://toasty.place/",
-        "title": "ToastofTheSewn",
-        "alt": "ToastofTheSewn",
-        "imgUrl": "https://toastofthesewn.nekoweb.org/images/buttons/sitebutton2.png"
-    },
-    {
-        "url": "https://biofreak.world/",
-        "title": "biofreak.world",
-        "alt": "biofreak.world",
-        "imgUrl": "https://biofreak.world/sitebuttons/biofreak-light.png"
-    },
-    {
-        "url": "https://amoebalous.net/",
-        "title": "amoebalous.net",
-        "alt": "amoebalous.net",
-        "imgUrl": "https://amoebalous.net/images/buttons/amoebalous.png"
-    },
-    {
-        "url": "https://modularity.nekoweb.org/",
-        "title": "modularity",
-        "alt": "modularity",
-        "imgUrl": "https://modularity.nekoweb.org/mdlr.gif"
-    },
-    {
-        "url": "https://bang1338.nekoweb.org/",
-        "title": "Bang1338",
-        "alt": "Bang1338",
-        "imgUrl": "https://bang1338.nekoweb.org/bang1338.gif",
-        "clickElm": "#expandingButton"
-    },
-    {
-        "url": "https://bntarwarn.com/",
-        "title": "BNTarwarn",
-        "alt": "BNTarwarn",
-        "imgUrl": "https://bntarwarn.com/zz_img/buttons/bntarwarn.png"
-    },
-    {
-        "url": "https://xan.lol/",
-        "title": "Xan Surnamehere",
-        "alt": "Xan Surnamehere",
-        "imgUrl": "https://xan.lol/img/btn/meta.gif"
-    },
-    {
-        "url": "https://metakabe.nekoweb.org/",
-        "title": "metakabe^^",
-        "alt": "metakabe^^",
-        "imgUrl": "https://metakabe.nekoweb.org/Buttons/kabebutton.gif"
-    },
-    {
-        "url": "https://ethxn.xyz/",
-        "title": "ethxn",
-        "alt": "ethxn",
-        "imgUrl": "/imgs/buttons/ethxn-button.gif"
-    },
-    {
-        "url": "https://chataigne.nekoweb.org/",
-        "title": "Chataigne Online",
-        "alt": "Chataigne Online",
-        "imgUrl": "https://chataigne.nekoweb.org/button1.jpg",
-        "startPath": "/welcome_page.html"
-    },
-    {
-        "url": "https://exclave.city/",
-        "title": "Explore Exclave",
-        "alt": "Explore Exclave",
-        "imgUrl": "https://exclave.city/images/button1.gif",
-        "startPath": "/plaza.html"
-    },
-    {
-        "url": "https://reduxflakes.nekoweb.org/",
-        "title": "ReduxFlakes",
-        "alt": "ReduxFlakes",
-        "imgUrl": "https://reduxflakes.nekoweb.org/public/buttons/reduc_anim.gif"
-    },
-    {
-        "url": "https://libraryofgurkistan.nekoweb.org/",
-        "title": "HELLO MORTAL",
-        "alt": "HELLO MORTAL",
-        "imgUrl": "/imgs/buttons/hellomortal.png",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://duducat.moe/",
-        "title": "duducat's corner on the interwebz!",
-        "alt": "duducat",
-        "imgUrl": "/imgs/buttons/duducat.svg",
-        "startPath": "/?main"
-    },
-    {
-        "url": "https://theoliveoli.nekoweb.org/",
-        "title": "TheOliveOli",
-        "alt": "TheOliveOli",
-        "imgUrl": "/imgs/buttons/theoliveoli.png"
-    },
-    {
-        "url": "https://yumeoi.skin/",
-        "title": "yumeoi.skin",
-        "alt": "yumeoi.skin",
-        "imgUrl": "/imgs/buttons/yumeo.gif",
-        "startPath": "/home.html"
-    },
-    {
-        "url": "https://eyeorb.net/",
-        "title": "eyeorb.net",
-        "alt": "eyeorb.net",
-        "imgUrl": "https://eyeorb.net/site_button.gif",
-        "startPath": "/main.html"
-    },
-    {
-        "url": "https://thepersonever.net/",
-        "title": "thepersonever",
-        "alt": "thepersonever",
-        "imgUrl": "https://thepersonever.net/thepersoneverbutton.gif",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://aoki553.nekoweb.org/",
-        "title": "aoki553",
-        "alt": "aoki553",
-        "imgUrl": "https://aoki553.neocities.org/nekoweb/deco/aoki553button.gif"
-    },
-    {
-        "url": "https://satorikeiko.nekoweb.org/",
-        "title": "Satorikeiko",
-        "alt": "Satorikeiko",
-        "imgUrl": "/imgs/buttons/satorikeiko.png"
-    },
-    {
-        "url": "https://ceat.nekoweb.org/",
-        "title": "ceat",
-        "alt": "ceat",
-        "imgUrl": "https://ceat.nekoweb.org/img/badges/badge.png"
-    },
-    {
-        "url": "https://ivrry.nekoweb.org/",
-        "title": "ivrry",
-        "alt": "ivrry",
-        "imgUrl": "https://ivrry.nekoweb.org/assets/images/button.png"
-    },
-    {
-        "url": "https://raccoonbutt.com/",
-        "title": "raccoonbutt.com",
-        "alt": "raccoonbutt.com",
-        "imgUrl": "https://raccoonbutt.com/static/raccoonbutt.gif"
-    },
-    {
-        "url": "https://olivia.nekoweb.org/",
-        "title": "Liv site",
-        "alt": "Liv site",
-        "imgUrl": "https://olivia.nekoweb.org/images/badge.gif"
-    },
-    {
-        "url": "https://nandraid.moe/",
-        "title": "Randopaizer/Nandraid",
-        "alt": "Randopaizer/Nandraid",
-        "imgUrl": "/imgs/buttons/nandraid.gif"
-    },
-    {
-        "url": "https://reigen.moe/",
-        "title": "reigen",
-        "alt": "reigen",
-        "imgUrl": "https://reigen.moe/image/88by31.gif",
-        "startPath": "/home.html"
-    },
-    {
-        "url": "https://luxfero.nekoweb.org/",
-        "title": "Lux_Fero",
-        "alt": "Lux Fero",
-        "imgUrl": "https://luxfero.nekoweb.org/buttons/lux_fero.gif"
-    },
-    {
-        "url": "https://metatronius.net/",
-        "title": "metatronius",
-        "alt": "metatronius",
-        "imgUrl": "https://metatronius.net/buttons/2.png"
-    },
-    {
-        "url": "https://medjed.nekoweb.org/",
-        "title": "Medjed",
-        "alt": "Medjed",
-        "imgUrl": "https://medjed.nekoweb.org/assets/images/button.jpg"
-    },
-    {
-        "url": "https://remblanc.com/",
-        "title": "the owner of this button's website dares anyone copypasting this button link to keep this wacky title or come up with a different title of proportionate wackiness",
-        "alt": "remblanc",
-        "imgUrl": "https://remblanc.com/images/button.png"
-    },
-    {
-        "url": "https://demgoze.nekoweb.org",
-        "title": "Demgoze",
-        "alt": "demgoze",
-        "imgUrl": "/imgs/buttons/demgoze.png",
-        "startPath": "/home.html"
-    },
-    {
-        "url": "https://deadon.rip",
-        "title": "Dead On RIP",
-        "alt": "deadonrip",
-        "imgUrl": "https://deadonrip.nekoweb.org/style/dead-on-button.gif",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://puddingpudd.com",
-        "title": "Pudding's Cove",
-        "alt": "puddingpudd",
-        "imgUrl": "https://puddingpudd.com/buttons/Pudd_Button.gif",
-        "startPath": "/Home_Comfy_Home"
-    },
-    {
-        "url": "https://cathaks.nekoweb.org",
-        "title": "cathaks' voidway",
-        "alt": "cathaks",
-        "imgUrl": "https://cathaks.nekoweb.org/sitebutton.png"
-    },
-    {
-        "url": "https://mec-v02.nekoweb.org/",
-        "title": "Pixel art of a mini terminal console window. Inside it, it says 'MEC_v02'.",
-        "alt": "MEC_v02",
-        "imgUrl": "https://mec-v02.nekoweb.org/images/buttons/mec_v02.gif",
-        "clickElm": "button[aria-description='Proceed to site.']"
-    },
-    {
-        "url": "https://seeingstarz.nekoweb.org/",
-        "title": "Pry's silly site",
-        "alt": "seeingstarz",
-        "imgUrl": "https://seeingstarz.nekoweb.org/images/seeingstarz%20gif.gif",
-        "startPath": "/homepage.html"
-    },
-    {
-        "url": "https://lexp.dev/en/index.html",
-        "title": "lexp.dev",
-        "alt": "lexp.dev website",
-        "imgUrl": "/imgs/buttons/lexpdev-webring-1.png"
-    },
-    {
-        "url": "https://tagasa.ing/",
-        "title": "Tagasaing",
-        "alt": "tagasaing",
-        "imgUrl": "https://tagasa.ing/saing.gif"
-    },
-    {
-        "url": "https://moondvsted.space/",
-        "title": "stel @ moondvsted",
-        "alt": "stel @ moondvsted",
-        "imgUrl": "/imgs/buttons/stel-at-moondvsted.gif",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://glassy-website.nekoweb.org/",
-        "title": "Glassyweb",
-        "alt": "Glassjungle",
-        "imgUrl": "https://file.garden/ZlKCRJrkUEDiwwUh/Website%20Images/2024_06_28_129_Kleki.png"
-    },
-    {
-        "url": "https://splashy.neocities.org/",
-        "title": "the website of all time",
-        "alt": "splashy",
-        "imgUrl": "https://splashy.neocities.org/splashy.gif"
-    },
-    {
-        "url": "https://sheep.nekoweb.org/",
-        "title": "Sheep",
-        "alt": "Sheep",
-        "imgUrl": "https://sheep.nekoweb.org/assets/mybutton.gif"
-    },
-    {
-        "url": "https://scythe.nekoweb.org/",
-        "title": "Digital Scythesizing of My Mind ~ 了解！",
-        "alt": "Scytheisizer",
-        "imgUrl": "https://scythe.nekoweb.org/scytheisizerbtn.png",
-        "startPath": "/REBOOT-V1/pages/home"
-    },
-    {
-        "url": "https://wiggle.monster/",
-        "title": "WiiCHiCKEN",
-        "alt": "WiiCHiCKEN",
-        "imgUrl": "https://wiggle.monster/button.gif"
-    },
-    {
-        "url": "https://pokestitch.nekoweb.org/",
-        "title": "stitchin' mons",
-        "alt": "Pokestitch",
-        "imgUrl": "https://pokestitch.nekoweb.org/images/animated.gif",
-        "startPath": "/top.html"
-    },
-    {
-        "url": "https://cufustis-cool-kitchen.nekoweb.org/",
-        "title": "peep some terraria biomes while you're websurfin'",
-        "alt": "Cufusti's Cool Kitchen",
-        "imgUrl": "https://cufustis-cool-kitchen.nekoweb.org/some%20images%20just%20in%20case/cufusti-button.png",
-        "startPath": "/pylon-zone"
-    },
-    {
-        "url": "https://thumtacka.nekoweb.org/",
-        "title": "Thumtacka's Half-assed Domain",
-        "alt": "Thumtacka",
-        "imgUrl": "https://thumtacka.nekoweb.org/booton.gif",
-        "startPath": "/main-aug.html"
-    },
-    {
-        "url": "https://rover.nekoweb.org/",
-        "title": "rover !",
-        "alt": "rover !",
-        "imgUrl": "https://rover.nekoweb.org/images/rover88x31.gif"
-    },
-    {
-        "url": "https://aglovale.nekoweb.org/",
-        "title": "@ nekoweb",
-        "alt": "aglovale",
-        "imgUrl": "https://aglovale.nekoweb.org/elements/button.gif"
-    },
-    {
-        "url": "https://xavierhm.com/",
-        "title": "",
-        "alt": "Xavier H.M.",
-        "imgUrl": "https://xavierhm.com/graphics/buttons/sitebutton/xavierhmsitebutton.gif"
-    },
-    {
-        "url": "https://melankorin.net/",
-        "title": "",
-        "alt": "melankorin.net",
-        "imgUrl": "https://melankorin.net/assets/img/buttons/button-1.gif"
-    },
-    {
-        "url": "https://laura.nekoweb.org/",
-        "title": "",
-        "alt": "Laura Sofia",
-        "imgUrl": "https://laura.nekoweb.org/img/banner.webp"
-    },
-    {
-        "url": "https://toriii.dev/",
-        "title": "",
-        "alt": "Tori's Corner!",
-        "imgUrl": "https://toriii.dev/img/button.png"
-    },
-    {
-        "url": "https://32enoki.net/",
-        "title": "enokiton-3 site",
-        "alt": "32enoki",
-        "imgUrl": "https://32enoki.net/88x31.png"
-    },
-    {
-        "url": "https://commonpolarity.nekoweb.org/",
-        "title": "",
-        "alt": "CommonPolarity",
-        "imgUrl": "/imgs/buttons/commpol.png",
-        "startPath": "/site/"
-    },
-    {
-        "url": "https://nonomo.nekoweb.org/",
-        "title": "NO RULES",
-        "alt": "NONOMO",
-        "imgUrl": "https://nonomo.nekoweb.org/rsrc/button.gif",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://planet-bluto.net/",
-        "title": "",
-        "alt": ">PLANET_BLUTO.NET",
-        "imgUrl": "https://preview.planet-bluto.net/img/site_button_placeholder.png",
-        "clickElm": "#the-planet-bluto"
-    },
-    {
-        "url": "https://adamngshrine.com/",
-        "title": "",
-        "alt": "Adamng's Shrine",
-        "imgUrl": "https://adamngshrine.com/images/button.png"
-    },
-    {
-        "url": "https://nyscyra.nekoweb.org/",
-        "title": "",
-        "alt": "NYSCYRA",
-        "imgUrl": "https://nyscyra.nekoweb.org/img/button.png"
-    },
-    {
-        "url": "https://pancontinental.nekoweb.org/",
-        "title": "",
-        "alt": "Pan Continental",
-        "imgUrl": "https://pancontinental.nekoweb.org/Images/Buttons/PCA-Button.gif",
-        "startPath": "/home"
-    },
-    {
-        "url": "https://ext4ntmusic.org/",
-        "title": "",
-        "alt": "EXT4NT",
-        "imgUrl": "https://ext4ntmusic.org/assets/images/ext4ntbutton.gif",
-        "startPath": "/#/home"
-    },
-    {
-        "url": "https://jae.gg/",
-        "title": "",
-        "alt": "jae.gg",
-        "imgUrl": "https://jae.gg/buttons/88x31.gif"
-    },
-    {
-        "url": "https://stupied.neocities.org/",
-        "title": "",
-        "alt": "stupied",
-        "imgUrl": "https://stupied.neocities.org/meta/button.png",
-        "clickElm": "[onclick=\"redirectBack()\"]"
-    },
-    {
-        "url": "https://racc.at/",
-        "title": "",
-        "alt": "racc.at",
-        "imgUrl": "https://racc.at/media/uploads/88x31.png"
-    },
-    {
-        "url": "https://verbina29.neocities.org/",
-        "title": "",
-        "alt": "verbina29",
-        "imgUrl": "https://verbina29.neocities.org/buttons/button_percival.png"
-    },
-    {
-        "url": "https://daneeko.nekoweb.org/",
-        "title": "",
-        "alt": "daneeko",
-        "imgUrl": "https://daneeko.nekoweb.org/assets/buttons/daneeko.gif"
-    },
-    {
-        "url": "https://pocketbroto.net/",
-        "title": "",
-        "alt": "Broto. Pocket Broto.",
-        "imgUrl": "https://pocketbroto.net/pocketbroto.png",
-        "startPath": "/home.html"
-    },
-    {
-        "url": "https://ari.lt/",
-        "title": "",
-        "alt": "ari-web",
-        "imgUrl": "https://ari.lt/badge.png"
-    },
-    {
-        "url": "https://dabric.xyz/",
-        "title": "",
-        "alt": "dabric",
-        "imgUrl": "https://dabric.xyz/butt.png"
-    },
-    {
-        "url": "https://lucastheguy.nekoweb.org/",
-        "title": "",
-        "alt": "LucasTheGuy",
-        "imgUrl": "https://lucastheguy.nekoweb.org/images/button.gif"
-    },
-    {
-        "url": "https://mattware.nekoweb.org/",
-        "title": "",
-        "alt": "MattWare Inc.",
-        "startPath": "/home",
-        "imgUrl": "https://mattware.nekoweb.org/assets/img/buttons/mattware1.png"
-    },
-    {
-        "url": "https://redtail.works/",
-        "title": "",
-        "alt": "RedtailWorks",
-        "imgUrl": "https://www.redtail.works/content/redbutton.gif"
-    },
-    {
-        "url": "https://goatgirl.nekoweb.org/",
-        "title": "",
-        "alt": "goatgirlclover",
-        "imgUrl": "https://goatgirl.nekoweb.org/assets/buttons/88x31/goatgirlclover.gif"
-    },
-    {
-        "url": "https://mars.nekoweb.org/?button",
-        "title": "",
-        "alt": "mars' site",
-        "imgUrl": "https://mars.nekoweb.org/assets/buttons/button0.gif"
-    },
-    {
-        "url": "https://syfish.dev/",
-        "title": "",
-        "alt": "syfish.dev",
-        "imgUrl": "https://syfish.dev/sybutton.gif"
-    },
-    {
-        "url": "https://nomaakip.xyz/",
-        "title": "",
-        "alt": "nomaakip dot xyz",
-        "imgUrl": "https://nomaakip.xyz/img/buttons/button.png"
-    },
-    {
-        "url": "https://denpagirl.nekoweb.org/",
-        "title": "Denpagirl",
-        "alt": "Denpagirl",
-        "startPath": "/home.html",
-        "imgUrl": "https://denpagirl.nekoweb.org/dgbutton.gif"
-    },
-    {
-        "url": "https://code2craft.xyz/",
-        "title": "",
-        "alt": "Code2Craft dot xyz",
-        "imgUrl": "https://code2craft.xyz/media/buttons/b1.png"
-    },
-    {
-        "url": "https://afellowu.neocities.org/",
-        "title": "",
-        "alt": "Mebi County",
-        "imgUrl": "https://afellowu.neocities.org/images/buttons/mebi_county.gif"
-    },
-    {
-        "url": "https://patyk.lol/",
-        "title": "",
-        "alt": "PatRyk",
-        "imgUrl": "https://patyk.lol/88x31.gif"
-    },
-    {
+  {
+    "url": "https://hijpixel.nekoweb.org/",
+    "title": "the cozy lil' webzone of a silly lil' Cait'si artist.",
+    "alt": "heyitsjustpIxel",
+    "imgUrl": "https://hijpixel.nekoweb.org/img/buttons/hijpixel/button-88x31.gif",
+    "eighteen": true
+  },
+  {
+    "url": "https://dimden.dev/",
+    "title": "Dimden's Hotel",
+    "alt": "Dimden's Hotel",
+    "imgUrl": "https://dimden.dev/services/images/88x31.gif"
+  },
+  {
+    "url": "https://thinliquid.dev/",
+    "title": "thinliquid's button",
+    "alt": "thinliquid's button",
+    "imgUrl": "https://thinliquid.dev/thnlqd.png"
+  },
+  {
+    "url": "https://rice.place/",
+    "title": "rice.place",
+    "alt": "rice.place",
+    "imgUrl": "https://rice.nekoweb.org/button/ricenodot.png",
+    "startPath": "/home.html"
+  },
+  {
+    "url": "https://darkosparko.nekoweb.org/",
+    "title": "Rocket into the Spark-web!",
+    "alt": "darkosparko",
+    "imgUrl": "https://darkosparko.nekoweb.org/rocket-button.gif",
+    "startPath": "/home.html"
+  },
+  {
+    "url": "https://petrapixel.neocities.org",
+    "title": "petrapixel",
+    "alt": "petrapixel",
+    "imgUrl": "https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif"
+  },
+  {
+    "url": "https://max.nekoweb.org/",
+    "title": "max's apartment",
+    "alt": "maxpixels",
+    "imgUrl": "https://max.nekoweb.org/images/button.gif"
+  },
+  {
+    "url": "https://ddnikki.nekoweb.org/",
+    "title": "DDNikki",
+    "alt": "DDNikki",
+    "imgUrl": "https://ddnikki.nekoweb.org/images/nikkibutton.gif",
+    "startPath": "/home"
+  },
+  {
+    "url": "https://drfred.nekoweb.org/",
+    "title": "Enter the Fredzone...",
+    "alt": "Dr. Fred",
+    "imgUrl": "https://drfred.nekoweb.org/collection/buttons/sites/button-drfred.png"
+  },
+  {
+    "url": "https://july.lol/",
+    "title": "july.lol",
+    "alt": "july.lol",
+    "imgUrl": "https://july.lol/img/lonelyjulybutton.gif"
+  },
+  {
+    "url": "https://mechagic.party/",
+    "title": "Mechagic's Fun Button",
+    "alt": "Mechagic",
+    "imgUrl": "https://mechagic.party/2images/1button.webp"
+  },
+  {
+    "url": "https://joo.sh/",
+    "title": "joo.sh",
+    "alt": "joo.sh",
+    "imgUrl": "https://files.joo.sh/img/buttons/jooshRice.gif"
+  },
+  {
+    "url": "https://layercake.nekoweb.org/",
+    "title": "Layercake",
+    "alt": "Layercake",
+    "imgUrl": "https://layercake.moe/assets/images/buttons/mine/layercakebutton.gif",
+    "clickElm": "#visitorbutton"
+  },
+  {
+    "url": "https://beaus-silly-folder.nekoweb.org/",
+    "title": "Beau's Silly Folder",
+    "alt": "Beau's Silly Folder",
+    "imgUrl": "https://beaus-silly-folder.nekoweb.org/BSF.gif",
+    "startPath": "/pages/hello-world"
+  },
+  {
+    "url": "https://toasty.place/",
+    "title": "ToastofTheSewn",
+    "alt": "ToastofTheSewn",
+    "imgUrl": "https://toastofthesewn.nekoweb.org/images/buttons/sitebutton2.png"
+  },
+  {
+    "url": "https://biofreak.world/",
+    "title": "biofreak.world",
+    "alt": "biofreak.world",
+    "imgUrl": "https://biofreak.world/sitebuttons/biofreak-light.png"
+  },
+  {
+    "url": "https://amoebalous.net/",
+    "title": "amoebalous.net",
+    "alt": "amoebalous.net",
+    "imgUrl": "https://amoebalous.net/images/buttons/amoebalous.png"
+  },
+  {
+    "url": "https://modularity.nekoweb.org/",
+    "title": "modularity",
+    "alt": "modularity",
+    "imgUrl": "https://modularity.nekoweb.org/mdlr.gif"
+  },
+  {
+    "url": "https://bang1338.nekoweb.org/",
+    "title": "Bang1338",
+    "alt": "Bang1338",
+    "imgUrl": "https://bang1338.nekoweb.org/bang1338.gif",
+    "clickElm": "#expandingButton"
+  },
+  {
+    "url": "https://bntarwarn.com/",
+    "title": "BNTarwarn",
+    "alt": "BNTarwarn",
+    "imgUrl": "https://bntarwarn.com/zz_img/buttons/bntarwarn.png"
+  },
+  {
+    "url": "https://xan.lol/",
+    "title": "Xan Surnamehere",
+    "alt": "Xan Surnamehere",
+    "imgUrl": "https://xan.lol/img/btn/meta.gif"
+  },
+  {
+    "url": "https://metakabe.nekoweb.org/",
+    "title": "metakabe^^",
+    "alt": "metakabe^^",
+    "imgUrl": "https://metakabe.nekoweb.org/Buttons/kabebutton.gif"
+  },
+  {
+    "url": "https://ethxn.xyz/",
+    "title": "ethxn",
+    "alt": "ethxn",
+    "imgUrl": "/imgs/buttons/ethxn-button.gif"
+  },
+  {
+    "url": "https://chataigne.nekoweb.org/",
+    "title": "Chataigne Online",
+    "alt": "Chataigne Online",
+    "imgUrl": "https://chataigne.nekoweb.org/button1.jpg",
+    "startPath": "/welcome_page.html"
+  },
+  {
+    "url": "https://exclave.city/",
+    "title": "Explore Exclave",
+    "alt": "Explore Exclave",
+    "imgUrl": "https://exclave.city/images/button1.gif",
+    "startPath": "/plaza.html"
+  },
+  {
+    "url": "https://reduxflakes.nekoweb.org/",
+    "title": "ReduxFlakes",
+    "alt": "ReduxFlakes",
+    "imgUrl": "https://reduxflakes.nekoweb.org/public/buttons/reduc_anim.gif"
+  },
+  {
+    "url": "https://libraryofgurkistan.nekoweb.org/",
+    "title": "HELLO MORTAL",
+    "alt": "HELLO MORTAL",
+    "imgUrl": "/imgs/buttons/hellomortal.png",
+    "startPath": "/home"
+  },
+  {
+    "url": "https://duducat.moe/",
+    "title": "duducat's corner on the interwebz!",
+    "alt": "duducat",
+    "imgUrl": "/imgs/buttons/duducat.svg",
+    "startPath": "/?main"
+  },
+  {
+    "url": "https://theoliveoli.nekoweb.org/",
+    "title": "TheOliveOli",
+    "alt": "TheOliveOli",
+    "imgUrl": "/imgs/buttons/theoliveoli.png"
+  },
+  {
+    "url": "https://yumeoi.skin/",
+    "title": "yumeoi.skin",
+    "alt": "yumeoi.skin",
+    "imgUrl": "/imgs/buttons/yumeo.gif",
+    "startPath": "/home.html"
+  },
+  {
+    "url": "https://eyeorb.net/",
+    "title": "eyeorb.net",
+    "alt": "eyeorb.net",
+    "imgUrl": "https://eyeorb.net/site_button.gif",
+    "startPath": "/main.html"
+  },
+  {
+    "url": "https://thepersonever.net/",
+    "title": "thepersonever",
+    "alt": "thepersonever",
+    "imgUrl": "https://thepersonever.net/thepersoneverbutton.gif",
+    "startPath": "/home"
+  },
+  {
+    "url": "https://aoki553.nekoweb.org/",
+    "title": "aoki553",
+    "alt": "aoki553",
+    "imgUrl": "https://aoki553.neocities.org/nekoweb/deco/aoki553button.gif"
+  },
+  {
+    "url": "https://satorikeiko.nekoweb.org/",
+    "title": "Satorikeiko",
+    "alt": "Satorikeiko",
+    "imgUrl": "/imgs/buttons/satorikeiko.png"
+  },
+  {
+    "url": "https://ceat.nekoweb.org/",
+    "title": "ceat",
+    "alt": "ceat",
+    "imgUrl": "https://ceat.nekoweb.org/img/badges/badge.png"
+  },
+  {
+    "url": "https://ivrry.nekoweb.org/",
+    "title": "ivrry",
+    "alt": "ivrry",
+    "imgUrl": "https://ivrry.nekoweb.org/assets/images/button.png"
+  },
+  {
+    "url": "https://raccoonbutt.com/",
+    "title": "raccoonbutt.com",
+    "alt": "raccoonbutt.com",
+    "imgUrl": "https://raccoonbutt.com/static/raccoonbutt.gif"
+  },
+  {
+    "url": "https://olivia.nekoweb.org/",
+    "title": "Liv site",
+    "alt": "Liv site",
+    "imgUrl": "https://olivia.nekoweb.org/images/badge.gif"
+  },
+  {
+    "url": "https://nandraid.moe/",
+    "title": "Randopaizer/Nandraid",
+    "alt": "Randopaizer/Nandraid",
+    "imgUrl": "/imgs/buttons/nandraid.gif"
+  },
+  {
+    "url": "https://reigen.moe/",
+    "title": "reigen",
+    "alt": "reigen",
+    "imgUrl": "https://reigen.moe/image/88by31.gif",
+    "startPath": "/home.html"
+  },
+  {
+    "url": "https://luxfero.nekoweb.org/",
+    "title": "Lux_Fero",
+    "alt": "Lux Fero",
+    "imgUrl": "https://luxfero.nekoweb.org/buttons/lux_fero.gif"
+  },
+  {
+    "url": "https://metatronius.net/",
+    "title": "metatronius",
+    "alt": "metatronius",
+    "imgUrl": "https://metatronius.net/buttons/2.png"
+  },
+  {
+    "url": "https://medjed.nekoweb.org/",
+    "title": "Medjed",
+    "alt": "Medjed",
+    "imgUrl": "https://medjed.nekoweb.org/assets/images/button.jpg"
+  },
+  {
+    "url": "https://remblanc.com/",
+    "title": "the owner of this button's website dares anyone copypasting this button link to keep this wacky title or come up with a different title of proportionate wackiness",
+    "alt": "remblanc",
+    "imgUrl": "https://remblanc.com/images/button.png"
+  },
+  {
+    "url": "https://demgoze.nekoweb.org",
+    "title": "Demgoze",
+    "alt": "demgoze",
+    "imgUrl": "/imgs/buttons/demgoze.png",
+    "startPath": "/home.html"
+  },
+  {
+    "url": "https://deadon.rip",
+    "title": "Dead On RIP",
+    "alt": "deadonrip",
+    "imgUrl": "https://deadonrip.nekoweb.org/style/dead-on-button.gif",
+    "startPath": "/home"
+  },
+  {
+    "url": "https://puddingpudd.com",
+    "title": "Pudding's Cove",
+    "alt": "puddingpudd",
+    "imgUrl": "https://puddingpudd.com/buttons/Pudd_Button.gif",
+    "startPath": "/Home_Comfy_Home"
+  },
+  {
+    "url": "https://cathaks.nekoweb.org",
+    "title": "cathaks' voidway",
+    "alt": "cathaks",
+    "imgUrl": "https://cathaks.nekoweb.org/sitebutton.png"
+  },
+  {
+    "url": "https://mec-v02.nekoweb.org/",
+    "title": "Pixel art of a mini terminal console window. Inside it, it says 'MEC_v02'.",
+    "alt": "MEC_v02",
+    "imgUrl": "https://mec-v02.nekoweb.org/images/buttons/mec_v02.gif",
+    "clickElm": "button[aria-description='Proceed to site.']"
+  },
+  {
+    "url": "https://seeingstarz.nekoweb.org/",
+    "title": "Pry's silly site",
+    "alt": "seeingstarz",
+    "imgUrl": "https://seeingstarz.nekoweb.org/images/seeingstarz%20gif.gif",
+    "startPath": "/homepage.html"
+  },
+  {
+    "url": "https://lexp.dev/en/index.html",
+    "title": "lexp.dev",
+    "alt": "lexp.dev website",
+    "imgUrl": "/imgs/buttons/lexpdev-webring-1.png"
+  },
+  {
+    "url": "https://tagasa.ing/",
+    "title": "Tagasaing",
+    "alt": "tagasaing",
+    "imgUrl": "https://tagasa.ing/saing.gif"
+  },
+  {
+    "url": "https://moondvsted.space/",
+    "title": "stel @ moondvsted",
+    "alt": "stel @ moondvsted",
+    "imgUrl": "/imgs/buttons/stel-at-moondvsted.gif",
+    "startPath": "/home"
+  },
+  {
+    "url": "https://glassy-website.nekoweb.org/",
+    "title": "Glassyweb",
+    "alt": "Glassjungle",
+    "imgUrl": "https://file.garden/ZlKCRJrkUEDiwwUh/Website%20Images/2024_06_28_129_Kleki.png"
+  },
+  {
+    "url": "https://splashy.neocities.org/",
+    "title": "the website of all time",
+    "alt": "splashy",
+    "imgUrl": "https://splashy.neocities.org/splashy.gif"
+  },
+  {
+    "url": "https://sheep.nekoweb.org/",
+    "title": "Sheep",
+    "alt": "Sheep",
+    "imgUrl": "https://sheep.nekoweb.org/assets/mybutton.gif"
+  },
+  {
+    "url": "https://scythe.nekoweb.org/",
+    "title": "Digital Scythesizing of My Mind ~ 了解！",
+    "alt": "Scytheisizer",
+    "imgUrl": "https://scythe.nekoweb.org/scytheisizerbtn.png",
+    "startPath": "/REBOOT-V1/pages/home"
+  },
+  {
+    "url": "https://wiggle.monster/",
+    "title": "WiiCHiCKEN",
+    "alt": "WiiCHiCKEN",
+    "imgUrl": "https://wiggle.monster/button.gif"
+  },
+  {
+    "url": "https://pokestitch.nekoweb.org/",
+    "title": "stitchin' mons",
+    "alt": "Pokestitch",
+    "imgUrl": "https://pokestitch.nekoweb.org/images/animated.gif",
+    "startPath": "/top.html"
+  },
+  {
+    "url": "https://cufustis-cool-kitchen.nekoweb.org/",
+    "title": "peep some terraria biomes while you're websurfin'",
+    "alt": "Cufusti's Cool Kitchen",
+    "imgUrl": "https://cufustis-cool-kitchen.nekoweb.org/some%20images%20just%20in%20case/cufusti-button.png",
+    "startPath": "/pylon-zone"
+  },
+  {
+    "url": "https://thumtacka.nekoweb.org/",
+    "title": "Thumtacka's Half-assed Domain",
+    "alt": "Thumtacka",
+    "imgUrl": "https://thumtacka.nekoweb.org/booton.gif",
+    "startPath": "/main-aug.html"
+  },
+  {
+    "url": "https://rover.nekoweb.org/",
+    "title": "rover !",
+    "alt": "rover !",
+    "imgUrl": "https://rover.nekoweb.org/images/rover88x31.gif"
+  },
+  {
+    "url": "https://aglovale.nekoweb.org/",
+    "title": "@ nekoweb",
+    "alt": "aglovale",
+    "imgUrl": "https://aglovale.nekoweb.org/elements/button.gif"
+  },
+  {
+    "url": "https://xavierhm.com/",
+    "title": "",
+    "alt": "Xavier H.M.",
+    "imgUrl": "https://xavierhm.com/graphics/buttons/sitebutton/xavierhmsitebutton.gif"
+  },
+  {
+    "url": "https://melankorin.net/",
+    "title": "",
+    "alt": "melankorin.net",
+    "imgUrl": "https://melankorin.net/assets/img/buttons/button-1.gif"
+  },
+  {
+    "url": "https://laura.nekoweb.org/",
+    "title": "",
+    "alt": "Laura Sofia",
+    "imgUrl": "https://laura.nekoweb.org/img/banner.webp"
+  },
+  {
+    "url": "https://toriii.dev/",
+    "title": "",
+    "alt": "Tori's Corner!",
+    "imgUrl": "https://toriii.dev/img/button.png"
+  },
+  {
+    "url": "https://32enoki.net/",
+    "title": "enokiton-3 site",
+    "alt": "32enoki",
+    "imgUrl": "https://32enoki.net/88x31.png"
+  },
+  {
+    "url": "https://commonpolarity.nekoweb.org/",
+    "title": "",
+    "alt": "CommonPolarity",
+    "imgUrl": "/imgs/buttons/commpol.png",
+    "startPath": "/site/"
+  },
+  {
+    "url": "https://nonomo.nekoweb.org/",
+    "title": "NO RULES",
+    "alt": "NONOMO",
+    "imgUrl": "https://nonomo.nekoweb.org/rsrc/button.gif",
+    "startPath": "/home"
+  },
+  {
+    "url": "https://planet-bluto.net/",
+    "title": "",
+    "alt": ">PLANET_BLUTO.NET",
+    "imgUrl": "https://preview.planet-bluto.net/img/site_button_placeholder.png",
+    "clickElm": "#the-planet-bluto"
+  },
+  {
+    "url": "https://adamngshrine.com/",
+    "title": "",
+    "alt": "Adamng's Shrine",
+    "imgUrl": "https://adamngshrine.com/images/button.png"
+  },
+  {
+    "url": "https://nyscyra.nekoweb.org/",
+    "title": "",
+    "alt": "NYSCYRA",
+    "imgUrl": "https://nyscyra.nekoweb.org/img/button.png"
+  },
+  {
+    "url": "https://pancontinental.nekoweb.org/",
+    "title": "",
+    "alt": "Pan Continental",
+    "imgUrl": "https://pancontinental.nekoweb.org/Images/Buttons/PCA-Button.gif",
+    "startPath": "/home"
+  },
+  {
+    "url": "https://ext4ntmusic.org/",
+    "title": "",
+    "alt": "EXT4NT",
+    "imgUrl": "https://ext4ntmusic.org/assets/images/ext4ntbutton.gif",
+    "startPath": "/#/home"
+  },
+  {
+    "url": "https://jae.gg/",
+    "title": "",
+    "alt": "jae.gg",
+    "imgUrl": "https://jae.gg/buttons/88x31.gif"
+  },
+  {
+    "url": "https://stupied.neocities.org/",
+    "title": "",
+    "alt": "stupied",
+    "imgUrl": "https://stupied.neocities.org/meta/button.png",
+    "clickElm": "[onclick=\"redirectBack()\"]"
+  },
+  {
+    "url": "https://racc.at/",
+    "title": "",
+    "alt": "racc.at",
+    "imgUrl": "https://racc.at/media/uploads/88x31.png"
+  },
+  {
+    "url": "https://verbina29.neocities.org/",
+    "title": "",
+    "alt": "verbina29",
+    "imgUrl": "https://verbina29.neocities.org/buttons/button_percival.png"
+  },
+  {
+    "url": "https://daneeko.nekoweb.org/",
+    "title": "",
+    "alt": "daneeko",
+    "imgUrl": "https://daneeko.nekoweb.org/assets/buttons/daneeko.gif"
+  },
+  {
+    "url": "https://pocketbroto.net/",
+    "title": "",
+    "alt": "Broto. Pocket Broto.",
+    "imgUrl": "https://pocketbroto.net/pocketbroto.png",
+    "startPath": "/home.html"
+  },
+  {
+    "url": "https://ari.lt/",
+    "title": "",
+    "alt": "ari-web",
+    "imgUrl": "https://ari.lt/badge.png"
+  },
+  {
+    "url": "https://dabric.xyz/",
+    "title": "",
+    "alt": "dabric",
+    "imgUrl": "https://dabric.xyz/butt.png"
+  },
+  {
+    "url": "https://lucastheguy.nekoweb.org/",
+    "title": "",
+    "alt": "LucasTheGuy",
+    "imgUrl": "https://lucastheguy.nekoweb.org/images/button.gif"
+  },
+  {
+    "url": "https://mattware.nekoweb.org/",
+    "title": "",
+    "alt": "MattWare Inc.",
+    "startPath": "/home",
+    "imgUrl": "https://mattware.nekoweb.org/assets/img/buttons/mattware1.png"
+  },
+  {
+    "url": "https://redtail.works/",
+    "title": "",
+    "alt": "RedtailWorks",
+    "imgUrl": "https://www.redtail.works/content/redbutton.gif"
+  },
+  {
+    "url": "https://goatgirl.nekoweb.org/",
+    "title": "",
+    "alt": "goatgirlclover",
+    "imgUrl": "https://goatgirl.nekoweb.org/assets/buttons/88x31/goatgirlclover.gif"
+  },
+  {
+    "url": "https://mars.nekoweb.org/?button",
+    "title": "",
+    "alt": "mars' site",
+    "imgUrl": "https://mars.nekoweb.org/assets/buttons/button0.gif"
+  },
+  {
+    "url": "https://syfish.dev/",
+    "title": "",
+    "alt": "syfish.dev",
+    "imgUrl": "https://syfish.dev/sybutton.gif"
+  },
+  {
+    "url": "https://nomaakip.xyz/",
+    "title": "",
+    "alt": "nomaakip dot xyz",
+    "imgUrl": "https://nomaakip.xyz/img/buttons/button.png"
+  },
+  {
+    "url": "https://denpagirl.nekoweb.org/",
+    "title": "Denpagirl",
+    "alt": "Denpagirl",
+    "startPath": "/home.html",
+    "imgUrl": "https://denpagirl.nekoweb.org/dgbutton.gif"
+  },
+  {
+    "url": "https://code2craft.xyz/",
+    "title": "",
+    "alt": "Code2Craft dot xyz",
+    "imgUrl": "https://code2craft.xyz/media/buttons/b1.png"
+  },
+  {
+    "url": "https://afellowu.neocities.org/",
+    "title": "",
+    "alt": "Mebi County",
+    "imgUrl": "https://afellowu.neocities.org/images/buttons/mebi_county.gif"
+  },
+  {
+    "url": "https://patyk.lol/",
+    "title": "",
+    "alt": "PatRyk",
+    "imgUrl": "https://patyk.lol/88x31.gif"
+  },
+  {
     "url": "https://spax.zone/",
     "title": "",
     "alt": "spax.zone",
     "imgUrl": "https://spax.zone/buttons/spaxdotzone.gif"
-    }
+  },
+  {
+    "url": "https://forgettable.xyz/",
+    "title": "",
+    "alt": "forgettablePyromaniac",
+    "imgUrl": "https://forgettable.xyz/images/buttons/forgettablexyz.gif",
+    "disableJS": true
+  }
 ]
