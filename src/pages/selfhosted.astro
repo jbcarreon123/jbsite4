@@ -1,5 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+async function serviceVersion(url: string, extract: (j: any) => string) {
+    try {
+        return extract(await (await fetch(url)).json());
+    } catch {
+        return "unknown";
+    }
+}
+
+const atpdsVersion = await serviceVersion('https://at2.jbc.lol/xrpc/_health', (j) => j.version);
+const wafrnVersion = await serviceVersion('https://wf.jbc.lol/.well-known/nodeinfo/2.0', (j) => j.software.version);
 ---
 
 <Layout
@@ -18,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
                     <img src="/imgs/selfhosted/atpds.avif" alt="at2.jbc.lol" />
                     <div>
                         <p>An AT Protocol data server that is used for platforms like Bluesky and Tangled</p>
-                        <p class="tg">version: {(await (await fetch('https://at2.jbc.lol/xrpc/_health')).json()).version}</p>
+                        <p class="tg">version: {atpdsVersion}</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +40,7 @@ import Layout from "../layouts/Layout.astro";
                     <img src="/imgs/selfhosted/wafrn.avif" alt="wf.jbc.lol" />
                     <div>
                         <p>A Wafrn instance that is a social platform akin to Tumblr.</p>
-                        <p class="tg">version: {(await (await fetch('https://wf.jbc.lol/.well-known/nodeinfo/2.0')).json()).software.version}</p>
+                        <p class="tg">version: {wafrnVersion}</p>
                     </div>
                 </div>
             </div>
