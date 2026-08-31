@@ -38,7 +38,7 @@
         User customizable settings below!
         If you're confused, refer to the guides at:
          - https://virtualobserver.moe/ayano/comment-widget for configuring the widget, and
-         - https://wf.jbc.lol/utils/svelte-comment-widget for more complex stuff.
+         - https://jbc.lol/utils/svelte-comment-widget for more complex stuff.
         The IDs below are a requirement but everything else is optional!
         Do not delete any settings even if you aren't using them! Vite will throw an error and
         it will result for your site to not build correctly.
@@ -56,7 +56,7 @@
          - This widget will be minified by Svelte (or Astro) on compile time.
            You can't edit it when it's compiled (not with more headaches).
          - Adding addons (like Layercake's Admin addon) is done differently.
-           See https://wf.jbc.lol/utils/svelte-comment-widget#addons
+           See https://jbc.lol/utils/svelte-comment-widget#addons
            for more info.
          - If you're using Astro, make sure that the Svelte integration is installed.
            If not, just run `npx astro add svelte` and you are good to go.

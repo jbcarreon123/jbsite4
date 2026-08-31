@@ -17,10 +17,18 @@ import playformFormat from '@playform/format';
 import linkCard from "astro-link-card";
 import remarkLinkCard from 'remark-link-card';
 import { rehypeTargetBlank, remarkQuoteDirective } from './src/lib/markdown.ts';
+import { execSync } from 'node:child_process';
+
+let commitHash = process.env.COMMIT_HASH;
+try {
+    if (!commitHash) commitHash = execSync("git rev-parse HEAD", { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+} catch {
+    if (!commitHash) commitHash = "unknown";
+}
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || "https://wf.jbc.lol",
+  site: "https://jbc.lol",
 
   security: {
     // trust caddy's X-Forwarded-* so urls render https behind the proxy
@@ -112,6 +120,9 @@ export default defineConfig({
   },
 
   vite: {
+    define: {
+      "import.meta.env.COMMIT_HASH": JSON.stringify(commitHash)
+    },
     css: {
       transformer: 'lightningcss',
       lightningcss: {
@@ -126,7 +137,7 @@ export default defineConfig({
       }
     },
     server: {
-      allowedHosts: ['localhost', 'local.wf.jbc.lol']
+      allowedHosts: ['localhost', 'local.jbc.lol']
     },
   }
 });

@@ -2,7 +2,6 @@
 import "../styles/fa-brands.css";
 const { title, id, description } = Astro.props;
 const { url, site } = Astro;
-const canonical = new URL(url.pathname, site ?? "https://wf.jbc.lol").href;
 const ogImage =
     "https://" +
     url.hostname +
@@ -166,7 +165,7 @@ import { ClientRouter } from "astro:transitions";
 <meta name="fediverse:creator" content="@jb@sk.nomaakip.xyz">
 <link rel="me" href="https://bsky.brid.gy/ap/did:web:jb.waf.moe" />
 <link rel="me" href="https://sk.nomaakip.xyz/@jb" />
-<link rel="canonical" href={canonical} />
+<link rel="canonical" href={"https://jbc.lol" + new URL(Astro.url).pathname} />
 
 <!-- Scripts and stuff -->
 <!-- <ClientRouter /> -->
@@ -226,11 +225,11 @@ import { ClientRouter } from "astro:transitions";
         }
 
         if (
-            window.location.host !== "wf.jbc.lol" &&
+            window.location.host !== "jbc.lol" &&
             window.location.hostname !== "localhost"
         ) {
             if (
-                window.location.host === "local.wf.jbc.lol" ||
+                window.location.host === "local.jbc.lol" ||
                 window.location.host.includes("github.dev")
             ) {
                 createNotif(
@@ -242,7 +241,7 @@ import { ClientRouter } from "astro:transitions";
                 if (!showed) {
                     createNotif(
                         "You are visiting jb's site on a backup host!",
-                        "Note that some things that I only focused on the main host, wf.jbc.lol, will break. Especially webrings.",
+                        "Note that some things that I only focused on the main host, jbc.lol, will break. Especially webrings.",
                     );
                     sessionStorage.setItem("jbsite:previewShowed", "true")
                 }

@@ -11,7 +11,7 @@ const feedrolls = [
     "https://medjed.nekoweb.org/rss.xml",
     "https://dreamscape.place/rss.xml",
     "https://nyscyra.nekoweb.org/rss.xml",
-    "https://wf.jbc.lol/feed.xml",
+    "https://jbc.lol/feed.xml",
     "https://blog.adamngshrine.com/rss.xml",
     "https://32enoki.net/rss.xml",
     "https://sandwich.nekoweb.org/updates.xml",
@@ -63,7 +63,7 @@ export async function generatefeedroll(context: APIContext, type: 'json' | 'rss'
         title: "jb's curated feedroll",
         description: "curated feed posts from the finest sources",
         link: new URL('feedroll', context.site).toString(),
-        id: context.site?.toString() || 'https://wf.jbc.lol',
+        id: context.site?.toString() || 'https://jbc.lol',
         copyright: 'idk',
         generator: 'jbsite4',
         feedLinks: {

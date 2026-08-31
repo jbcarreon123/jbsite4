@@ -27,7 +27,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
     const feed = new RSS({
         title: "jb's posts",
         description: "a platform where jb yaps on",
-        site_url: context.site?.toString() ?? 'https://wf.jbc.lol',
+        site_url: context.site?.toString() ?? 'https://jbc.lol',
         copyright: 'Creative Commons Attribution-ShareAlike 4.0',
         generator: 'jbsite4',
         feed_url: new URL('feed.xml', context.site).toString(),
@@ -47,7 +47,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
             cnt = await minify(sanitize(await (post.compiledContent?.() ?? ''), {
                 allowedTags: sanitize.defaults.allowedTags.concat(['img', 'code', 'a', 'p', 'figure', 'figcaption']),
                 disallowedTagsMode: 'discard'
-            }).replace(/="(\/[a-zA-Z0-9\/_ \+\.]+)"/gm, '="https://wf.jbc.lol$1"').replaceAll(' <span>open_in_new</span>', '').replaceAll('<span><span></span></span>', ''), {
+            }).replace(/="(\/[a-zA-Z0-9\/_ \+\.]+)"/gm, '="https://jbc.lol$1"').replaceAll(' <span>open_in_new</span>', '').replaceAll('<span><span></span></span>', ''), {
                 removeAttributeQuotes: true,
                 removeEmptyElements: true,
                 minifyCSS: false,
@@ -60,10 +60,10 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
             description: 
                 (post.frontmatter?.category ? 'Tutorial on ' + post.frontmatter.category + ': ' : '') +
                 (post.frontmatter?.description ?? post.description),
-            url: !!post.url ? new URL(post.url, context.site).toString() : 'https://wf.jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
+            url: !!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase(),
             date: new Date(post.frontmatter?.published ?? post.date),
             custom_elements: [
-                {style: `.post-box{--badge-text:'${post.type.toUpperCase()}';--post-link:'${!!post.url ? new URL(post.url, context.site).toString() : 'https://wf.jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase()}';}`},
+                {style: `.post-box{--badge-text:'${post.type.toUpperCase()}';--post-link:'${!!post.url ? new URL(post.url, context.site).toString() : 'https://jbc.lol/updates/#' + post.title.replace(/(?! )\W/gm, '').replaceAll(' ', '-').toLocaleLowerCase()}';}`},
                 (!!cnt ? {'content:encoded': cnt} : {})
             ]
         })

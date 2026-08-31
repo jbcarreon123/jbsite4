@@ -232,7 +232,7 @@ async function load() {
         } catch (e) {
             createNotif(
                 `Can't fetch ${url}`,
-                `${e}\n\nMost likely, this is a CORS error. Try setting wf.jbc.lol on your Access-Control-Allow-Origin header.`,
+                `${e}\n\nMost likely, this is a CORS error. Try setting jbc.lol on your Access-Control-Allow-Origin header.`,
             );
         }
     }
@@ -254,7 +254,7 @@ async function loadUrl(url: string) {
         } catch (e) {
             createNotif(
                 `Can't fetch ${url}`,
-                `${e}\n\nMost likely, this is a CORS error. Try setting wf.jbc.lol on your Access-Control-Allow-Origin header.`,
+                `${e}\n\nMost likely, this is a CORS error. Try setting jbc.lol on your Access-Control-Allow-Origin header.`,
             );
         }
     }
@@ -346,7 +346,7 @@ let s =
     localStorage.getItem("nekobox:value") || cssbeautify(DEFAULT_CSS);
 
 q<HTMLInputElement>('input[type="text"]#domain').value =
-    localStorage.getItem("nekobox:domain") ?? "wf.jbc.lol";
+    localStorage.getItem("nekobox:domain") ?? "jbc.lol";
 q<HTMLInputElement>('input[type="text"]#rss').value =
     localStorage.getItem("nekobox:rss") ?? "";
 q<HTMLInputElement>('input[type="checkbox"]#overflow').checked =

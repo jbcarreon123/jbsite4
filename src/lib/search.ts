@@ -9,7 +9,7 @@ import strip from 'strip';
 const renderers = await loadRenderers([svelteContainerRenderer()]);
 const container = await experimental_AstroContainer.create({
     renderers,
-    astroConfig: { site: process.env.SITE_URL || "https://wf.jbc.lol" }
+    astroConfig: { site: "https://jbc.lol" }
 })
 
 type ModuleEntry = { default: any; url: string; frontmatter?: any };

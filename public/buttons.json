@@ -586,28 +586,9 @@
     "imgUrl": "https://code2craft.xyz/media/buttons/b1.png"
   },
   {
-    "url": "https://afellowu.neocities.org/",
-    "title": "",
-    "alt": "Mebi County",
-    "imgUrl": "https://afellowu.neocities.org/images/buttons/mebi_county.gif"
-  },
-  {
-    "url": "https://patyk.lol/",
-    "title": "",
-    "alt": "PatRyk",
-    "imgUrl": "https://patyk.lol/88x31.gif"
-  },
-  {
     "url": "https://spax.zone/",
     "title": "",
     "alt": "spax.zone",
     "imgUrl": "https://spax.zone/buttons/spaxdotzone.gif"
-  },
-  {
-    "url": "https://forgettable.xyz/",
-    "title": "",
-    "alt": "forgettablePyromaniac",
-    "imgUrl": "https://forgettable.xyz/images/buttons/forgettablexyz.gif",
-    "disableJS": true
   }
 ]

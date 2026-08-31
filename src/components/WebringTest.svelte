@@ -14,7 +14,7 @@
         return input;
     };
 
-    export let link = "https://wf.jbc.lol/webrings/";
+    export let link = "https://jbc.lol/webrings/";
     export let iter = "1";
     export let noSelect = false;
 

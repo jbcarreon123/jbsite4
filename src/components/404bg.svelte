@@ -259,9 +259,9 @@
             "/sitebutton3.png",
             "/sitebuttonv2.png",
         ].map((x) => ({
-            url: "https://wf.jbc.lol/",
+            url: "https://jbc.lol/",
             title: "",
-            alt: "wf.jbc.lol button",
+            alt: "jbc.lol button",
             imgUrl: "",
             slug: x,
         }));

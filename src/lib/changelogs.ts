@@ -10,13 +10,13 @@ export const Changelogs: ChangelogObj[] = [
         date: "11/06/2025 13:00",
         title: "New generator: DNI Generator!",
         description: "just check it, you'll find out what it does",
-        url: "https://wf.jbc.lol/dnigen/"
+        url: "https://jbc.lol/dnigen/"
     },
     {
         date: "10/25/2025 11:00",
         title: "New 404 page background, again!",
         description: "Out the 404 texts which is difficult to get right, in the /links/ buttons!",
-        url: "https://wf.jbc.lol/not_found/"
+        url: "https://jbc.lol/not_found/"
     },
     {
         date: "10/18/2025 20:20",
@@ -26,7 +26,7 @@ export const Changelogs: ChangelogObj[] = [
     {
         date: "10/15/2025 00:20",
         title: "New font: Dann Inc!",
-        description: "made by daneeko.nekoweb.org, now available in the nearest wf.jbc.lol server near you!"
+        description: "made by daneeko.nekoweb.org, now available in the nearest jbc.lol server near you!"
     },
     {
         date: "10/09/2025 20:15",
@@ -38,7 +38,7 @@ export const Changelogs: ChangelogObj[] = [
         date: "09/08/2025 23:00",
         title: "New 404 page background!",
         description: "Out the 404 DVD screensaver, in the Matter.js physics simulation!",
-        url: "https://wf.jbc.lol/not_found/"
+        url: "https://jbc.lol/not_found/"
     },
     {
         date: "08/31/2025 01:30",
@@ -55,13 +55,13 @@ export const Changelogs: ChangelogObj[] = [
         date: "08/15/2025 21:20",
         title: "Added a new page, Analytical!",
         description: "Basically just a stats page of how much you visited my site lol",
-        url: "https://wf.jbc.lol/analytical/"
+        url: "https://jbc.lol/analytical/"
     },
     {
         date: "08/15/2025 00:15",
         title: "Added a new page, Feedroll!",
         description: "Basically just a curated feed aggregator lol, if you want to be here ping me (@jbcrn) on the nekoweb discord",
-        url: "https://wf.jbc.lol/feedroll/"
+        url: "https://jbc.lol/feedroll/"
     },
     {
         date: "08/13/2025 21:45",

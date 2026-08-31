@@ -31,7 +31,7 @@ export default {
     <div class="phone-container">
             <div class="phone">
                 <div class="btn-container top">
-                    <a href="//wf.jbc.lol/webrings/responeko">Responeko Ring</a>
+                    <a href="//jbc.lol/webrings/responeko">Responeko Ring</a>
                 </div>
                 <div id="responeko-phone" class="items">
                     <div class="divider"></div>
@@ -180,7 +180,7 @@ export default {
     }
 
     .item .img {
-        background-image: var(--img, url(https://wf.jbc.lol/imgs/responeko/placeholder.png));
+        background-image: var(--img, url(https://jbc.lol/imgs/responeko/placeholder.png));
         background-position: center;
         background-size: cover;
         width: calc(var(--width) * 0.30);
@@ -192,7 +192,7 @@ export default {
     }
 
     .fallback-img {
-        background-image: url(https://wf.jbc.lol/imgs/responeko/placeholder.png);
+        background-image: url(https://jbc.lol/imgs/responeko/placeholder.png);
     }
 
     .divider {

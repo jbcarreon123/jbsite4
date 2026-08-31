@@ -11,7 +11,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         title: "jb's posts",
         description: "a platform where jb yaps on",
         link: context.site?.toString(),
-        id: context.site?.toString() || 'https://wf.jbc.lol',
+        id: context.site?.toString() || 'https://jbc.lol',
         copyright: 'Creative Commons Attribution-ShareAlike 4.0',
         generator: 'jbsite4',
         author: {
@@ -35,7 +35,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         let cnt = await minify(sanitize(await post.compiledContent(), {
             allowedTags: sanitize.defaults.allowedTags.concat(['img', 'code', 'a', 'p', 'figure', 'figcaption']),
             disallowedTagsMode: 'discard'
-        }).replace(/="(\/[a-zA-Z0-9\/_ \+\.]+)"/gm, '="https://wf.jbc.lol$1"').replaceAll(' <span>open_in_new</span>', '').replaceAll('<span><span></span></span>', ''), {
+        }).replace(/="(\/[a-zA-Z0-9\/_ \+\.]+)"/gm, '="https://jbc.lol$1"').replaceAll(' <span>open_in_new</span>', '').replaceAll('<span><span></span></span>', ''), {
             removeAttributeQuotes: true,
             removeEmptyElements: true,
             minifyCSS: false,
