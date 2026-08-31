@@ -2,6 +2,8 @@ import type { APIContext } from "astro";
 import { generateFeed } from "../lib/feed.ts";
 import { generatefeedroll } from "../lib/feedroll.ts";
 
+export const prerender = true;
+
 
 export async function GET(context: APIContext) {
     return new Response(

@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  exifreader: true
+  sharp: true
+
+overrides:
+  open-graph-scraper: ^6.0.0

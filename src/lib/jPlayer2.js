@@ -1,6 +1,3 @@
-/// <reference path="demo/chiptune2.js" />
-/// <reference path="demo/libopenmpt.js" />
-
 class jPlayer extends HTMLElement {
     _audioPlayer;
     /** @type {HTMLVideoElement} */

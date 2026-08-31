@@ -1,8 +1,5 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import Fuse, { type FuseResult } from "fuse.js";
-    import lodash from "lodash";
-    import { results } from "../lib/webringtest-results.ts";
 
     let searching = $state(false);
 

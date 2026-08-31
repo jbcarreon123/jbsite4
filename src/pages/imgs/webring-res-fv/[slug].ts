@@ -3,6 +3,8 @@ import { results } from '../../../lib/webringtest-results.ts';
 import type { APIRoute } from "astro";
 import sharp from 'sharp';
 
+export const prerender = true;
+
 let res: { slug: string, url: string, format?: string, domain: string }[] = [];
 
 export function getStaticPaths() {

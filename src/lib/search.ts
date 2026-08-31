@@ -11,9 +11,11 @@ const container = await experimental_AstroContainer.create({
     renderers
 })
 
-const posts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true }));
-const tutorials = Object.values(import.meta.glob('../pages/tutorials/**/*.md', { eager: true }));
-const pages = Object.values(import.meta.glob('../pages/**/*.astro', { eager: true }));
+type ModuleEntry = { default: any; url: string; frontmatter?: any };
+
+const posts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true })) as ModuleEntry[];
+const tutorials = Object.values(import.meta.glob('../pages/tutorials/**/*.md', { eager: true })) as ModuleEntry[];
+const pages = Object.values(import.meta.glob('../pages/**/*.astro', { eager: true })) as ModuleEntry[];
 const pagesRendered = await Promise.all(pages.map(async (p) => {
     try {
         return { html: await container.renderToString(p.default), url: p.url }

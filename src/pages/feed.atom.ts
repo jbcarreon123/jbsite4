@@ -1,6 +1,8 @@
 import type { APIContext } from "astro";
 import { generateFeed } from "../lib/feed.ts";
 
+export const prerender = true;
+
 
 export async function GET(context: APIContext) {
     return new Response(

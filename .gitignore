@@ -3,3 +3,5 @@ node_modules
 .astro
 dist
 .VSCodeCounter
+.cache
+thing.json

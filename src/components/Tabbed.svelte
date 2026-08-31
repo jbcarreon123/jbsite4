@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { flattenDiagnosticMessageText } from 'typescript';
-
     type Tab = {
         tabId: string;
         url: string;

@@ -1,5 +1,6 @@
 import { Feed } from "feed";
 import Parser from "rss-parser";
+import type { APIContext } from "astro";
 
 const feedrolls = [
     "https://layercake.moe/misc/feed.xml",
@@ -46,8 +47,8 @@ export async function loadFeeds() {
         const mergedData = mappedData.flatMap((v) => [...v]);
 
         return mergedData.sort((a, b) => {
-            const dateA = new Date(a.isoDate);
-            const dateB = new Date(b.isoDate);
+            const dateA = new Date(a.isoDate ?? 0);
+            const dateB = new Date(b.isoDate ?? 0);
             return dateA.getTime() - dateB.getTime();
         }).reverse();
     } catch {
@@ -87,7 +88,7 @@ export async function generatefeedroll(context: APIContext, type: 'json' | 'rss'
                 link: siteLink
             }],
             description: rest.summary ?? rest.contentSnippet,
-            content: (rest['content:encoded'] as string)
+            content: (rest as Record<string, unknown>)['content:encoded'] as string
         }
     })
 

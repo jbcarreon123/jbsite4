@@ -20,7 +20,7 @@ export type LinkObj = {
 }[]
 
 
-export function getLinks(): LinkObj[] {
+export function getLinks(): LinkObj {
     interface Frontmatter {
         title: string;
         published: string;

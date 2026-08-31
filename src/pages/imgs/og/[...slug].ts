@@ -3,20 +3,23 @@ import type { APIRoute } from "astro";
 import { satoriAstroOG } from "satori-astro";
 import { html } from "satori-html";
 import { readFileSync, existsSync } from 'node:fs';
-import { fromStore } from "svelte/store";
-import { HTMLRewriter } from "@worker-tools/html-rewriter";
 import { experimental_AstroContainer } from "astro/container";
 import { getContainerRenderer as svelteContainerRenderer } from "@astrojs/svelte";
 import { loadRenderers } from "astro:container";
 import * as cheerio from 'cheerio';
 import sharp from "sharp";
+
+export const prerender = true;
+
 const renderers = await loadRenderers([svelteContainerRenderer()]);
 const container = await experimental_AstroContainer.create({
     renderers
 })
 
-const posts = Object.values(import.meta.glob('../../posts/**/*.md', { eager: true }));
-const pages = Object.values(import.meta.glob('../../**/*.astro', { eager: true }));
+type ModuleEntry = { default: any; url: string; frontmatter?: any };
+
+const posts = Object.values(import.meta.glob('../../posts/**/*.md', { eager: true })) as ModuleEntry[];
+const pages = Object.values(import.meta.glob('../../**/*.astro', { eager: true })) as ModuleEntry[];
 const pagesRendered = await Promise.all(pages.map(async (p) => ({ html: await container.renderToString(p.default), url: p.url })));
 const pagesTitles = pagesRendered.map(v => ({ ...getTitle(v.html), url: (!!v.url ? v.url : '/index') }));
 
@@ -50,7 +53,7 @@ export const GET: APIRoute = async ({ params }) => {
 
 	if ((!post || !post.frontmatter) && (!page)) return new Response(null);
 
-	if (existsSync('./public' + post?.frontmatter?.background)) {
+	if (post?.frontmatter?.background && existsSync('./public' + post.frontmatter.background)) {
 		img = `data:image/png;base64,` + (await sharp(readFileSync('./public' + post.frontmatter.background)).png().toBuffer()).toString('base64');
 	}
 
@@ -60,7 +63,7 @@ export const GET: APIRoute = async ({ params }) => {
 				<div class="placeholder"></div>
 				<img src="${!!img ? img : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='}" />
 				<div class="info">
-					<p class="tg">https://<b>jbc.lol</b>${(page?.url === '/index' ? '/' : page?.url) ?? post.url}/</p>
+					<p class="tg">https://<b>jbc.lol</b>${(page?.url === '/index' ? '/' : page?.url) ?? post?.url}/</p>
 					<div class="title">
 						<h1>${page?.title ?? post?.frontmatter?.title ?? "jb's site"}</h1>
 					</div>
@@ -142,7 +145,7 @@ export const GET: APIRoute = async ({ params }) => {
 					text-transform: uppercase;
 				}
 			</style>
-		`,
+		` as any,
 		width: 1200,
 		height: 630,
 	}).toImage({
@@ -165,5 +168,5 @@ export const GET: APIRoute = async ({ params }) => {
 		},
 	});
 
-	return new Response( await sharp(output).webp().toBuffer(), { headers: { 'Content-Type': 'image/webp' } } )
+	return new Response( await sharp(output).webp().toBuffer() as unknown as BodyInit, { headers: { 'Content-Type': 'image/webp' } } )
 };

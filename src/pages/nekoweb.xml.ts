@@ -1,6 +1,8 @@
 import type { APIContext } from "astro";
 import { generateFeed } from "../lib/nekowebFeed.ts";
 
+export const prerender = true;
+
 
 export async function GET(context: APIContext) {
     return new Response(

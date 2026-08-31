@@ -1,0 +1,21 @@
+---
+services:
+  jbsite:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/jbcarreon123/jbsite4:latest
+    container_name: jbsite
+    ports:
+      - '4321:4321'
+    environment:
+      - PORT=4321
+      - NODE_ENV=production
+      # without this the adapter binds localhost (= ::1 in the container) and the port is dead
+      - HOST=0.0.0.0
+    volumes:
+      # the site preview cache, so it survives rebuilds
+      - ./.cache/site-prv:/app/.cache/site-prv
+      # the playwright browsers, shared with the host
+      - ${HOME:-/home/ubuntu}/.cache/ms-playwright:/root/.cache/ms-playwright
+    restart: always

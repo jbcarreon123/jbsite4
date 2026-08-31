@@ -1,0 +1,10 @@
+node_modules
+.git
+.cache
+.astro
+src
+public
+scripts
+integrations
+*.log
+*.map

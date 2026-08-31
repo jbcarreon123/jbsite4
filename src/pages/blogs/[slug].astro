@@ -1,23 +1,19 @@
 ---
-import Layout from '../../layouts/LandingLayout.astro';
+type PostModule = { url: string };
 
-export function getStaticPaths() {
-    const posts = Object.values(import.meta.glob('../posts/**/*.md', { eager: true }));
-    return posts.map((val: any) => {
-        let path = val.url.replace(/\/$/, '').split('/');
-        let slug = path[path.length - 1];
-        return { params: { slug: slug } }
-    })
-}
+const posts = Object.values(import.meta.glob('../posts/**/*.md', { eager: true })) as PostModule[];
+const postSlugs = new Set(posts.map((val) => val.url.replace(/\/$/, '').split('/').pop()));
 
 const { slug } = Astro.params;
----
 
-<Layout title="Redirecting..." id="redirecting">
-    <head>
-        <meta http-equiv="refresh" content={"0; url=/posts/" + slug + '/'} />
-    </head>
-    <div class="main">
-        <h1>Redirecting to /posts/{slug}/, please wait...</h1>
-    </div>
-</Layout>
+if (!slug || !postSlugs.has(slug)) {
+    return new Response(null, { status: 404 });
+}
+
+return new Response(null, {
+    status: 301,
+    headers: {
+        Location: '/posts/' + slug + '/'
+    }
+})
+---

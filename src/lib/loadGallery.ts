@@ -1,4 +1,4 @@
-import { fstat, readdirSync, readFileSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import ExifReader from 'exifreader';
 
 export function loadGallery() {

@@ -23,13 +23,15 @@ function toSentenceCase(str: string) {
     return lowerCaseStr.charAt(0).toUpperCase() + lowerCaseStr.slice(1);
 }
 
+export const prerender = true;
+
 const posts = Object.values(
     import.meta.glob("./posts/**/*.md", {
         eager: true,
     }),
 );
 
-const adapter = packages.filter((v) => v[0].includes('astro-adapter-nekoweb'))[0]
+const adapter = packages.find((v) => v[0] === '@astrojs/node') ?? packages.find((v) => v[0].toLowerCase().includes('adapter'));
 ---
 
 <BgOnlyLayout title="jbsite4-diag">

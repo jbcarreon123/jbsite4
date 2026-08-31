@@ -6,13 +6,22 @@ import { minify } from 'html-minifier-terser';
 import { Changelogs } from './changelogs.ts';
 
 export async function generateFeed(context: APIContext, type: 'json' | 'rss' | 'atom'): Promise<string> {
-    let posts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true }));
-    let tutorials = Object.values(import.meta.glob('../pages/tutorials/**/*.md', { eager: true }));
+    type FeedEntry = {
+        type: string;
+        title: string;
+        url?: string;
+        description?: string;
+        date?: string;
+        frontmatter?: Record<string, any>;
+        compiledContent?: () => Promise<string>;
+    };
+    let posts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true })) as FeedEntry[];
+    let tutorials = Object.values(import.meta.glob('../pages/tutorials/**/*.md', { eager: true })) as FeedEntry[];
 
-    let merge = [
-        ...(posts as {}[]).map(m => ({...m, type: 'posts'})),
-        ...(tutorials as {}[]).map(m => ({...m, type: 'tutorials'})),
-        ...(Changelogs as {}[]).map(m => ({...m, type: 'updates'}))
+    let merge: FeedEntry[] = [
+        ...posts.map(m => ({...m, type: 'posts'})),
+        ...tutorials.map(m => ({...m, type: 'tutorials'})),
+        ...(Changelogs as { title: string }[]).map(m => ({...m, type: 'updates'}))
     ]
 
     const feed = new RSS({
@@ -32,10 +41,10 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         return dateA.getTime() - dateB.getTime();
     }).reverse();
 
-    const items = await Promise.all<RSS.ItemOptions>(sortedPosts.map(async (post: any) => {
+    const items = await Promise.all<RSS.ItemOptions>(sortedPosts.map(async (post) => {
         let cnt = ''
         try {
-            cnt = await minify(sanitize(await post.compiledContent(), {
+            cnt = await minify(sanitize(await (post.compiledContent?.() ?? ''), {
                 allowedTags: sanitize.defaults.allowedTags.concat(['img', 'code', 'a', 'p', 'figure', 'figcaption']),
                 disallowedTagsMode: 'discard'
             }).replace(/="(\/[a-zA-Z0-9\/_ \+\.]+)"/gm, '="https://jbc.lol$1"').replaceAll(' <span>open_in_new</span>', '').replaceAll('<span><span></span></span>', ''), {

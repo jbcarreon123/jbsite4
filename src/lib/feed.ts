@@ -4,7 +4,8 @@ import sanitize from 'sanitize-html';
 import { minify } from 'html-minifier-terser';
 
 export async function generateFeed(context: APIContext, type: 'json' | 'rss' | 'atom'): Promise<string> {
-    const posts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true }));
+    type PostModule = { url: string; frontmatter: Record<string, any>; compiledContent: () => Promise<string> };
+    const posts = Object.values(import.meta.glob('../pages/posts/**/*.md', { eager: true })) as PostModule[];
 
     const feed = new Feed({
         title: "jb's posts",
@@ -30,7 +31,7 @@ export async function generateFeed(context: APIContext, type: 'json' | 'rss' | '
         return dateA.getTime() - dateB.getTime();
     }).reverse();
 
-    feed.items = await Promise.all<Item>(sortedPosts.map(async (post: any) => {
+    feed.items = await Promise.all<Item>(sortedPosts.map(async (post) => {
         let cnt = await minify(sanitize(await post.compiledContent(), {
             allowedTags: sanitize.defaults.allowedTags.concat(['img', 'code', 'a', 'p', 'figure', 'figcaption']),
             disallowedTagsMode: 'discard'

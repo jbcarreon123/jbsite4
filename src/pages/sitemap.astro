@@ -1,6 +1,9 @@
 ---
 import BgOnlyLayout from "../layouts/BgOnlyLayout.astro";
 import { getLinks } from "../lib/sitemap";
+
+export const prerender = true;
+
 const LinkObjs = getLinks();
 ---
 

@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import { loadFeeds } from "../lib/feedroll";
 import lodash from "lodash";
 
+export const prerender = true;
+
 const feedItems = await loadFeeds();
 ---
 

@@ -3,7 +3,9 @@ import Buttons from '../../../../public/buttons.json' with {type: 'json'};
 import type { APIRoute } from "astro";
 import sharp from 'sharp';
 
-let buttons: { slug: string, url: string, format?: string, placeholder: string, domain: string, title: string }[] = [];
+export const prerender = true;
+
+let buttons: { slug: string, url: string, format?: string, placeholder: boolean, domain: string, title: string }[] = [];
 const placeholderSvg = readFileSync('./public/imgs/buttons/placeholder.svg', 'utf-8');
 
 export function getStaticPaths() {
@@ -37,12 +39,12 @@ export const GET: APIRoute = async ({ params }) => {
                 }
             }
 
-            let title = btn.title.match(/.{1,10}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('');
+            let title = btn.title.match(/.{1,10}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('') ?? '';
             if (btn.format !== 'svg') {
-                return new Response(await sharp(Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title))).toBuffer(btn.format))
+                return new Response(await sharp(Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title))).toBuffer(btn.format as unknown as { resolveWithObject: false }) as unknown as BodyInit)
             }
             return new Response(
-                Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title)),
+                Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title)) as unknown as BodyInit,
                 {
                     headers: {
                         'Content-Type': 'image/svg+xml',
@@ -58,12 +60,12 @@ export const GET: APIRoute = async ({ params }) => {
         }
     } catch (e) {
         if (btn) {
-            let title = btn.title.match(/.{1,9}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('');
+            let title = btn.title.match(/.{1,9}/g)?.map((t, i) => `<tspan x="2.6646481" y="${((i + 1) * 13)}">${t}</tspan>`).join('') ?? '';
             if (btn.format !== 'svg') {
-                return new Response(await sharp(Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title))).toBuffer(btn.format))
+                return new Response(await sharp(Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title))).toBuffer(btn.format as unknown as { resolveWithObject: false }) as unknown as BodyInit)
             }
             return new Response(
-                Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title)),
+                Buffer.from(placeholderSvg.replaceAll('BTN_NAME', title)) as unknown as BodyInit,
                 {
                     headers: {
                         'Content-Type': 'image/svg+xml'
