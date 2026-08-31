@@ -13,12 +13,6 @@
     "imgUrl": "https://dimden.dev/services/images/88x31.gif"
   },
   {
-    "url": "https://thinliquid.dev/",
-    "title": "thinliquid's button",
-    "alt": "thinliquid's button",
-    "imgUrl": "https://thinliquid.dev/thnlqd.png"
-  },
-  {
     "url": "https://rice.place/",
     "title": "rice.place",
     "alt": "rice.place",
@@ -106,12 +100,6 @@
     "title": "amoebalous.net",
     "alt": "amoebalous.net",
     "imgUrl": "https://amoebalous.net/images/buttons/amoebalous.png"
-  },
-  {
-    "url": "https://modularity.nekoweb.org/",
-    "title": "modularity",
-    "alt": "modularity",
-    "imgUrl": "https://modularity.nekoweb.org/mdlr.gif"
   },
   {
     "url": "https://bang1338.nekoweb.org/",
@@ -261,12 +249,6 @@
     "imgUrl": "https://luxfero.nekoweb.org/buttons/lux_fero.gif"
   },
   {
-    "url": "https://metatronius.net/",
-    "title": "metatronius",
-    "alt": "metatronius",
-    "imgUrl": "https://metatronius.net/buttons/2.png"
-  },
-  {
     "url": "https://medjed.nekoweb.org/",
     "title": "Medjed",
     "alt": "Medjed",
@@ -284,13 +266,6 @@
     "alt": "demgoze",
     "imgUrl": "/imgs/buttons/demgoze.png",
     "startPath": "/home.html"
-  },
-  {
-    "url": "https://deadon.rip",
-    "title": "Dead On RIP",
-    "alt": "deadonrip",
-    "imgUrl": "https://deadonrip.nekoweb.org/style/dead-on-button.gif",
-    "startPath": "/home"
   },
   {
     "url": "https://puddingpudd.com",
@@ -357,13 +332,6 @@
     "imgUrl": "https://sheep.nekoweb.org/assets/mybutton.gif"
   },
   {
-    "url": "https://scythe.nekoweb.org/",
-    "title": "Digital Scythesizing of My Mind ~ 了解！",
-    "alt": "Scytheisizer",
-    "imgUrl": "https://scythe.nekoweb.org/scytheisizerbtn.png",
-    "startPath": "/REBOOT-V1/pages/home"
-  },
-  {
     "url": "https://wiggle.monster/",
     "title": "WiiCHiCKEN",
     "alt": "WiiCHiCKEN",
@@ -419,12 +387,6 @@
     "title": "",
     "alt": "Laura Sofia",
     "imgUrl": "https://laura.nekoweb.org/img/banner.webp"
-  },
-  {
-    "url": "https://toriii.dev/",
-    "title": "",
-    "alt": "Tori's Corner!",
-    "imgUrl": "https://toriii.dev/img/button.png"
   },
   {
     "url": "https://32enoki.net/",
@@ -586,9 +548,28 @@
     "imgUrl": "https://code2craft.xyz/media/buttons/b1.png"
   },
   {
+    "url": "https://afellowu.neocities.org/",
+    "title": "",
+    "alt": "Mebi County",
+    "imgUrl": "https://afellowu.neocities.org/images/buttons/mebi_county.gif"
+  },
+  {
+    "url": "https://patyk.lol/",
+    "title": "",
+    "alt": "PatRyk",
+    "imgUrl": "https://patyk.lol/88x31.gif"
+  },
+  {
     "url": "https://spax.zone/",
     "title": "",
     "alt": "spax.zone",
     "imgUrl": "https://spax.zone/buttons/spaxdotzone.gif"
+  },
+  {
+    "url": "https://forgettable.xyz/",
+    "title": "",
+    "alt": "forgettablePyromaniac",
+    "imgUrl": "https://forgettable.xyz/images/buttons/forgettablexyz.gif",
+    "disableJS": true
   }
 ]
