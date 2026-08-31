@@ -1,8 +1,8 @@
 export const results = [
     {
         "title": "Webrings",
-        "favicon": "https://jbc.lol/favicon.ico",
-        "url": "https://jbc.lol/webrings/",
+        "favicon": "https://wf.jbc.lol/favicon.ico",
+        "url": "https://wf.jbc.lol/webrings/",
         "results": [
             {
                 "iter": 1,

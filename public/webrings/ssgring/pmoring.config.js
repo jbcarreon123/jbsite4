@@ -8,14 +8,14 @@ export default {
 
   defaultWidget: `
       <div class="ssgring">
-        <a href="https://jbc.lol/webrings/ssgring">This site is not on SSGRing yet.<a>
+        <a href="https://wf.jbc.lol/webrings/ssgring">This site is not on SSGRing yet.<a>
       </div>
     `,
 
   widget: `
       <div class="ssgring">
         <a href="https://{prev.host}">&lt; ({prev.username})</a>
-        <p><a href="https://jbc.lol/webrings/ssgring">SSGRing</a></p>
+        <p><a href="https://wf.jbc.lol/webrings/ssgring">SSGRing</a></p>
         <a href="https://{next.host}">({next.username}) &gt;</a>
       </div>
     `,

@@ -20,7 +20,7 @@ import { rehypeTargetBlank, remarkQuoteDirective } from './src/lib/markdown.ts';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jbc.lol",
+  site: process.env.SITE_URL || "https://wf.jbc.lol",
 
   security: {
     // trust caddy's X-Forwarded-* so urls render https behind the proxy
@@ -126,7 +126,7 @@ export default defineConfig({
       }
     },
     server: {
-      allowedHosts: ['localhost', 'local.jbc.lol']
+      allowedHosts: ['localhost', 'local.wf.jbc.lol']
     },
   }
 });

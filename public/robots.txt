@@ -26,4 +26,4 @@ User-agent: *
 Disallow: /diag/
 Disallow: /blogs/
 
-Sitemap: https://jbc.lol/sitemap-index.xml
+Sitemap: https://wf.jbc.lol/sitemap-index.xml

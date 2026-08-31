@@ -1,8 +1,8 @@
 [
     {
-        "host": "jbc.lol",
+        "host": "wf.jbc.lol",
         "title": "jbcarreon123",
-        "expression": "https://jbc.lol/imgs/responeko/jb.png",
+        "expression": "https://wf.jbc.lol/imgs/responeko/jb.png",
         "altHosts": [
             "gh.jbc.lol",
             "jbcarreon123.neocities.org",
@@ -12,7 +12,7 @@
     {
         "host": "layercake.moe",
         "title": "layercake",
-        "expression": "https://jbc.lol/imgs/responeko/layercake.png",
+        "expression": "https://wf.jbc.lol/imgs/responeko/layercake.png",
         "altHosts": [
             "layercake.nekoweb.org"
         ]
@@ -30,7 +30,7 @@
     {
         "host": "libraryofgurkistan.nekoweb.org",
         "title": "HELLO MORTAL",
-        "expression": "https://jbc.lol/imgs/responeko/libraryofgurkistan.png"
+        "expression": "https://wf.jbc.lol/imgs/responeko/libraryofgurkistan.png"
     },
     {
         "host": "32enoki.net",

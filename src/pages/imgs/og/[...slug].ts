@@ -13,7 +13,8 @@ export const prerender = true;
 
 const renderers = await loadRenderers([svelteContainerRenderer()]);
 const container = await experimental_AstroContainer.create({
-    renderers
+    renderers,
+    astroConfig: { site: process.env.SITE_URL || "https://wf.jbc.lol" }
 })
 
 type ModuleEntry = { default: any; url: string; frontmatter?: any };
@@ -63,7 +64,7 @@ export const GET: APIRoute = async ({ params }) => {
 				<div class="placeholder"></div>
 				<img src="${!!img ? img : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='}" />
 				<div class="info">
-					<p class="tg">https://<b>jbc.lol</b>${(page?.url === '/index' ? '/' : page?.url) ?? post?.url}/</p>
+					<p class="tg">https://<b>wf.jbc.lol</b>${(page?.url === '/index' ? '/' : page?.url) ?? post?.url}/</p>
 					<div class="title">
 						<h1>${page?.title ?? post?.frontmatter?.title ?? "jb's site"}</h1>
 					</div>

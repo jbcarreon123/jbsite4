@@ -1,11 +1,11 @@
 {
     "name": "YAMring",
     "description": "yet another meta webring. used to showcase simple-webring-redirect.",
-    "url": "//jbc.lol/webrings/yamring",
+    "url": "//wf.jbc.lol/webrings/yamring",
     "members": [
         {
             "username": "jbcarreon123",
-            "url": "//jbc.lol"
+            "url": "//wf.jbc.lol"
         },
         {
             "username": "8y7",
